@@ -9,27 +9,39 @@
   <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
   <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
 
+    <link href="./static/custom.css" rel="stylesheet">
 
 
 
+    <link rel="shortcut icon" href="http://yoursite.com/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="http://yoursite.com/images/favicon.ico" type="image/x-icon">
 
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
+    <meta name="robots" content="index, follow" />
 
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333">
 
 <meta name="author" content="yobibyte" />
 <meta name="description" content="Just around two weeks ago &#34;Deep Reinforcement Learning that Matters&#34; took Reinforcement Learning community by storm. This is my favourite figure from the paper: In two words, the paper asks a great question: &#34;Does the research we are doing right now make sense? If not, what should we do to make Deep RL great again?&#34;. The answer includes publishing implementations for the reproducibility, do proper significance testing, developing methods agnostic to hyperparameters, and thinking about settings where the algorithms in question will be applied." />
 <meta name="keywords" content="">
 
 <meta property="og:site_name" content="yobibyte's webpage"/>
-<meta property="og:title" content="First post"/>
+<meta property="og:title" content="An overview of the evaluation procedures for the Atari 2600 domain"/>
 <meta property="og:description" content="Just around two weeks ago &#34;Deep Reinforcement Learning that Matters&#34; took Reinforcement Learning community by storm. This is my favourite figure from the paper: In two words, the paper asks a great question: &#34;Does the research we are doing right now make sense? If not, what should we do to make Deep RL great again?&#34;. The answer includes publishing implementations for the reproducibility, do proper significance testing, developing methods agnostic to hyperparameters, and thinking about settings where the algorithms in question will be applied."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./init.html"/>
+<meta property="og:url" content="./atari-eval.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2017-03-10 00:00:00+00:00"/>
 <meta property="article:modified_time" content=""/>
@@ -37,20 +49,22 @@
 <meta property="article:section" content="misc"/>
 <meta property="og:image" content="http://yobibyte.github.io/pics/socrat.png">
 
-  <title>yobibyte's webpage &ndash; First post</title>
+  <title>yobibyte's webpage &ndash; An overview of the evaluation procedures for the Atari 2600 domain</title>
 
 </head>
 <body>
   <aside>
     <div>
       <a href=".">
-        <img src="http://yobibyte.github.io/pics/socrat.png" alt="" title="">
+        <img src="http://yobibyte.github.io/pics/socrat.png" alt="yobiblog" title="yobiblog">
       </a>
-      <h1><a href="."></a></h1>
+      <h1><a href=".">yobiblog</a></h1>
 
-
+<p>posts on Machine Learning, Reinforcement Learning, Learning from Demonstrations etc.</p>
 
       <ul class="social">
+        <li><a class="sc-github" href="https://github.com/yobibyte" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/y0b1byte" target="_blank"><i class="fa fa-twitter"></i></a></li>
       </ul>
     </div>
 
@@ -58,11 +72,18 @@
   </aside>
   <main>
 
+    <nav>
+      <a href=".">    Home
+</a>
+
+
+
+    </nav>
 
 <article class="single">
   <header>
       
-    <h1 id="init">First post</h1>
+    <h1 id="atari-eval">An overview of the evaluation procedures for the Atari 2600 domain</h1>
     <p>
           Posted on Fri 10 March 2017 in <a href="./category/misc.html">misc</a>
 
@@ -1180,20 +1201,56 @@ In this sense, I like Microsoft's focus on Minecraft and DeepMind's work on Star
     </p>
   </div>
 
+  <div class="center social-share">
+    <p>    Like this article? Share it with your friends!
+</p>
+    <div class="addthis_native_toolbox"></div>
+    <div class="addthis_sharing_toolbox"></div>
+    <div class="addthis_inline_share_toolbox"></div>
+  </div>
 
 
     <div class="addthis_relatedposts_inline">
 
 
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'yobiblog';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
 </article>
 
     <footer>
-<p>&copy;  </p>
+<p>
+  &copy;  2017 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
 <p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
 </p>    </footer>
   </main>
 
 
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-77hh6723hhjd" async="async"></script>
 
 
 <script type="application/ld+json">
@@ -1203,7 +1260,7 @@ In this sense, I like Microsoft's focus on Minecraft and DeepMind's work on Star
   "name": " yobibyte's webpage ",
   "url" : ".",
   "image": "http://yobibyte.github.io/pics/socrat.png",
-  "description": ""
+  "description": "Foo Bar's Thoughts and Writings"
 }
 </script>
 
