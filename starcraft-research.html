@@ -1105,6 +1105,19 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Findings">Findings<a class="anchor-link" href="#Findings">¶</a></h2><p>This is a list of things I thought about after reading all the papers mentioned below. Short summary of a survey</p>
+<ul>
+<li>The game can be divided into three levels: macro-management (constructing the buildings, keeping the track of the game in general), tactics (mid-term decisions, <em>not sure if the second level is popular in SC literature yet</em>) and micro-control (controlling units during combat).</li>
+<li>Most SC-related RL research is focusing on reactive control (at least for now)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="StarCraft-I-research">StarCraft I research<a class="anchor-link" href="#StarCraft-I-research">¶</a></h2><p>TBD</p>
 </div>
 </div>
@@ -1114,9 +1127,10 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="StarCraft-II-research">StarCraft II research<a class="anchor-link" href="#StarCraft-II-research">¶</a></h2><h3 id="StarCraft-II:-A-New-Challenge-for-Reinforcement-Learning,-2017-[2]">StarCraft II: A New Challenge for Reinforcement Learning, 2017 [2]<a class="anchor-link" href="#StarCraft-II:-A-New-Challenge-for-Reinforcement-Learning,-2017-[2]">¶</a></h3><p><strong>TLDR;</strong></p>
+<h2 id="StarCraft-II-research">StarCraft II research<a class="anchor-link" href="#StarCraft-II-research">¶</a></h2><h3 id="StarCraft-II:-A-New-Challenge-for-Reinforcement-Learning,-2017-[2],-code">StarCraft II: A New Challenge for Reinforcement Learning, 2017 [2], <a href="https://github.com/deepmind/pysc2">code</a><a class="anchor-link" href="#StarCraft-II:-A-New-Challenge-for-Reinforcement-Learning,-2017-[2],-code">¶</a></h3><p><strong>TLDR;</strong></p>
 <p>The paper introduces the StarCraft II Learning Environment, the A3C baseline which is quite good for simplified tasks and fails miserably for the full version of the game. Currently, there is no possibility to do self-play, but DeepMind is working on it. The two companies also release the dataset of human replays that is planned to be hugely enlarged.
 <a href="https://deepmind.com/blog/deepmind-and-blizzard-open-starcraft-ii-ai-research-environment/">Announcement blogpost</a>.</p>
+<hr>
 <figure>
 <img src="pics/sc-research/sc2le.jpg">
 <figcaption><tt>Source: [3].</tt></figcaption>
@@ -1131,7 +1145,7 @@ Currently, there is no possibility to play from RGB, but it will be added in the
 <p>Though, the authors want to destroy a human SCII pro in a fair game, the environment is still a simplified version of the game. The actions are not the key presses or mouse clicks, but can be a combination of several actions: e.g. action 'select_rect()' instead of manually clicking and dragging a mouse. The simulation does not also happen in real time and an agent has an infinite amount of time to take a decision. In addition to the final 1/-1/0 reward signal, one can use the running Blizzard score which evaluates the player performance as the game progesses. Even having said that, we have to admit, that the problem is still at the border of intractability. Even in such a reduced mode, the action space is large: there are ~300 actions with 13 types of arguments. The A3C agent mentioned before is unable to beat even the easiest built-in AI agent and we're only at the beginning of our journey.</p>
 <p>Another amazing thing about this collaboration is that Blizzard is sitting on a whole shitload of human replay data which might be very very important for Learning from Demonstrations research. Currently, the dataset comprises ~65k replays, but is planned to be increased to >500k soon.</p>
 <p>The paper mentiones using 800k for the supervised learning from replays. The authors report the results for the two experiments: value prediction (what is the outcome of the game?) and policy predictions (what is the next demonstrator's action?). Using replays for training an agent to play a game was not considered.</p>
-</div>
+</hr></div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
@@ -1139,10 +1153,46 @@ Currently, there is no possibility to play from RGB, but it will be added in the
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Glossary">Glossary<a class="anchor-link" href="#Glossary">¶</a></h2><ul>
+<h3 id="MSC:-A-Dataset-for-Macro-Management-in-StarCraft-II,-2017-[6],-code">MSC: A Dataset for Macro-Management in StarCraft II, 2017 [6], <a href="https://github.com/wuhuikai/msc">code</a><a class="anchor-link" href="#MSC:-A-Dataset-for-Macro-Management-in-StarCraft-II,-2017-[6],-code">¶</a></h3><p><strong>TLDR;</strong></p>
+<p>Macro-management in SC is hard. Available datasets are either too small/not diverse or not standartized. The authors take the dataset from [3] (65k for now, 800k replays soon) and make a dataset for learning macro-management tasks. They hope, the dataset will be a benchmark for such kind of problems and present initial baseline results for global state evaluation and build order prediction tasks.</p>
+<hr>
+<p>Playing SC end-to-end is unfeasible (at least for now), [3] shows that. Hierarchical approach looks like a promising candidate for reducing the complexity by breaking the task down into easier subproblems. <em>This goes in line with [3] which release a set of mini-games, each of which might be a block of a SC agent</em>.</p>
+<p>How do we learn macro-management? Learning from human demonstrations looks like a reasonable approach [8,9]. In order to do this, we need data. There are many similar macro-management datasets for SCI , but they are mostly designed for specific tasks or really small (e.g. [7]).</p>
+<p>[3] releases the learning environment (SC2LE) and a huge dataset (800k replays expected) of high quality where the data is standartized. The authors take all of this and transform the replays into the data for learning macro-management tasks. The dataset is easy to use (no need to replay and collect the data, the data is preprocessed already and split into train/validation/test subsets.</p>
+<p>The authors explain in detail what they have done to build the whole data pipeline, but we will not cover them here. To get all the stats, plots and more idea, what the data is, please have a look at the paper.</p>
+<p>All the macro actions belong to one of these four groups:</p>
+<ul>
+<li>Build a building</li>
+<li>Train a unit</li>
+<li>Research a technique</li>
+<li>Upgrade a building</li>
+</ul>
+<p>What can we use this data for? The authors list the potential use cases of their dataset:</p>
+<ul>
+<li>mine the data to understand what do the good players do and what are the mistakes of the bad players</li>
+<li>apply sequence modelling for global state evaluation or even for playing</li>
+<li>model the uncertainty (fog of war -> uncertainty in making decisions) (<em>didn't quite get the VAE reference idea here</em>)</li>
+<li>learning from unbalanced data (lots of NOOP actions)</li>
+<li>imitation learning</li>
+<li>planning </li>
+</ul>
+<p>Apart from analysing the dataset, and discussing its potential use cases, the authors also present the baselines for global state evaluation and build order prediction. The first is prediction an outcome of the game, starting at the particular state: predicting the probability of winning, given the current state. Since we don't have access to the state, but only observations, $p(win|s_t) \sim p(win|o_1,o_2, ... , o_t)$, where $s_t$ is the state at the time $t$ and $o_i$ is the observation for the time step $i$.</p>
+<p>They use GRUs for the state evaluation and achieve $\sim60\%$ accuracy. I don't get it though, what are the reported numbers. As the authors note, the accuracy is very low at the beggining, but gets better as long as the game progresses ($75\%-100\%$ at the end of the game). But what is in the tables? The authors don't say much about the Build Order Prediction task either. This looks very strage in the light of the claim, that the reported numbers are expected to be baselines for these tasks in SCII.</p>
+<p>There are some other moments I don't like about the papers. For instance, the authors claim splitting into train/valid/test as one of the cool advantages about the data. That's useful, but it is not something extraordinary. Sometimes, from my point of view, the authors put something into the paper just to put it there (e.g. Algorithm 2). But in general, having another great dataset that is easy and ready for use is amazing. Hope to see more use cases soon.</p>
+</hr></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Notation">Notation<a class="anchor-link" href="#Notation">¶</a></h2><ul>
 <li><strong>SCI</strong>, <strong>SCII</strong> – StarCraft I, Starcraft II</li>
+<li><strong>SC</strong> – StarCraft, I use this abbreviation when the distinction is not significant</li>
 <li><strong>RL</strong> – Reinforcement Learning</li>
 <li><strong>LfD</strong> – Learning from Demonstrations </li>
+<li><em>some italic text</em> – my remarks, not author's opinion</li>
 </ul>
 </div>
 </div>
@@ -1157,6 +1207,10 @@ Currently, there is no possibility to play from RGB, but it will be added in the
 <p>[3] Vinyals, Oriol, Timo Ewalds, Sergey Bartunov, Petko Georgiev, Alexander Sasha Vezhnevets, Michelle Yeo, Alireza Makhzani et al. "StarCraft II: A New Challenge for Reinforcement Learning." arXiv preprint arXiv:1708.04782 (2017), <a href="https://arxiv.org/abs/1708.04782">link</a>.</p>
 <p>[4] Mnih, Volodymyr, Adria Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu. "Asynchronous methods for deep reinforcement learning." In International Conference on Machine Learning, pp. 1928-1937. 2016, <a href="http://proceedings.mlr.press/v48/mniha16.pdf">link</a>.</p>
 <p>[5] Mnih, Volodymyr, Koray Kavukcuoglu, David Silver, Andrei A. Rusu, Joel Veness, Marc G. Bellemare, Alex Graves et al. "Human-level control through deep reinforcement learning." Nature 518, no. 7540 (2015): 529-533, <a href="https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf">link</a>.</p>
+<p>[6] Wu, Huikai, Zhang, Junge, Huang, Kaiqi "MSC: A Dataset for Macro-Management in StarCraft II" arXiv preprint arXiv:1710.03131 (2017), <a href="https://arxiv.org/abs/1710.03131">link</a>.</p>
+<p>[7] Cho, Ho-Chul, Kyung-Joong Kim, and Sung-Bae Cho. "Replay-based strategy prediction and build order adaptation for StarCraft AI bots." In Computational Intelligence in Games (CIG), 2013 IEEE Conference on, pp. 1-7. IEEE, 2013, <a href="https://cilab.sejong.ac.kr/home/lib/exe/fetch.php?media=public:paper:cig_2013.pdf">link</a>.</p>
+<p>[8] Erickson, Graham Kurtis Stephen, and Michael Buro. "Global State Evaluation in StarCraft." In AIIDE. 2014, <a href="https://www.aaai.org/ocs/index.php/AIIDE/AIIDE14/paper/viewFile/8996/8936">link</a>.</p>
+<p>[9] Justesen, Niels, and Sebastian Risi. "Learning macromanagement in starcraft from replays using deep learning." arXiv preprint arXiv:1707.03743 (2017), <a href="https://arxiv.org/abs/1707.03743">link</a>.</p>
 </div>
 </div>
 </div>
