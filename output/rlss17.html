@@ -1,0 +1,1335 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+
+<meta name="author" content="yobibyte" />
+<meta name="description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don&#39;t have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let&#39;s start!" />
+<meta name="keywords" content="">
+
+<meta property="og:site_name" content="yobibyte's webpage"/>
+<meta property="og:title" content="Reinforcement Learning Summer School (RLSS 2017)"/>
+<meta property="og:description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don&#39;t have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let&#39;s start!"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./rlss17.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-10-13 00:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/yobibyte.html">
+<meta property="article:section" content="misc"/>
+<meta property="og:image" content="http://yobibyte.github.io/pics/socrat.png">
+
+  <title>yobibyte's webpage &ndash; Reinforcement Learning Summer School (RLSS 2017)</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href=".">
+        <img src="http://yobibyte.github.io/pics/socrat.png" alt="yobiblog" title="yobiblog">
+      </a>
+      <h1><a href=".">yobiblog</a></h1>
+
+<p>posts on Machine Learning, Reinforcement Learning, Learning from Demonstrations etc.</p>
+      <nav>
+        <ul class="list">
+          <li><a href="./pages/about.html#about">about</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/yobibyte" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-twitter" href="https://twitter.com/y0b1byte" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="rlss17">Reinforcement Learning Summer School (RLSS 2017)</h1>
+    <p>
+          Posted on Fri 13 October 2017 in <a href="./category/misc.html">misc</a>
+
+
+    </p>
+  </header>
+
+
+  <div>
+    <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI colors. */
+.ansibold {
+  font-weight: bold;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected {
+  border-color: #ababab;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  div.cell.selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  padding: 0.4em;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+.rendered_html pre,
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+.rendered_html td,
+
+
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Hi!</strong></p>
+<p>I was rejected from <a href="https://mila.quebec/en/cours/deep-learning-summer-school-2017/">DLSS/RLSS</a> this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don't have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let's start!</p>
+<p>Sometimes, I tried to write my impression about the lectures or the related thoughts. Sometimes, the notes are the copypaste from the slides since I find this useful and it is nice to have all the stuff in one place.</p>
+<p>The sections go in their natural order as in the schedule. You can find the slides <a href="https://mila.umontreal.ca/en/cours/deep-learning-summer-school-2017/slides/">here</a> and the videos <a href="http://videolectures.net/deeplearning2017_montreal/">here</a>.</p>
+<p>If you see anything wrong or misunderstood, please, email <a href="vitaliykurin@gmail.com">me</a> or find me on <a href="@y0b1byte">twitter</a>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">Reinforcement Learning: basic concepts, <em>Joelle Pineau</em><a class="anchor-link" href="#Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137927/deeplearning2017_pineau_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_pineau_reinforcement_learning/">Video</a></em></p>
+<p>The best introduction to RL I have seen so far. Heavily recommended. Even if you already know some stuff, it will be useful for you to have a more or less whole picture of the basics.</p>
+<p>In a short introduction, Joelle Pineau mentions the recent applications of RL found in <a href="http://rldm.org/rldm2017/">RLDM 2017</a> submissions:</p>
+<ul>
+<li>robotics</li>
+<li>video Games</li>
+<li>conversational systems</li>
+<li>medical intervention (x_X)</li>
+<li>algorithm improvement</li>
+<li>improvisational theater</li>
+<li>autonomous driving</li>
+<li>prosthetic arm control</li>
+<li>financial trading</li>
+<li>query completion</li>
+</ul>
+<p>As you can see, the list is really large. And this is only after looking through half of the accepted papers.</p>
+<p>The lecture proceeds with the question "When should I apply RL to my problem".
+The answer is the combination of the following prerequisites:</p>
+<ul>
+<li>your data comes in the form of trajectories (forget about the i.i.d. assumption);</li>
+<li>your system needs some kind of intervention;</li>
+<li>you need feedback in order to understand if your are doing well or not</li>
+<li>your problem is the one requiring both learning and planning</li>
+</ul>
+<p>The lecturer mentions, that RL is somehow similar to Supervised Learning, but not completely.
+There are some challenges, both practical and technical:</p>
+<ul>
+<li>need some environment to operate in (one of the reasons for slow progress of RL in the past)</li>
+<li>you need to learn and plan at the same time using correlated samples</li>
+<li>your data distribution changes along your learning procedure (the actions you take bring an agent to different states, and it makes the learning harder)</li>
+</ul>
+<p>Then, Joelle gives the formal representation of an RL problem as a Markov Decision Process (MDP), defined as a tuple $\langle S,A,T(s,a,s'), R(s,a), \mu(s) \rangle$, where $S$ is the set of states, $A$ is the set of actions, $T(s,a,s')$ is the transition function returning the distribution over the next states $s'$ given the current state $s$ and the action taken $a$.</p>
+<p>M in MDP stands for 'Markov', i.e. the process holds the Markov assumption: the future is independent of the past given the future. What does it mean? Our next state depends only on the current one, we do not need to know the whole history of states in order to predict the future.
+And the definition of the <em>state</em> according to Joelle is the following. A <em>state</em> is a sufficient amount of information about the world in order to predict the future.
+Sometimes in the real life the assumption does not hold, that's true. But RL still uses it in order to reduce the complexity.</p>
+<p>What is the goal of RL? We want to maximize the reward we get for our interaction with the environment.
+We can have two options here, either the task on hand is episodic (e.g. a game episode ends when you win or loose) or continious (e.g. balancing).</p>
+<p>Usually, the future reward flow is discounted by the coefficient $\gamma \in [0,1)$ (usually close to 1.
+$\gamma$ helps to trade off the balance between preferences in the immediate reward and the future reward.
+It is often said, that we discount the reward flow due to psychological reasons: humans prefer the immediate reward to the future reward.
+But, as Joelle mentions, it is much more mathematically convenient to use the discounting.</p>
+<p>We now go to one of the most important definitions in RL -- policy function. 
+Policy $\pi$ is a function, that returns an action given the state: $\pi(s,a) = p(a_t = a | s_t = s)$.
+And to solve an RL problem is to find a policy which maximizes the expected future reward flow: $argmax_{\pi} E_{\pi} [r_0 + r_1 + ... + r_T | s_0]$.</p>
+<p>The value function of a state is an expected return of a policy starting from this particular state: $V_{\pi}(s) = E_{\pi} [r_t + r_{t+1} + ... + r_T | s_t = s]$.
+I don't get why, but all the definitions are given without the discounting. 
+Maybe it does not matter here since when we take expectations later, we will be able to keep the gammas outside of the expectations, but I'm not sure. At Sutton & Barto's book, all the definitions and derivations are given for the discounted return.</p>
+<p>In order not to mess all the terms and definitions, the lecturer gives the following slide:</p>
+<ul>
+<li>Reward is a one step numerical feedback</li>
+<li>Return is sum of rewards of the agent's trajectory</li>
+<li>Value is the expected sum of rewards over the agent's trajectory</li>
+<li>Utility is the numerical function representing preferences (in RL <em>return</em> $\equiv$ <em>utility</em>)</li>
+</ul>
+<p>Ok, let's go to the policy evaluation. What is the value of a policy? It is just the expected immediate reward plus the expected future reward: 
+$V_{\pi}(s) = E_{\pi}[r_t + r_{t+1} + ... + r_T | s_t = s] = E_{\pi}[r_t] + E_{\pi}[r_{t+1} + ... + r_{T} | s_t = s]$.</p>
+<p>Let's rewrite the expectations now:</p>
+<p>$V_{\pi}(s) = \sum_{a \in A}\pi(s,a)R(s,a) + E_{\pi}[r_{t+1} + ... + r_T | s_t = s]$</p>
+<p>$V_{\pi}(s) = \sum_{a \in A}\pi(s,a)R(s,a) + \sum_{a \in A}\pi(s,a)\sum_{s' \in S}T(s,a,s')E_{\pi}[r_{t+1} + ... + r_T | s_{t+1} = s']$</p>
+<p>And, looking at the definition of value function, we can see, that the the last expecation on the right hand side is just the value function of the state $s'$:</p>
+<p>$V_{\pi}(s) = \sum_{a \in A}\pi(s,a)R(s,a) + \sum_{a \in A}\pi(s,a)\sum_{s' \in S}T(s,a,s')V_{\pi}(s')$</p>
+<p>From here we can see, that this is a dynamic programming algorithm.</p>
+<p>The lecturer uses the formulas with discounting now:</p>
+<p>$V_{\pi}(s) = \sum_{a \in A}\pi(s,a)[R(s,a) + \gamma \sum_{s' \in S}T(s,a,s')V_{\pi}(s')]$</p>
+<p>We also have to write the equation for the state-action value function $Q$ -- the function, returning the value of a state given that we take the particular action first and then follow the policy $\pi$:</p>
+<p>$Q_{\pi}(s,a) = R(s,a) + \gamma \sum_{s' \in S}\big[T(s,a,s')\sum_{a' \in A}[\pi(s',a')Q_{\pi}(s',a')]\big]$</p>
+<p>The last two formulas are the two forms of Bellman's equation.</p>
+<p>We can rewrite the first one in the matrix form $V_{\pi} = R_{\pi} + \gamma T_{\pi}V_{\pi}$.
+It has the unique solution $V_{\pi} = (I - \gamma T_{\pi})^{-1}R_{\pi}$.</p>
+<p>Let's now assume, that we have the fixed policy, how can we evaluate it? 
+Let's somehow initialize the value function $V_{\pi}$ (with zeroes, for instance). 
+On each iteration, we update the value function for each state:</p>
+<p>$V_{k+1}(s) \leftarrow (R(s,\pi(s)) + \gamma \sum_{s' \in S}T(s,\pi(s), s')V_k(s')$, where $k$ is the index of the iteration.</p>
+<p>We repeat it until the value function does not update anymore or the number of updates is no more than some threshold. 
+There is the derivation of convergence in the slides (slide #31), but I will not write it here. I will just say, that it uses the fact, that $\gamma < 0$ to show, that
+the norm between the current approximation and the true value function contracts to zero.</p>
+<p>We move from the fixed policy to finding the best (optimal) policy.
+The optimal value function is the highers return we can get from the state: $V^{*}(s) = max_{\pi}V_{\pi}(s)$. 
+A policy, that achieves $V^{*}$ is called an <em>optimal policy</em> $\pi^*$.
+For each MDP there is a unique optimal value function. <strong>BUT</strong> the optimal policy is not necessarily unique.</p>
+<p>Having a solution to an MDP means having either the optimal value function $V^*$ or an optimal policy $\pi^*$.
+We are saying that since if we have one of them, we can derive the other.</p>
+<p>We have already looked at the policy evaluation algorithm for a fixed policy. But how to find the best policy? There are two related algorithms: policy iteration and value iteration.</p>
+<p>Policy iteration goes as follows:</p>
+<ul>
+<li>initialize a policy somehow, random is also possible</li>
+<li><p>Repeat</p>
+<ul>
+<li>Compute $V_{\pi}$ using Policy Evaluation algorithm</li>
+<li>Compute $\pi'$ that is greedy with respect to $V_{\pi}$</li>
+</ul>
+</li>
+<li><p>terminate when $\pi = \pi'$</p>
+</li>
+</ul>
+<p>A the value iteration:</p>
+<ul>
+<li>initialize the value function $V_0(s)$</li>
+<li>each iteration do the update $V_{k+1}(s) = max_{a \in A}(R(s,a) + \gamma \sum_{s' \in S}T(s,a,s')V_k(s'))$</li>
+<li>stop when the value function changes for a step is below some threshold</li>
+</ul>
+<p>The complexities for the algorithms are the following ($S$ is the state space size, $A$ is the action space size):</p>
+<ul>
+<li>policy evaluation: $O(s)^3$</li>
+<li>policy iteration: $O(S^3 + S^2A)$ per iteration</li>
+<li>value iteration: $O(S^2A)$ per iteration</li>
+</ul>
+<p>There is an example in the slides, but I will not put it here, but it's important to go through it if you think, you're confused about all the said above.</p>
+<p>We can see from the complexities, that the algorithms get less and less feasible as our state-action space scales, howewer we can try not to update all the states in value iteration, but only the important ones. 
+Moreover, we can do the asynchronous updates, generating trajectories through the MDP and update the states only when they appear on a trajectory. In policy iteration we are not forced to do one policy update after each policy evaluation. We can combine the updates and evaluations in any combination we find appropriate.</p>
+<p>For those, who does not want to read the slides and watch the lectures anymore, but want to do the hardcore research, Joelle has the 'challenges' slide. I will also put them in a list:</p>
+<ul>
+<li>Designing the problem domain<ul>
+<li>state representation</li>
+<li>action choice</li>
+<li>cost/reward signal</li>
+</ul>
+</li>
+<li>aquiring data for training<ul>
+<li>exploration/exploitation</li>
+<li>high cost actions</li>
+<li>time-delayed cost/reward signal</li>
+</ul>
+</li>
+<li>function approximation</li>
+<li>validation/confidence measures</li>
+</ul>
+<p>The lecture proceeds with describing on-line learning, which can be of two types, according to the lecturer:</p>
+<ul>
+<li>Monte-Carlo estimate, when we use the empirical return $U(s_t)$ as a target estimate for the actual value function: $V(s_t) = V(s_t) + \alpha(U(s_t) - V(s_t)$</li>
+<li>Temporal-Difference (TD) learning: $V(s_t) = V(s_t) + \alpha [r_{t+1} + \gamma V(s_{t+1} - V(s_t)] \forall t = 0,1,2,...$</li>
+</ul>
+<p>As Joelle mentions, online learning is highly unstable, and a lot of recent RL research focused on improving the stability of the online learning algorithms.</p>
+<p>Up to now, the lecture assumed, we are in a tabular setup, when the value function and the policy can be represented as a large table. But in the real world this approach will never work since the problems are much harder. 
+We need to use the function approximations.
+Linear functions has been used for a long time. 
+Recently, using neural nets as function approximators has become very popular, and we can use all the Deep Learning progress within RL, e.g. memory augmented models [1].</p>
+<p>The lecture continues with describing the on-policy/off-policy dichotomy in RL. 
+As we mentioned earlier, each policy change leads to data distribution change, so, when we evaluate several policies within the same batch, we need a large batch of data and a policy which adequately covers all (s,a) combinations. 
+One of the solution to the problem is to use importane sampling attaching different weights do data collected from different policies.</p>
+<p>Exploration/exploitation dilemma goes next.
+You've definitely heard about it. 
+When you have some policy, you might follow it and get your deserved return or you can try something new to achive, possibly, more. 
+Though, researchers have been trying to solve the problem for a long time, it is still far from being solved.</p>
+<p>At the end, Joelle mentions the two approaches to RL: model-based and model-free. The first tries to learn the model of the environment first and do the planning later. The second, that is more successful recently, is trying to learn a policy directly using the data from the environment. As for me, I find model-based approach very cool, but it is harder to learn. It has not been so hot recently, but the research is going on and, I hope, we will see great results in the near future.</p>
+<p>There was also an interesting question from the audience about choosing the discounding coefficient $\gamma$. 
+Joelle says that before she thought, that choosing the gamma is the problem of one who chooses the domain and creates the environment.
+But the community moves further and further to the fact, that $\gamma$ is a hyperparameter and, may be, we should be more aggressive at the beginning of the training when our estimations are too noisy. 
+There were no literature pointers in the lecture, but I wrote an email, and Joelle send me the link [2].</p>
+<p>The lecture is over, if you want to know more, either continue to read or find more awesome resources <a href="https://github.com/aikorea/awesome-rl">here</a>.
+As for me, I want to add, that the lecture is great not only because of summarizing the basics of RL, but also giving some intuitions which help to understand the concepts better.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Policy-Search-for-RL,-Pieter-Abbeel">Policy Search for RL, <em>Pieter Abbeel</em><a class="anchor-link" href="#Policy-Search-for-RL,-Pieter-Abbeel">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137919/deeplearning2017_abbeel_policy_search_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_abbeel_policy_search/">Video</a></em></p>
+<p><strong>TBD</strong></p>
+<h2 id="TD-Learning,-Richard-Sutton">TD Learning, <em>Richard Sutton</em><a class="anchor-link" href="#TD-Learning,-Richard-Sutton">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137922/deeplearning2017_sutton_td_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_sutton_td_learning/">Video</a></em></p>
+<p><strong>TBD</strong></p>
+<h2 id="Deep-Reinforcement-Learning,-Hado-van-Hasselt">Deep Reinforcement Learning, <em>Hado van Hasselt</em><a class="anchor-link" href="#Deep-Reinforcement-Learning,-Hado-van-Hasselt">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137918/deeplearning2017_van_hasselt_deep_reinforcement_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_van_hasselt_deep_reinforcement/">Video</a></em></p>
+<p><strong>TBD</strong></p>
+<h2 id="Deep-Control,-Nando-de-Freitas">Deep Control, <em>Nando de Freitas</em><a class="anchor-link" href="#Deep-Control,-Nando-de-Freitas">¶</a></h2><p><em>No slides yet</em> |<em><a href="http://videolectures.net/deeplearning2017_de_freitas_deep_control/">Video</a></em></p>
+<p><strong>TBD</strong></p>
+<h2 id="Theory-of-RL,-Csaba-Szepesvári">Theory of RL, <em>Csaba Szepesvári</em><a class="anchor-link" href="#Theory-of-RL,-Csaba-Szepesvári">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137923/deeplearning2017_szepesvari_theory_of_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_szepesvari_theory_of_rl/">Video</a></em></p>
+<p><strong>TBD</strong></p>
+<h2 id="Reinforcement-Learning,-Satinder-Singh">Reinforcement Learning, <em>Satinder Singh</em><a class="anchor-link" href="#Reinforcement-Learning,-Satinder-Singh">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1129741/deeplearning2017_singh_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_singh_reinforcement_learning/">Video</a></em></p>
+<p><strong>TBD</strong></p>
+<h2 id="Safe-RL,--Philip-Thomas">Safe RL, <em> Philip Thomas</em><a class="anchor-link" href="#Safe-RL,--Philip-Thomas">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137917/deeplearning2017_thomas_safe_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_thomas_safe_rl/">Video</a></em></p>
+<p><strong>TBD</strong></p>
+<h2 id="Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">Applications of bandits and recommendation systems, <em> Nicolas Le Roux</em><a class="anchor-link" href="#Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Video</a></em></p>
+<p><strong>TBD</strong></p>
+<h2 id="Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">Cooperative Visual Dialogue with Deep RL, <em>Dhruv Batra & Devi Parikh</em><a class="anchor-link" href="#Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137915/deeplearning2017_parikh_batra_deep_rl.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_parikh_batra_deep_rl/">Video</a></em></p>
+<p><strong>TBD</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="References">References<a class="anchor-link" href="#References">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[1] Khan, Arbaaz, Clark Zhang, Nikolay Atanasov, Konstantinos Karydis, Vijay Kumar, and Daniel D. Lee. "Memory Augmented Control Networks." arXiv preprint arXiv:1709.05706 (2017), <a href="https://arxiv.org/abs/1709.05706">link</a>.</p>
+<p>[2] Jiang, Nan, Alex Kulesza, Satinder Singh, and Richard Lewis. "The dependence of effective planning horizon on model accuracy." In Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems, pp. 1181-1189. International Foundation for Autonomous Agents and Multiagent Systems, 2015, <a href="http://www-personal.umich.edu/~rickl/pubs/jiang-et-al-2015-aamas.pdf">link</a>.</p>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+    <div class="addthis_relatedposts_inline">
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " yobibyte's webpage ",
+  "url" : ".",
+  "image": "http://yobibyte.github.io/pics/socrat.png",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
