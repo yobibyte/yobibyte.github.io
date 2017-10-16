@@ -1118,8 +1118,107 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="StarCraft-I-research">StarCraft I research<a class="anchor-link" href="#StarCraft-I-research">¶</a></h2><p>TBD</p>
-</div>
+<h2 id="StarCraft-I-research">StarCraft I research<a class="anchor-link" href="#StarCraft-I-research">¶</a></h2><h3 id="The-Current-State-of-StarCraft-AI-Competitions-and-Bots-[10]">The Current State of StarCraft AI Competitions and Bots [10]<a class="anchor-link" href="#The-Current-State-of-StarCraft-AI-Competitions-and-Bots-[10]">¶</a></h3><p><strong>TLDR;</strong></p>
+<p>The authors give a brief introduction of the three main annual SC AI tournaments, mostly describing them from the organisational point of view. They also mention briefly the most interesting and active bots taking part in one of the three competitions.</p>
+<hr>
+<p>There are three major SCB AI tournaments:</p>
+<ul>
+<li><a href="https://sscaitournament.com/">SSCAIT</a>: Student SC AI Tournament(Has the ladder!)</li>
+<li><a href="https://sites.google.com/view/aiide2017/">AIIDE</a>: AI and Interactive Digital Entertainment (the bots have to be open sourced)</li>
+<li><a href="http://www.cig2017.com/">CIG</a>: Computational Intelligence in Games</li>
+</ul>
+<p>One can learn more about the rules and the organisational issues of the tournaments in the paper.</p>
+<p>The most interesting part of the paper, at least for me, is the brief description of the major bots and what they are made of.</p>
+<p><strong>AIlien</strong></p>
+<ul>
+<li>Zerg</li>
+<li>Decisions are based on the 'scoring' systems (<em>whatever they are</em>).</li>
+<li>state machines for macro-management.</li>
+</ul>
+<p><strong>GarmBot</strong></p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Blackboard_system">Blackboard</a> architecture</li>
+<li>Every unit is controlled by a single agent impelemented as a state machine</li>
+</ul>
+<p><strong>Ian Nicholas DaCosta</strong></p>
+<ul>
+<li>Protoss</li>
+<li>Genetic algorithms for targeting and enemy threat level detection</li>
+<li>Supervised Learning for opponent strategies detection and build orders</li>
+</ul>
+<p><strong>KaonBot</strong></p>
+<ul>
+<li>Competing priority algorithm for the resource/unit allocation</li>
+<li>Plans to learn the priorities from human replays in the future</li>
+</ul>
+<p><strong>Krasi0bot</strong></p>
+<ul>
+<li>Old but active</li>
+<li>Genetic algorithms, neural nets and potential fields</li>
+</ul>
+<p><strong><a href="https://github.com/MartinRooijackers/LetaBot">LetaBot</a></strong></p>
+<ul>
+<li>SSCAIT2017 winner</li>
+<li>MCTS for the movement of squads</li>
+<li>cooperative pathfinding for resource gathering</li>
+<li>text mining to extract build orders from <a href="http://wiki.teamliquid.net/starcraft/Main_Page">Liquidpedia</a></li>
+</ul>
+<p><strong>MegaBot, [13]</strong></p>
+<ul>
+<li>Three different bots in one (Skynet, Xelnaga, NUSBot)</li>
+<li>multi-armed bandit problem for one of the three bots selection</li>
+<li>-1/0/1 reward for one game</li>
+<li>q-learning update rule for the above problem</li>
+</ul>
+<p><strong>Monica/Maria/Brenda</strong></p>
+<ul>
+<li>Protoss/Terrain</li>
+<li>Uses TorchCraft[12]</li>
+</ul>
+<p><strong>PurpleWave</strong></p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Hierarchical_task_network">Hierarchical task networks</a></li>
+<li>Hybrid squad/multi-agent approach and nearest neighbour clustering for micromanagement</li>
+<li>simulation of the outcomes and min-max of the tactical approaches</li>
+<li>each unit behaves independently, but is advised by the decision mentioned above</li>
+<li>~24 stateles behaviours</li>
+<li>heuristics (including potential fields) for the motion </li>
+</ul>
+<p><strong>StarcraftGP, [14]</strong></p>
+<ul>
+<li>you write a bot</li>
+<li>bot writes the code for you</li>
+<li>the code plays for bot</li>
+<li>???</li>
+<li>PROFIT</li>
+</ul>
+<p><strong>Steamhammer/Randomhammer</strong></p>
+<ul>
+<li>Zerg</li>
+<li><a href="https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning">alpha-beta</a> and portfolio search for the battle outcome prediction</li>
+<li>hierarchical reactive control for micromanagement</li>
+<li><a href="https://en.wikipedia.org/wiki/Branch_and_bound">branch and bound search</a> for Protoss and Terran production</li>
+<li>Rule-based for Zerg production</li>
+</ul>
+<p><strong>rscmoo</strong></p>
+<ul>
+<li>own code for battle outcome prediction</li>
+<li>RNNs for high-level strategy and build order decisions</li>
+</ul>
+<p><strong>Václav Bayer</strong></p>
+<ul>
+<li>Q-learning for the build order</li>
+</ul>
+<p><strong>Zia Bot</strong></p>
+<ul>
+<li>heuristic and rule-based</li>
+<li>remembering opponent's strategy and using it in the future</li>
+</ul>
+<hr>
+<p>Unfortunately, there is no much information about the internals of each of the bots. Though, the paper briefly introduce 14 bots and gives a good start to get acquaint yourself with what's going on in SCB AI community.</p>
+<p>The most interesting finding for me was <em>LetaBot</em> and mentioning that it mines <a href="http://wiki.teamliquid.net/starcraft/Main_Page">Liquidpedia</a> for build orders. This reminded me another great paper [11], in which the authors learned to play Civilisation II using the official manual as the text guide. Looking forward for similar research in the near future!</p>
+<p>I also find the Zia's cloning opponent strategy behaviour really cool. Self-play in RL is currently popular, but I haven't seen using the opponents strategy in the LfD setup.</p>
+</hr></hr></div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
@@ -1188,7 +1287,7 @@ Currently, there is no possibility to play from RGB, but it will be added in the
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Notation">Notation<a class="anchor-link" href="#Notation">¶</a></h2><ul>
-<li><strong>SCI</strong>, <strong>SCII</strong> – StarCraft I, Starcraft II</li>
+<li><strong>SCI</strong>, <strong>SCB</strong>, <strong>SCII</strong> – StarCraft I, Starcraft: Broodwar, Starcraft II</li>
 <li><strong>SC</strong> – StarCraft, I use this abbreviation when the distinction is not significant</li>
 <li><strong>RL</strong> – Reinforcement Learning</li>
 <li><strong>LfD</strong> – Learning from Demonstrations </li>
@@ -1211,6 +1310,11 @@ Currently, there is no possibility to play from RGB, but it will be added in the
 <p>[7] Cho, Ho-Chul, Kyung-Joong Kim, and Sung-Bae Cho. "Replay-based strategy prediction and build order adaptation for StarCraft AI bots." In Computational Intelligence in Games (CIG), 2013 IEEE Conference on, pp. 1-7. IEEE, 2013, <a href="https://cilab.sejong.ac.kr/home/lib/exe/fetch.php?media=public:paper:cig_2013.pdf">link</a>.</p>
 <p>[8] Erickson, Graham Kurtis Stephen, and Michael Buro. "Global State Evaluation in StarCraft." In AIIDE. 2014, <a href="https://www.aaai.org/ocs/index.php/AIIDE/AIIDE14/paper/viewFile/8996/8936">link</a>.</p>
 <p>[9] Justesen, Niels, and Sebastian Risi. "Learning macromanagement in starcraft from replays using deep learning." arXiv preprint arXiv:1707.03743 (2017), <a href="https://arxiv.org/abs/1707.03743">link</a>.</p>
+<p>[10]  Čertický, Michal and Churchil, David. "The Current State of StarCraft AI Competitions and Bots, 2017",<a href="http://agents.fel.cvut.cz/~certicky/files/publications/aiide17-certicky-churchill.pdf">link</a>.</p>
+<p>[11] Branavan, S. R. K., David Silver, and Regina Barzilay. "Learning to win by reading manuals in a Monte-Carlo framework." Journal of Artificial Intelligence Research 43 (2012): 661-704, <a href="http://www.jair.org/papers/paper3484.html">link</a>.</p>
+<p>[12] Synnaeve, Gabriel, Nantas Nardelli, Alex Auvolat, Soumith Chintala, Timothée Lacroix, Zeming Lin, Florian Richoux, and Nicolas Usunier. "TorchCraft: a Library for Machine Learning Research on Real-Time Strategy Games." arXiv preprint arXiv:1611.00625 (2016), <a href="https://arxiv.org/abs/1611.00625">link</a>.</p>
+<p>[13] Tavares, Anderson, Hector Azpúrua, Amanda Santos, and Luiz Chaimowicz. "Rock, Paper, StarCraft: Strategy Selection in Real-Time Strategy Games." In 12th Artificial Intelligence and Interactive Digital Entertainment Conference (AIIDE), pp. 93-99. 2016, <a href="http://www.aaai.org/ocs/index.php/AIIDE/AIIDE16/paper/download/13998/13600">link</a>.</p>
+<p>[14] Garćıa-Sánchez, Pablo, Alberto Tonda, Antonio M. Mora, Giovanni Squillero, and J. J. Merelo. "Towards automatic StarCraft strategy generation using genetic programming." In Computational Intelligence and Games (CIG), 2015 IEEE Conference on, pp. 284-291. IEEE, 2015, <a href="http://ieeexplore.ieee.org/abstract/document/7317940/">link</a>.</p>
 </div>
 </div>
 </div>
