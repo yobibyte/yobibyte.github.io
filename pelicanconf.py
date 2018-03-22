@@ -6,7 +6,7 @@ AUTHOR = 'yobibyte'
 SITENAME = "yobibyte's webpage"
 SITETITLE = 'yobiblog'
 SITESUBTITLE = 'posts on Machine Learning, Reinforcement Learning, Learning from Demonstrations etc.'
-SITEURL = 'http://yobibyte.github.io/'
+SITEURL = 'http://yobibyte.github.io'
 PATH = 'content'
 TIMEZONE = 'Europe/London'
 
