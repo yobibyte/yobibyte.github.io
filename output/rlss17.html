@@ -13,21 +13,19 @@
 
 
 
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
+  <meta name="robots" content="" />
 
 
 <meta name="author" content="yobibyte" />
-<meta name="description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don&#39;t have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let&#39;s start!" />
+<meta name="description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don't have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let's start!" />
 <meta name="keywords" content="">
-
 <meta property="og:site_name" content="yobibyte's webpage"/>
 <meta property="og:title" content="Reinforcement Learning Summer School (RLSS 2017)"/>
-<meta property="og:description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don&#39;t have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let&#39;s start!"/>
+<meta property="og:description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don't have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let's start!"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./rlss17.html"/>
 <meta property="og:type" content="article"/>
@@ -69,7 +67,6 @@
 
 <article class="single">
   <header>
-      
     <h1 id="rlss17">Reinforcement Learning Summer School (RLSS 2017)</h1>
     <p>
           Posted on Fri 13 October 2017 in <a href="./category/misc.html">misc</a>
@@ -237,6 +234,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -257,11 +255,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -999,8 +992,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1011,9 +1006,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1052,8 +1049,7 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1066,8 +1062,7 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1225,13 +1220,222 @@ As for me, I want to add, that the lecture is great not only because of summariz
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Policy-Search-for-RL,-Pieter-Abbeel">Policy Search for RL, <em>Pieter Abbeel</em><a class="anchor-link" href="#Policy-Search-for-RL,-Pieter-Abbeel">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137919/deeplearning2017_abbeel_policy_search_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_abbeel_policy_search/">Video</a></em></p>
-<p><strong>TBD</strong></p>
+<p>Okay, let's move to Policy Gradient methods with Peter Abbeel.</p>
+<p>Policy $\pi$ is mapping from states to actions: $\pi(\cdot;\theta): \mathbb{S} \rightarrow \mathbb{A}$, where $\theta$ parametrises the policy.
+And RL problem is to find a policy which maximises the total expected return $\max_{\theta}\mathbb{E}\sum_{t=0}^{H}{R(s_t)|\pi_{\theta}}$
+$\pi$ is often stochastic.
+Reward might be sparce in time, hence, the problem is not that easy.</p>
+<p>Policy search methods are the one which optimise the policy directly.
+Why policy optimisation then?</p>
+<ul>
+<li>sometimes policy is easier to represent than, let's say, $Q$ function</li>
+<li>Value function does not directly tell us what to do (<em>not nesessarily true if we have a greedy policy with respect to $V$</em>)</li>
+<li>learning $Q$ is hard for continuous/high-dimensional action spaces (how solve $argmax_u{Q_{\theta}(s,u)}$</li>
+</ul>
+<p>Below you can see a classiication of these methods.</p>
+<p><img src="pics/rlss/rlss_abbeel_classification.png" /></p>
+<h2 id="Model-based-approach">Model based approach<a class="anchor-link" href="#Model-based-approach">¶</a></h2><p>We start from the model-based approach. The MDP for the setting is on the picture.</p>
+<p><img src="pics/rlss/rlss_abbeel_graph.png" /></p>
+<p>Okay, what is the setting here? $r_t = R(s_t), u_t = \pi_{\theta}(s_t), s_{t+1}=f(s_t, u_t)$, where $u_t$ is named after 'upravlenie', the word for 'control' in Russian. And the assumptions is that the transition function $f$ is know, deterministic and differentiable, reward $r$ is know, deterministic and differentiable, policy $\pi$ is (<em>known???</em>), deterministic and differentiable.</p>
+<p>The goal, again, is to maximise the total utility (don't like abusing the notation by taking capital $U$ for utility and $u_t$ for policy, but I live it as it is in the lecture):</p>
+<p>$\max_{\theta}{U(\theta)} = \max_{\theta}\mathbb{E}[\sum_{t=0}^{H}{r_t}|\pi_0]$</p>
+<p>Let's think about the MDP above as a computational graph, let's just back propagate gradients through this (BPTT).</p>
+<p>$\frac{\partial U}{\partial \theta_i} = \sum_{t=0}^{H}\frac{\partial R}{\partial s}(s_t)\frac{\partial s_t}{\partial \theta_i}$</p>
+<p>$\frac{\partial s_t}{\partial \theta_i} = \frac{\partial f}{\partial s}(s_{t-1}, u_{t-1})\frac{\partial u_{t-1}}{\partial \theta_i}+\frac{\partial f}{\partial u}(s_{t-1}, u_{t-1})\frac{\partial u_{t-1}}{\partial \theta_i}$</p>
+<p>$\frac{\partial u_t}{\partial \theta_i} = \frac{\partial \pi_{\theta}}{\partial \theta_i}(s_t, \theta) + \frac{\partial \pi_{\theta}}{\partial s}(s_t, \theta)\frac{\partial s_t}{\partial \theta_i}$</p>
+<p>Feed this to your favourite automatic differentiation package, and you are set. AGI!</p>
+<p>What happens if the environment is stochastic, i.e. $s_{t+1} = f(s_{t+1}, u_t) + \omega_t$? Not much, just consider noise constant for the rollout in question. 
+That's true, that we need to sample more rollouts to reduce the variance, but nothing changes apart from that.</p>
+<p>More generally, we apply reparametrisation trick to the dynamics of an MDP, i.e. going from $s_{t+1} = f(s_{t+1}, u_t) + \omega_t$ to $s_{t+1} = f(s_{t+1}, u_t, w_t)$, where the latter function is not stochastic anymore.
+Computational graph will just have additional inputs $\omega_0, \omega_1, ..., \omega_k$
+We can apply exactly the same trick to both reward function and policy.</p>
+<p>The whole idea in pseudocode looks like this:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="nb">iter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
+    <span class="k">for</span> <span class="n">rollout</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
+        <span class="n">sample</span> <span class="n">s0</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="o">...</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">z1</span><span class="o">...</span> <span class="c1"># w_i is dynamics noise, v_i is policy noise, z_i is reward noise</span>
+        <span class="n">execute</span> <span class="n">rollout</span>
+        <span class="n">compute</span> <span class="n">gradients</span> <span class="n">via</span> <span class="n">BPTT</span>
+    <span class="n">average</span> <span class="n">gradients</span>
+    <span class="n">take</span> <span class="n">gradient</span> <span class="n">step</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In real world, we do not have access to noise, but we can learn it from rollouts (model-based RL).</p>
+<p>It's very hard to make all of these work, as Peter says.
+Stochastic Value Gradients (SVG) [3] of different flavours (SVG($\infty$), SVG(1), SVG(0)->(D)DPG [4,5])  is one of the success stories.
+DDPG uses DQN features as replay memory and using target net to improve stability:
+$\hat{Q}_t = r_t + \gamma Q_{\phi'}(s_{t+1}, \pi_{\theta'}(s_{t+1}))$, where $Q_{\phi'}$ is the Polyak-averaged target function (averaged weights along several weight updates).</p>
+<h2 id="Model-free-approach">Model free approach<a class="anchor-link" href="#Model-free-approach">¶</a></h2><p>What are the assumptions here?
+It turns out that there is less assumptions in comparison to the previous section. 
+There are no assumptions for the transition function as well as for the reward.
+Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
+<h3 id="Finite-Difference-method">Finite Difference method<a class="anchor-link" href="#Finite-Difference-method">¶</a></h3><p>$\frac{\partial U}{\partial \theta_i} = \frac{U(\theta+\epsilon_je_j) + U(\theta-\epsilon_je_j)}{2\epsilon}$, where $e_j$ is the one hot encoding of the parameter vector index $\begin{align}
+    e_j &= \begin{bmatrix}
+           0 \\
+           0 \\
+           1 \\
+           \vdots \\
+           0
+         \end{bmatrix}
+  \end{align}$, where (1 is for $j$-th entry)</p>
+<p>Estimate the gradient via <a href="https://en.wikipedia.org/wiki/Finite_difference_method">finite differences</a>. Be careful! The noise for positive and negative perturbations should be the same!</p>
+<h3 id="Cross-Entropy-Method">Cross-Entropy Method<a class="anchor-link" href="#Cross-Entropy-Method">¶</a></h3><p>Optimise the same objective (expected sum of rewards along the rollout), but consider $U$ to be a black box and ignore all the other information other than U collected during an episode.</p>
+<p>This is an evolutionary algorithm which works as follows:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">disr_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
+<span class="k">for</span> <span class="nb">iter</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span>
+    <span class="n">curr_utility</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">population</span> <span class="n">member</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span>
+        <span class="n">sample</span> <span class="n">parameters</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">distribution</span> <span class="n">over</span> <span class="n">params</span>
+        <span class="n">execute</span> <span class="n">rollouts</span> <span class="n">under</span> <span class="n">current</span> <span class="n">policy</span>
+        <span class="n">distr_params</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">sampled_params</span>
+        <span class="n">curr_utility</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">curr_rollout_return</span>
+    <span class="c1"># update the mean of the distribution over parameters</span>
+    <span class="c1"># where the sum is taken for top p% of the population</span>
+    <span class="c1"># logprob is for the distribution wi</span>
+    <span class="n">new_mean</span> <span class="o">=</span> <span class="n">argmax</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">logprob</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">e</span><span class="p">])))</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It's interesting, that given how simple the method is, it works embarassingly (according to Peter) well. Unfortunately, sample efficiency is not that great and the method struggles when problem dimensionality is too high.</p>
+<p>You can find a list of related approaches with references below:</p>
+<ul>
+<li>Reward Weighted Regression (RWR) [6]</li>
+<li>Policy Improvement with Path Integrals ($PI^2$) [7]</li>
+<li>Covariance Matrix Adaptation Evolutionary Strategy (CMA-ES) [8]</li>
+<li>PoWER [9]</li>
+</ul>
+<p>If you have a lot of compute and do not care about sample efficiency (e.g. in cheap simulation), the methods are great.
+It turns out, that since we can easy to parallelise them, they will be the fastest in terms of the wall time Salimans, Ho, Sutskever, 2017 <reference>.</reference></p>
+<h2 id="Likelihood-Ratio-Policy-Gradients">Likelihood Ratio Policy Gradients<a class="anchor-link" href="#Likelihood-Ratio-Policy-Gradients">¶</a></h2><p>Usually, when somebody is talking about PG, they are talking about Likelihood Ratio PG. 
+We modify the notation a bit to reduce clutter.
+$\tau$ is the trajectory which includes all the state/actions for one particular rollout: $s_0, u_0, ..., s_h, u_h$.
+$R(\tau) = \sum_{t=0}^{H}R(s_t, u_t)$.
+The goal again is to maximise the objective $U(\theta) = \mathbb{E}[\sum_{t=0}^{H}R(s_t, u_t); \pi_{\theta}] = \sum_{\tau}P(\tau;\theta)R(\tau)$ with respect to $\theta$.</p>
+<p>Let's derive the gradient of the objective using the famous log trick.
+$\nabla_{\theta}U(\theta) = \nabla_{\theta}\sum_{\tau}P(\tau; \theta)R(\tau) = \sum_{\tau}\nabla_{\theta}P(\tau; \theta)R(\tau) = \sum_{\tau}\frac{P(\tau;\theta)}{P(\tau;\theta)}\nabla_{\theta}P(\tau; \theta)R(\tau) = \sum_{\tau}{P(\tau;\theta)}\frac{\nabla_{\theta}P(\tau;\theta)}{P(\tau; \theta)}R(\tau) \sum_{\tau}{P(\tau;\theta)}\nabla_{\theta}\log{P(\tau;\theta)}R(\tau)$.
+So, from one expectation, we got to another expectation of the log: $\nabla_{\theta}U(\theta) = \nabla_{\theta}\mathbb{E}_{\tau}[R(\tau)] = \mathbb{E}_{\tau}[\nabla_{\theta}\log{P(\tau; \theta)}R(\tau)]$.
+Gradient of the expectation equals to the expectation of the gradient of the log.
+Why is it useful? 
+It's useful because we can empirically evaluate our expectation by just taking average of the executed rollouts:
+$\nabla_{\theta}(U(\theta)) \approx \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)},\theta)R(\tau^{(i)})}$.</p>
+<p>There is another way of obtaining the same result via importance sampling. 
+We sample from $\theta_{old}$ and reweight the samples using the ratio of the new and the old policies:</p>
+<p>$U(\theta) \mathbb{E}_{\tau \sim \theta_{old}}[\frac{P(\tau|\theta)}{P(\tau|\theta_{old})}R(\tau)]$</p>
+<p>$\nabla_{\theta} U(\theta) |_{\theta = \theta_{old}} = \mathbb{E}_{\tau \sim \theta_{old}}[\frac{\nabla_{\theta} P(\tau|\theta) |_{\theta_{old}}}{P(\tau|\theta_{old})}R(\tau)] = \mathbb{E}_{\tau \sim \theta_{old}}[\nabla_{\theta} \log{P(\tau|\theta)}|_{\theta_{old}}R(\tau)]$</p>
+<p>Another great thing is that all of these works even when our reward function $R$ is discontinuous and/or unknown.</p>
+<p>The intuition behind LRPG methods is that they try to increase the probability of paths with positive $R$, and decrease the probability of paths with negative $R$.
+They do not try to change the paths, this is important (in contrast to path derivatives, which try to perturb the trajectories rather than shifting probability mass).</p>
+<p>The derivations seems too magical to be true =), but this is not the only magic. Let's get rid of the dynamics in our gradient computation:</p>
+<p>$\nabla_{\theta}\log{P(\tau^{(i)}; \theta)} = \nabla_{\theta}\log{[\prod_{t=0}^H{P(s_{t+1}^{(i)}| s_t^{(i)},u_t^{(i)})\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}]} = \nabla_{\theta}\sum_{t=0}^{H}{\log{P(s_{t+1}^{(i)}, u_t)}} + \sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \nabla_{\theta}\sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \sum_{t=0}^{H}\nabla_{\theta}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}$</p>
+<p>Magic again! No transition model required!!!</p>
+<p>As a result of all above, $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)R(\tau^{(i)})$ is an unbiase estimate of the true gradient, i.e. $\mathbb{E}[\hat{g}] = \nabla_{\theta}U(\theta)$.</p>
+<p>A caveat here is that when $R > 0$, our method will try to increase the probabilities of all paths. 
+But we want to increase the probabilities only the best ones.<br>
+Let's introduce the baseline, which, intuitively, will try to tell us whether we're doing better than average or not.</br></p>
+<p>Baseline is something we deduce from our trajectory return when estimating the gradient: $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)(R(\tau^{(i)}) - b))$.
+One can show, that introducing a baseline does not bias our gradient estimate. ###LINK HERE
+When we're doing better than average, PG increase probability of these trajectories, and vice versa.
+One of the most obvious choices for a baseline is $b = \mathbb{E}[R(\tau)] \approx \frac{1}{m}\sum_{i=1}^{m}R(\tau^{(i)})$.</p>
+<p>Another important moment about vanilla PG is that every action influence all the reward, though it should not.
+Let's make an action influence only future rewards by changing the summation indices:</p>
+<p>$\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\sum_{t=0}^{H-1}\nabla_{\theta}\log{\pi_{\theta}}(u_t^{(i)}|s_t^{(i)})(\sum_{k=t}^{H-1}{R(s_k^{(i)}, u_k^{(i)}) - b(s_k^{(i)})})$</p>
+<p>What's a good choice for $b$ in this setting?
+Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ looks like a good option.</p>
+<p>You can find the whole 'vanilla' PG pseudocode below</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Initialize</span> <span class="n">policy</span> <span class="n">parameter</span> <span class="n">theta</span><span class="p">,</span> <span class="n">baseline</span> <span class="n">b</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">...</span> <span class="n">do</span>
+    <span class="n">Collect</span> <span class="n">a</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">trajectories</span> <span class="n">by</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">current</span> <span class="n">policy</span>
+    <span class="n">At</span> <span class="n">each</span> <span class="n">timestep</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">trajectory</span> <span class="n">compute</span>
+        <span class="k">return</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">discount</span><span class="p">(</span><span class="n">rewards</span><span class="p">))</span>
+        <span class="n">advantage</span> <span class="o">=</span> <span class="k">return</span> <span class="o">-</span> <span class="n">b</span><span class="p">(</span><span class="n">s_t</span><span class="p">)</span>
+    <span class="n">Re</span><span class="o">-</span><span class="n">fit</span> <span class="n">the</span> <span class="n">baseline</span><span class="p">,</span> <span class="n">by</span> <span class="n">minimising</span> <span class="n">square</span> <span class="n">norm</span> <span class="n">of</span> <span class="n">b</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">R_t</span> <span class="n">summed</span> <span class="n">over</span> <span class="nb">all</span> <span class="n">trajs</span> <span class="ow">and</span> <span class="n">time</span> <span class="n">steps</span>
+    <span class="n">Update</span> <span class="n">the</span> <span class="n">policy</span><span class="p">,</span> <span class="n">using</span> <span class="n">a</span> <span class="n">policy</span> <span class="n">gradient</span> <span class="n">estimate</span> <span class="n">g_hat</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">the</span> <span class="nb">sum</span> <span class="n">of</span> <span class="n">grad</span><span class="p">(</span><span class="n">logprob</span><span class="p">(</span><span class="n">a_t</span><span class="o">|</span><span class="n">s_t</span><span class="p">)</span><span class="o">*</span><span class="n">advantage</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are some important things which can make PG work better. 
+One of these things is a step size.
+Step size is important in supervised learning, but it's even more important in RL since policy generate data we will train on the next iteration.
+And if the data is somehow wrong, we will never recover out of this unlucky situation.</p>
+<p>We can do just simple line search $-$ trying different step sizes in the direction of the gradient and taking the best one.
+True, that we use only first order approximation here.
+Can we do better?
+Let's use a trust region idea $-$ a region, where we trust that our first order approximation.
+After that, we have to find the best point within the trust region:</p>
+<p>$\max_{\delta\theta}\hat{g}^T\delta\theta, s.t. KL(P(\tau; \theta)||P(\tau; \theta+\delta\theta)) < \epsilon$</p>
+<p>Again, if we evaluate the KL, the environment dynamics magically cancels out again and $KL(P(\tau; \theta)||P(\tau; \theta+\delta\theta)) \approx \frac{1}{M}\sum_{s \text{ in rollouts under } \theta}{KL(\pi_{\theta}(u|s)||\pi_{\theta + \delta\theta}(u|s))}$</p>
+<p>We can look at the second-order approximation of to KL and get $KL(\pi_{\theta}(u|s)||\pi_{\theta + \delta\theta}(u|s)) = \delta\theta^T F_{\theta}\delta\theta, $ where $F_{\theta}$ is <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher Information Matrix</a>.</p>
+<p>If $\theta$ is high dimensional, it's super hard to build/invert the Fisher matrix, TRPO PAPER provides ous with machinery to compute second-order approximation more efficiently.</p>
+<p>We can improve even better, when bringing value function into play.</p>
+<p>$\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\sum_{t=0}^{H-1}\nabla_{\theta}\log{\pi_{\theta}}(u_t^{(i)}|s_t^{(i)})(\sum_{k=t}^{H-1}{R(s_k^{(i)}, u_k^{(i)}) - V^{\pi}(s_k^{(i)})})$</p>
+<p>We need to learn $V^{\pi}$ somehow, but RL has tools to do that.
+Moreover $R(s_k^{(i)}, u_k^{(i)})$ looks suspiciously similar to estimate of $Q^{\pi}(s,u) = \mathbb{E}[r_0 + r_1 + ... | s_0 = s, a_0 = a]$</p>
+<p>The variance here can be reduced by discounting and function approximation (e.g. using different TD(k)).
+A3C paper and GAE are two great exapmles of the approach described above.</p>
+<p>When I finished watching the lecture for the first time, I didn't really like it. 
+It looked pretty cluttered to me and it was hard to tell the things apart.
+But when I finished watching it for the 3rd time I find it quite logical, very broad and deep (not because of DL) at the same time (apart from the fact, that I did not get the slide about stochastic computational graphs at all).</p>
+<p>I also like the 'Current Frontiers' slide, where Peter Abbeel puts the latest research on the subject. I won't copypaste it here, but if you want, you can find it on slides 134-135 in the presentation.</p>
+<p>In addition, Peter provides lins to RL courses as well:</p>
+<ul>
+<li><a href="http://rll.berkeley.edu/deeprlcourse/">CS294-112 Deep Reinforcement Learning (UC Berkeley)</a> by Sergey Levine, John Schulman, Chelsea Finn</li>
+<li><a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">COMPM050/COMPGI13 Reinforcement Learning (UCL)</a> by David Silver</li>
+<li><a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Deep RL Bootcamp, Berkeley, CA (August 26-27)</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="TD-Learning,-Richard-Sutton">TD Learning, <em>Richard Sutton</em><a class="anchor-link" href="#TD-Learning,-Richard-Sutton">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137922/deeplearning2017_sutton_td_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_sutton_td_learning/">Video</a></em></p>
 <p><strong>TBD</strong></p>
 <h2 id="Deep-Reinforcement-Learning,-Hado-van-Hasselt">Deep Reinforcement Learning, <em>Hado van Hasselt</em><a class="anchor-link" href="#Deep-Reinforcement-Learning,-Hado-van-Hasselt">¶</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137918/deeplearning2017_van_hasselt_deep_reinforcement_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_van_hasselt_deep_reinforcement/">Video</a></em></p>
@@ -1251,8 +1455,7 @@ As for me, I want to add, that the lecture is great not only because of summariz
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1260,16 +1463,25 @@ As for me, I want to add, that the lecture is great not only because of summariz
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>[1] Khan, Arbaaz, Clark Zhang, Nikolay Atanasov, Konstantinos Karydis, Vijay Kumar, and Daniel D. Lee. "Memory Augmented Control Networks." arXiv preprint arXiv:1709.05706 (2017), <a href="https://arxiv.org/abs/1709.05706">link</a>.</p>
 <p>[2] Jiang, Nan, Alex Kulesza, Satinder Singh, and Richard Lewis. "The dependence of effective planning horizon on model accuracy." In Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems, pp. 1181-1189. International Foundation for Autonomous Agents and Multiagent Systems, 2015, <a href="http://www-personal.umich.edu/~rickl/pubs/jiang-et-al-2015-aamas.pdf">link</a>.</p>
+<p>[3] Heess, Nicolas, Gregory Wayne, David Silver, Tim Lillicrap, Tom Erez, and Yuval Tassa. "Learning continuous control policies by stochastic value gradients." In Advances in Neural Information Processing Systems, pp. 2944-2952. 2015, <a href="http://papers.nips.cc/paper/5796-learning-continuous-control-policies-by-stochastic-value-gradients">link</a>.</p>
+<p>[4] Silver, David, Guy Lever, Nicolas Heess, Thomas Degris, Daan Wierstra, and Martin Riedmiller. "Deterministic policy gradient algorithms." In ICML. 2014, <a href="https://hal.inria.fr/hal-00938992/">link</a>.</p>
+<p>[5] Lillicrap, Timothy P., Jonathan J. Hunt, Alexander Pritzel, Nicolas Heess, Tom Erez, Yuval Tassa, David Silver, and Daan Wierstra. "Continuous control with deep reinforcement learning." arXiv preprint arXiv:1509.02971 (2015)., <a href="https://arxiv.org/abs/1509.02971">link</a></p>
+<p>[6] Hachiya, Hirotaka, Jan Peters, and Masashi Sugiyama. "Reward-weighted regression with sample reuse for direct policy search in reinforcement learning." Neural Computation 23, no. 11 (2011): 2798-2832, <a href="https://www.researchgate.net/profile/Jan_Peters4/publication/51580421_Reward-Weighted_Regression_with_Sample_Reuse_for_Direct_Policy_Search_in_Reinforcement_Learning/links/09e4150d71d59dbc1a000000/Reward-Weighted-Regression-with-Sample-Reuse-for-Direct-Policy-Search-in-Reinforcement-Learning.pdf">link</a>.</p>
+<p>[7] Theodorou, Evangelos, Jonas Buchli, and Stefan Schaal. "A generalized path integral control approach to reinforcement learning." Journal of Machine Learning Research 11, no. Nov (2010): 3137-3181, <a href="http://www.jmlr.org/papers/v11/theodorou10a.html">link</a>.</p>
+<p>[8] Hansen, Nikolaus, Sibylle D. Müller, and Petros Koumoutsakos. "Reducing the time complexity of the derandomized evolution strategy with covariance matrix adaptation (CMA-ES)." Evolutionary computation 11, no. 1 (2003): 1-18, <a href="https://www.mitpressjournals.org/doi/abs/10.1162/106365603321828970">link</a>.</p>
+<p>[9] Kober, Jens, and Jan R. Peters. "Policy search for motor primitives in robotics." In Advances in neural information processing systems, pp. 849-856. 2009, <a href="http://papers.nips.cc/paper/3545-policy-search-for-motor-primitives-in-robotics">link</a>.</p>
+<p>[10] Mnih, Volodymyr, Adria Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu. "Asynchronous methods for deep reinforcement learning." In International Conference on Machine Learning, pp. 1928-1937. 2016, <a href="http://proceedings.mlr.press/v48/mniha16.pdf">link</a>.</p>
+<p>[11] Schulman, John, Philipp Moritz, Sergey Levine, Michael Jordan, and Pieter Abbeel. "High-dimensional continuous control using generalized advantage estimation." arXiv preprint arXiv:1506.02438 (2015), <a href="https://arxiv.org/abs/1506.02438">link</a>.</p>
 </div>
 </div>
 </div>
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1307,16 +1519,15 @@ As for me, I want to add, that the lecture is great not only because of summariz
 
 
 
-    <div class="addthis_relatedposts_inline">
-
 
 </article>
 
     <footer>
-<p>&copy;  </p>
+<p>&copy; yobibyte </p>
 <p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
 </p>    </footer>
   </main>
+
 
 
 
@@ -1331,6 +1542,5 @@ As for me, I want to add, that the lecture is great not only because of summariz
   "description": ""
 }
 </script>
-
 </body>
 </html>
