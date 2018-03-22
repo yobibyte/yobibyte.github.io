@@ -1238,9 +1238,9 @@ Why policy optimisation then?</p>
 <li>learning $Q$ is hard for continuous/high-dimensional action spaces (how solve $argmax_u{Q_{\theta}(s,u)}$</li>
 </ul>
 <p>Below you can see a classiication of these methods.</p>
-<p><img src="rlss_abbeel_classification.png" /></p>
+<p><img src="pics/rlss/rlss_abbeel_classification.png" /></p>
 <h2 id="Model-based-approach">Model based approach<a class="anchor-link" href="#Model-based-approach">¶</a></h2><p>We start from the model-based approach. The MDP for the setting is on the picture.</p>
-<p><img src="rlss_abbeel_graph.png" /></p>
+<p><img src="pics/rlss_abbeel_graph.png" /></p>
 <p>Okay, what is the setting here? $r_t = R(s_t), u_t = \pi_{\theta}(s_t), s_{t+1}=f(s_t, u_t)$, where $u_t$ is named after 'upravlenie', the word for 'control' in Russian. And the assumptions is that the transition function $f$ is know, deterministic and differentiable, reward $r$ is know, deterministic and differentiable, policy $\pi$ is (<em>known???</em>), deterministic and differentiable.</p>
 <p>The goal, again, is to maximise the total utility (don't like abusing the notation by taking capital $U$ for utility and $u_t$ for policy, but I live it as it is in the lecture):</p>
 <p>$\max_{\theta}{U(\theta)} = \max_{\theta}\mathbb{E}[\sum_{t=0}^{H}{r_t}|\pi_0]$</p>
@@ -1263,7 +1263,7 @@ We can apply exactly the same trick to both reward function and policy.</p>
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="nb">iter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="nb">iter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
     <span class="k">for</span> <span class="n">rollout</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
         <span class="n">sample</span> <span class="n">s0</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="o">...</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">z1</span><span class="o">...</span> <span class="c1"># w_i is dynamics noise, v_i is policy noise, z_i is reward noise</span>
         <span class="n">execute</span> <span class="n">rollout</span>
@@ -1308,11 +1308,11 @@ Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">disr_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">disr_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
 <span class="k">for</span> <span class="nb">iter</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span>
     <span class="n">curr_utility</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">population</span> <span class="n">member</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span>
-        <span class="n">sample</span> <span class="n">parameters</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nn">distribution</span> <span class="nn">over</span> <span class="nn">params</span>
+        <span class="n">sample</span> <span class="n">parameters</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">distribution</span> <span class="n">over</span> <span class="n">params</span>
         <span class="n">execute</span> <span class="n">rollouts</span> <span class="n">under</span> <span class="n">current</span> <span class="n">policy</span>
         <span class="n">distr_params</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">sampled_params</span>
         <span class="n">curr_utility</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">curr_rollout_return</span>
@@ -1359,15 +1359,75 @@ We sample from $\theta_{old}$ and reweight the samples using the ratio of the ne
 <p>The intuition behind LRPG methods is that they try to increase the probability of paths with positive $R$, and decrease the probability of paths with negative $R$.
 They do not try to change the paths, this is important (in contrast to path derivatives, which try to perturb the trajectories rather than shifting probability mass).</p>
 <p>The derivations seems too magical to be true =), but this is not the only magic. Let's get rid of the dynamics in our gradient computation:</p>
-<p>$\nabla_{\theta}\log{P(\tau^{(i)}; \theta)} = \nabla_{\theta}\log{[\prod_{t=0}^H{P(s_{t+1}^{(i)}| s_t^{(i)},u_t^{(i)})\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}]} = \nabla_{\theta}\sum_{t=0}^{H}{\log{P(s_{t+1}^(i), u_t)}} = $</p>
-<p><strong>References</strong></p>
+<p>$\nabla_{\theta}\log{P(\tau^{(i)}; \theta)} = \nabla_{\theta}\log{[\prod_{t=0}^H{P(s_{t+1}^{(i)}| s_t^{(i)},u_t^{(i)})\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}]} = \nabla_{\theta}\sum_{t=0}^{H}{\log{P(s_{t+1}^{(i)}, u_t)}} + \sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \nabla_{\theta}\sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \sum_{t=0}^{H}\nabla_{\theta}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}$</p>
+<p>Magic again! No transition model required!!!</p>
+<p>As a result of all above, $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)R(\tau^{(i)})$ is an unbiase estimate of the true gradient, i.e. $\mathbb{E}[\hat{g}] = \nabla_{\theta}U(\theta)$.</p>
+<p>A caveat here is that when $R > 0$, our method will try to increase the probabilities of all paths. 
+But we want to increase the probabilities only the best ones.<br>
+Let's introduce the baseline, which, intuitively, will try to tell us whether we're doing better than average or not.</br></p>
+<p>Baseline is something we deduce from our trajectory return when estimating the gradient: $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)(R(\tau^{(i)}) - b))$.
+One can show, that introducing a baseline does not bias our gradient estimate. ###LINK HERE
+When we're doing better than average, PG increase probability of these trajectories, and vice versa.
+One of the most obvious choices for a baseline is $b = \mathbb{E}[R(\tau)] \approx \frac{1}{m}\sum_{i=1}^{m}R(\tau^{(i)})$.</p>
+<p>Another important moment about vanilla PG is that every action influence all the reward, though it should not.
+Let's make an action influence only future rewards by changing the summation indices:</p>
+<p>$\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\sum_{t=0}^{H-1}\nabla_{\theta}\log{\pi_{\theta}}(u_t^{(i)}|s_t^{(i)})(\sum_{k=t}^{H-1}{R(s_k^{(i)}, u_k^{(i)}) - b(s_k^{(i)})})$</p>
+<p>What's a good choice for $b$ in this setting?
+Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ looks like a good option.</p>
+<p>You can find the whole 'vanilla' PG pseudocode below</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Initialize</span> <span class="n">policy</span> <span class="n">parameter</span> <span class="n">theta</span><span class="p">,</span> <span class="n">baseline</span> <span class="n">b</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">...</span> <span class="n">do</span>
+    <span class="n">Collect</span> <span class="n">a</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">trajectories</span> <span class="n">by</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">current</span> <span class="n">policy</span>
+    <span class="n">At</span> <span class="n">each</span> <span class="n">timestep</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">trajectory</span> <span class="n">compute</span>
+        <span class="k">return</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">discount</span><span class="p">(</span><span class="n">rewards</span><span class="p">))</span>
+        <span class="n">advantage</span> <span class="o">=</span> <span class="k">return</span> <span class="o">-</span> <span class="n">b</span><span class="p">(</span><span class="n">s_t</span><span class="p">)</span>
+    <span class="n">Re</span><span class="o">-</span><span class="n">fit</span> <span class="n">the</span> <span class="n">baseline</span><span class="p">,</span> <span class="n">by</span> <span class="n">minimising</span> <span class="n">square</span> <span class="n">norm</span> <span class="n">of</span> <span class="n">b</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">R_t</span> <span class="n">summed</span> <span class="n">over</span> <span class="nb">all</span> <span class="n">trajs</span> <span class="ow">and</span> <span class="n">time</span> <span class="n">steps</span>
+    <span class="n">Update</span> <span class="n">the</span> <span class="n">policy</span><span class="p">,</span> <span class="n">using</span> <span class="n">a</span> <span class="n">policy</span> <span class="n">gradient</span> <span class="n">estimate</span> <span class="n">g_hat</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">the</span> <span class="nb">sum</span> <span class="n">of</span> <span class="n">grad</span><span class="p">(</span><span class="n">logprob</span><span class="p">(</span><span class="n">a_t</span><span class="o">|</span><span class="n">s_t</span><span class="p">)</span><span class="o">*</span><span class="n">advantage</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are some important things which can make PG work better. 
+One of these things is a step size.
+Step size is important in supervised learning, but it's even more important in RL since policy generate data we will train on the next iteration.
+And if the data is somehow wrong, we will never recover out of this unlucky situation.</p>
+<p>We can do just simple line search $-$ trying different step sizes in the direction of the gradient and taking the best one.
+True, that we use only first order approximation here.
+Can we do better?
+Let's use a trust region idea $-$ a region, where we trust that our first order approximation.
+After that, we have to find the best point within the trust region:</p>
+<p>$\max_{\delta\theta}\hat{g}^T\delta\theta, s.t. KL(P(\tau; \theta)||P(\tau; \theta+\delta\theta)) < \epsilon$</p>
+<p>Again, if we evaluate the KL, the environment dynamics magically cancels out again and $KL(P(\tau; \theta)||P(\tau; \theta+\delta\theta)) \approx \frac{1}{M}\sum_{s \text{ in rollouts under } \theta}{KL(\pi_{\theta}(u|s)||\pi_{\theta + \delta\theta}(u|s))}$</p>
+<p>We can look at the second-order approximation of to KL and get $KL(\pi_{\theta}(u|s)||\pi_{\theta + \delta\theta}(u|s)) = \delta\theta^T F_{\theta}\delta\theta, $ where $F_{\theta}$ is <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher Information Matrix</a>.</p>
+<p>If $\theta$ is high dimensional, it's super hard to build/invert the Fisher matrix, TRPO PAPER provides ous with machinery to compute second-order approximation more efficiently.</p>
+<p>We can improve even better, when bringing value function into play.</p>
+<p>$\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\sum_{t=0}^{H-1}\nabla_{\theta}\log{\pi_{\theta}}(u_t^{(i)}|s_t^{(i)})(\sum_{k=t}^{H-1}{R(s_k^{(i)}, u_k^{(i)}) - V^{\pi}(s_k^{(i)})})$</p>
+<p>We need to learn $V^{\pi}$ somehow, but RL has tools to do that.
+Moreover $R(s_k^{(i)}, u_k^{(i)})$ looks suspiciously similar to estimate of $Q^{\pi}(s,u) = \mathbb{E}[r_0 + r_1 + ... | s_0 = s, a_0 = a]$</p>
+<p>The variance here can be reduced by discounting and function approximation (e.g. using different TD(k)).
+A3C paper and GAE are two great exapmles of the approach described above.</p>
+<p>When I finished watching the lecture for the first time, I didn't really like it. 
+It looked pretty cluttered to me and it was hard to tell the things apart.
+But when I finished watching it for the 3rd time I find it quite logical, very broad and deep (not because of DL) at the same time (apart from the fact, that I did not get the slide about stochastic computational graphs at all).</p>
+<p>I also like the 'Current Frontiers' slide, where Peter Abbeel puts the latest research on the subject. I won't copypaste it here, but if you want, you can find it on slides 134-135 in the presentation.</p>
+<p>In addition, Peter provides lins to RL courses as well:</p>
 <ul>
-<li>SVG <a href="https://arxiv.org/abs/1510.09142">https://arxiv.org/abs/1510.09142</a></li>
-<li>DPG and DDPG papers here</li>
-<li>RWR paper</li>
-<li>PI^2 paper</li>
-<li>CMA-ES</li>
-<li>PoWer</li>
+<li><a href="http://rll.berkeley.edu/deeprlcourse/">CS294-112 Deep Reinforcement Learning (UC Berkeley)</a> by Sergey Levine, John Schulman, Chelsea Finn</li>
+<li><a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">COMPM050/COMPGI13 Reinforcement Learning (UCL)</a> by David Silver</li>
+<li><a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Deep RL Bootcamp, Berkeley, CA (August 26-27)</a></li>
 </ul>
 </div>
 </div>
@@ -1409,6 +1469,14 @@ They do not try to change the paths, this is important (in contrast to path deri
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>[1] Khan, Arbaaz, Clark Zhang, Nikolay Atanasov, Konstantinos Karydis, Vijay Kumar, and Daniel D. Lee. "Memory Augmented Control Networks." arXiv preprint arXiv:1709.05706 (2017), <a href="https://arxiv.org/abs/1709.05706">link</a>.</p>
 <p>[2] Jiang, Nan, Alex Kulesza, Satinder Singh, and Richard Lewis. "The dependence of effective planning horizon on model accuracy." In Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems, pp. 1181-1189. International Foundation for Autonomous Agents and Multiagent Systems, 2015, <a href="http://www-personal.umich.edu/~rickl/pubs/jiang-et-al-2015-aamas.pdf">link</a>.</p>
+<ul>
+<li>SVG <a href="https://arxiv.org/abs/1510.09142">https://arxiv.org/abs/1510.09142</a></li>
+<li>DPG and DDPG papers here</li>
+<li>RWR paper</li>
+<li>PI^2 paper</li>
+<li>CMA-ES</li>
+<li>PoWer</li>
+</ul>
 </div>
 </div>
 </div>
