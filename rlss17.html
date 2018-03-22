@@ -13,19 +13,21 @@
 
 
 
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
+    <meta name="robots" content="" />
 
 
 <meta name="author" content="yobibyte" />
-<meta name="description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don't have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let's start!" />
+<meta name="description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don&#39;t have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let&#39;s start!" />
 <meta name="keywords" content="">
+
 <meta property="og:site_name" content="yobibyte's webpage"/>
 <meta property="og:title" content="Reinforcement Learning Summer School (RLSS 2017)"/>
-<meta property="og:description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don't have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let's start!"/>
+<meta property="og:description" content="Hi! I was rejected from DLSS/RLSS this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don&#39;t have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let&#39;s start!"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./rlss17.html"/>
 <meta property="og:type" content="article"/>
@@ -67,6 +69,7 @@
 
 <article class="single">
   <header>
+      
     <h1 id="rlss17">Reinforcement Learning Summer School (RLSS 2017)</h1>
     <p>
           Posted on Fri 13 October 2017 in <a href="./category/misc.html">misc</a>
@@ -234,7 +237,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -255,6 +257,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -992,10 +999,8 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1006,11 +1011,9 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1049,7 +1052,8 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1062,7 +1066,8 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1220,7 +1225,8 @@ As for me, I want to add, that the lecture is great not only because of summariz
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1275,7 +1281,8 @@ We can apply exactly the same trick to both reward function and policy.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1325,7 +1332,8 @@ Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1359,14 +1367,14 @@ We sample from $\theta_{old}$ and reweight the samples using the ratio of the ne
 <p>The intuition behind LRPG methods is that they try to increase the probability of paths with positive $R$, and decrease the probability of paths with negative $R$.
 They do not try to change the paths, this is important (in contrast to path derivatives, which try to perturb the trajectories rather than shifting probability mass).</p>
 <p>The derivations seems too magical to be true =), but this is not the only magic. Let's get rid of the dynamics in our gradient computation:</p>
-<p>$\nabla_{\theta}\log{P(\tau^{(i)}; \theta)} = \nabla_{\theta}\log{[\prod_{t=0}^H{P(s_{t+1}^{(i)}| s_t^{(i)},u_t^{(i)})\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}]} = \nabla_{\theta}\sum_{t=0}^{H}{\log{P(s_{t+1}^{(i)}, u_t)}} + \sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \nabla_{\theta}\sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \sum_{t=0}^{H}\nabla_{\theta}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}$</p>
+<p>$\nabla_{\theta}\log{P(\tau^{(i)}; \theta)} = \nabla_{\theta}\log{[\prod_{t=0}^H{P(s_{t+1}^{(i)}| s_t^{(i)},u_t^{(i)})\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}]} = \nabla_{\theta}\sum_{t=0}^{H}{\log{P(s_{t+1}^{(i)}, u_t^{(i)})}} + \sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \nabla_{\theta}\sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \sum_{t=0}^{H}\nabla_{\theta}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}$</p>
 <p>Magic again! No transition model required!!!</p>
 <p>As a result of all above, $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)R(\tau^{(i)})$ is an unbiase estimate of the true gradient, i.e. $\mathbb{E}[\hat{g}] = \nabla_{\theta}U(\theta)$.</p>
 <p>A caveat here is that when $R > 0$, our method will try to increase the probabilities of all paths. 
 But we want to increase the probabilities only the best ones.<br>
 Let's introduce the baseline, which, intuitively, will try to tell us whether we're doing better than average or not.</br></p>
 <p>Baseline is something we deduce from our trajectory return when estimating the gradient: $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)(R(\tau^{(i)}) - b))$.
-One can show, that introducing a baseline does not bias our gradient estimate. ###LINK HERE
+One can show, that introducing a (<em>some particular</em>) baselines does not bias our gradient estimate.
 When we're doing better than average, PG increase probability of these trajectories, and vice versa.
 One of the most obvious choices for a baseline is $b = \mathbb{E}[R(\tau)] \approx \frac{1}{m}\sum_{i=1}^{m}R(\tau^{(i)})$.</p>
 <p>Another important moment about vanilla PG is that every action influence all the reward, though it should not.
@@ -1396,7 +1404,8 @@ Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1404,7 +1413,7 @@ Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ 
 One of these things is a step size.
 Step size is important in supervised learning, but it's even more important in RL since policy generate data we will train on the next iteration.
 And if the data is somehow wrong, we will never recover out of this unlucky situation.</p>
-<p>We can do just simple line search $-$ trying different step sizes in the direction of the gradient and taking the best one.
+<p>We can just do a simple line search $-$ trying different step sizes in the direction of the gradient and taking the best one.
 True, that we use only first order approximation here.
 Can we do better?
 Let's use a trust region idea $-$ a region, where we trust that our first order approximation.
@@ -1413,26 +1422,27 @@ After that, we have to find the best point within the trust region:</p>
 <p>Again, if we evaluate the KL, the environment dynamics magically cancels out again and $KL(P(\tau; \theta)||P(\tau; \theta+\delta\theta)) \approx \frac{1}{M}\sum_{s \text{ in rollouts under } \theta}{KL(\pi_{\theta}(u|s)||\pi_{\theta + \delta\theta}(u|s))}$</p>
 <p>We can look at the second-order approximation of to KL and get $KL(\pi_{\theta}(u|s)||\pi_{\theta + \delta\theta}(u|s)) = \delta\theta^T F_{\theta}\delta\theta, $ where $F_{\theta}$ is <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher Information Matrix</a>.</p>
 <p>If $\theta$ is high dimensional, it's super hard to build/invert the Fisher matrix, TRPO PAPER provides ous with machinery to compute second-order approximation more efficiently.</p>
-<p>We can improve even better, when bringing value function into play.</p>
+<p>We can improve even better when bringing value function into play.</p>
 <p>$\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\sum_{t=0}^{H-1}\nabla_{\theta}\log{\pi_{\theta}}(u_t^{(i)}|s_t^{(i)})(\sum_{k=t}^{H-1}{R(s_k^{(i)}, u_k^{(i)}) - V^{\pi}(s_k^{(i)})})$</p>
 <p>We need to learn $V^{\pi}$ somehow, but RL has tools to do that.
 Moreover $R(s_k^{(i)}, u_k^{(i)})$ looks suspiciously similar to estimate of $Q^{\pi}(s,u) = \mathbb{E}[r_0 + r_1 + ... | s_0 = s, a_0 = a]$</p>
 <p>The variance here can be reduced by discounting and function approximation (e.g. using different TD(k)).
-A3C paper and GAE are two great exapmles of the approach described above.</p>
+A3C paper and GAE are two great examples of the approach described above.</p>
 <p>When I finished watching the lecture for the first time, I didn't really like it. 
-It looked pretty cluttered to me and it was hard to tell the things apart.
+It looked pretty cluttered to me, and it was hard to tell the things apart.
 But when I finished watching it for the 3rd time I find it quite logical, very broad and deep (not because of DL) at the same time (apart from the fact, that I did not get the slide about stochastic computational graphs at all).</p>
 <p>I also like the 'Current Frontiers' slide, where Peter Abbeel puts the latest research on the subject. I won't copypaste it here, but if you want, you can find it on slides 134-135 in the presentation.</p>
-<p>In addition, Peter provides lins to RL courses as well:</p>
+<p>In addition, Peter provides links to RL courses as well:</p>
 <ul>
 <li><a href="http://rll.berkeley.edu/deeprlcourse/">CS294-112 Deep Reinforcement Learning (UC Berkeley)</a> by Sergey Levine, John Schulman, Chelsea Finn</li>
 <li><a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">COMPM050/COMPGI13 Reinforcement Learning (UCL)</a> by David Silver</li>
-<li><a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Deep RL Bootcamp, Berkeley, CA (August 26-27)</a></li>
+<li><a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Deep    RL Bootcamp, Berkeley, CA (August 26-27)</a></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1455,7 +1465,8 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1463,7 +1474,8 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1481,7 +1493,6 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
 </div>
 </div>
 </div>
-
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1519,15 +1530,16 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
 
 
 
+    <div class="addthis_relatedposts_inline">
+
 
 </article>
 
     <footer>
-<p>&copy; yobibyte </p>
+<p>&copy;  </p>
 <p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
 </p>    </footer>
   </main>
-
 
 
 
@@ -1542,5 +1554,6 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
   "description": ""
 }
 </script>
+
 </body>
 </html>
