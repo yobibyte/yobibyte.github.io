@@ -13,21 +13,19 @@
 
 
 
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
+  <meta name="robots" content="" />
 
 
 <meta name="author" content="yobibyte" />
-<meta name="description" content="Hi!¶I have been at Microsoft Research Cambridge for the last three months working on my master thesis. Today is my last day here and I&#39;m writing this to wrap up my experience. It was a great time and I learned a lot, got acquainted with plenty of great people and just had fun." />
+<meta name="description" content="Hi!¶I have been at Microsoft Research Cambridge for the last three months working on my master thesis. Today is my last day here and I'm writing this to wrap up my experience. It was a great time and I learned a lot, got acquainted with plenty of great people and just had fun." />
 <meta name="keywords" content="">
-
 <meta property="og:site_name" content="yobibyte's webpage"/>
 <meta property="og:title" content="Microsoft Research Visit Post Mortem"/>
-<meta property="og:description" content="Hi!¶I have been at Microsoft Research Cambridge for the last three months working on my master thesis. Today is my last day here and I&#39;m writing this to wrap up my experience. It was a great time and I learned a lot, got acquainted with plenty of great people and just had fun."/>
+<meta property="og:description" content="Hi!¶I have been at Microsoft Research Cambridge for the last three months working on my master thesis. Today is my last day here and I'm writing this to wrap up my experience. It was a great time and I learned a lot, got acquainted with plenty of great people and just had fun."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./ms-postmortem.html"/>
 <meta property="og:type" content="article"/>
@@ -70,7 +68,6 @@
 
 <article class="single">
   <header>
-      
     <h1 id="ms-postmortem">Microsoft Research Visit Post Mortem</h1>
     <p>
           Posted on Wed 31 May 2017 in <a href="./category/misc.html">misc</a>
@@ -238,6 +235,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -258,11 +256,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1000,8 +993,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1012,9 +1007,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1053,8 +1050,7 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1087,6 +1083,7 @@ h6:hover .anchor-link {
 </hr></div>
 </div>
 </div>
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1124,16 +1121,15 @@ h6:hover .anchor-link {
 
 
 
-    <div class="addthis_relatedposts_inline">
-
 
 </article>
 
     <footer>
-<p>&copy;  </p>
+<p>&copy; yobibyte </p>
 <p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
 </p>    </footer>
   </main>
+
 
 
 
@@ -1148,6 +1144,5 @@ h6:hover .anchor-link {
   "description": ""
 }
 </script>
-
 </body>
 </html>
