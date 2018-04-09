@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
   <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
@@ -13,19 +19,15 @@
 
 
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
 
 
 <meta name="author" content="yobibyte" />
-<meta name="description" content="Hi! Currently I'm preparing for High Performance Matrix Computations course exam. As usual, just reading never helps, so, I decided to write some code and sort the things out. This is the post about Cholesky decomposition and how to compute it. The accompanying jupyter notebook can be found here. Let's start from the definition. According to Wikipedia" />
+<meta name="description" content="Hi! Currently I&#39;m preparing for High Performance Matrix Computations course exam. As usual, just reading never helps, so, I decided to write some code and sort the things out. This is the post about Cholesky decomposition and how to compute it. The accompanying jupyter notebook can be found here. Let&#39;s start from the definition. According to Wikipedia" />
 <meta name="keywords" content="">
+
 <meta property="og:site_name" content="yobibyte's webpage"/>
 <meta property="og:title" content="Cholesky Decomposition"/>
-<meta property="og:description" content="Hi! Currently I'm preparing for High Performance Matrix Computations course exam. As usual, just reading never helps, so, I decided to write some code and sort the things out. This is the post about Cholesky decomposition and how to compute it. The accompanying jupyter notebook can be found here. Let's start from the definition. According to Wikipedia"/>
+<meta property="og:description" content="Hi! Currently I&#39;m preparing for High Performance Matrix Computations course exam. As usual, just reading never helps, so, I decided to write some code and sort the things out. This is the post about Cholesky decomposition and how to compute it. The accompanying jupyter notebook can be found here. Let&#39;s start from the definition. According to Wikipedia"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./cholesky.html"/>
 <meta property="og:type" content="article"/>
@@ -68,6 +70,7 @@
 
 <article class="single">
   <header>
+      
     <h1 id="cholesky">Cholesky Decomposition</h1>
     <p>
           Posted on Mon 09 May 2016 in <a href="./category/misc.html">misc</a>
@@ -1086,12 +1089,12 @@ h6:hover .anchor-link {
 <span class="c1"># Cholesky decomposition is unique if the main diagonal is positive</span>
 <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">DIM</span><span class="p">,</span><span class="n">DIM</span><span class="p">))</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="c1"># check that LL' is a Cholesky decomposition of A</span>
+<span class="c1"># check that LL&#39; is a Cholesky decomposition of A</span>
 <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">L</span><span class="p">)</span>
 </pre></div>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cholesky_non_blocked</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="sd">''' Returns L such that A = LL'</span>
-<span class="sd">    '''</span>
+    <span class="sd">&#39;&#39;&#39; Returns L such that A = LL&#39;</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 
@@ -1117,12 +1120,12 @@ h6:hover .anchor-link {
 
 <span class="k">def</span> <span class="nf">cholesky_blocked</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="n">TL_CONSTANT</span><span class="p">):</span>
 
-    <span class="sd">''' Returns L such that A = LL'</span>
+    <span class="sd">&#39;&#39;&#39; Returns L such that A = LL&#39;</span>
 <span class="sd">        for small top right we use unblocked version</span>
 <span class="sd">        then we proceed with blocked algorithm</span>
-<span class="sd">    '''</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
-    <span class="k">if</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o"><=</span> <span class="n">split</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">split</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">cholesky_non_blocked</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
     <span class="n">A_tl</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:</span><span class="n">TL_CONSTANT</span><span class="p">,:</span><span class="n">TL_CONSTANT</span><span class="p">]</span>
@@ -1141,14 +1144,17 @@ h6:hover .anchor-link {
     <span class="k">return</span> <span class="n">L</span>
 <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">cholesky_blocked</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">L</span><span class="p">)</span>
 </pre></div>
-<p>As matrix multiplication is of paramount importance in computation, there are very efficient algorithms for that. The <strong>speed of light</strong> algorithm for matrix multiplication is called GEMM ( (General Matrix Matrix product). It does the following <strong>C</strong> <-- α<strong>A</strong>+β<strong>B</strong>. When you hear that some SKYNET supercomputer has a performance of 42 yobiflops per second, it's 99% sure was tested on GEMM. GEMM is also a part of <a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS</a> specification that has hierarchical design. BLAS have 3 levels and when we program stuff, the higher level the better it is for us (as memory is slow, we want to utilise it as much as we can: e.g. instead of loading matrix element by element, load the whole matrix and do operations on it).</p>
+<p>As matrix multiplication is of paramount importance in computation, there are very efficient algorithms for that. The <strong>speed of light</strong> algorithm for matrix multiplication is called GEMM ( (General Matrix Matrix product). It does the following <strong>C</strong> &lt;-- α<strong>A</strong>+β<strong>B</strong>. When you hear that some SKYNET supercomputer has a performance of 42 yobiflops per second, it's 99% sure was tested on GEMM. GEMM is also a part of <a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS</a> specification that has hierarchical design. BLAS have 3 levels and when we program stuff, the higher level the better it is for us (as memory is slow, we want to utilise it as much as we can: e.g. instead of loading matrix element by element, load the whole matrix and do operations on it).</p>
 <p>As we can see from our pictures with Cholesky decomposition algorithm, we have one system of linear equations to solve (BLAS routine for that is called TRSM) and one SYRK routine: <strong>A</strong>_br - <strong>L</strong>_bl * <strong>L</strong>_bl'. So, we need to use it and solve them efficiently. To get profit from 3rd level of BLAS we want to do operation with matrices, not on scalars or vectors. The general idea of the block algorithm is to find the decomposition for small <strong>A</strong>_tl in a naive way as I shown before and then utilise power of BLAS-3 level with SYRK and TRSM. So, as it can be seen on the picture below, each iteration we update the column of width k in a final decomposition, where k is the one dimension of <strong>A</strong>_bl.</p>
 <p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/cholesky_schema.png?raw=true" /></p>
 <p>If you think, that the performance optimisation is solved so far, you are wrong. There is also a problem of paralellizing the code, for instance, and it's not easy at all. And we have not also discussed how large k should be. But that's all for this post. If you are still sceptical and say: 'Pffff, that's only for symmetric positive semi-definite matrices. My matrices are usually trickier!'. There are other <a href="https://en.wikipedia.org/wiki/Matrix_decomposition">decompositions</a> for you. For further information read an amazing <a href="https://www.amazon.com/Computations-Hopkins-Studies-Mathematical-Sciences/dp/B00BD2DVIC/">book</a> by Golub and Van Loan).</p>
 <p>P.S. If you see a mistake or just want to say something, please send me a mail to <a href="mailto:vitaliykurin@gmail.com">vitaliykurin@gmail.com</a>.</p>
+
 </div>
 </div>
 </div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1188,14 +1194,14 @@ h6:hover .anchor-link {
 
 
 
+
 </article>
 
     <footer>
-<p>&copy; yobibyte </p>
+<p>&copy;  </p>
 <p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
 </p>    </footer>
   </main>
-
 
 
 
@@ -1210,5 +1216,6 @@ h6:hover .anchor-link {
   "description": ""
 }
 </script>
+
 </body>
 </html>

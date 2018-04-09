@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
   <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
@@ -13,19 +19,15 @@
 
 
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
 
 
 <meta name="author" content="yobibyte" />
-<meta name="description" content="Just around two weeks ago "Deep Reinforcement Learning that Matters" took Reinforcement Learning community by storm. This is my favourite figure from the paper: In two words, the paper asks a great question: "Does the research we are doing right now make sense? If not, what should we do to make Deep RL great again?". The answer includes publishing implementations for the reproducibility, do proper significance testing, developing methods agnostic to hyperparameters, and thinking about settings where the algorithms in question will be applied." />
+<meta name="description" content="Just around two weeks ago &#34;Deep Reinforcement Learning that Matters&#34; took Reinforcement Learning community by storm. This is my favourite figure from the paper: In two words, the paper asks a great question: &#34;Does the research we are doing right now make sense? If not, what should we do to make Deep RL great again?&#34;. The answer includes publishing implementations for the reproducibility, do proper significance testing, developing methods agnostic to hyperparameters, and thinking about settings where the algorithms in question will be applied." />
 <meta name="keywords" content="">
+
 <meta property="og:site_name" content="yobibyte's webpage"/>
 <meta property="og:title" content="An overview of the evaluation procedures for the Atari 2600 domain"/>
-<meta property="og:description" content="Just around two weeks ago "Deep Reinforcement Learning that Matters" took Reinforcement Learning community by storm. This is my favourite figure from the paper: In two words, the paper asks a great question: "Does the research we are doing right now make sense? If not, what should we do to make Deep RL great again?". The answer includes publishing implementations for the reproducibility, do proper significance testing, developing methods agnostic to hyperparameters, and thinking about settings where the algorithms in question will be applied."/>
+<meta property="og:description" content="Just around two weeks ago &#34;Deep Reinforcement Learning that Matters&#34; took Reinforcement Learning community by storm. This is my favourite figure from the paper: In two words, the paper asks a great question: &#34;Does the research we are doing right now make sense? If not, what should we do to make Deep RL great again?&#34;. The answer includes publishing implementations for the reproducibility, do proper significance testing, developing methods agnostic to hyperparameters, and thinking about settings where the algorithms in question will be applied."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./atari-eval.html"/>
 <meta property="og:type" content="article"/>
@@ -68,6 +70,7 @@
 
 <article class="single">
   <header>
+      
     <h1 id="atari-eval">An overview of the evaluation procedures for the Atari 2600 domain</h1>
     <p>
           Posted on Tue 03 October 2017 in <a href="./category/misc.html">misc</a>
@@ -1055,12 +1058,12 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Just around two weeks ago "Deep Reinforcement Learning that Matters" took Reinforcement Learning community by storm. This is my favourite figure from the paper:</p>
-<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/cheetah-with-text.png?raw=true" width="500" /></p>
+<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/cheetah-with-text.png?raw=true" width="500"></p>
 <p>In two words, the paper asks a great question: "Does the research we are doing right now make sense? If not, what should we do to make Deep RL great again?". The answer includes publishing implementations for the reproducibility, do proper significance testing,  developing methods agnostic to hyperparameters, and thinking about settings where the algorithms in question will be applied.</p>
 <p>After reading this paper I feel brave enough to write a post about the evaluation practice in another domain popular for RL research: Atari 2600. Having read quite a few papers on the subject recently, I found a lot of moments the reasons of which were unknown to me. I do not claim I will answer these questions here, but I will point them out so that we can think together.</p>
 <p>I have no computational resources to reproduce the papers' results like the authors from the paper did, so, I will just describe how the evaluation procedures were conducted in major papers on the topic and say what I find bizarre. Why do I do it?  Evaluation procedure is what makes paper results look credible. When you compare the results with all other methods, it's important that the comparison is fair. In order to make it fair we need to understand the procedure well enough. But reading the Atari 2600 papers, I have a feeling that almost each paper has its own evaluation approach. Why? I have no idea. But let's start.</p>
-<h3 id="Playing-Atari-with-Deep-Reinforcement-Learning">Playing Atari with Deep Reinforcement Learning<a class="anchor-link" href="#Playing-Atari-with-Deep-Reinforcement-Learning">¶</a></h3><p>I'll start from the paper that revived the interest to using neural nets in RL.<br>
-There are some details that might seem obvious to a person with some experience in the field, but were not obvious for me at all at the beginning, so, I will mention them.</br></p>
+<h3 id="Playing-Atari-with-Deep-Reinforcement-Learning">Playing Atari with Deep Reinforcement Learning<a class="anchor-link" href="#Playing-Atari-with-Deep-Reinforcement-Learning">&#182;</a></h3><p>I'll start from the paper that revived the interest to using neural nets in RL.<br>
+There are some details that might seem obvious to a person with some experience in the field, but were not obvious for me at all at the beginning, so, I will mention them.</p>
 <p>Fist of them is the <em>frameskip</em> parameter. When we want a model to predict the action given the state, we do it for every k-th frame, where k is the frameskip parameter. The environment will repeat the chosen action for all the other 'skipped' frames. The authors chose k = 4 (with an exception for Space Invaders with k = 3), and, usually the number is never changed in the Atari 2600 papers.</p>
 <p>The next important thing is the reward clipping. During training an agent receives either –1 if the reward is negative, 1 if it's positive and zero otherwise. That means, our agent is not able to distinguish between excellent moves and just okayish moves, and this might be a cause of sub-par performance. At the same time, as the authors mention, this limits the scale of the error derivatives and makes it possible to use the same learning rate across games. This should also keep our Q-values more or less comparable.</p>
 <p>For the evaluation the authors choose the strategy as in [11] and report the average score obtained by running an ε-greedy policy with ε=0.05 for a fixed number of steps.</p>
@@ -1069,7 +1072,7 @@ There are some details that might seem obvious to a person with some experience 
 <p>500 episodes in [11] look really brutal, but, as far as I get, by 'choosing the strategy', the authors mean the first sentence of the citation above.</p>
 <p>The main table with the results contains the average performance of the method as well as the best run. Unfortunately there is no variance or standard error of the mean. Given this we, first, have no idea about how deterministic the agent is (given that ALE is deterministic, this would be an interesting point). And, secondly, we have no clue about how stable the performance is.</p>
 <p>That's it for this paper, let's move now to the next one closely related to the current.</p>
-<h3 id="Human-Level-Control-Through-Deep-reinforcement-Learning">Human-Level Control Through Deep reinforcement Learning<a class="anchor-link" href="#Human-Level-Control-Through-Deep-reinforcement-Learning">¶</a></h3><p>The paper is an extension of the previous one with <strong><em>49</em></strong> games and uses exactly the same hyperparameters across different games for training. The code can be found <a href="https://sites.google.com/a/deepmind.com/dqn/">here</a>. But I like <a href="https://github.com/kuz/DeepMind-Atari-Deep-Q-Learner">this</a> repo more since it has issues and discussions.</p>
+<h3 id="Human-Level-Control-Through-Deep-reinforcement-Learning">Human-Level Control Through Deep reinforcement Learning<a class="anchor-link" href="#Human-Level-Control-Through-Deep-reinforcement-Learning">&#182;</a></h3><p>The paper is an extension of the previous one with <strong><em>49</em></strong> games and uses exactly the same hyperparameters across different games for training. The code can be found <a href="https://sites.google.com/a/deepmind.com/dqn/">here</a>. But I like <a href="https://github.com/kuz/DeepMind-Atari-Deep-Q-Learner">this</a> repo more since it has issues and discussions.</p>
 <p>We also have the reward clipping as in the previous paper. But <a href="https://github.com/kuz/DeepMind-Atari-Deep-Q-Learner/blob/1d52e98152fccd968d63ca67e33f5cbf3e83a878/dqn/NeuralQLearner.lua#L311">the code</a> also has the option for reward scaling, and, we might hypothesize that the authors also tried this.</p>
 <p>The thing I like about the paper is that it has the whole subsection on the evaluation (you can find it in the appendix) and all the hyperparameters can be found in the Table 1.</p>
 <p>The method was again evaluated with a 0.05 ε-greedy policy on 30 episodes (but no more than 5 minutes each). It looks like we need these five-minute limit to avoid situations when an agent does nothing and the episode can last forever, e.g. in Montezuma's Revenge).</p>
@@ -1080,47 +1083,47 @@ There are some details that might seem obvious to a person with some experience 
 <p>Another question is why we don’t have the standard deviation for the random agent. It's super easy to implement and it would be interesting to see, what you can take from here. For instance, for Pinball you can be really good by just being super quick no matter what you are pressing [5].</p>
 <p>The cool thing about the results table is that we have the standard deviation for the score. And we know the number of episodes, so we can compute the SEM here. Great!</p>
 <p>When writing this post, I found an error in [5]. We say, that there is not information about the number of episodes in the Nature paper, so, we cannot infer the SEM. But we can, actually.</p>
-<h3 id="Massively-Parallel-Methods-for-Deep-Reinforcement-Learning">Massively Parallel Methods for Deep Reinforcement Learning<a class="anchor-link" href="#Massively-Parallel-Methods-for-Deep-Reinforcement-Learning">¶</a></h3><p>The paper has a really clear Evaluation section (5.2) which is a must-read since the evaluation procedure will be used in the subsequent papers.</p>
+<h3 id="Massively-Parallel-Methods-for-Deep-Reinforcement-Learning">Massively Parallel Methods for Deep Reinforcement Learning<a class="anchor-link" href="#Massively-Parallel-Methods-for-Deep-Reinforcement-Learning">&#182;</a></h3><p>The paper has a really clear Evaluation section (5.2) which is a must-read since the evaluation procedure will be used in the subsequent papers.</p>
 <p><em>Following DQN, we periodically evaluated each model during training and kept the best performing network parameters for the final evaluation. We average these final evaluations over the 5 runs, and compare the mean evaluations with DQN and human expert scores.</em></p>
 <p>There is something new here: human starts! What is that? A human demonstrator starts to play a game. For each of the games, they record 100 of such beginnings and the agent continues then to play from these saved checkpoints.</p>
 <p>Why do we want to have such a thing? ALE is deterministic, and this approach should make it more generalizable.</p>
-<h3 id="Deep-Reinforcement-Learning-with-Double-Q-learning">Deep Reinforcement Learning with Double Q-learning<a class="anchor-link" href="#Deep-Reinforcement-Learning-with-Double-Q-learning">¶</a></h3><p>I read this paper before the previous one, and I did not get a thing about the evaluation procedure. It was like a riddle to me. But after reading [6], it gets quite understandable. The evaluation, actually, is the same as in [6].</p>
+<h3 id="Deep-Reinforcement-Learning-with-Double-Q-learning">Deep Reinforcement Learning with Double Q-learning<a class="anchor-link" href="#Deep-Reinforcement-Learning-with-Double-Q-learning">&#182;</a></h3><p>I read this paper before the previous one, and I did not get a thing about the evaluation procedure. It was like a riddle to me. But after reading [6], it gets quite understandable. The evaluation, actually, is the same as in [6].</p>
 <p>Again, the method is evaluated with 0.05 ε-greedy policy. The authors also use the normalized score as in [4]. The list of games for the papers is <strong><em>57</em></strong>!!!</p>
 <p>Apart from the raw scores in the Appendix, the authors present quite strange Tables 1 and 2, which show the mean and median performance for all 49 games. Why? What information should we get from these two tables? That DDQN is definitely better? Okay.</p>
 <p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/ddqn-t1.png?raw=true">
-<img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/ddqn-t2.png?raw=true" /></img></p>
+<img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/ddqn-t2.png?raw=true"></p>
 <p>Given, that Double DQN is muuuuch better in Video Pinball, the increase in the mean mostly reflects our awesomness in this game.
 I re-typed the numbers into a Google Sheet and took out the Video Pinball.
 The results change dramatically: with Pinball, DDQN's mean is about 37% better, whereas without it, only by 19%.<br>
-At the same time I agree, that the median should be robust to this kind of stuff.</br></p>
+At the same time I agree, that the median should be robust to this kind of stuff.</p>
 <p>The paper also presents the results for the tuned version of the DDQN. The idea is the following, the DQN hyperparameters were tuned for DQN and are not the best fit for DDQN. Fair enough. The authors change the target network update period from 10k to 30k, the ε value was changed to 0.01 both for training and evaluation (so, the agent is more deterministic). The results are clearly better as the authors point out.</p>
-<h3 id="Dueling-Network-Architectures-for-Deep-Reinforcement-Learning">Dueling Network Architectures for Deep Reinforcement Learning<a class="anchor-link" href="#Dueling-Network-Architectures-for-Deep-Reinforcement-Learning">¶</a></h3><p>Again, we have <strong><em>57</em></strong> games here and evaluation with no-op and human starts. ε is 0.001, so, the agent is more deterministic.</p>
+<h3 id="Dueling-Network-Architectures-for-Deep-Reinforcement-Learning">Dueling Network Architectures for Deep Reinforcement Learning<a class="anchor-link" href="#Dueling-Network-Architectures-for-Deep-Reinforcement-Learning">&#182;</a></h3><p>Again, we have <strong><em>57</em></strong> games here and evaluation with no-op and human starts. ε is 0.001, so, the agent is more deterministic.</p>
 <p>It is cool to see, that the authors thought about the normalized score and adjusted the indicator accordingly:</p>
 <p><em>We took the maximum over human and baseline agent scores as it prevents insignificant changes to appear as large improvements when neither the agent in question nor the baseline are doing well. For example, an agent that achieves 2% human performance should not be interpreted as two times better when the baseline agent achieves 1% human performance. We also chose not to measure performance in terms of percentage of human performance alone because a tiny difference relative to the baseline on some games can translate into hundreds of percent in human performance difference.</em></p>
 <p>Another reason the paper is great that it actually mentions the fact, that the network output is not 18 (maximum amount of ALE actions). It varies from 3 to 18 depending on the game. I haven't seen any other paper saying this.</p>
-<h3 id="Neural-Episodic-Control">Neural Episodic Control<a class="anchor-link" href="#Neural-Episodic-Control">¶</a></h3><p>I really like this paper. Everything, from the idea to the beautiful Figures 1 and 2. But the evaluation procedure description really lags behind.</p>
-<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/nec.png?raw=true" /></p>
+<h3 id="Neural-Episodic-Control">Neural Episodic Control<a class="anchor-link" href="#Neural-Episodic-Control">&#182;</a></h3><p>I really like this paper. Everything, from the idea to the beautiful Figures 1 and 2. But the evaluation procedure description really lags behind.</p>
+<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/nec.png?raw=true"></p>
 <p>There is no exploration parameter ε, there is no number of episodes to average over. There is no mention of no-op or human starts.</p>
 <p>The only thing we have is that the learning curves are averaged over 5 different initial random seeds and that the method was evaluated each 200k frames, when A3C and DQN baselines were evaluated each 1 million frames. A3C and DQN use the reward clipping.</p>
 <p>At the same time, the paper tries to perform some qualitative analysis that is not a usual practice at all.</p>
-<h3 id="Learning-from-Demonstrations-for-Real-World-Reinforcement-Learning">Learning from Demonstrations for Real World Reinforcement Learning<a class="anchor-link" href="#Learning-from-Demonstrations-for-Real-World-Reinforcement-Learning">¶</a></h3><p>The cool thing about this paper is that all the training hyperparameters are available as a table in the appendix. The evaluation is done with ε=0.01. The weird thing is that the amount of games is 42 (not 49 or 57 as we saw before). More interesting is that in the last version of the paper the authors say that these 42 games are a randomly selected subset. Why? I have no idea.</p>
+<h3 id="Learning-from-Demonstrations-for-Real-World-Reinforcement-Learning">Learning from Demonstrations for Real World Reinforcement Learning<a class="anchor-link" href="#Learning-from-Demonstrations-for-Real-World-Reinforcement-Learning">&#182;</a></h3><p>The cool thing about this paper is that all the training hyperparameters are available as a table in the appendix. The evaluation is done with ε=0.01. The weird thing is that the amount of games is 42 (not 49 or 57 as we saw before). More interesting is that in the last version of the paper the authors say that these 42 games are a randomly selected subset. Why? I have no idea.</p>
 <p>The authors rescaled the rewards by using a log scale: r_agent = sign(r)*log(1+|r|). That makes a complete sense since the agent starts to distinguish what is attractive and what is super attractive.</p>
 <p>Another weird moment is:</p>
 <p><em>DQfD scores are the best 3 million step window averaged over four seeds, which is 508 episodes on average.</em></p>
 <p>So, the reported results are the results responsible for choosing the model. It's not like we take some model based on our metric (e.g. evaluation during training), and then rerun the evaluation and report the results.</p>
 <p>The last weird thing about the paper is the reported Double DQN baseline. May be it's because of the evaluation described above, but this is really strange. I will put the original Dueling Network paper results and the paper results below.</p>
 <p>First, DDQN:</p>
-<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/pdddqn-scores.png?raw=true" /></p>
+<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/pdddqn-scores.png?raw=true"></p>
 <p>And, DQFD:</p>
-<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/dqfd-scores.png?raw=true" /></p>
+<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/dqfd-scores.png?raw=true"></p>
 <p>Look at Assault or Video Pinball, for instance. The numbers are totally different. May be I miss something, but I haven't found what.</p>
-<h2 id="Outro">Outro<a class="anchor-link" href="#Outro">¶</a></h2><p>So, we are done. As we have seen, even one of the most high-quality papers have some weird stuff inside. May be it's just me. May be it's just badly described and I misunderstood something. But it would be cool to know what do you think about it. Or, may be, you've seen something similar that I haven't mentioned. Just drop a line and I'll update the post.
+<h2 id="Outro">Outro<a class="anchor-link" href="#Outro">&#182;</a></h2><p>So, we are done. As we have seen, even one of the most high-quality papers have some weird stuff inside. May be it's just me. May be it's just badly described and I misunderstood something. But it would be cool to know what do you think about it. Or, may be, you've seen something similar that I haven't mentioned. Just drop a line and I'll update the post.
 I hope it was interesting to read and, may be, it might be useful to some of you who is working on the Atari 2600 domain.  [11] also makes a general description of the common evaluation practice, and you can also have a look on it.</p>
 <p>I'd like to conclude with the following. We can often hear now, that Atari 2600 is solved, let's move to something more challenging, let's finally solve the intelligence! But is it really so?</p>
 <p>I beg to differ. Okay, according to the mean/median metrics we've seen today, we are crushing stupid humans. But does it really mean that RL agents are smarter in this sense? Not at all. It is easy to double your score in such reactive-control games as Space Invaders, Breakout or Video Pinball. But it's not the case for Montezuma's Revenge, for instance. And RL success in reactive-control games hides our inferiority in games which require reasoning: Montezuma's Revenge or, even, Ms. PacMan.</p>
 <p>It would be cool to see a progress in one of these kind of games using some revolutionary approaches. We do have to avoid feature engineering, though.<br>
-In this sense, I like Microsoft's focus on Minecraft and DeepMind's work on Starcraft II. Hope to see something interesting soon.</br></p>
-<h2 id="References">References<a class="anchor-link" href="#References">¶</a></h2><p>[1] Henderson, Peter, Riashat Islam, Philip Bachman, Joelle Pineau, Doina Precup, and David Meger. "Deep Reinforcement Learning that Matters." arXiv preprint arXiv:1709.06560 (2017), <a href="https://arxiv.org/abs/1709.06560">link</a></p>
+In this sense, I like Microsoft's focus on Minecraft and DeepMind's work on Starcraft II. Hope to see something interesting soon.</p>
+<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p>[1] Henderson, Peter, Riashat Islam, Philip Bachman, Joelle Pineau, Doina Precup, and David Meger. "Deep Reinforcement Learning that Matters." arXiv preprint arXiv:1709.06560 (2017), <a href="https://arxiv.org/abs/1709.06560">link</a></p>
 <p>[2] Mnih, Volodymyr, Koray Kavukcuoglu, David Silver, Alex Graves, Ioannis Antonoglou, Daan Wierstra, and Martin Riedmiller. "Playing atari with deep reinforcement learning." arXiv preprint arXiv:1312.5602 (2013), <a href="https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf">link</a></p>
 <p>[3] Machado, Marlos C., Marc G. Bellemare, Erik Talvitie, Joel Veness, Matthew Hausknecht, and Michael Bowling. "Revisiting the Arcade Learning Environment: Evaluation Protocols and Open Problems for General Agents." arXiv preprint arXiv:1709.06009 (2017), <a href="https://arxiv.org/abs/1709.06009">link</a></p>
 <p>[4] Mnih, Volodymyr, Koray Kavukcuoglu, David Silver, Andrei A. Rusu, Joel Veness, Marc G. Bellemare, Alex Graves et al. "Human-level control through deep reinforcement learning." Nature 518, no. 7540 (2015): 529-533, <a href="https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf">link</a></p>
@@ -1131,9 +1134,12 @@ In this sense, I like Microsoft's focus on Minecraft and DeepMind's work on Star
 <p>[9] Pritzel, Alexander, Benigno Uria, Sriram Srinivasan, Adrià Puigdomènech, Oriol Vinyals, Demis Hassabis, Daan Wierstra, and Charles Blundell. "Neural Episodic Control." arXiv preprint arXiv:1703.01988 (2017). <a href="https://arxiv.org/abs/1703.01988">link</a></p>
 <p>[10] Hester, Todd, Matej Vecerik, Olivier Pietquin, Marc Lanctot, Tom Schaul, Bilal Piot, Andrew Sendonaris et al. "Learning from Demonstrations for Real World Reinforcement Learning." arXiv preprint arXiv:1704.03732 (2017). <a href="https://arxiv.org/abs/1704.03732">link</a></p>
 <p>[11] Bellemare, Marc G., Yavar Naddaf, Joel Veness, and Michael Bowling. "The Arcade Learning Environment: An evaluation platform for general agents." J. Artif. Intell. Res.(JAIR) 47 (2013): 253-279, <a href="https://arxiv.org/abs/1207.4708">link</a></p>
+
 </div>
 </div>
 </div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1173,14 +1179,14 @@ In this sense, I like Microsoft's focus on Minecraft and DeepMind's work on Star
 
 
 
+
 </article>
 
     <footer>
-<p>&copy; yobibyte </p>
+<p>&copy;  </p>
 <p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
 </p>    </footer>
   </main>
-
 
 
 
@@ -1195,5 +1201,6 @@ In this sense, I like Microsoft's focus on Minecraft and DeepMind's work on Star
   "description": ""
 }
 </script>
+
 </body>
 </html>

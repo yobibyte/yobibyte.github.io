@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
   <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
@@ -13,19 +19,15 @@
 
 
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
 
 
 <meta name="author" content="yobibyte" />
-<meta name="description" content="Word of warning Right now when MS rolled out Windows Subsystem for Linux, this post has become a little bit obsolete. Here you can find a pretty good tutorial. But if you want VMs for keeping separate dev sandboxes, go on and read information below. During my dev life I tried a huge amount of ways of creating a convenient environment for development. There has been almost something that I didn't like, and I tried more. And today I will explain another way that I'm currently using. The most attractive thing about it: you can use any major OS (GNU/Linux, OS X or Win (yes, even win)) and be completely happy with it." />
+<meta name="description" content="Word of warning Right now when MS rolled out Windows Subsystem for Linux, this post has become a little bit obsolete. Here you can find a pretty good tutorial. But if you want VMs for keeping separate dev sandboxes, go on and read information below. During my dev life I tried a huge amount of ways of creating a convenient environment for development. There has been almost something that I didn&#39;t like, and I tried more. And today I will explain another way that I&#39;m currently using. The most attractive thing about it: you can use any major OS (GNU/Linux, OS X or Win (yes, even win)) and be completely happy with it." />
 <meta name="keywords" content="">
+
 <meta property="og:site_name" content="yobibyte's webpage"/>
 <meta property="og:title" content="Setting up a dev environment"/>
-<meta property="og:description" content="Word of warning Right now when MS rolled out Windows Subsystem for Linux, this post has become a little bit obsolete. Here you can find a pretty good tutorial. But if you want VMs for keeping separate dev sandboxes, go on and read information below. During my dev life I tried a huge amount of ways of creating a convenient environment for development. There has been almost something that I didn't like, and I tried more. And today I will explain another way that I'm currently using. The most attractive thing about it: you can use any major OS (GNU/Linux, OS X or Win (yes, even win)) and be completely happy with it."/>
+<meta property="og:description" content="Word of warning Right now when MS rolled out Windows Subsystem for Linux, this post has become a little bit obsolete. Here you can find a pretty good tutorial. But if you want VMs for keeping separate dev sandboxes, go on and read information below. During my dev life I tried a huge amount of ways of creating a convenient environment for development. There has been almost something that I didn&#39;t like, and I tried more. And today I will explain another way that I&#39;m currently using. The most attractive thing about it: you can use any major OS (GNU/Linux, OS X or Win (yes, even win)) and be completely happy with it."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./setup-dev-env.html"/>
 <meta property="og:type" content="article"/>
@@ -68,6 +70,7 @@
 
 <article class="single">
   <header>
+      
     <h1 id="setup-dev-env">Setting up a dev environment</h1>
     <p>
           Posted on Mon 09 May 2016 in <a href="./category/misc.html">misc</a>
@@ -1060,7 +1063,7 @@ h6:hover .anchor-link {
 <p>During my dev life I tried a huge amount of ways of creating a convenient environment for development. There has been almost something that I didn't like, and I tried more. And today I will explain another way that I'm currently using. The most attractive thing about it: you can use any major OS (GNU/Linux, OS X or Win (yes, even win)) and be completely happy with it.</p>
 <p>Yes, today we have a bunch of platform-free languages that enables us to use the OS we like for development. But for me it has been always easier to set up a dev environment in GNU/Linux as there are cool package managers that will make your life more comfortable (or sometimes harder when you have problems with dependencies).</p>
 <p>The main idea is to create a GNU/Linux virtual dev machine, but use it only for code execution and some accompanying stuff like version control, for instance. All the code will be kept on the host machine and edited also from the host.</p>
-<h2 id="Steps">Steps<a class="anchor-link" href="#Steps">¶</a></h2><p>I use VirtualBox, so, I do not know how to do the same stuff in VM_something, but I'm pretty sure that most of the actions should be really similar or even the same.</p>
+<h2 id="Steps">Steps<a class="anchor-link" href="#Steps">&#182;</a></h2><p>I use VirtualBox, so, I do not know how to do the same stuff in VM_something, but I'm pretty sure that most of the actions should be really similar or even the same.</p>
 <ul>
 <li>VB installing<ul>
 <li>if you are reading this, you know how to install a VB on your computer.</li>
@@ -1098,12 +1101,12 @@ sudo service restart ssh
 <ul>
 <li>The following command will start our VM without running the X server</li>
 </ul>
-<div class="highlight"><pre><span></span>VBoxManage start <vmname> --type headless
+<div class="highlight"><pre><span></span>VBoxManage start &lt;vmname&gt; --type headless
 </pre></div>
 <ul>
 <li>Now, you need to generate an ssh-key on your host machine to log in without entering the password</li>
 </ul>
-<div class="highlight"><pre><span></span>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"yourmail@mail.com"</span>
+<div class="highlight"><pre><span></span>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;yourmail@mail.com&quot;</span>
 ssh-copy-id user@127.0.0.1 <span class="c1">#Copy the key to our VM</span>
 </pre></div>
 <ul>
@@ -1114,7 +1117,7 @@ ssh-copy-id user@127.0.0.1 <span class="c1">#Copy the key to our VM</span>
 <ul>
 <li>If you need some additional ports for dev(web service, for example, it's easier to forward ports through ssh)</li>
 </ul>
-<div class="highlight"><pre><span></span>ssh user@127.0.0.1 -p <span class="m">2222</span> -L <span class="m">4000</span>:127.0.0.1:4000 <span class="c1">#local_port:<vm ip>:<vm port></span>
+<div class="highlight"><pre><span></span>ssh user@127.0.0.1 -p <span class="m">2222</span> -L <span class="m">4000</span>:127.0.0.1:4000 <span class="c1">#local_port:&lt;VM IP&gt;:&lt;VM port&gt;</span>
 </pre></div>
 <ul>
 <li>In VM Shared Folders settings tab:<ul>
@@ -1125,7 +1128,7 @@ ssh-copy-id user@127.0.0.1 <span class="c1">#Copy the key to our VM</span>
 </li>
 <li>Add user to vboxfs group</li>
 </ul>
-<div class="highlight"><pre><span></span>sudo usermod -a -G vboxsf <username>
+<div class="highlight"><pre><span></span>sudo usermod -a -G vboxsf &lt;username&gt;
 </pre></div>
 <ul>
 <li>Restart VM</li>
@@ -1133,21 +1136,24 @@ ssh-copy-id user@127.0.0.1 <span class="c1">#Copy the key to our VM</span>
 <li>Now you can do your favorite 'npm install' or any other 'hipster-technology install' and enjoy the experience.</li>
 </ul>
 <p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/no_idea_dog.jpg?raw=true" /></p>
-<h2 id="What-is-good">What is good<a class="anchor-link" href="#What-is-good">¶</a></h2><ul>
+<h2 id="What-is-good">What is good<a class="anchor-link" href="#What-is-good">&#182;</a></h2><ul>
 <li>Current system is not changed. There will never be such a situation when you installed a library and broke half of your system. The main system should be stable and not change every day.</li>
 <li>Stackoverflow is full of posts about how to resolve screen resolution problems in VM, copy-paste problem or something like that. As we code in the host machine, our eyes are happy and we can use our super 100500K monitors to code. The full power and convenience of your host system is at your disposal.
 Easy browsing and copy/paste and all the stuff</li>
 <li>Easy replicating and backups</li>
 </ul>
-<h2 id="What-is-not-so-good">What is not so good<a class="anchor-link" href="#What-is-not-so-good">¶</a></h2><ul>
+<h2 id="What-is-not-so-good">What is not so good<a class="anchor-link" href="#What-is-not-so-good">&#182;</a></h2><ul>
 <li>No access for GPU, so Deep Learning guys will be sad. But this configuration is more laptop-like for me. For GPU usage we should have a high-end computer with ssh access to it.</li>
 <li>Yes, performance will be less than if we used our bare hardware to execute code. But in most cases it won't be an issue. Return to the previous bullet point.</li>
-<li>I still don't know how to use <your favorite="" ide=""> and its debugger with this config. In theory it's possible like <a href="https://www.jetbrains.com/help/idea/2016.1/run-debug-configuration-remote.html?origin=old_help">here</a> or <a href="https://www.jetbrains.com/help/pycharm/2016.1/remote-debugging.html?origin=old_help">there</a>. But as it's been a time since I coded a really big project, a text editor like Atom or Vim is completely enough for me.</your></li>
+<li>I still don't know how to use <your favorite ide> and its debugger with this config. In theory it's possible like <a href="https://www.jetbrains.com/help/idea/2016.1/run-debug-configuration-remote.html?origin=old_help">here</a> or <a href="https://www.jetbrains.com/help/pycharm/2016.1/remote-debugging.html?origin=old_help">there</a>. But as it's been a time since I coded a really big project, a text editor like Atom or Vim is completely enough for me.</li>
 <li>Yes, we can use Vagrant. I tried, but switched back again.</li>
 </ul>
-</hr></div>
+
 </div>
 </div>
+</div>
+ 
+
 
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
@@ -1187,14 +1193,14 @@ Easy browsing and copy/paste and all the stuff</li>
 
 
 
+
 </article>
 
     <footer>
-<p>&copy; yobibyte </p>
+<p>&copy;  </p>
 <p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
 </p>    </footer>
   </main>
-
 
 
 
@@ -1209,5 +1215,6 @@ Easy browsing and copy/paste and all the stuff</li>
   "description": ""
 }
 </script>
+
 </body>
 </html>
