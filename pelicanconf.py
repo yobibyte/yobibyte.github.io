@@ -33,4 +33,4 @@ SOCIAL = (
          )
 
 MAIN_MENU = False
-
+DISQUS_SITENAME = 'yobiblog-1'
