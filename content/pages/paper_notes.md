@@ -6,3 +6,4 @@ Title: Paper Notes
 * [A Recurrent Latent Variable Model for Sequential Data](/files/paper_notes/A_Recurrent_Latent_Variable_Model_for_Sequential_Data__Chung_et_al___2016.pdf) ([paper](https://arxiv.org/abs/1506.02216), 2018-03-25)
 * [Kickstarting Deep Reinforcement Learning](/files/paper_notes/Kickstarting_Deep_Reinforcement_Learning_Simon_Schmitt__Jonathan_J__Hudson__Augustin_Zidek_et_al___2018.pdf) ([paper](https://arxiv.org/abs/1803.03835), 2018-03-26)
 * [The Kanerva Machine: A Generative Distributed Memory](/files/paper_notes/kanerva.pdf) ([paper](https://arxiv.org/abs/1804.01756), 2018-04-09)
+* [Hindsight Experience Replay](/files/paper_notes/her.pdf) ([paper](https://arxiv.org/abs/1707.01495), 2018-05-01)
