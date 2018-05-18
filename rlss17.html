@@ -1076,7 +1076,7 @@ h6:hover .anchor-link {
 <p>In a short introduction, Joelle Pineau mentions the recent applications of RL found in <a href="http://rldm.org/rldm2017/">RLDM 2017</a> submissions:</p>
 <ul>
 <li>robotics</li>
-<li>video Games</li>
+<li>video games</li>
 <li>conversational systems</li>
 <li>medical intervention (x_X)</li>
 <li>algorithm improvement</li>
@@ -1092,7 +1092,7 @@ The answer is the combination of the following prerequisites:</p>
 <ul>
 <li>your data comes in the form of trajectories (forget about the i.i.d. assumption);</li>
 <li>your system needs some kind of intervention;</li>
-<li>you need feedback in order to understand if your are doing well or not</li>
+<li>you need feedback in order to understand if you are doing well or not</li>
 <li>your problem is the one requiring both learning and planning</li>
 </ul>
 <p>The lecturer mentions, that RL is somehow similar to Supervised Learning, but not completely.
@@ -1100,14 +1100,14 @@ There are some challenges, both practical and technical:</p>
 <ul>
 <li>need some environment to operate in (one of the reasons for slow progress of RL in the past)</li>
 <li>you need to learn and plan at the same time using correlated samples</li>
-<li>your data distribution changes along your learning procedure (the actions you take bring an agent to different states, and it makes the learning harder)</li>
+<li>your data distribution changes along with your learning procedure (the actions you take bring an agent to different states, and it makes the learning harder)</li>
 </ul>
 <p>Then, Joelle gives the formal representation of an RL problem as a Markov Decision Process (MDP), defined as a tuple $\langle S,A,T(s,a,s'), R(s,a), \mu(s) \rangle$, where $S$ is the set of states, $A$ is the set of actions, $T(s,a,s')$ is the transition function returning the distribution over the next states $s'$ given the current state $s$ and the action taken $a$.</p>
 <p>M in MDP stands for 'Markov', i.e. the process holds the Markov assumption: the future is independent of the past given the future. What does it mean? Our next state depends only on the current one, we do not need to know the whole history of states in order to predict the future.
 And the definition of the <em>state</em> according to Joelle is the following. A <em>state</em> is a sufficient amount of information about the world in order to predict the future.
-Sometimes in the real life the assumption does not hold, that's true. But RL still uses it in order to reduce the complexity.</p>
+Sometimes in the real life, the assumption does not hold, that's true. But RL still uses it in order to reduce the complexity.</p>
 <p>What is the goal of RL? We want to maximize the reward we get for our interaction with the environment.
-We can have two options here, either the task on hand is episodic (e.g. a game episode ends when you win or loose) or continious (e.g. balancing).</p>
+We can have two options here, either the task at hand is episodic (e.g. a game episode ends when you win or lose) or continuous (e.g. balancing).</p>
 <p>Usually, the future reward flow is discounted by the coefficient $\gamma \in [0,1)$ (usually close to 1.
 $\gamma$ helps to trade off the balance between preferences in the immediate reward and the future reward.
 It is often said, that we discount the reward flow due to psychological reasons: humans prefer the immediate reward to the future reward.
@@ -1120,8 +1120,8 @@ I don't get why, but all the definitions are given without the discounting.
 Maybe it does not matter here since when we take expectations later, we will be able to keep the gammas outside of the expectations, but I'm not sure. At Sutton &amp; Barto's book, all the definitions and derivations are given for the discounted return.</p>
 <p>In order not to mess all the terms and definitions, the lecturer gives the following slide:</p>
 <ul>
-<li>Reward is a one step numerical feedback</li>
-<li>Return is sum of rewards of the agent's trajectory</li>
+<li>Reward is a one-step numerical feedback</li>
+<li>Return is the sum of rewards of the agent's trajectory</li>
 <li>Value is the expected sum of rewards over the agent's trajectory</li>
 <li>Utility is the numerical function representing preferences (in RL <em>return</em> $\equiv$ <em>utility</em>)</li>
 </ul>
@@ -1172,16 +1172,16 @@ We are saying that since if we have one of them, we can derive the other.</p>
 <li>each iteration do the update $V_{k+1}(s) = max_{a \in A}(R(s,a) + \gamma \sum_{s' \in S}T(s,a,s')V_k(s'))$</li>
 <li>stop when the value function changes for a step is below some threshold</li>
 </ul>
-<p>The complexities for the algorithms are the following ($S$ is the state space size, $A$ is the action space size):</p>
+<p>The complexities of the algorithms are the following ($S$ is the state space size, $A$ is the action space size):</p>
 <ul>
 <li>policy evaluation: $O(s)^3$</li>
 <li>policy iteration: $O(S^3 + S^2A)$ per iteration</li>
 <li>value iteration: $O(S^2A)$ per iteration</li>
 </ul>
 <p>There is an example in the slides, but I will not put it here, but it's important to go through it if you think, you're confused about all the said above.</p>
-<p>We can see from the complexities, that the algorithms get less and less feasible as our state-action space scales, howewer we can try not to update all the states in value iteration, but only the important ones. 
-Moreover, we can do the asynchronous updates, generating trajectories through the MDP and update the states only when they appear on a trajectory. In policy iteration we are not forced to do one policy update after each policy evaluation. We can combine the updates and evaluations in any combination we find appropriate.</p>
-<p>For those, who does not want to read the slides and watch the lectures anymore, but want to do the hardcore research, Joelle has the 'challenges' slide. I will also put them in a list:</p>
+<p>We can see from the complexities, that the algorithms get less and less feasible as our state-action space scales, however, we can try not to update all the states in value iteration, but only the important ones. 
+Moreover, we can do the asynchronous updates, generating trajectories through the MDP and update the states only when they appear on a trajectory. In policy iteration, we are not forced to do one policy update after each policy evaluation. We can combine the updates and evaluations in any combination we find appropriate.</p>
+<p>For those, who do not want to read the slides and watch the lectures anymore, but want to do the hardcore research, Joelle has the 'challenges' slide. I will also put them in a list:</p>
 <ul>
 <li>Designing the problem domain<ul>
 <li>state representation</li>
@@ -1189,7 +1189,7 @@ Moreover, we can do the asynchronous updates, generating trajectories through th
 <li>cost/reward signal</li>
 </ul>
 </li>
-<li>aquiring data for training<ul>
+<li>acquiring data for training<ul>
 <li>exploration/exploitation</li>
 <li>high cost actions</li>
 <li>time-delayed cost/reward signal</li>
@@ -1204,22 +1204,22 @@ Moreover, we can do the asynchronous updates, generating trajectories through th
 <li>Temporal-Difference (TD) learning: $V(s_t) = V(s_t) + \alpha [r_{t+1} + \gamma V(s_{t+1} - V(s_t)] \forall t = 0,1,2,...$</li>
 </ul>
 <p>As Joelle mentions, online learning is highly unstable, and a lot of recent RL research focused on improving the stability of the online learning algorithms.</p>
-<p>Up to now, the lecture assumed, we are in a tabular setup, when the value function and the policy can be represented as a large table. But in the real world this approach will never work since the problems are much harder. 
+<p>Up to now, the lecture assumed, we are in a tabular setup when the value function and the policy can be represented as a large table. But in the real world, this approach will never work since the problems are much harder. 
 We need to use the function approximations.
-Linear functions has been used for a long time. 
+Linear functions have been used for a long time. 
 Recently, using neural nets as function approximators has become very popular, and we can use all the Deep Learning progress within RL, e.g. memory augmented models [1].</p>
 <p>The lecture continues with describing the on-policy/off-policy dichotomy in RL. 
 As we mentioned earlier, each policy change leads to data distribution change, so, when we evaluate several policies within the same batch, we need a large batch of data and a policy which adequately covers all (s,a) combinations. 
-One of the solution to the problem is to use importane sampling attaching different weights do data collected from different policies.</p>
+One of the solutions to the problem is to use importance sampling attaching different weights do data collected from different policies.</p>
 <p>Exploration/exploitation dilemma goes next.
 You've definitely heard about it. 
-When you have some policy, you might follow it and get your deserved return or you can try something new to achive, possibly, more. 
-Though, researchers have been trying to solve the problem for a long time, it is still far from being solved.</p>
-<p>At the end, Joelle mentions the two approaches to RL: model-based and model-free. The first tries to learn the model of the environment first and do the planning later. The second, that is more successful recently, is trying to learn a policy directly using the data from the environment. As for me, I find model-based approach very cool, but it is harder to learn. It has not been so hot recently, but the research is going on and, I hope, we will see great results in the near future.</p>
-<p>There was also an interesting question from the audience about choosing the discounding coefficient $\gamma$. 
+When you have some policy, you might follow it and get your deserved return or you can try something new to achieve, possibly, more. 
+Though researchers have been trying to solve the problem for a long time, it is still far from being solved.</p>
+<p>In the end, Joelle mentions the two approaches to RL: model-based and model-free. The first tries to learn the model of the environment first and do the planning later. The second, that is more successful recently, is trying to learn a policy directly using the data from the environment. As for me, I find model-based approach very cool, but it is harder to learn. It has not been so hot recently, but the research is going on and, I hope, we will see great results in the near future.</p>
+<p>There was also an interesting question from the audience about choosing the discounting coefficient $\gamma$. 
 Joelle says that before she thought, that choosing the gamma is the problem of one who chooses the domain and creates the environment.
-But the community moves further and further to the fact, that $\gamma$ is a hyperparameter and, may be, we should be more aggressive at the beginning of the training when our estimations are too noisy. 
-There were no literature pointers in the lecture, but I wrote an email, and Joelle send me the link [2].</p>
+But the community moves further and further to the fact, that $\gamma$ is a hyperparameter and, maybe, we should be more aggressive at the beginning of the training when our estimations are too noisy. 
+There were no literature pointers in the lecture, but I wrote an email, and Joelle sent me the link [2].</p>
 <p>The lecture is over, if you want to know more, either continue to read or find more awesome resources <a href="https://github.com/aikorea/awesome-rl">here</a>.
 As for me, I want to add, that the lecture is great not only because of summarizing the basics of RL, but also giving some intuitions which help to understand the concepts better.</p>
 
@@ -1453,7 +1453,57 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="TD-Learning,-Richard-Sutton">TD Learning, <em>Richard Sutton</em><a class="anchor-link" href="#TD-Learning,-Richard-Sutton">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137922/deeplearning2017_sutton_td_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_sutton_td_learning/">Video</a></em></p>
-<p><strong>TBD</strong></p>
+<p>This is not only a lecture on temporal-difference (TD) methods but a commencement speech for those who are entering the field.
+In the beginning, Rich is pondering about what's the ultimate solution to AI.
+He says that the method should scale as the amount of compute grows.
+And <em>prediction learning</em> is something that does scale.
+What is prediction learning?
+It's unsupervised supervised learning: we can get a target (e.g. just by waiting) however we do not need a human label.</p>
+<p>Let's get back to TD learning, learning a prediction from another, later, learned prediction.
+TD is the difference between two predictions.
+Otherwise, TD learning is just supervised learning.</p>
+<p>Why do you need TD learning? When your problem is a multi-step prediction problem $\rightarrow$ something which supervised learning is not really great in, e.g. stock price prediction.</p>
+<p>Why not treat the problem above as step-by-step prediction? Rich says it's a trap and mentions POMDPs, Bayesians, control theory and compression enthusiasts x_X. Long-term predictions are hard and small errors are amplified.
+Computational costs are growing exponentially and it makes no sense the further it goes. We can't wait until the end when the target is known. Moreover, sometimes we don't even know the target.</p>
+<p>I put 'new RL notation' below. If you've already seen the second edition of the RL textbook, it's not new for you. 
+Capital letters are random variables; lowercase letters are instances of these variables:
+$S_0, A_0, R_1, S_1$ are the state, action and reward respectively. $R_1$ means the reward for the transition from state $S_0$ to state $S_1$.</p>
+<p>$G_t$ is the discounted return $G_t := R_{t+1} + \gamma R_{t+2} + ... = R_{t+1} + G_{t+1}$.</p>
+<p>$v_{\pi}$ is the state-value function $v_{\pi}(s) := \mathbb{E}_{\pi}[G_t | S_t=s] = \mathbb{E}_{\pi}[R_{t+1} + \gamma v_{\pi}(S_{t+1}) | S_t=s]$. Note, that this is not just the value, but the value of some policy $\pi$.</p>
+<p>Finally, TD error is the difference $R_{t+1} + \gamma V(S_{t+1}) - V(S_{t})$</p>
+<p>Okay, next Rich goes to the explanation of Monte Carlo (Supervised learning as he puts it):</p>
+<p>$V(S_t) \leftarrow V(S_t + \alpha[G_t - V(S_t)])$</p>
+<p>Opposed to MC, the siplest TD variant takes only the first reward and uses the state-value estimation for the update:</p>
+<p>$V(S_t) \leftarrow V(S_t + \alpha[R_{t+1} + \gamma V(S_{t+1}) - V(S_t)])$</p>
+<p>Dynamic Programming takes the expectation here:</p>
+<p>$V(S_{t}) \leftarrow \mathbb{E}_{\pi}[R_{t+1} + \gamma V(S_{t+1})]$</p>
+<p>TD is cool because it bootstraps and samples. Computationally, TD is also cool since it can be fully incremental and allows you to learn as you go without waiting for the final outcome.</p>
+<p>Then goes the random walk example and another didactic example when MC fails (minimising the mean-square error) and TD wins (doing certainty-equivalence estimate): MC methods are better on the history, but have a higher error on future data.</p>
+<p>The relationship between all the methods can be seen at the "Unified View" picture:</p>
+<p><img src="pics/rlss/unified.png"></p>
+<p>All right, we go from the state-value function $V(S)$ to the action-value function $Q(S_t,A_t)$.</p>
+<ul>
+<li>For SARSA it's $Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)]$.</li>
+<li>For Q-learning it's $Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \max_a Q(S_{t+1}, a) - Q(S_t, A_t)]$.</li>
+<li>And, finally, for the expected SARSA: $Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \mathbb{E} Q(S_{t+1}, A_{t+1} | S_{t+1}) - Q(S_t, A_t)]$.</li>
+</ul>
+<p>At the end of the lecture, prof. Sutton highlights the topics that might be of researchers interest:</p>
+<ul>
+<li>off-policy prediction</li>
+<li>non-linear function approximation</li>
+<li>convergence theory for TD control theory</li>
+<li>TD + DL?</li>
+<li>Predicting something other than reward, e.g. Horde, Unreal, options</li>
+</ul>
+<p>This is the most unusual lecture on RL I've seen so far. Prof. Sutton looks so excited about the stuff he's doing so that I envy him sometimes =) There is a lot of personal opinion going on, but in general it's a great and interesting lecture.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Deep-Reinforcement-Learning,-Hado-van-Hasselt">Deep Reinforcement Learning, <em>Hado van Hasselt</em><a class="anchor-link" href="#Deep-Reinforcement-Learning,-Hado-van-Hasselt">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137918/deeplearning2017_van_hasselt_deep_reinforcement_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_van_hasselt_deep_reinforcement/">Video</a></em></p>
 <p><strong>TBD</strong></p>
 <h2 id="Deep-Control,-Nando-de-Freitas">Deep Control, <em>Nando de Freitas</em><a class="anchor-link" href="#Deep-Control,-Nando-de-Freitas">&#182;</a></h2><p><em>No slides yet</em> |<em><a href="http://videolectures.net/deeplearning2017_de_freitas_deep_control/">Video</a></em></p>
