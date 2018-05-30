@@ -1505,7 +1505,49 @@ $S_0, A_0, R_1, S_1$ are the state, action and reward respectively. $R_1$ means 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Deep-Reinforcement-Learning,-Hado-van-Hasselt">Deep Reinforcement Learning, <em>Hado van Hasselt</em><a class="anchor-link" href="#Deep-Reinforcement-Learning,-Hado-van-Hasselt">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137918/deeplearning2017_van_hasselt_deep_reinforcement_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_van_hasselt_deep_reinforcement/">Video</a></em></p>
-<p><strong>TBD</strong></p>
+<p>Guido starts from the big picture.
+AI revolution is coming: you do not need to come up with the solution to the problem. 
+Let AI discover it for you.
+Reinforcement Learning is here to save us.</p>
+<p>RL deals with problems that involve making decisions and/or making predictions about the future.
+    Hado splits approaches to an RL problem into three types: learning a policy $\pi(s) = a$, learning a value, e.g. $Q(s,a) = \mathbb{E}[R_1 + ... | S_t = s, A_t = a]$ and, finally, learning a model $m(s,a) = \mathbb{E}[S_{t+1}| S_t = s, A_t = a]$.
+No matter what approach you choose, you need to represent and learn these functions.
+Deep learning to the rescue!</p>
+<p>The lecture proceeds with the explanation of Q-learning, an off-policy algorithm.</p>
+<p>The Belman optimality equation for the action value function looks like that:
+$Q^*(s,a) = \mathbb{E}[R_{t+1} + \gamma \max_b Q^*(s_{t+1}, b) | S_t = s, A_t = a]$</p>
+<p>As a TD, we can put it as $Q_{t+1}(S_t, A_t) = Q_t(S_t, A_t) + \alpha (R_{t+1} + \gamma \max_a Q_t(S_{t+1}, a) - Q(S_t, A_t))$
+The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(s) = \mathop{argmax}_a Q(s, a)$</p>
+<p>DQN paper [21], combines Neural Networks, Q-learning [19], memory replay [20], adds an additional target network and gets amazing results on the Atari 2600 benchmark.</p>
+<p>A DQN weight update is not that different from the previous formulas:</p>
+<p>$\Delta w = \alpha [R_{t+1} + \gamma \max_a Q(S_{t+1}, a; w^{-}) - Q(S_t, A_t; w)] \nabla_w Q(S_t, A_t; w)$</p>
+<p>The target network stabilises training since changing the value of one action influences the values for other actions and similar states as well.</p>
+<p>There is a whole ton of work building on top of DQN:</p>
+<ul>
+<li>Double DQN [12] ($\Delta w = \alpha [R_{t+1} + \gamma Q(S_{t+1}, \mathop{argmax}_a Q(S_{t+1}, a; w); w^{-}) - Q(S_t, A_t; w)] \nabla_w Q(S_t, A_t; w)$ helps to fight overestimation via decorrelating selection and evaluation)</li>
+<li>Prioritised replay [13] (sample the transitions based on the absolute Bellman error $|r+\gamma \max_{a'}Q(s', a', w^{-} - Q(s, a; \theta))|$)</li>
+<li>Dueling Networks [14] $Q(s,a) = V(s) + A(s,a) - \frac{1}{\mathcal{A}}\sum_{a=1}^{\mathcal{A}}{A(s,a)}$</li>
+<li>Asynchronous updates [10]</li>
+<li>Adaptive normalisation of values [15]</li>
+<li>Better exploration [16,17,18]</li>
+<li>...</li>
+</ul>
+<p>One guy asked about error bars in RL papers. Hado answered, that's it's too much compute to do x_X. Later the guy asks whether they take the best seed or not. My hero.</p>
+<p>Hado gives quite good practical advice that might sound simple, but that's still very powerful:</p>
+<ul>
+<li>Be aware of the properties of your learning algorithms</li>
+<li>Track and analyse statistics</li>
+<li>If you understand what the problem is, a solution is sometimes very simple</li>
+</ul>
+<p>The lecture is great for lots of DQN insights. Must watch if you want to build upon. The slide deck has also information on policy gradient methods and a bit on AlphaGo, but due to the lack of time, it was not covered in the lecture with an exception of a short slide on the A3C paper.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Deep-Control,-Nando-de-Freitas">Deep Control, <em>Nando de Freitas</em><a class="anchor-link" href="#Deep-Control,-Nando-de-Freitas">&#182;</a></h2><p><em>No slides yet</em> |<em><a href="http://videolectures.net/deeplearning2017_de_freitas_deep_control/">Video</a></em></p>
 <p><strong>TBD</strong></p>
 <h2 id="Theory-of-RL,-Csaba-Szepesvári">Theory of RL, <em>Csaba Szepesv&#225;ri</em><a class="anchor-link" href="#Theory-of-RL,-Csaba-Szepesvári">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137923/deeplearning2017_szepesvari_theory_of_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_szepesvari_theory_of_rl/">Video</a></em></p>
@@ -1545,6 +1587,16 @@ $S_0, A_0, R_1, S_1$ are the state, action and reward respectively. $R_1$ means 
 <p>[9] Kober, Jens, and Jan R. Peters. "Policy search for motor primitives in robotics." In Advances in neural information processing systems, pp. 849-856. 2009, <a href="http://papers.nips.cc/paper/3545-policy-search-for-motor-primitives-in-robotics">link</a>.</p>
 <p>[10] Mnih, Volodymyr, Adria Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu. "Asynchronous methods for deep reinforcement learning." In International Conference on Machine Learning, pp. 1928-1937. 2016, <a href="http://proceedings.mlr.press/v48/mniha16.pdf">link</a>.</p>
 <p>[11] Schulman, John, Philipp Moritz, Sergey Levine, Michael Jordan, and Pieter Abbeel. "High-dimensional continuous control using generalized advantage estimation." arXiv preprint arXiv:1506.02438 (2015), <a href="https://arxiv.org/abs/1506.02438">link</a>.</p>
+<p>[12] Van Hasselt, Hado, Arthur Guez, and David Silver. "Deep Reinforcement Learning with Double Q-Learning." In AAAI, vol. 16, pp. 2094-2100. 2016, <a href="https://arxiv.org/abs/1509.06461">link</a>.</p>
+<p>[13] Schaul, Tom, John Quan, Ioannis Antonoglou, and David Silver. "Prioritized experience replay." arXiv preprint arXiv:1511.05952 (2015), <a href="https://arxiv.org/abs/1511.05952">link</a>.</p>
+<p>[14] Wang, Ziyu, Tom Schaul, Matteo Hessel, Hado Van Hasselt, Marc Lanctot, and Nando De Freitas. "Dueling network architectures for deep reinforcement learning." arXiv preprint arXiv:1511.06581 (2015), <a href="https://arxiv.org/abs/1511.06581">link</a>.</p>
+<p>[15] van Hasselt, Hado P., Arthur Guez, Matteo Hessel, Volodymyr Mnih, and David Silver. "Learning values across many orders of magnitude." In Advances in Neural Information Processing Systems, pp. 4287-4295. 2016, <a href="https://arxiv.org/abs/1602.07714">link</a>.</p>
+<p>[16] Ostrovski, Georg, Marc G. Bellemare, Aaron van den Oord, and Rémi Munos. "Count-based exploration with neural density models." arXiv preprint arXiv:1703.01310 (2017), <a href="https://arxiv.org/abs/1703.01310">link</a>.</p>
+<p>[17] Fortunato, Meire, Mohammad Gheshlaghi Azar, Bilal Piot, Jacob Menick, Ian Osband, Alex Graves, Vlad Mnih et al. "Noisy networks for exploration." arXiv preprint arXiv:1706.10295 (2017), <a href="https://arxiv.org/abs/1706.10295">link</a>.</p>
+<p>[18] Bellemare, Marc, Sriram Srinivasan, Georg Ostrovski, Tom Schaul, David Saxton, and Remi Munos. "Unifying count-based exploration and intrinsic motivation." In Advances in Neural Information Processing Systems, pp. 1471-1479. 2016, <a href="https://arxiv.org/abs/1606.01868">link</a>.</p>
+<p>[19] Watkins, Christopher JCH, and Peter Dayan. "Q-learning." Machine learning 8, no. 3-4 (1992): 279-292, <a href="https://link.springer.com/content/pdf/10.1007/BF00992698.pdf">link</a>.</p>
+<p>[20] Lin, Long-Ji. "Self-improving reactive agents based on reinforcement learning, planning and teaching." Machine learning 8, no. 3-4 (1992): 293-321, <a href="https://link.springer.com/content/pdf/10.1007%2FBF00992699.pdf">link</a>.</p>
+<p>[21] Mnih, Volodymyr, Koray Kavukcuoglu, David Silver, Andrei A. Rusu, Joel Veness, Marc G. Bellemare, Alex Graves et al. "Human-level control through deep reinforcement learning." Nature 518, no. 7540 (2015): 529, <a href="https://www.nature.com/articles/nature14236">link</a>.</p>
 
 </div>
 </div>
