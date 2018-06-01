@@ -2,12 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="" />
-
   <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
@@ -30,6 +24,12 @@
   ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
 
 <meta name="author" content="yobibyte" />
 <meta name="description" content="Hi! I have wanted to get into StarCraft research for a long time. Actually, right after I played StarCraft II for the first time. (I did not care about research when I tried the BroodWar at school =( ). Though, I have never done anything related apart from reading some papers on the topic." />
@@ -89,6 +89,10 @@
     </p>
   </header>
 
+
+    <div class="col-lg-3 hidden-xs hidden-sm">
+      <div id="toc"><ul><li><a class="toc-href" href="#" title="Ongoing survey on StarCraft research">Ongoing survey on StarCraft research</a><ul><li><a class="toc-href" href="#What-is-StarCraft" title="What is StarCraft&para;">What is StarCraft&para;</a></li><li><a class="toc-href" href="#Why-StarCraft-is-Hard?" title="Why StarCraft is Hard?&para;">Why StarCraft is Hard?&para;</a></li><li><a class="toc-href" href="#Findings" title="Findings&para;">Findings&para;</a></li><li><a class="toc-href" href="#StarCraft-I-research" title="StarCraft I research&para;">StarCraft I research&para;</a><ul><li><a class="toc-href" href="#The-Current-State-of-StarCraft-AI-Competitions-and-Bots-[10]" title="The Current State of StarCraft AI Competitions and Bots [10]&para;">The Current State of StarCraft AI Competitions and Bots [10]&para;</a></li></ul></li><li><a class="toc-href" href="#StarCraft-II-research_1" title="StarCraft II research&para;">StarCraft II research&para;</a><ul><li><a class="toc-href" href="#StarCraft-II:-A-New-Challenge-for-Reinforcement-Learning,-2017-[2],-code" title="StarCraft II: A New Challenge for Reinforcement Learning, 2017 [2], code&para;">StarCraft II: A New Challenge for Reinforcement Learning, 2017 [2], code&para;</a></li><li><a class="toc-href" href="#MSC:-A-Dataset-for-Macro-Management-in-StarCraft-II,-2017-[6],-code" title="MSC: A Dataset for Macro-Management in StarCraft II, 2017 [6], code&para;">MSC: A Dataset for Macro-Management in StarCraft II, 2017 [6], code&para;</a></li></ul></li><li><a class="toc-href" href="#Notation_1" title="Notation&para;">Notation&para;</a></li><li><a class="toc-href" href="#References" title="References&para;">References&para;</a></li></ul></li></ul></div>
+    </div>
 
   <div>
     <style type="text/css">/*!
@@ -248,7 +252,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -269,6 +272,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1006,10 +1014,8 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1020,11 +1026,9 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1063,72 +1067,73 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="pics/sc-research/scii.jpg" alt="http://www.misucell.com/data/out/10/IMG_444005.jpg"></p>
-
+<p><img alt="http://www.misucell.com/data/out/10/IMG_444005.jpg" src="pics/sc-research/scii.jpg"/></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Hi!</strong></p>
 <p>I have wanted to get into StarCraft research for a long time. Actually, right after I played StarCraft II for the first time. (I did not care about research when I tried the BroodWar at school =( ). Though, I have never done anything related apart from reading some papers on the topic.</p>
-<p>Now I feel like it’s the right time to start. What is the first step? Reading up! To make it more useful for myself and for the community, I’d like to summarize all the papers on the topic I read and make a kind of overview of what have been done already. I’ve read amazing surveys [1,2] on SCI research and consider them to be one of the best resources on the topic. However it’s kinda outdated and I would like to pick up the baton.</p>
-<p>I was thinking about writing a paper with the overview, but then decided to make it a blogpost. It’s much easier to update and make it an ongoing overview. It’s nice to have a possibility to add a new paper to the review several days after it’s published. I will start from StarCraft II, but will gradually add more work on the first version including the pioneering papers which were made by heroes who were not afraid of heavy engineering and hard hand labour (original AIIDE StarCraft competitions were run manually).</p>
-<p>I’ll start from high-level StarCraft description and then go into research. I will also put a small glossary at the bottom since the post is going to be really looooooong, and it will be handy to have the meaning of some abbreviations at one place.</p>
-<p>Let’s start our new journey! I plan to update the post around once a week, so, just drop by occasionally. And if you see something weird or you don’t see some paper worth mentioning, just drop me a <a href="vitaliykurin@gmail.com">line</a> or find me on <a href="https://twitter.com/y0b1byte">Twitter</a></p>
-
+<p>Now I feel like it&rsquo;s the right time to start. What is the first step? Reading up! To make it more useful for myself and for the community, I&rsquo;d like to summarize all the papers on the topic I read and make a kind of overview of what have been done already. I&rsquo;ve read amazing surveys [1,2] on SCI research and consider them to be one of the best resources on the topic. However it&rsquo;s kinda outdated and I would like to pick up the baton.</p>
+<p>I was thinking about writing a paper with the overview, but then decided to make it a blogpost. It&rsquo;s much easier to update and make it an ongoing overview. It&rsquo;s nice to have a possibility to add a new paper to the review several days after it&rsquo;s published. I will start from StarCraft II, but will gradually add more work on the first version including the pioneering papers which were made by heroes who were not afraid of heavy engineering and hard hand labour (original AIIDE StarCraft competitions were run manually).</p>
+<p>I&rsquo;ll start from high-level StarCraft description and then go into research. I will also put a small glossary at the bottom since the post is going to be really looooooong, and it will be handy to have the meaning of some abbreviations at one place.</p>
+<p>Let&rsquo;s start our new journey! I plan to update the post around once a week, so, just drop by occasionally. And if you see something weird or you don&rsquo;t see some paper worth mentioning, just drop me a <a href="vitaliykurin@gmail.com">line</a> or find me on <a href="https://twitter.com/y0b1byte">Twitter</a></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-StarCraft">What is StarCraft<a class="anchor-link" href="#What-is-StarCraft">&#182;</a></h2><p>StarCraft is an classical example of a Real-Time Strategy. The two opponents (in 1v1) are spawn on a map (the amount of spawn points is finite). They have to collect two type of resources: minerals and vespene gas, which can be spent on different units and upgrades for them. In order to build units one has to construct the production buildings and also upgrade them. The final goal of the game is to destroy all opponent's buildings.</p>
+<h2 id="What-is-StarCraft">What is StarCraft<a class="anchor-link" href="#What-is-StarCraft">&para;</a></h2><p>StarCraft is an classical example of a Real-Time Strategy. The two opponents (in 1v1) are spawn on a map (the amount of spawn points is finite). They have to collect two type of resources: minerals and vespene gas, which can be spent on different units and upgrades for them. In order to build units one has to construct the production buildings and also upgrade them. The final goal of the game is to destroy all opponent's buildings.</p>
 <p>A player can choose one of the three available races: Zergs (weak units, but <a href="https://www.youtube.com/watch?v=zfl279o_Cko">numerous</a>, Protoss (heavy tech, powerful, but slower to develop) or Terrans (somewhere in the middle). Amazingly, but in StarCraft the choose of race is important and predefines your strategy which can be also numerous for each of the races.</p>
 <p>Built-in AI opponents are based on hand-craffed rules. In order to make them more competitive, the hardest ones have more resources or better vision.</p>
 <p>The game is almost deterministic with some small exceptions which can be eliminated by fixing a random seed.</p>
-
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why-StarCraft-is-Hard?">Why StarCraft is Hard?<a class="anchor-link" href="#Why-StarCraft-is-Hard?">&#182;</a></h2><p>This section is mostly taken from [3].</p>
+<h2 id="Why-StarCraft-is-Hard?">Why StarCraft is Hard?<a class="anchor-link" href="#Why-StarCraft-is-Hard?">&para;</a></h2><p>This section is mostly taken from [3].</p>
 <p>SC is much harder than all our previous achievements in battling humans in computer games. There are several reasons for that.</p>
 <p>First of all, there are two levels of partial observability: the fog of war covers some map areas and we need to scout, moreover, the game screen shows only a part of the world and only some of our units can be seen on it simultaneously.</p>
 <p>Next, the state and action spaces are tremendous, amount of units in control might be higher than a hundred.</p>
 <p>Finally, the credit assignment problem is hard as never. You either win, lose, or there is a draw and, actions at early stages of the game have long-term consequences.</p>
-
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Findings">Findings<a class="anchor-link" href="#Findings">&#182;</a></h2><p>This is a list of things I thought about after reading all the papers mentioned below. Short summary of a survey</p>
+<h2 id="Findings">Findings<a class="anchor-link" href="#Findings">&para;</a></h2><p>This is a list of things I thought about after reading all the papers mentioned below. Short summary of a survey</p>
 <ul>
 <li>The game can be divided into three levels: macro-management (constructing the buildings, keeping the track of the game in general), tactics (mid-term decisions, <em>not sure if the second level is popular in SC literature yet</em>) and micro-control (controlling units during combat).</li>
 <li>Most SC-related RL research is focusing on reactive control (at least for now)</li>
 </ul>
-
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="StarCraft-I-research">StarCraft I research<a class="anchor-link" href="#StarCraft-I-research">&#182;</a></h2><h3 id="The-Current-State-of-StarCraft-AI-Competitions-and-Bots-[10]">The Current State of StarCraft AI Competitions and Bots [10]<a class="anchor-link" href="#The-Current-State-of-StarCraft-AI-Competitions-and-Bots-[10]">&#182;</a></h3><p><strong>TLDR;</strong></p>
+<h2 id="StarCraft-I-research">StarCraft I research<a class="anchor-link" href="#StarCraft-I-research">&para;</a></h2><h3 id="The-Current-State-of-StarCraft-AI-Competitions-and-Bots-[10]">The Current State of StarCraft AI Competitions and Bots [10]<a class="anchor-link" href="#The-Current-State-of-StarCraft-AI-Competitions-and-Bots-[10]">&para;</a></h3><p><strong>TLDR;</strong></p>
 <p>The authors give a brief introduction of the three main annual SC AI tournaments, mostly describing them from the organisational point of view. They also mention briefly the most interesting and active bots taking part in one of the three competitions.</p>
 <hr>
 <p>There are three major SCB AI tournaments:</p>
@@ -1215,7 +1220,7 @@ h6:hover .anchor-link {
 <li>own code for battle outcome prediction</li>
 <li>RNNs for high-level strategy and build order decisions</li>
 </ul>
-<p><strong>Václav Bayer</strong></p>
+<p><strong>V&aacute;clav Bayer</strong></p>
 <ul>
 <li>Q-learning for the build order</li>
 </ul>
@@ -1228,40 +1233,41 @@ h6:hover .anchor-link {
 <p>Unfortunately, there is no much information about the internals of each of the bots. Though, the paper briefly introduce 14 bots and gives a good start to get acquaint yourself with what's going on in SCB AI community.</p>
 <p>The most interesting finding for me was <em>LetaBot</em> and mentioning that it mines <a href="http://wiki.teamliquid.net/starcraft/Main_Page">Liquidpedia</a> for build orders. This reminded me another great paper [11], in which the authors learned to play Civilisation II using the official manual as the text guide. Looking forward for similar research in the near future!</p>
 <p>I also find the Zia's cloning opponent strategy behaviour really cool. Self-play in RL is currently popular, but I haven't seen using the opponents strategy in the LfD setup.</p>
-
+</hr></hr></div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="StarCraft-II-research">StarCraft II research<a class="anchor-link" href="#StarCraft-II-research">&#182;</a></h2><h3 id="StarCraft-II:-A-New-Challenge-for-Reinforcement-Learning,-2017-[2],-code">StarCraft II: A New Challenge for Reinforcement Learning, 2017 [2], <a href="https://github.com/deepmind/pysc2">code</a><a class="anchor-link" href="#StarCraft-II:-A-New-Challenge-for-Reinforcement-Learning,-2017-[2],-code">&#182;</a></h3><p><strong>TLDR;</strong></p>
+<h2 id="StarCraft-II-research_1">StarCraft II research<a class="anchor-link" href="#StarCraft-II-research">&para;</a></h2><h3 id="StarCraft-II:-A-New-Challenge-for-Reinforcement-Learning,-2017-[2],-code">StarCraft II: A New Challenge for Reinforcement Learning, 2017 [2], <a href="https://github.com/deepmind/pysc2">code</a><a class="anchor-link" href="#StarCraft-II:-A-New-Challenge-for-Reinforcement-Learning,-2017-[2],-code">&para;</a></h3><p><strong>TLDR;</strong></p>
 <p>The paper introduces the StarCraft II Learning Environment, the A3C baseline which is quite good for simplified tasks and fails miserably for the full version of the game. Currently, there is no possibility to do self-play, but DeepMind is working on it. The two companies also release the dataset of human replays that is planned to be hugely enlarged.
 <a href="https://deepmind.com/blog/deepmind-and-blizzard-open-starcraft-ii-ai-research-environment/">Announcement blogpost</a>.</p>
 <hr>
 <figure>
-  <img src="pics/sc-research/sc2le.jpg">
-  <figcaption><tt>Source: [3].</tt></figcaption>
-</figure><p>Right after Atari 2600 and Go success there started rumours about DeepMind working on StarCraft. The 2016 BlizzCon had unconventional for such an event guests: DeepMind. They announced the collaboration between the two companies and then calmed down for half a year. Finally, we can get our hands dirty and play with it. Everything is free, open and can be run under GNU/Linux even in headless mode! Let’s go to the release report.</p>
+<img src="pics/sc-research/sc2le.jpg">
+<figcaption><tt>Source: [3].</tt></figcaption>
+</img></figure><p>Right after Atari 2600 and Go success there started rumours about DeepMind working on StarCraft. The 2016 BlizzCon had unconventional for such an event guests: DeepMind. They announced the collaboration between the two companies and then calmed down for half a year. Finally, we can get our hands dirty and play with it. Everything is free, open and can be run under GNU/Linux even in headless mode! Let&rsquo;s go to the release report.</p>
 <p>Starcraft II Learning Environment (SC2LE) works as a usual RL env: an agent gets observations and the reward signal and has to take actions. One can choose to play via the raw API (BWAPI-like) or via the SCIIAPI that I will describe below.</p>
 <p>The feature space consists of spatial $N\times M$ feature maps (e.g. fog of war of height maps) and non-spatial features such as the amount of resources or available set of actions (action set depends on the current state). Spatial features are of two types: either for minimap or for the actual screen. 
 Currently, there is no possibility to play from RGB, but it will be added in the future. But, to be honest, in my opinion, we are still far from beating even the built-in AI agent from raw features. You can find more on features <a href="https://github.com/deepmind/pysc2/blob/master/docs/environment.md">here</a>. The whole picture looks something like this:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-fKUyT14G-8?rel=0" frameborder="0" allowfullscreen></iframe><p>The two companies release a set of mini-games that were used during development as unit tests (integration tests, right? ;)). They can also be used for training some aspects of our agents: e.g. collecting resources, building the army or moving a unit to a beakon. One can build a new mini-game using the map editor.</p>
+<p><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/-fKUyT14G-8?rel=0" width="560"></iframe></p>
+<p>The two companies release a set of mini-games that were used during development as unit tests (integration tests, right? ;)). They can also be used for training some aspects of our agents: e.g. collecting resources, building the army or moving a unit to a beakon. One can build a new mini-game using the map editor.</p>
 <p>In contrast to the full version of the game, where the reward is the result of one game (1, -1 or 0 based on the outcome), mini-games have reward functions and we can easily apply our available RL approaches to them. And the authors do that, they code an A3C agent and show its performance on a variety of tasks. The agent is tested for three different architectures: Atari-net Agent (roughly, adaptation of DQN [5] architecture for the current task), FullyConv agent (to preserve the spatial structure of the input the state representation is a set of feature maps rather than a fully connected layer), and FullyConv LSTM Agent (previous + recurrence). The agent takes an action each 8-th frame (~180 APM, with human APM 30-300).</p>
 <p>The GrandMaster player baseline is still better, but for some of the tasks the A3C agent plays reasonably well. As the author note, even the mini-games pose interesting challenges to existing approaches.</p>
 <p>Though, the authors want to destroy a human SCII pro in a fair game, the environment is still a simplified version of the game. The actions are not the key presses or mouse clicks, but can be a combination of several actions: e.g. action 'select_rect()' instead of manually clicking and dragging a mouse. The simulation does not also happen in real time and an agent has an infinite amount of time to take a decision. In addition to the final 1/-1/0 reward signal, one can use the running Blizzard score which evaluates the player performance as the game progesses. Even having said that, we have to admit, that the problem is still at the border of intractability. Even in such a reduced mode, the action space is large: there are ~300 actions with 13 types of arguments. The A3C agent mentioned before is unable to beat even the easiest built-in AI agent and we're only at the beginning of our journey.</p>
 <p>Another amazing thing about this collaboration is that Blizzard is sitting on a whole shitload of human replay data which might be very very important for Learning from Demonstrations research. Currently, the dataset comprises ~65k replays, but is planned to be increased to &gt;500k soon.</p>
 <p>The paper mentiones using 800k for the supervised learning from replays. The authors report the results for the two experiments: value prediction (what is the outcome of the game?) and policy predictions (what is the next demonstrator's action?). Using replays for training an agent to play a game was not considered.</p>
-
+</hr></div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MSC:-A-Dataset-for-Macro-Management-in-StarCraft-II,-2017-[6],-code">MSC: A Dataset for Macro-Management in StarCraft II, 2017 [6], <a href="https://github.com/wuhuikai/msc">code</a><a class="anchor-link" href="#MSC:-A-Dataset-for-Macro-Management-in-StarCraft-II,-2017-[6],-code">&#182;</a></h3><p><strong>TLDR;</strong></p>
+<h3 id="MSC:-A-Dataset-for-Macro-Management-in-StarCraft-II,-2017-[6],-code">MSC: A Dataset for Macro-Management in StarCraft II, 2017 [6], <a href="https://github.com/wuhuikai/msc">code</a><a class="anchor-link" href="#MSC:-A-Dataset-for-Macro-Management-in-StarCraft-II,-2017-[6],-code">&para;</a></h3><p><strong>TLDR;</strong></p>
 <p>Macro-management in SC is hard. Available datasets are either too small/not diverse or not standartized. The authors take the dataset from [3] (65k for now, 800k replays soon) and make a dataset for learning macro-management tasks. They hope, the dataset will be a benchmark for such kind of problems and present initial baseline results for global state evaluation and build order prediction tasks.</p>
 <hr>
 <p>Playing SC end-to-end is unfeasible (at least for now), [3] shows that. Hierarchical approach looks like a promising candidate for reducing the complexity by breaking the task down into easier subproblems. <em>This goes in line with [3] which release a set of mini-games, each of which might be a block of a SC agent</em>.</p>
@@ -1287,30 +1293,30 @@ Currently, there is no possibility to play from RGB, but it will be added in the
 <p>Apart from analysing the dataset, and discussing its potential use cases, the authors also present the baselines for global state evaluation and build order prediction. The first is prediction an outcome of the game, starting at the particular state: predicting the probability of winning, given the current state. Since we don't have access to the state, but only observations, $p(win|s_t) \sim p(win|o_1,o_2, ... , o_t)$, where $s_t$ is the state at the time $t$ and $o_i$ is the observation for the time step $i$.</p>
 <p>They use GRUs for the state evaluation and achieve $\sim60\%$ accuracy. I don't get it though, what are the reported numbers. As the authors note, the accuracy is very low at the beggining, but gets better as long as the game progresses ($75\%-100\%$ at the end of the game). But what is in the tables? The authors don't say much about the Build Order Prediction task either. This looks very strage in the light of the claim, that the reported numbers are expected to be baselines for these tasks in SCII.</p>
 <p>There are some other moments I don't like about the papers. For instance, the authors claim splitting into train/valid/test as one of the cool advantages about the data. That's useful, but it is not something extraordinary. Sometimes, from my point of view, the authors put something into the paper just to put it there (e.g. Algorithm 2). But in general, having another great dataset that is easy and ready for use is amazing. Hope to see more use cases soon.</p>
-
+</hr></div>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Notation">Notation<a class="anchor-link" href="#Notation">&#182;</a></h2><ul>
-<li><strong>SCI</strong>, <strong>SCB</strong>, <strong>SCII</strong> – StarCraft I, Starcraft: Broodwar, Starcraft II</li>
-<li><strong>SC</strong> – StarCraft, I use this abbreviation when the distinction is not significant</li>
-<li><strong>RL</strong> – Reinforcement Learning</li>
-<li><strong>LfD</strong> – Learning from Demonstrations </li>
-<li><em>some italic text</em> – my remarks, not author's opinion</li>
+<h2 id="Notation_1">Notation<a class="anchor-link" href="#Notation">&para;</a></h2><ul>
+<li><strong>SCI</strong>, <strong>SCB</strong>, <strong>SCII</strong> &ndash; StarCraft I, Starcraft: Broodwar, Starcraft II</li>
+<li><strong>SC</strong> &ndash; StarCraft, I use this abbreviation when the distinction is not significant</li>
+<li><strong>RL</strong> &ndash; Reinforcement Learning</li>
+<li><strong>LfD</strong> &ndash; Learning from Demonstrations </li>
+<li><em>some italic text</em> &ndash; my remarks, not author's opinion</li>
 </ul>
-
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><p>[1] Ontanón, Santiago, Gabriel Synnaeve, Alberto Uriarte, Florian Richoux, David Churchill, and Mike Preuss. "A survey of real-time strategy game ai research and competition in starcraft." IEEE Transactions on Computational Intelligence and AI in games 5, no. 4 (2013): 293-311, <a href="http://ieeexplore.ieee.org/abstract/document/6637024/">link</a>.</p>
+<h2 id="References">References<a class="anchor-link" href="#References">&para;</a></h2><p>[1] Ontan&oacute;n, Santiago, Gabriel Synnaeve, Alberto Uriarte, Florian Richoux, David Churchill, and Mike Preuss. "A survey of real-time strategy game ai research and competition in starcraft." IEEE Transactions on Computational Intelligence and AI in games 5, no. 4 (2013): 293-311, <a href="http://ieeexplore.ieee.org/abstract/document/6637024/">link</a>.</p>
 <p>[2] Robertson, Glen, and Ian Watson. "A review of real-time strategy game AI." AI Magazine 35, no. 4 (2014): 75-104, <a href="https://www.aaai.org/ojs/index.php/aimagazine/article/view/2478">link</a>.</p>
 <p>[3] Vinyals, Oriol, Timo Ewalds, Sergey Bartunov, Petko Georgiev, Alexander Sasha Vezhnevets, Michelle Yeo, Alireza Makhzani et al. "StarCraft II: A New Challenge for Reinforcement Learning." arXiv preprint arXiv:1708.04782 (2017), <a href="https://arxiv.org/abs/1708.04782">link</a>.</p>
 <p>[4] Mnih, Volodymyr, Adria Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu. "Asynchronous methods for deep reinforcement learning." In International Conference on Machine Learning, pp. 1928-1937. 2016, <a href="http://proceedings.mlr.press/v48/mniha16.pdf">link</a>.</p>
@@ -1319,18 +1325,14 @@ Currently, there is no possibility to play from RGB, but it will be added in the
 <p>[7] Cho, Ho-Chul, Kyung-Joong Kim, and Sung-Bae Cho. "Replay-based strategy prediction and build order adaptation for StarCraft AI bots." In Computational Intelligence in Games (CIG), 2013 IEEE Conference on, pp. 1-7. IEEE, 2013, <a href="https://cilab.sejong.ac.kr/home/lib/exe/fetch.php?media=public:paper:cig_2013.pdf">link</a>.</p>
 <p>[8] Erickson, Graham Kurtis Stephen, and Michael Buro. "Global State Evaluation in StarCraft." In AIIDE. 2014, <a href="https://www.aaai.org/ocs/index.php/AIIDE/AIIDE14/paper/viewFile/8996/8936">link</a>.</p>
 <p>[9] Justesen, Niels, and Sebastian Risi. "Learning macromanagement in starcraft from replays using deep learning." arXiv preprint arXiv:1707.03743 (2017), <a href="https://arxiv.org/abs/1707.03743">link</a>.</p>
-<p>[10]  Čertický, Michal and Churchil, David. "The Current State of StarCraft AI Competitions and Bots, 2017",<a href="http://agents.fel.cvut.cz/~certicky/files/publications/aiide17-certicky-churchill.pdf">link</a>.</p>
+<p>[10]  Čertick&yacute;, Michal and Churchil, David. "The Current State of StarCraft AI Competitions and Bots, 2017",<a href="http://agents.fel.cvut.cz/~certicky/files/publications/aiide17-certicky-churchill.pdf">link</a>.</p>
 <p>[11] Branavan, S. R. K., David Silver, and Regina Barzilay. "Learning to win by reading manuals in a Monte-Carlo framework." Journal of Artificial Intelligence Research 43 (2012): 661-704, <a href="http://www.jair.org/papers/paper3484.html">link</a>.</p>
-<p>[12] Synnaeve, Gabriel, Nantas Nardelli, Alex Auvolat, Soumith Chintala, Timothée Lacroix, Zeming Lin, Florian Richoux, and Nicolas Usunier. "TorchCraft: a Library for Machine Learning Research on Real-Time Strategy Games." arXiv preprint arXiv:1611.00625 (2016), <a href="https://arxiv.org/abs/1611.00625">link</a>.</p>
-<p>[13] Tavares, Anderson, Hector Azpúrua, Amanda Santos, and Luiz Chaimowicz. "Rock, Paper, StarCraft: Strategy Selection in Real-Time Strategy Games." In 12th Artificial Intelligence and Interactive Digital Entertainment Conference (AIIDE), pp. 93-99. 2016, <a href="http://www.aaai.org/ocs/index.php/AIIDE/AIIDE16/paper/download/13998/13600">link</a>.</p>
-<p>[14] Garćıa-Sánchez, Pablo, Alberto Tonda, Antonio M. Mora, Giovanni Squillero, and J. J. Merelo. "Towards automatic StarCraft strategy generation using genetic programming." In Computational Intelligence and Games (CIG), 2015 IEEE Conference on, pp. 284-291. IEEE, 2015, <a href="http://ieeexplore.ieee.org/abstract/document/7317940/">link</a>.</p>
-
+<p>[12] Synnaeve, Gabriel, Nantas Nardelli, Alex Auvolat, Soumith Chintala, Timoth&eacute;e Lacroix, Zeming Lin, Florian Richoux, and Nicolas Usunier. "TorchCraft: a Library for Machine Learning Research on Real-Time Strategy Games." arXiv preprint arXiv:1611.00625 (2016), <a href="https://arxiv.org/abs/1611.00625">link</a>.</p>
+<p>[13] Tavares, Anderson, Hector Azp&uacute;rua, Amanda Santos, and Luiz Chaimowicz. "Rock, Paper, StarCraft: Strategy Selection in Real-Time Strategy Games." In 12th Artificial Intelligence and Interactive Digital Entertainment Conference (AIIDE), pp. 93-99. 2016, <a href="http://www.aaai.org/ocs/index.php/AIIDE/AIIDE16/paper/download/13998/13600">link</a>.</p>
+<p>[14] Garćıa-S&aacute;nchez, Pablo, Alberto Tonda, Antonio M. Mora, Giovanni Squillero, and J. J. Merelo. "Towards automatic StarCraft strategy generation using genetic programming." In Computational Intelligence and Games (CIG), 2015 IEEE Conference on, pp. 284-291. IEEE, 2015, <a href="http://ieeexplore.ieee.org/abstract/document/7317940/">link</a>.</p>
 </div>
 </div>
 </div>
- 
-
-
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1368,6 +1370,7 @@ Currently, there is no possibility to play from RGB, but it will be added in the
 
 
 
+    <div class="addthis_relatedposts_inline">
 
 
 <!-- Disqus -->
