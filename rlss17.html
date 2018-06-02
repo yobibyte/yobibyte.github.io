@@ -1068,12 +1068,11 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Hi!</strong></p>
-<p><img src="pics/rlss/cake.jpg"></p>
+<p><img src="pics/rlss/cake.jpg"/></p>
 <p>I was rejected from <a href="https://mila.quebec/en/cours/deep-learning-summer-school-2017/">DLSS/RLSS</a> this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don't have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let's start!</p>
 <p>Sometimes, I tried to write my impression about the lectures or the related thoughts. Sometimes, the notes are the copypaste from the slides since I find this useful and it is nice to have all the stuff in one place.</p>
 <p>The sections go in their natural order as in the schedule. You can find the slides <a href="https://mila.umontreal.ca/en/cours/deep-learning-summer-school-2017/slides/">here</a> and the videos <a href="http://videolectures.net/deeplearning2017_montreal/">here</a>.</p>
 <p>If you see anything wrong or misunderstood, please, email <a href="vitaliykurin@gmail.com">me</a> or find me on <a href="@y0b1byte">twitter</a>.</p>
-
 </div>
 </div>
 </div>
@@ -1081,7 +1080,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">Reinforcement Learning: basic concepts, <em>Joelle Pineau</em><a class="anchor-link" href="#Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137927/deeplearning2017_pineau_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_pineau_reinforcement_learning/">Video</a></em></p>
+<h2 id="Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">Reinforcement Learning: basic concepts, <em>Joelle Pineau</em><a class="anchor-link" href="#Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137927/deeplearning2017_pineau_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_pineau_reinforcement_learning/">Video</a></em></p>
 <p>The best introduction to RL I have seen so far. Heavily recommended. Even if you already know some stuff, it will be useful for you to have a more or less whole picture of the basics.</p>
 <p>In a short introduction, Joelle Pineau mentions the recent applications of RL found in <a href="http://rldm.org/rldm2017/">RLDM 2017</a> submissions:</p>
 <ul>
@@ -1232,7 +1231,6 @@ But the community moves further and further to the fact, that $\gamma$ is a hype
 There were no literature pointers in the lecture, but I wrote an email, and Joelle sent me the link [2].</p>
 <p>The lecture is over, if you want to know more, either continue to read or find more awesome resources <a href="https://github.com/aikorea/awesome-rl">here</a>.
 As for me, I want to add, that the lecture is great not only because of summarizing the basics of RL, but also giving some intuitions which help to understand the concepts better.</p>
-
 </div>
 </div>
 </div>
@@ -1240,7 +1238,7 @@ As for me, I want to add, that the lecture is great not only because of summariz
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Policy-Search-for-RL,-Pieter-Abbeel">Policy Search for RL, <em>Pieter Abbeel</em><a class="anchor-link" href="#Policy-Search-for-RL,-Pieter-Abbeel">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137919/deeplearning2017_abbeel_policy_search_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_abbeel_policy_search/">Video</a></em></p>
+<h2 id="Policy-Search-for-RL,-Pieter-Abbeel">Policy Search for RL, <em>Pieter Abbeel</em><a class="anchor-link" href="#Policy-Search-for-RL,-Pieter-Abbeel">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137919/deeplearning2017_abbeel_policy_search_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_abbeel_policy_search/">Video</a></em></p>
 <p>Okay, let's move to Policy Gradient methods with Peter Abbeel.</p>
 <p>Policy $\pi$ is mapping from states to actions: $\pi(\cdot;\theta): \mathbb{S} \rightarrow \mathbb{A}$, where $\theta$ parametrises the policy.
 And RL problem is to find a policy which maximises the total expected return $\max_{\theta}\mathbb{E}\sum_{t=0}^{H}{R(s_t)|\pi_{\theta}}$
@@ -1254,9 +1252,9 @@ Why policy optimisation then?</p>
 <li>learning $Q$ is hard for continuous/high-dimensional action spaces (how solve $argmax_u{Q_{\theta}(s,u)}$</li>
 </ul>
 <p>Below you can see a classiication of these methods.</p>
-<p><img src="pics/rlss/rlss_abbeel_classification.png"></p>
-<h2 id="Model-based-approach">Model based approach<a class="anchor-link" href="#Model-based-approach">&#182;</a></h2><p>We start from the model-based approach. The MDP for the setting is on the picture.</p>
-<p><img src="pics/rlss/rlss_abbeel_graph.png"></p>
+<p><img src="pics/rlss/rlss_abbeel_classification.png"/></p>
+<h3 id="Model-based-approach">Model based approach<a class="anchor-link" href="#Model-based-approach">&para;</a></h3><p>We start from the model-based approach. The MDP for the setting is on the picture.</p>
+<p><img src="pics/rlss/rlss_abbeel_graph.png"/></p>
 <p>Okay, what is the setting here? $r_t = R(s_t), u_t = \pi_{\theta}(s_t), s_{t+1}=f(s_t, u_t)$, where $u_t$ is named after 'upravlenie', the word for 'control' in Russian. And the assumptions is that the transition function $f$ is know, deterministic and differentiable, reward $r$ is know, deterministic and differentiable, policy $\pi$ is (<em>known???</em>), deterministic and differentiable.</p>
 <p>The goal, again, is to maximise the total utility (don't like abusing the notation by taking capital $U$ for utility and $u_t$ for policy, but I live it as it is in the lecture):</p>
 <p>$\max_{\theta}{U(\theta)} = \max_{\theta}\mathbb{E}[\sum_{t=0}^{H}{r_t}|\pi_0]$</p>
@@ -1271,7 +1269,6 @@ That's true, that we need to sample more rollouts to reduce the variance, but no
 Computational graph will just have additional inputs $\omega_0, \omega_1, ..., \omega_k$
 We can apply exactly the same trick to both reward function and policy.</p>
 <p>The whole idea in pseudocode looks like this:</p>
-
 </div>
 </div>
 </div>
@@ -1279,7 +1276,7 @@ We can apply exactly the same trick to both reward function and policy.</p>
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="nb">iter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
     <span class="k">for</span> <span class="n">rollout</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
         <span class="n">sample</span> <span class="n">s0</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="o">...</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">z1</span><span class="o">...</span> <span class="c1"># w_i is dynamics noise, v_i is policy noise, z_i is reward noise</span>
@@ -1288,11 +1285,9 @@ We can apply exactly the same trick to both reward function and policy.</p>
     <span class="n">average</span> <span class="n">gradients</span>
     <span class="n">take</span> <span class="n">gradient</span> <span class="n">step</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -1303,11 +1298,11 @@ We can apply exactly the same trick to both reward function and policy.</p>
 Stochastic Value Gradients (SVG) [3] of different flavours (SVG($\infty$), SVG(1), SVG(0)-&gt;(D)DPG [4,5])  is one of the success stories.
 DDPG uses DQN features as replay memory and using target net to improve stability:
 $\hat{Q}_t = r_t + \gamma Q_{\phi'}(s_{t+1}, \pi_{\theta'}(s_{t+1}))$, where $Q_{\phi'}$ is the Polyak-averaged target function (averaged weights along several weight updates).</p>
-<h2 id="Model-free-approach">Model free approach<a class="anchor-link" href="#Model-free-approach">&#182;</a></h2><p>What are the assumptions here?
+<h3 id="Model-free-approach">Model free approach<a class="anchor-link" href="#Model-free-approach">&para;</a></h3><p>What are the assumptions here?
 It turns out that there is less assumptions in comparison to the previous section. 
 There are no assumptions for the transition function as well as for the reward.
 Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
-<h3 id="Finite-Difference-method">Finite Difference method<a class="anchor-link" href="#Finite-Difference-method">&#182;</a></h3><p>$\frac{\partial U}{\partial \theta_i} = \frac{U(\theta+\epsilon_je_j) + U(\theta-\epsilon_je_j)}{2\epsilon}$, where $e_j$ is the one hot encoding of the parameter vector index $\begin{align}
+<h4 id="Finite-Difference-method">Finite Difference method<a class="anchor-link" href="#Finite-Difference-method">&para;</a></h4><p>$\frac{\partial U}{\partial \theta_i} = \frac{U(\theta+\epsilon_je_j) + U(\theta-\epsilon_je_j)}{2\epsilon}$, where $e_j$ is the one hot encoding of the parameter vector index $\begin{align}
     e_j &amp;= \begin{bmatrix}
            0 \\
            0 \\
@@ -1317,9 +1312,8 @@ Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
          \end{bmatrix}
   \end{align}$, where (1 is for $j$-th entry)</p>
 <p>Estimate the gradient via <a href="https://en.wikipedia.org/wiki/Finite_difference_method">finite differences</a>. Be careful! The noise for positive and negative perturbations should be the same!</p>
-<h3 id="Cross-Entropy-Method">Cross-Entropy Method<a class="anchor-link" href="#Cross-Entropy-Method">&#182;</a></h3><p>Optimise the same objective (expected sum of rewards along the rollout), but consider $U$ to be a black box and ignore all the other information other than U collected during an episode.</p>
+<h4 id="Cross-Entropy-Method">Cross-Entropy Method<a class="anchor-link" href="#Cross-Entropy-Method">&para;</a></h4><p>Optimise the same objective (expected sum of rewards along the rollout), but consider $U$ to be a black box and ignore all the other information other than U collected during an episode.</p>
 <p>This is an evolutionary algorithm which works as follows:</p>
-
 </div>
 </div>
 </div>
@@ -1327,7 +1321,7 @@ Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">disr_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
 <span class="k">for</span> <span class="nb">iter</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span>
     <span class="n">curr_utility</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
@@ -1341,11 +1335,9 @@ Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
     <span class="c1"># logprob is for the distribution wi</span>
     <span class="n">new_mean</span> <span class="o">=</span> <span class="n">argmax</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">logprob</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">e</span><span class="p">])))</span> 
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -1360,8 +1352,8 @@ Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
 <li>PoWER [9]</li>
 </ul>
 <p>If you have a lot of compute and do not care about sample efficiency (e.g. in cheap simulation), the methods are great.
-It turns out, that since we can easy to parallelise them, they will be the fastest in terms of the wall time Salimans, Ho, Sutskever, 2017 <reference>.</p>
-<h2 id="Likelihood-Ratio-Policy-Gradients">Likelihood Ratio Policy Gradients<a class="anchor-link" href="#Likelihood-Ratio-Policy-Gradients">&#182;</a></h2><p>Usually, when somebody is talking about PG, they are talking about Likelihood Ratio PG. 
+It turns out, that since we can easy to parallelise them, they will be the fastest in terms of the wall time Salimans, Ho, Sutskever, 2017 <reference>.</reference></p>
+<h4 id="Likelihood-Ratio-Policy-Gradients">Likelihood Ratio Policy Gradients<a class="anchor-link" href="#Likelihood-Ratio-Policy-Gradients">&para;</a></h4><p>Usually, when somebody is talking about PG, they are talking about Likelihood Ratio PG. 
 We modify the notation a bit to reduce clutter.
 $\tau$ is the trajectory which includes all the state/actions for one particular rollout: $s_0, u_0, ..., s_h, u_h$.
 $R(\tau) = \sum_{t=0}^{H}R(s_t, u_t)$.
@@ -1385,7 +1377,7 @@ They do not try to change the paths, this is important (in contrast to path deri
 <p>Magic again! No transition model required!!!</p>
 <p>As a result of all above, $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)R(\tau^{(i)})$ is an unbiase estimate of the true gradient, i.e. $\mathbb{E}[\hat{g}] = \nabla_{\theta}U(\theta)$.</p>
 <p>A caveat here is that when $R &gt; 0$, our method will try to increase the probabilities of all paths. 
-But we want to increase the probabilities only the best ones.<br>
+But we want to increase the probabilities only the best ones.<br/>
 Let's introduce the baseline, which, intuitively, will try to tell us whether we're doing better than average or not.</p>
 <p>Baseline is something we deduce from our trajectory return when estimating the gradient: $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)(R(\tau^{(i)}) - b))$.
 One can show, that introducing a (<em>some particular</em>) baselines does not bias our gradient estimate.
@@ -1397,7 +1389,6 @@ Let's make an action influence only future rewards by changing the summation ind
 <p>What's a good choice for $b$ in this setting?
 Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ looks like a good option.</p>
 <p>You can find the whole 'vanilla' PG pseudocode below</p>
-
 </div>
 </div>
 </div>
@@ -1405,7 +1396,7 @@ Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ 
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Initialize</span> <span class="n">policy</span> <span class="n">parameter</span> <span class="n">theta</span><span class="p">,</span> <span class="n">baseline</span> <span class="n">b</span>
 <span class="k">for</span> <span class="n">iteration</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">...</span> <span class="n">do</span>
     <span class="n">Collect</span> <span class="n">a</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">trajectories</span> <span class="n">by</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">current</span> <span class="n">policy</span>
@@ -1415,11 +1406,9 @@ Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ 
     <span class="n">Re</span><span class="o">-</span><span class="n">fit</span> <span class="n">the</span> <span class="n">baseline</span><span class="p">,</span> <span class="n">by</span> <span class="n">minimising</span> <span class="n">square</span> <span class="n">norm</span> <span class="n">of</span> <span class="n">b</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">R_t</span> <span class="n">summed</span> <span class="n">over</span> <span class="nb">all</span> <span class="n">trajs</span> <span class="ow">and</span> <span class="n">time</span> <span class="n">steps</span>
     <span class="n">Update</span> <span class="n">the</span> <span class="n">policy</span><span class="p">,</span> <span class="n">using</span> <span class="n">a</span> <span class="n">policy</span> <span class="n">gradient</span> <span class="n">estimate</span> <span class="n">g_hat</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">the</span> <span class="nb">sum</span> <span class="n">of</span> <span class="n">grad</span><span class="p">(</span><span class="n">logprob</span><span class="p">(</span><span class="n">a_t</span><span class="o">|</span><span class="n">s_t</span><span class="p">)</span><span class="o">*</span><span class="n">advantage</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -1454,7 +1443,6 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
 <li><a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">COMPM050/COMPGI13 Reinforcement Learning (UCL)</a> by David Silver</li>
 <li><a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Deep RL Bootcamp, Berkeley, CA (August 26-27)</a></li>
 </ul>
-
 </div>
 </div>
 </div>
@@ -1462,7 +1450,7 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="TD-Learning,-Richard-Sutton">TD Learning, <em>Richard Sutton</em><a class="anchor-link" href="#TD-Learning,-Richard-Sutton">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137922/deeplearning2017_sutton_td_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_sutton_td_learning/">Video</a></em></p>
+<h2 id="TD-Learning,-Richard-Sutton_2">TD Learning, <em>Richard Sutton</em><a class="anchor-link" href="#TD-Learning,-Richard-Sutton">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137922/deeplearning2017_sutton_td_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_sutton_td_learning/">Video</a></em></p>
 <p>This is not only a lecture on temporal-difference (TD) methods but a commencement speech for those who are entering the field.
 In the beginning, Rich is pondering about what's the ultimate solution to AI.
 He says that the method should scale as the amount of compute grows.
@@ -1490,7 +1478,7 @@ $S_0, A_0, R_1, S_1$ are the state, action and reward respectively. $R_1$ means 
 <p>TD is cool because it bootstraps and samples. Computationally, TD is also cool since it can be fully incremental and allows you to learn as you go without waiting for the final outcome.</p>
 <p>Then goes the random walk example and another didactic example when MC fails (minimising the mean-square error) and TD wins (doing certainty-equivalence estimate): MC methods are better on the history, but have a higher error on future data.</p>
 <p>The relationship between all the methods can be seen at the "Unified View" picture:</p>
-<p><img src="pics/rlss/unified.png"></p>
+<p><img src="pics/rlss/unified.png"/></p>
 <p>All right, we go from the state-value function $V(S)$ to the action-value function $Q(S_t,A_t)$.</p>
 <ul>
 <li>For SARSA it's $Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)]$.</li>
@@ -1506,7 +1494,6 @@ $S_0, A_0, R_1, S_1$ are the state, action and reward respectively. $R_1$ means 
 <li>Predicting something other than reward, e.g. Horde, Unreal, options</li>
 </ul>
 <p>This is the most unusual lecture on RL I've seen so far. Prof. Sutton looks so excited about the stuff he's doing so that I envy him sometimes =) There is a lot of personal opinion going on, but in general it's a great and interesting lecture.</p>
-
 </div>
 </div>
 </div>
@@ -1514,7 +1501,7 @@ $S_0, A_0, R_1, S_1$ are the state, action and reward respectively. $R_1$ means 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Deep-Reinforcement-Learning,-Hado-van-Hasselt">Deep Reinforcement Learning, <em>Hado van Hasselt</em><a class="anchor-link" href="#Deep-Reinforcement-Learning,-Hado-van-Hasselt">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137918/deeplearning2017_van_hasselt_deep_reinforcement_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_van_hasselt_deep_reinforcement/">Video</a></em></p>
+<h2 id="Deep-Reinforcement-Learning,-Hado-van-Hasselt">Deep Reinforcement Learning, <em>Hado van Hasselt</em><a class="anchor-link" href="#Deep-Reinforcement-Learning,-Hado-van-Hasselt">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137918/deeplearning2017_van_hasselt_deep_reinforcement_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_van_hasselt_deep_reinforcement/">Video</a></em></p>
 <p>Hado starts from the big picture.
 AI revolution is coming: you do not need to come up with the solution to the problem. 
 Let AI discover it for you.
@@ -1550,7 +1537,6 @@ The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(
 <li>If you understand what the problem is, a solution is sometimes very simple</li>
 </ul>
 <p>The lecture is great for lots of DQN insights. Must watch if you want to build upon. The slide deck has also information on policy gradient methods and a bit on AlphaGo, but due to the lack of time, it was not covered in the lecture with an exception of a short slide on the A3C paper.</p>
-
 </div>
 </div>
 </div>
@@ -1558,9 +1544,53 @@ The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Deep-Control,-Nando-de-Freitas">Deep Control, <em>Nando de Freitas</em><a class="anchor-link" href="#Deep-Control,-Nando-de-Freitas">&#182;</a></h2><p><em>No slides</em> |<em><a href="http://videolectures.net/deeplearning2017_de_freitas_deep_control/">Video</a></em></p>
-<p><strong>TBD</strong></p>
-
+<h2 id="Deep-Control,-Nando-de-Freitas">Deep Control, <em>Nando de Freitas</em><a class="anchor-link" href="#Deep-Control,-Nando-de-Freitas">&para;</a></h2><p><em>No slides</em> |<em><a href="http://videolectures.net/deeplearning2017_de_freitas_deep_control/">Video</a></em></p>
+<p>This lecture has no slide deck provided, so, there will be no formulas and mostly a general description of what's going on.</p>
+<p>Let's say you have all these fancy algorithms introduced in the previous talks. 
+What can you do with them in real life?
+Nando de Freitas tries to answer these questions.</p>
+<p>His first postulate is the following.
+If you want to successfully operate in the environment around you, you need to understand how it works.
+You need to know the physics of the environment.
+That's true, it is hard to learn physics. 
+A good physics simulator is extremely hard to build.
+However, physics allows to transfer.
+Physics is something that works anywhere in the same manner.</p>
+<p>When people learn, they continuously experience the flow of rewards of all kind.
+Rewards are everywhere.
+How can you come up with all the rewards for our agents?
+One possible way to convey the reward in an implicit manner is to imitate a demonstrator.</p>
+<p>Nando will give some pointers later on, but he decides to go with the second option first: using the language (by language here he means a formal language).
+The language should be grounded, i.e. an agent should understand what words mean with respect to the real world events.
+An additional perk of having a language in the model lies in the interpretability.
+We can look into the network's internals as Nando claims and understand how the agent perceives the scene.</p>
+<p>Programmable Agents [23] is an example of the approach discussed above.
+The authors build an RL agent capable of executing declarative programs specified in a formal language.
+<em>OR(HAND, AND(RED, CUBE))</em> is an example of such a program.
+One of the coolest points about the paper is that it learns disentangled representations of the object properties in the world. 
+Right now if we take an RL agent trained in one environment and change the background colour, this is more likely to screw everything.</p>
+<p>Although it's still the beginning, this paper tries to tackle this flaw and succeeds up to some point.
+Programmable agents are okay with interpolating between known properties, but if you add a completely new property, they struggle to generalise.
+If an agent saw red sphere and blue cube, it will be okay with blue sphere even if it hasn't seen it.
+But if the agent hasn't seen a property before, he will be in trouble.</p>
+<p>The next interesting moment: the more a human learns, the faster it develops.
+Maybe we should look at transfer/solving multiple problems more?
+[27] is one of the papers in this approach combining it with hierarchies.
+Nando gives an example of quite an unusual approach to learning multiple things at a time [22]: learn more when solving your problem, don't ignore additional (maybe artificial) reward information when you learn. 
+An UNREAL agent takes an additional effort to learn how to maximise the pixel change in the input, predict the reward etc:</p>
+<p><img src="pics/rlss/unreal.png"/></p>
+<p>Imitation is the final topic Nando de Freitas reviews.
+Why do we want to imitate?
+It allows us to do exploration in a smart way.
+Behaviour cloning is good unless you shift from the data distribution which ends up with disastrous consequences.
+Papers like [25, 26] are aimed to mitigate these consequences.
+[28] combines imitation with multitask learning idea Nando mentioned earlier: "the more you try to learn, the better you are".</p>
+<p>Third Person Imitation Learning [24] is the final paper Nando mentions. 
+The main idea is that in the real world you always imitate someone you cannot get access to. 
+You look at your teacher, but when you perform the task, you do not control the teacher, you control the body. 
+And your experience is slightly different.
+The authors look at the problem of imitating from different perspective (different observation angle).</p>
+<p>For some reason, for me, the talk was extremely hard to follow. I don't get the general message apart from Nando de Freitas bringing our attention to learning physics, using language in RL, imitation learning and transfer. Maybe that was the idea: to have a look at the most interesting topics which are under heavy research right now. For those who got interested, the talk has a lot of references as well. Jump on the bandwagon!</p>
 </div>
 </div>
 </div>
@@ -1568,17 +1598,16 @@ The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Theory-of-RL,-Csaba-Szepesvári">Theory of RL, <em>Csaba Szepesv&#225;ri</em><a class="anchor-link" href="#Theory-of-RL,-Csaba-Szepesvári">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137923/deeplearning2017_szepesvari_theory_of_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_szepesvari_theory_of_rl/">Video</a></em></p>
+<h2 id="Theory-of-RL,-Csaba-Szepesv&aacute;ri">Theory of RL, <em>Csaba Szepesv&aacute;ri</em><a class="anchor-link" href="#Theory-of-RL,-Csaba-Szepesv&aacute;ri">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137923/deeplearning2017_szepesvari_theory_of_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_szepesvari_theory_of_rl/">Video</a></em></p>
 <p><strong>TBD</strong></p>
-<h2 id="Reinforcement-Learning,-Satinder-Singh">Reinforcement Learning, <em>Satinder Singh</em><a class="anchor-link" href="#Reinforcement-Learning,-Satinder-Singh">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1129741/deeplearning2017_singh_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_singh_reinforcement_learning/">Video</a></em></p>
+<h2 id="Reinforcement-Learning,-Satinder-Singh">Reinforcement Learning, <em>Satinder Singh</em><a class="anchor-link" href="#Reinforcement-Learning,-Satinder-Singh">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1129741/deeplearning2017_singh_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_singh_reinforcement_learning/">Video</a></em></p>
 <p><strong>TBD</strong></p>
-<h2 id="Safe-RL,--Philip-Thomas">Safe RL, <em> Philip Thomas</em><a class="anchor-link" href="#Safe-RL,--Philip-Thomas">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137917/deeplearning2017_thomas_safe_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_thomas_safe_rl/">Video</a></em></p>
+<h2 id="Safe-RL,--Philip-Thomas">Safe RL, <em> Philip Thomas</em><a class="anchor-link" href="#Safe-RL,--Philip-Thomas">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137917/deeplearning2017_thomas_safe_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_thomas_safe_rl/">Video</a></em></p>
 <p><strong>TBD</strong></p>
-<h2 id="Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">Applications of bandits and recommendation systems, <em> Nicolas Le Roux</em><a class="anchor-link" href="#Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Video</a></em></p>
+<h2 id="Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">Applications of bandits and recommendation systems, <em> Nicolas Le Roux</em><a class="anchor-link" href="#Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Video</a></em></p>
 <p><strong>TBD</strong></p>
-<h2 id="Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">Cooperative Visual Dialogue with Deep RL, <em>Dhruv Batra &amp; Devi Parikh</em><a class="anchor-link" href="#Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137915/deeplearning2017_parikh_batra_deep_rl.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_parikh_batra_deep_rl/">Video</a></em></p>
+<h2 id="Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">Cooperative Visual Dialogue with Deep RL, <em>Dhruv Batra &amp; Devi Parikh</em><a class="anchor-link" href="#Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137915/deeplearning2017_parikh_batra_deep_rl.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_parikh_batra_deep_rl/">Video</a></em></p>
 <p><strong>TBD</strong></p>
-
 </div>
 </div>
 </div>
@@ -1586,7 +1615,7 @@ The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2>
+<h2 id="References">References<a class="anchor-link" href="#References">&para;</a></h2>
 </div>
 </div>
 </div>
@@ -1601,7 +1630,7 @@ The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(
 <p>[5] Lillicrap, Timothy P., Jonathan J. Hunt, Alexander Pritzel, Nicolas Heess, Tom Erez, Yuval Tassa, David Silver, and Daan Wierstra. "Continuous control with deep reinforcement learning." arXiv preprint arXiv:1509.02971 (2015)., <a href="https://arxiv.org/abs/1509.02971">link</a></p>
 <p>[6] Hachiya, Hirotaka, Jan Peters, and Masashi Sugiyama. "Reward-weighted regression with sample reuse for direct policy search in reinforcement learning." Neural Computation 23, no. 11 (2011): 2798-2832, <a href="https://www.researchgate.net/profile/Jan_Peters4/publication/51580421_Reward-Weighted_Regression_with_Sample_Reuse_for_Direct_Policy_Search_in_Reinforcement_Learning/links/09e4150d71d59dbc1a000000/Reward-Weighted-Regression-with-Sample-Reuse-for-Direct-Policy-Search-in-Reinforcement-Learning.pdf">link</a>.</p>
 <p>[7] Theodorou, Evangelos, Jonas Buchli, and Stefan Schaal. "A generalized path integral control approach to reinforcement learning." Journal of Machine Learning Research 11, no. Nov (2010): 3137-3181, <a href="http://www.jmlr.org/papers/v11/theodorou10a.html">link</a>.</p>
-<p>[8] Hansen, Nikolaus, Sibylle D. Müller, and Petros Koumoutsakos. "Reducing the time complexity of the derandomized evolution strategy with covariance matrix adaptation (CMA-ES)." Evolutionary computation 11, no. 1 (2003): 1-18, <a href="https://www.mitpressjournals.org/doi/abs/10.1162/106365603321828970">link</a>.</p>
+<p>[8] Hansen, Nikolaus, Sibylle D. M&uuml;ller, and Petros Koumoutsakos. "Reducing the time complexity of the derandomized evolution strategy with covariance matrix adaptation (CMA-ES)." Evolutionary computation 11, no. 1 (2003): 1-18, <a href="https://www.mitpressjournals.org/doi/abs/10.1162/106365603321828970">link</a>.</p>
 <p>[9] Kober, Jens, and Jan R. Peters. "Policy search for motor primitives in robotics." In Advances in neural information processing systems, pp. 849-856. 2009, <a href="http://papers.nips.cc/paper/3545-policy-search-for-motor-primitives-in-robotics">link</a>.</p>
 <p>[10] Mnih, Volodymyr, Adria Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu. "Asynchronous methods for deep reinforcement learning." In International Conference on Machine Learning, pp. 1928-1937. 2016, <a href="http://proceedings.mlr.press/v48/mniha16.pdf">link</a>.</p>
 <p>[11] Schulman, John, Philipp Moritz, Sergey Levine, Michael Jordan, and Pieter Abbeel. "High-dimensional continuous control using generalized advantage estimation." arXiv preprint arXiv:1506.02438 (2015), <a href="https://arxiv.org/abs/1506.02438">link</a>.</p>
@@ -1609,19 +1638,22 @@ The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(
 <p>[13] Schaul, Tom, John Quan, Ioannis Antonoglou, and David Silver. "Prioritized experience replay." arXiv preprint arXiv:1511.05952 (2015), <a href="https://arxiv.org/abs/1511.05952">link</a>.</p>
 <p>[14] Wang, Ziyu, Tom Schaul, Matteo Hessel, Hado Van Hasselt, Marc Lanctot, and Nando De Freitas. "Dueling network architectures for deep reinforcement learning." arXiv preprint arXiv:1511.06581 (2015), <a href="https://arxiv.org/abs/1511.06581">link</a>.</p>
 <p>[15] van Hasselt, Hado P., Arthur Guez, Matteo Hessel, Volodymyr Mnih, and David Silver. "Learning values across many orders of magnitude." In Advances in Neural Information Processing Systems, pp. 4287-4295. 2016, <a href="https://arxiv.org/abs/1602.07714">link</a>.</p>
-<p>[16] Ostrovski, Georg, Marc G. Bellemare, Aaron van den Oord, and Rémi Munos. "Count-based exploration with neural density models." arXiv preprint arXiv:1703.01310 (2017), <a href="https://arxiv.org/abs/1703.01310">link</a>.</p>
+<p>[16] Ostrovski, Georg, Marc G. Bellemare, Aaron van den Oord, and R&eacute;mi Munos. "Count-based exploration with neural density models." arXiv preprint arXiv:1703.01310 (2017), <a href="https://arxiv.org/abs/1703.01310">link</a>.</p>
 <p>[17] Fortunato, Meire, Mohammad Gheshlaghi Azar, Bilal Piot, Jacob Menick, Ian Osband, Alex Graves, Vlad Mnih et al. "Noisy networks for exploration." arXiv preprint arXiv:1706.10295 (2017), <a href="https://arxiv.org/abs/1706.10295">link</a>.</p>
 <p>[18] Bellemare, Marc, Sriram Srinivasan, Georg Ostrovski, Tom Schaul, David Saxton, and Remi Munos. "Unifying count-based exploration and intrinsic motivation." In Advances in Neural Information Processing Systems, pp. 1471-1479. 2016, <a href="https://arxiv.org/abs/1606.01868">link</a>.</p>
 <p>[19] Watkins, Christopher JCH, and Peter Dayan. "Q-learning." Machine learning 8, no. 3-4 (1992): 279-292, <a href="https://link.springer.com/content/pdf/10.1007/BF00992698.pdf">link</a>.</p>
 <p>[20] Lin, Long-Ji. "Self-improving reactive agents based on reinforcement learning, planning and teaching." Machine learning 8, no. 3-4 (1992): 293-321, <a href="https://link.springer.com/content/pdf/10.1007%2FBF00992699.pdf">link</a>.</p>
 <p>[21] Mnih, Volodymyr, Koray Kavukcuoglu, David Silver, Andrei A. Rusu, Joel Veness, Marc G. Bellemare, Alex Graves et al. "Human-level control through deep reinforcement learning." Nature 518, no. 7540 (2015): 529, <a href="https://www.nature.com/articles/nature14236">link</a>.</p>
-
+<p>[22] Jaderberg, Max, Volodymyr Mnih, Wojciech Marian Czarnecki, Tom Schaul, Joel Z. Leibo, David Silver, and Koray Kavukcuoglu. "Reinforcement learning with unsupervised auxiliary tasks." arXiv preprint arXiv:1611.05397 (2016), <a href="https://arxiv.org/abs/1611.05397">link</a>.</p>
+<p>[23] Denil, Misha, Sergio G&oacute;mez Colmenarejo, Serkan Cabi, David Saxton, and Nando de Freitas. "Programmable agents." arXiv preprint arXiv:1706.06383 (2017), <a href="https://arxiv.org/abs/1706.06383">link</a>.</p>
+<p>[24] Stadie, Bradly C., Pieter Abbeel, and Ilya Sutskever. "Third-person imitation learning." arXiv preprint arXiv:1703.01703 (2017), <a href="https://arxiv.org/abs/1703.01703">link</a>.</p>
+<p>[25] Ho, Jonathan, and Stefano Ermon. "Generative adversarial imitation learning." In Advances in Neural Information Processing Systems, pp. 4565-4573. 2016., <a href="http://papers.nips.cc/paper/6391-generative-adversarial-imitation-learning">link</a></p>
+<p>[26] Wang, Ziyu, Josh S. Merel, Scott E. Reed, Nando de Freitas, Gregory Wayne, and Nicolas Heess. "Robust imitation of diverse behaviors." In Advances in Neural Information Processing Systems, pp. 5326-5335. 2017, <a href="https://arxiv.org/abs/1707.02747">link</a>.</p>
+<p>[27] Andreas, Jacob, Dan Klein, and Sergey Levine. "Modular multitask reinforcement learning with policy sketches." arXiv preprint arXiv:1611.01796 (2016), <a href="https://arxiv.org/abs/1611.01796">link</a>.</p>
+<p>[28] Duan, Yan, Marcin Andrychowicz, Bradly Stadie, OpenAI Jonathan Ho, Jonas Schneider, Ilya Sutskever, Pieter Abbeel, and Wojciech Zaremba. "One-shot imitation learning." In Advances in neural information processing systems, pp. 1087-1098. 2017, <a href="https://arxiv.org/abs/1703.07326">link</a>.</p>
 </div>
 </div>
 </div>
- 
-
-
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';

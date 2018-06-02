@@ -1068,9 +1068,8 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="http://www.iclr.cc/doku.php?id=iclr2016:main#accepted_papers_conference_track">ICLR 2016</a> has a really interesting <a href="http://arxiv.org/abs/1511.06422">paper</a> "All You Need is a Good Init". In this post I will try to repeat the results of the authors and will do that in Torch.</p>
-<h2 id="General-idea">General idea<a class="anchor-link" href="#General-idea">&#182;</a></h2><p>So, what is the motivation? <a href="http://arxiv.org/abs/1502.03167">Batch Normalization</a> helps, but it slows down the training process (the authors claim it's 30%). Can we do better without additional overhead?</p>
+<h2 id="General-idea">General idea<a class="anchor-link" href="#General-idea">&para;</a></h2><p>So, what is the motivation? <a href="http://arxiv.org/abs/1502.03167">Batch Normalization</a> helps, but it slows down the training process (the authors claim it's 30%). Can we do better without additional overhead?</p>
 <p>Yes, we can spend more time for smart weights initialization (not much more), but get benefits in training speed, ability to use bigger learning rates and better results.</p>
-
 <pre><code>pseudo
 Pre-initialize network with orthonormal matrices as in Saxe et al.(2014)
 for each layer L do
@@ -1087,7 +1086,7 @@ end for</code></pre>
 <li>We compute variance for the whole data in minibatch: Var(B_L)! (at first I thought that we compute variance feature-wise)
 ## Torch implementation</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;nn&#39;</span>
+<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">'nn'</span>
 
 <span class="n">nn</span><span class="p">.</span><span class="n">Sequential</span><span class="p">.</span><span class="n">lsuvInit</span> <span class="o">=</span> <span class="kr">function</span> <span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">get_batch</span><span class="p">,</span> <span class="n">tol_var</span><span class="p">,</span> <span class="n">t_max</span><span class="p">)</span>
    <span class="kd">local</span> <span class="n">tol_var</span> <span class="o">=</span> <span class="n">tol_var</span> <span class="ow">or</span> <span class="mf">0.1</span>
@@ -1111,20 +1110,20 @@ end for</code></pre>
 <span class="kr">end</span>
 </pre></div>
 <p>Usage (from MNIST example):</p>
-<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;nn&#39;</span>
+<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">'nn'</span>
 
 <span class="c1">-- add nninit.orthogonal to all convolutional and fully connected layers</span>
-<span class="n">model</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">SpatialConvolutionMM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span><span class="n">init</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">nninit</span><span class="p">.</span><span class="n">orthogonal</span><span class="p">,</span> <span class="p">{</span><span class="n">gain</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">}))</span>
+<span class="n">model</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">SpatialConvolutionMM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span><span class="n">init</span><span class="p">(</span><span class="s1">'weight'</span><span class="p">,</span> <span class="n">nninit</span><span class="p">.</span><span class="n">orthogonal</span><span class="p">,</span> <span class="p">{</span><span class="n">gain</span> <span class="o">=</span> <span class="s1">'relu'</span><span class="p">}))</span>
 <span class="n">model</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">ReLU</span><span class="p">())</span>
 <span class="p">...</span>
-<span class="n">model</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="o">#</span><span class="n">classes</span><span class="p">):</span><span class="n">init</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">nninit</span><span class="p">.</span><span class="n">orthogonal</span><span class="p">,</span> <span class="p">{</span><span class="n">gain</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">}))</span>
+<span class="n">model</span><span class="p">:</span><span class="n">add</span><span class="p">(</span><span class="n">nn</span><span class="p">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="o">#</span><span class="n">classes</span><span class="p">):</span><span class="n">init</span><span class="p">(</span><span class="s1">'weight'</span><span class="p">,</span> <span class="n">nninit</span><span class="p">.</span><span class="n">orthogonal</span><span class="p">,</span> <span class="p">{</span><span class="n">gain</span> <span class="o">=</span> <span class="s1">'relu'</span><span class="p">}))</span>
 
 <span class="c1">--do LSUV after orthogonal init above</span>
 <span class="kr">if</span> <span class="n">opt</span><span class="p">.</span><span class="n">lsuv</span> <span class="kr">then</span>
   <span class="n">model</span><span class="p">:</span><span class="n">lsuvInit</span><span class="p">(</span><span class="n">get_batch</span><span class="p">)</span>
 <span class="kr">end</span>
 </pre></div>
-<h2 id="MNIST-example">MNIST example<a class="anchor-link" href="#MNIST-example">&#182;</a></h2><p>I used the following bash command to run the experiment (-f for full mnist dataset: 60 000 for training and 10 000 for testing):</p>
+<h2 id="MNIST-example">MNIST example<a class="anchor-link" href="#MNIST-example">&para;</a></h2><p>I used the following bash command to run the experiment (-f for full mnist dataset: 60 000 for training and 10 000 for testing):</p>
 <div class="highlight"><pre><span></span>th mnist-example.lua --lsuv -r lr
 </pre></div>
 <table>
@@ -1210,9 +1209,9 @@ end for</code></pre>
 </tbody>
 </table>
 <p>I did not wait for 100 epochs as the authors of the original paper did. At first, I thought that we can use bigger learning rates when we use LSUV, but then I realised that MNIST nolsuv case does not use BN, so, this is not true. And MNIST results just show us that training works and the accuracy rates are pretty comparable. Let's have a look at CIFAR-10 experiment.</p>
-<h2 id="CIFAR-example">CIFAR example<a class="anchor-link" href="#CIFAR-example">&#182;</a></h2><p>I did not check the limit of the accuracy we can achieve, but just checked if the training is comparable in general. And it is. Test dataset accuracy is on the pic.</p>
-<p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/cifar_test_cost.png?raw=true" /></p>
-<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ul>
+<h2 id="CIFAR-example">CIFAR example<a class="anchor-link" href="#CIFAR-example">&para;</a></h2><p>I did not check the limit of the accuracy we can achieve, but just checked if the training is comparable in general. And it is. Test dataset accuracy is on the pic.</p>
+<p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/cifar_test_cost.png?raw=true"/></p>
+<h2 id="References">References<a class="anchor-link" href="#References">&para;</a></h2><ul>
 <li>"All You Need is a Good Init" <a href="http://arxiv.org/abs/1511.06422">paper</a>.</li>
 <li><a href="https://github.com/ducha-aiki/LSUVinit">Original implementation</a> in Caffe.</li>
 <li><a href="http://arxiv.org/abs/1312.6120">Orthogonal init</a> also used in paper</li>
@@ -1220,13 +1219,9 @@ end for</code></pre>
 </ul>
 <p>Thanks for the debugging and help to <a href="https://github.com/ikostrikov">@ikostrikov</a></p>
 <p>If you want to ask me a question, you can find me <a href="https://github.com/yobibyte/yobiblog/blob/master/pages/about.md">here</a></p>
-
 </div>
 </div>
 </div>
- 
-
-
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
