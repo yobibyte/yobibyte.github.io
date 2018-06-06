@@ -1685,7 +1685,80 @@ Highly recommended.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Reinforcement-Learning,-Satinder-Singh_1">Reinforcement Learning, <em>Satinder Singh</em><a class="anchor-link" href="#Reinforcement-Learning,-Satinder-Singh">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1129741/deeplearning2017_singh_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_singh_reinforcement_learning/">Video</a></em></p>
-<p><strong>TBD</strong></p>
+<p>This is a talk on continual learning, which implies:</p>
+<ul>
+<li>learning new skills (options)</li>
+<li>learning new knowledge (option-conditional) prediction</li>
+<li>reusing what you've learnt and combining the skills to learn more complicated stuff</li>
+<li>being motivated to explore even without an explicit task</li>
+<li>becoming more and more competent along the agent existence</li>
+</ul>
+<p>With other words, we want our agent to behave like a child exploring the world [31].</p>
+<p>Intrinsic reward is the reward we get for a surprise, an error in prediction of a salient event according to the option model.
+Any time you encounter a salient event, you create an option for it (a behaviour model and a prediction model) which you update during agent life.
+An agent learns new skills using a model-based approach (e.g. DYNA).</p>
+<p>Fine, but where do rewards come from?
+Usually, in RL, we get the reward (also a problem if you apply RL in the real life though). 
+In the continual learning, the question is even harder.
+Let's assume that there is an agent designer who has preferences, his implicit reward function.
+An agent also has a reward function hardcoded by the designer.
+In RL these both rewards are confounded.
+How can we design a reward so that when agent maximises its own reward, the designer's reward is maximised as well? We call this problem the 'optimal reward problem':
+$\mathop{argmax}_{R_i}\mathbb{E}_{env}[\mathbb{E}_{h}[U_o(h)]]$, where $h$ is the trajectory, $R_i$ is the agent's internal reward, $U_o$ is the designer utility of the trajectory (sum of the designer rewards $R_o$).
+The lecturer gives [32] and [33] as an example of approaching the problem.</p>
+<p>As Nando de Freitas already mentioned in his lecture, Inverse RL is a smart way of getting the reward: infer the reward given the demonstrations.
+IRL tries to solve an ill-posed problem, since many reward functions might lead to the same optimal behaviour we have as demonstrations.
+At the same time, even if the reward is not identified, we can still mimic a good policy.</p>
+<p>Can we infer the real reward function still in the lifelong learning scenario?
+A human has a very complicated implicit reward function $\theta_*$ such as not breaking the law, social norms etc.
+We can assume, that an agent has a reward $R_t$ for each of the task he has to execute.
+$<s,a, +="" \gamma="" \theta_*,="" p_t,="" r_t="">$.
+The agent knows everything but $\theta_*$.
+Can we learn it from demonstrations?</s,a,></p>
+<p>There are two types of unidentifiabilities in IRL: representational (should be ignored) and experimental (can be dealt with).
+The former relates to behavioural equivalence when we might have completely different rewards which lead to exactly the same behaviour for all the environments/tasks.</p>
+<p>The experimenter chooses an environment $E_t$ and a reward $R_t$.
+A human reveals $\pi_t^*$ optimal for $R_t + \theta_*$ in $E_t$.
+There is a theorem saying that if any task can be chosen, there is an algorithm that outputs $\theta$, such that $||\theta - \theta_*||_\infty \leq \epsilon$ after $O(\log{(1/\epsilon))}$ tasks.</p>
+<p>Zero-shot task generalization by learning to compose subtasks [35] is the next work the author reviews. 
+The main motivation for the approach is in combinatorial complexity of composite policies which require us to do several subtasks. 
+It is much easier to learn subtasks that all combinations of them (like in disentangled representation motivation).
+Let's assume we're in a grid world and can give our agent instruction using natural language.
+Some instructions require repetition of the subtask.
+The problem is quite hard due to:</p>
+<ul>
+<li>generalisation to new subtasks </li>
+<li>deciding when to move on to the next instruction</li>
+<li>dealing with long-term instructions and random events.</li>
+<li>dealing with any number of subtasks</li>
+<li>delayed reward</li>
+</ul>
+<p>The way [35] approaches the problem is the following.
+<em>Multitask controller</em> is responsible for executing a subtask given a subgoal and deciding whether the current subtask goal is achieved or not.
+<em>Meta controller</em> is responsible for defining a subgoal given the instructions:</p>
+<p><img src="pics/rlss/zero.png"/></p>
+<p>Analogy-making objective makes an agent learned disentangled representations of tasks.
+<em>Don't quite get it, but it looks like they compare the embedding of the subtasks given the properties and try to make similar subtasks embedding closer in the embedding space and vice versa.</em>
+Each subtask requires a separate policy, and it is used as a teacher for the final policy to provide the action labels in the supervised learning setup.
+The authors combine an RL objective, analogy-making objective and a binary termination loss for training.
+Interestingly, the meta controller is updated only when it's time to change a sub-goal. 
+There is no need to do it at any step.</p>
+<p>Value Prediction Network [36], built on top of Predictron [37] is the last paper the lecturer covers in this talk.
+How does it relate to the continual learning problem?
+It's very hard to build a model with high dimensional observation space.
+How can we plan without predicting observations?
+We can predict an internal state of the model and use it for planning and value prediction:</p>
+<p><img src="pics/rlss/vpn.png"/></p>
+<p>This was a very interesting lecture, though a bit confusing one, mostly because of the notation. 
+The notation used doesn't go in line with what I'm accustomed to, e.g. using $h$ instead of $\tau$ for trajectories or using Exp instead $\mathbb{E}$ for expectation. 
+Still, it's a good talk and it's especially interesting to watch after Nando's lecture since they intersect at some points.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Safe-RL,--Philip-Thomas">Safe RL, <em> Philip Thomas</em><a class="anchor-link" href="#Safe-RL,--Philip-Thomas">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137917/deeplearning2017_thomas_safe_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_thomas_safe_rl/">Video</a></em></p>
 <p><strong>TBD</strong></p>
 <h2 id="Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">Applications of bandits and recommendation systems, <em> Nicolas Le Roux</em><a class="anchor-link" href="#Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Video</a></em></p>
@@ -1737,6 +1810,13 @@ Highly recommended.</p>
 <p>[28] Duan, Yan, Marcin Andrychowicz, Bradly Stadie, OpenAI Jonathan Ho, Jonas Schneider, Ilya Sutskever, Pieter Abbeel, and Wojciech Zaremba. "One-shot imitation learning." In Advances in neural information processing systems, pp. 1087-1098. 2017, <a href="https://arxiv.org/abs/1703.07326">link</a>.</p>
 <p>[29] Boyan, Justin A., and Andrew W. Moore. "Generalization in reinforcement learning: Safely approximating the value function." In Advances in neural information processing systems, pp. 369-376. 1995, <a href="https://www.ri.cmu.edu/pub_files/pub1/boyan_justin_1995_1/boyan_justin_1995_1.pdf">link</a>.</p>
 <p>[30] Jaksch, Thomas, Ronald Ortner, and Peter Auer. "Near-optimal regret bounds for reinforcement learning." Journal of Machine Learning Research 11, no. Apr (2010): 1563-1600, <a href="http://www.jmlr.org/papers/v11/jaksch10a.html">link</a>.</p>
+<p>[31] Chentanez, Nuttapong, Andrew G. Barto, and Satinder P. Singh. "Intrinsically motivated reinforcement learning." In Advances in neural information processing systems, pp. 1281-1288. 2005, <a href="https://papers.nips.cc/paper/2552-intrinsically-motivated-reinforcement-learning.pdf">link</a>.</p>
+<p>[32] Sorg, Jonathan, Richard L. Lewis, and Satinder P. Singh. "Reward design via online gradient ascent." In Advances in Neural Information Processing Systems, pp. 2190-2198. 2010, <a href="https://papers.nips.cc/paper/4146-reward-design-via-online-gradient-ascent.pdf">link</a>.</p>
+<p>[33] Guo, Xiaoxiao, Satinder Singh, Richard Lewis, and Honglak Lee. "Deep learning for reward design to improve monte carlo tree search in atari games." arXiv preprint arXiv:1604.07095 (2016), <a href="https://arxiv.org/abs/1604.07095">link</a>.</p>
+<p>[34] Amin, Kareem, Nan Jiang, and Satinder Singh. "Repeated Inverse Reinforcement Learning." In Advances in Neural Information Processing Systems, pp. 1813-1822. 2017, <a href="https://arxiv.org/abs/1705.05427">link</a>.</p>
+<p>[35] Oh, Junhyuk, Satinder Singh, Honglak Lee, and Pushmeet Kohli. "Zero-shot task generalization with multi-task deep reinforcement learning." arXiv preprint arXiv:1706.05064 (2017), <a href="https://arxiv.org/abs/1706.05064">link</a>.</p>
+<p>[36] Oh, Junhyuk, Satinder Singh, and Honglak Lee. "Value prediction network." In Advances in Neural Information Processing Systems, pp. 6120-6130. 2017, <a href="https://arxiv.org/abs/1707.03497">link</a>.</p>
+<p>[37] Silver, David, Hado van Hasselt, Matteo Hessel, Tom Schaul, Arthur Guez, Tim Harley, Gabriel Dulac-Arnold et al. "The predictron: End-to-end learning and planning." arXiv preprint arXiv:1612.08810 (2016), <a href="https://arxiv.org/abs/1612.08810">link</a>.</p>
 </div>
 </div>
 </div>
