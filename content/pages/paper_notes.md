@@ -9,4 +9,5 @@ Title: Paper Notes
 * [Hindsight Experience Replay](/files/paper_notes/her.pdf) ([paper](https://arxiv.org/abs/1707.01495), 2018-05-01)
 * [Gradient Estimation Using Stochastic Computation Graphs](/files/paper_notes/scg.pdf) ([paper](https://arxiv.org/abs/1506.05254), 2018-05-16)
 * [DiCE: The Infinitely Differentiable Monte Carlo Estimator](/files/paper_notes/dice.pdf) ([paper](https://arxiv.org/abs/1802.05098), 2018-05-17)
-* [Relational Deep Reinforcement Learning](/files/paper_notes/rdrl.pdf) ([paper](https://arxiv.org/abs/1806.01830), 2018-08-17)
+* [Relational Deep Reinforcement Learning](/files/paper_notes/rdrl.pdf) ([paper](https://arxiv.org/abs/1806.01830), 2018-06-08)
+* [Relational inductive biases, deep learning, and graph networks](/files/paper_notes/gn.pdf) ([paper](https://arxiv.org/abs/1806.01261), 2018-06-13)
