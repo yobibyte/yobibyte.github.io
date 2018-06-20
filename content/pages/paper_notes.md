@@ -11,3 +11,4 @@ Title: Paper Notes
 * [DiCE: The Infinitely Differentiable Monte Carlo Estimator](/files/paper_notes/dice.pdf) ([paper](https://arxiv.org/abs/1802.05098), 2018-05-17)
 * [Relational Deep Reinforcement Learning](/files/paper_notes/rdrl.pdf) ([paper](https://arxiv.org/abs/1806.01830), 2018-06-08)
 * [Relational inductive biases, deep learning, and graph networks](/files/paper_notes/gn.pdf) ([paper](https://arxiv.org/abs/1806.01261), 2018-06-13)
+* [Self-Imitation Learning](/files/paper_notes/sil.pdf) ([paper](https://arxiv.org/abs/1806.05635), 2018-06-20)
