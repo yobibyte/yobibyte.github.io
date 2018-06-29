@@ -252,7 +252,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -273,6 +272,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1010,10 +1014,8 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1024,11 +1026,9 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1067,13 +1067,14 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Word of warning</strong></p>
 <p>Right now when MS rolled out Windows Subsystem for Linux, this post has become a little bit obsolete. <a href="https://github.com/felixrieseberg/windows-development-environment">Here</a> you can find a pretty good tutorial. But if you want VMs for keeping separate dev sandboxes, go on and read information below.</p>
-<hr/>
+<hr>
 <p>During my dev life I tried a huge amount of ways of creating a convenient environment for development. There has been almost something that I didn't like, and I tried more. And today I will explain another way that I'm currently using. The most attractive thing about it: you can use any major OS (GNU/Linux, OS X or Win (yes, even win)) and be completely happy with it.</p>
 <p>Yes, today we have a bunch of platform-free languages that enables us to use the OS we like for development. But for me it has been always easier to set up a dev environment in GNU/Linux as there are cool package managers that will make your life more comfortable (or sometimes harder when you have problems with dependencies).</p>
 <p>The main idea is to create a GNU/Linux virtual dev machine, but use it only for code execution and some accompanying stuff like version control, for instance. All the code will be kept on the host machine and edited also from the host.</p>
@@ -1126,12 +1127,12 @@ ssh-copy-id user@127.0.0.1 <span class="c1">#Copy the key to our VM</span>
 <ul>
 <li>Now we can connect to our VM</li>
 </ul>
-<div class="highlight"><pre><span></span>ssh user@127.0.0.1 -p <span class="m">2222</span>
+<div class="highlight"><pre><span></span>ssh user@127.0.0.1 -p 2222
 </pre></div>
 <ul>
 <li>If you need some additional ports for dev(web service, for example, it's easier to forward ports through ssh)</li>
 </ul>
-<div class="highlight"><pre><span></span>ssh user@127.0.0.1 -p <span class="m">2222</span> -L <span class="m">4000</span>:127.0.0.1:4000 <span class="c1">#local_port:<vm ip="">:<vm port=""></vm></vm></span>
+<div class="highlight"><pre><span></span>ssh user@127.0.0.1 -p <span class="m">2222</span> -L 4000:127.0.0.1:4000 <span class="c1">#local_port:<vm ip="">:<vm port=""></vm></vm></span>
 </pre></div>
 <ul>
 <li>In VM Shared Folders settings tab:<ul>
@@ -1162,7 +1163,7 @@ Easy browsing and copy/paste and all the stuff</li>
 <li>I still don't know how to use <your favorite="" ide=""> and its debugger with this config. In theory it's possible like <a href="https://www.jetbrains.com/help/idea/2016.1/run-debug-configuration-remote.html?origin=old_help">here</a> or <a href="https://www.jetbrains.com/help/pycharm/2016.1/remote-debugging.html?origin=old_help">there</a>. But as it's been a time since I coded a really big project, a text editor like Atom or Vim is completely enough for me.</your></li>
 <li>Yes, we can use Vagrant. I tried, but switched back again.</li>
 </ul>
-</div>
+</hr></div>
 </div>
 </div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
