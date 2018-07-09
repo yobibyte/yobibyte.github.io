@@ -252,6 +252,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -272,11 +273,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -1014,8 +1010,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1026,9 +1024,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1067,8 +1067,7 @@ h6:hover .anchor-link {
 
 .ansi-bold { font-weight: bold; }
 </style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1081,8 +1080,7 @@ h6:hover .anchor-link {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1240,8 +1238,7 @@ As for me, I want to add, that the lecture is great not only because of summariz
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1296,8 +1293,7 @@ We can apply exactly the same trick to both reward function and policy.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1347,8 +1343,7 @@ Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1386,8 +1381,8 @@ They do not try to change the paths, this is important (in contrast to path deri
 <p>Magic again! No transition model required!!!</p>
 <p>As a result of all above, $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)R(\tau^{(i)})$ is an unbiase estimate of the true gradient, i.e. $\mathbb{E}[\hat{g}] = \nabla_{\theta}U(\theta)$.</p>
 <p>A caveat here is that when $R &gt; 0$, our method will try to increase the probabilities of all paths. 
-But we want to increase the probabilities only the best ones.<br>
-Let's introduce the baseline, which, intuitively, will try to tell us whether we're doing better than average or not.</br></p>
+But we want to increase the probabilities only the best ones.<br/>
+Let's introduce the baseline, which, intuitively, will try to tell us whether we're doing better than average or not.</p>
 <p>Baseline is something we deduce from our trajectory return when estimating the gradient: $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)(R(\tau^{(i)}) - b))$.
 One can show, that introducing a (<em>some particular</em>) baselines does not bias our gradient estimate.
 When we're doing better than average, PG increase probability of these trajectories, and vice versa.
@@ -1419,8 +1414,7 @@ Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1451,13 +1445,12 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
 <ul>
 <li><a href="http://rll.berkeley.edu/deeprlcourse/">CS294-112 Deep Reinforcement Learning (UC Berkeley)</a> by Sergey Levine, John Schulman, Chelsea Finn</li>
 <li><a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">COMPM050/COMPGI13 Reinforcement Learning (UCL)</a> by David Silver</li>
-<li><a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Deep    RL Bootcamp, Berkeley, CA (August 26-27)</a></li>
+<li><a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Deep RL Bootcamp, Berkeley, CA (August 26-27)</a></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1508,8 +1501,7 @@ $S_0, A_0, R_1, S_1$ are the state, action and reward respectively. $R_1$ means 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1552,8 +1544,7 @@ The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1607,8 +1598,7 @@ The authors look at the problem of imitating from different perspective (differe
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1690,8 +1680,7 @@ Highly recommended.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1766,8 +1755,7 @@ Still, it's a good talk and it's especially interesting to watch after Nando's l
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1780,8 +1768,7 @@ Still, it's a good talk and it's especially interesting to watch after Nando's l
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -1789,8 +1776,7 @@ Still, it's a good talk and it's especially interesting to watch after Nando's l
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
