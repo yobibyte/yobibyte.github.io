@@ -1860,8 +1860,78 @@ Apart from a curious perspective on RL safety, the lecture gives the best explan
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">Applications of bandits and recommendation systems, <em> Nicolas Le Roux</em><a class="anchor-link" href="#Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Video</a></em></p>
-<p><strong>TBD</strong></p>
+<h2 id="Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">Applications of bandits and recommendation systems, <em> Nicolas Le Roux</em><a class="anchor-link" href="#Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Slides</a></em> | <em><a href="http://videolectures.net/deeplearning2017_le_roux_recommendation_system/">Video</a></em></p>
+<p>In this lecture, Nicolas Le Roux talks about the application of RL less common in the academic community &ndash; online advertising. However, this is more than just that.
+You can consider the lecture to be an RL practitioner's guide in industry.</p>
+<p>What is the mechanism which decides which ad to show when you visit your favourite website? 
+Retargeting does the job. 
+The website contacts an ad-exchange which, in turn, contacts the retargeter. 
+Each competitor tells how much it bids and the highest bidder wins the right to display the ad.
+Everything is happening in real time. 
+The winner is paying the second highest bid.
+The optimal strategy is to bid the expected gain: $\mathop{\mathbb{E}}[gain] = \text{price per click} * p(\text{click})$ The click probability is called CTR.</p>
+<p>When we think about RL we think of multi-step episodes, in this talk, all the episodes have length one.
+The state is everything you know about the user, the amount we are willing to pay is the action.</p>
+<p>How can we estimate the probability of a click? 
+We have access to labelled data, where the information about the user is the input and click/no click is the label.
+The first thing that comes to mind, is to build a classifier.
+However, we can be smarter and use RL for that!</p>
+<p>Why should we do that?
+Implicitly we assume that our loss function is a good proxy for the revenue and that the input distribution is the same for training and testing data. 
+These assumptions are tricky and not always hold in the real world.</p>
+<p>Consider the A/B testing: a two-arm bandit system.
+Split the population for some period of time and choose the system with the best average reward.
+It turns out, that RMSE is not that correlated with the return we can get and the lecturer shows that.
+People usually care about the optimum of the loss function. 
+But it is often not the case. 
+For instance, in this auction scenario, the competitors matter.
+Apart from the loss, we should ask ourselves: "How much we are gonna pay if we take the wrong decision?"</p>
+<p>It is not that rosy regarding the input distribution as well.
+Our bidding policy influences the data we collect (<em>smells like RL here =)</em>). 
+Moreover, we have the data only for the auctions we won, we don't know the CTR for all the others.</p>
+<p>The lecturer points out that it's very easy to draw wrong conclusions from the data.
+He shows an example of the <a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox">Simpson's paradox</a> next.
+Let's say, we need to understand where we want to show a banner: on top or on the side?
+We split the data into high-value and low-value users. 
+Surprisingly, the conclusions for the overall dataset and for the two groups separately are entirely the opposite.</p>
+<p>What can we do to deal with confounding variables and not to face the issue above:</p>
+<ul>
+<li>add as many variables in the model (complicated)</li>
+<li>run online a/b tests (what if you're a small company?)</li>
+<li>exploration (model misspecification screws the things up and the authors has a demo for that)</li>
+<li>perform counterfactual analyses ("What would have happened if we had done something else?" Would it have been better or worse?")</li>
+</ul>
+<p>Importance sampling allows us to evaluate Q:</p>
+<p>$G(q) = \int_s \int_a p(s) q(a|s) r(a,s)da\,ds = \int_s \int_a p(s) \frac{q(a|s)}{p(a|s)} p(a|s) r(a,s)da\,ds \approx \frac{1}{N}\sum_i{\frac{q(a|s)}{p(a|s)}r_i}$</p>
+<p>We may now optimise over Q.
+However, we get additional constraints with this, i.e. rolling out a new policy is expensive and we need to optimise with as fewer updates as possible?</p>
+<p>What are the benefits of policy evaluation in comparison to the supervised learning approach?
+The former turns out to be a better predictor working with tangible quantities. 
+Constraint optimisation becomes meaningful here.</p>
+<p>In industry, it is very important to iterate and check your hypotheses fast and hassle-free (<a href="https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/">Can you make a build in one step?</a>). 
+Policy optimisation is not that different: optimisations are performed regularly and must be trouble-free and robust. 
+Stochastic methods are rarely trouble-free (e.g. hyperparameter optimisation is tricky).</p>
+<p>At the end of the lecture, Nicolas mentions some of the questions important for real-life applications, namely, how to reduce the inference time and how to combine the rewards of multiple forms (clicks, sales etc.)</p>
+<p>To sum up:</p>
+<ul>
+<li>robustness and efficiency are critical</li>
+<li>pipeline efficiency included there</li>
+<li>improving the model is useless without a good reward (<em>evaluation, I would say</em>)</li>
+<li>RL deals with tangible quantities (e.g. dollars instead of log-loss)</li>
+</ul>
+<p>Quite an interesting lecture, especially if you never had industry experience. 
+Apart from that, it's also curious to observe a use-case when RL is applied in practice, which is still rare. 
+Surprisingly for me, Nicolas says that evaluation is underrated in industry.
+That's especially curious in the light of the latest evaluation work in RL.
+That means, that there is huge room and need for improvement here.
+This lecture intersects a bit with the previous one on safe RL when we discussed off-policy evaluation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">Cooperative Visual Dialogue with Deep RL, <em>Dhruv Batra &amp; Devi Parikh</em><a class="anchor-link" href="#Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137915/deeplearning2017_parikh_batra_deep_rl.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_parikh_batra_deep_rl/">Video</a></em></p>
 <p><strong>TBD</strong></p>
 </div>
