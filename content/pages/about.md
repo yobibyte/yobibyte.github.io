@@ -1,6 +1,6 @@
 Title: about
 
-Juniour Researcher at [Morpheus Labs](http://morpheuslabs.co.uk/) in Oxford, UK. [CV](https://www.dropbox.com/s/588c4aexpwzbq43/cv.pdf?dl=0) and [twitter](https://twitter.com/y0b1byte)
+Juniour Researcher at [Morpheus Labs](http://morpheuslabs.co.uk/) in Oxford, UK. [CV](https://www.dropbox.com/s/b7g0nmsw8cjapw1/cv.pdf?dl=0) and [twitter](https://twitter.com/y0b1byte)
 
 ### Publications
 
