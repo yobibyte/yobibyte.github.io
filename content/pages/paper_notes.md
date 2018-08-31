@@ -12,3 +12,4 @@ Title: Paper Notes
 * [Relational Deep Reinforcement Learning](/files/paper_notes/rdrl.pdf) ([paper](https://arxiv.org/abs/1806.01830), 2018-06-08)
 * [Relational inductive biases, deep learning, and graph networks](/files/paper_notes/gn.pdf) ([paper](https://arxiv.org/abs/1806.01261), 2018-06-13)
 * [Self-Imitation Learning](/files/paper_notes/sil.pdf) ([paper](https://arxiv.org/abs/1806.05635), 2018-06-20)
+* [Is Generator Conditioning Causally Related to GAN Performance?](/files/paper_notes/gen_cond.pdf) ([paper](https://arxiv.org/abs/1802.08768), re-added on 2018-08-31)
