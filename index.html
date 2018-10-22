@@ -87,11 +87,10 @@
   <div>
       
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Hi!</strong></p>
-<p><img src="pics/rlss/cake.jpg" /></p>
+<p><img src="pics/rlss/cake.jpg"></p>
 <p>I was rejected from <a href="https://mila.quebec/en/cours/deep-learning-summer-school-2017/">DLSS/RLSS</a> this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don't have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let's start!</p>
       <br>
       <a class="btn" href="./rlss17.html#rlss17">    Continue reading
@@ -112,16 +111,14 @@
   <div>
       
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="http://www.misucell.com/data/out/10/IMG_444005.jpg" src="pics/sc-research/scii.jpg" /></p>
+<p><img alt="http://www.misucell.com/data/out/10/IMG_444005.jpg" src="pics/sc-research/scii.jpg"></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Hi!</strong></p>
 <p>I have wanted to get into StarCraft research for a long time. Actually, right after I played StarCraft II for the first time. (I did not care about research when I tried the BroodWar at school =( ). Though, I have never done anything related apart from reading some papers on the topic.</p>
@@ -144,11 +141,10 @@
   <div>
       
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Just around two weeks ago "Deep Reinforcement Learning that Matters" took Reinforcement Learning community by storm. This is my favourite figure from the paper:</p>
-<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/cheetah-with-text.png?raw=true" width="500" /></p>
+<p><img src="https://github.com/yobibyte/yobiblog/blob/master/pics/atari-eval/cheetah-with-text.png?raw=true" width="500"></p>
 <p>In two words, the paper asks a great question: "Does the research we are doing right now make sense? If not, what should we do to make Deep RL great again?". The answer includes publishing implementations for the reproducibility, do proper significance testing,  developing methods agnostic to hyperparameters, and thinking about settings where the algorithms in question will be applied.</p>
       <br>
       <a class="btn" href="./atari-eval.html#atari-eval">    Continue reading
@@ -169,8 +165,7 @@
   <div>
       
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Hi!">Hi!<a class="anchor-link" href="#Hi!">¶</a></h1><p>I have been at Microsoft Research Cambridge for the last three months working on my master thesis. Today is my last day here and I'm writing this to wrap up my experience. It was a great time and I learned a lot, got acquainted with plenty of great people and just had fun.</p>
       <br>
@@ -192,8 +187,7 @@
   <div>
       
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Hi! Currently I'm preparing for <a href="http://hpac.rwth-aachen.de/teaching/hpmc-16/">High Performance Matrix Computations</a> course exam. As usual, just reading never helps, so, I decided to write some code and sort the things out. This is the post about Cholesky decomposition and how to compute it. The accompanying jupyter notebook can be found <a href="https://github.com/yobibyte/rwth-hpmc/blob/master/cholesky.ipynb">here</a>.</p>
 <p>Let's start from the definition. According to <a href="https://en.wikipedia.org/wiki/Cholesky_decomposition">Wikipedia</a>
@@ -216,8 +210,7 @@
   <div>
       
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="http://www.iclr.cc/doku.php?id=iclr2016:main#accepted_papers_conference_track">ICLR 2016</a> has a really interesting <a href="http://arxiv.org/abs/1511.06422">paper</a> "All You Need is a Good Init". In this post I will try to repeat the results of the authors and will do that in Torch.</p>
 <h2 id="General-idea">General idea<a class="anchor-link" href="#General-idea">¶</a></h2><p>So, what is the motivation? <a href="http://arxiv.org/abs/1502.03167">Batch Normalization</a> helps, but it slows down the training process (the authors claim it's 30%). Can we do better without additional overhead?</p>
@@ -240,12 +233,11 @@
   <div>
       
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Word of warning</strong></p>
 <p>Right now when MS rolled out Windows Subsystem for Linux, this post has become a little bit obsolete. <a href="https://github.com/felixrieseberg/windows-development-environment">Here</a> you can find a pretty good tutorial. But if you want VMs for keeping separate dev sandboxes, go on and read information below.</p>
-<hr />
+<hr>
 <p>During my dev life I tried a huge amount of ways of creating a convenient environment for development. There has been almost something that I didn't like, and I tried more. And today I will explain another way that I'm currently using. The most attractive thing about it: you can use any major OS (GNU/Linux, OS X or Win (yes, even win)) and be completely happy with it.</p>
       <br>
       <a class="btn" href="./setup-dev-env.html#setup-dev-env">    Continue reading
@@ -266,8 +258,7 @@
   <div>
       
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The amount of information we percieve every day is enormous. We get up in the
 morning and start scrolling facebook, checking the mailbox, tweeting about the
