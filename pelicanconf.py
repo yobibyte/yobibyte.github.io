@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = 'yobibyte'
 SITENAME = "yobibyte's webpage"
 SITETITLE = 'yobiblog'
-SITESUBTITLE = 'posts on Machine Learning, Reinforcement Learning, Learning from Demonstrations etc.'
+SITESUBTITLE = 'Posts on Machine Learning, Reinforcement Learning, Learning from Demonstrations etc.'
 SITEURL = 'http://yobibyte.github.io'
 PATH = 'content'
 TIMEZONE = 'Europe/London'
