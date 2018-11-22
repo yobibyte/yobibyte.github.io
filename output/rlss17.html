@@ -101,9 +101,124 @@
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI colors. */
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
 .ansibold {
   font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -182,12 +297,20 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  border-left-width: 1px;
-  padding-left: 5px;
-  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
 }
 div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -200,27 +323,39 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected {
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
   border-color: #ababab;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
 }
 @media print {
-  div.cell.selected {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected.jupyter-soft-selected {
-  border-left-width: 0;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
-}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -416,7 +551,9 @@ div.input_area > div.highlight > pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  padding: 0.4em;
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -426,11 +563,24 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
-  /* .CodeMirror-lines */
-  padding: 0;
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
   border: 0;
   border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
 }
 /*
 
@@ -678,6 +828,9 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
+div.output_area .mglyph > img {
+  max-width: none;
+}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -716,7 +869,7 @@ div.output_area svg.unconfined {
 }
 div.output_area pre {
   margin: 0;
-  padding: 0;
+  padding: 1px 0 1px 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -838,6 +991,10 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
 
 
 
@@ -854,16 +1011,24 @@ div.output_unrecognized a:hover {
 }
 
 
+
+
+
 .rendered_html pre,
+
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
-.rendered_html td,
 
-
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -879,6 +1044,11 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -929,8 +1099,15 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -1069,8 +1246,7 @@ h6:hover .anchor-link {
 .ansi-bold { font-weight: bold; }
 </style>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Hi!</strong></p>
 <p><img src="pics/rlss/cake.jpg"/></p>
@@ -1082,8 +1258,7 @@ h6:hover .anchor-link {
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">Reinforcement Learning: basic concepts, <em>Joelle Pineau</em><a class="anchor-link" href="#Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137927/deeplearning2017_pineau_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_pineau_reinforcement_learning/">Video</a></em></p>
 <p>The best introduction to RL I have seen so far. Heavily recommended. Even if you already know some stuff, it will be useful for you to have a more or less whole picture of the basics.</p>
@@ -1240,8 +1415,7 @@ As for me, I want to add, that the lecture is great not only because of summariz
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Policy-Search-for-RL,-Pieter-Abbeel">Policy Search for RL, <em>Pieter Abbeel</em><a class="anchor-link" href="#Policy-Search-for-RL,-Pieter-Abbeel">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137919/deeplearning2017_abbeel_policy_search_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_abbeel_policy_search/">Video</a></em></p>
 <p>Okay, let's move to Policy Gradient methods with Peter Abbeel.</p>
@@ -1295,8 +1469,7 @@ We can apply exactly the same trick to both reward function and policy.</p>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In real world, we do not have access to noise, but we can learn it from rollouts (model-based RL).</p>
 <p>It's very hard to make all of these work, as Peter says.
@@ -1345,8 +1518,7 @@ Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>It's interesting, that given how simple the method is, it works embarassingly (according to Peter) well. Unfortunately, sample efficiency is not that great and the method struggles when problem dimensionality is too high.</p>
 <p>You can find a list of related approaches with references below:</p>
@@ -1416,8 +1588,7 @@ Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ 
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are some important things which can make PG work better. 
 One of these things is a step size.
@@ -1452,8 +1623,7 @@ But when I finished watching it for the 3rd time I find it quite logical, very b
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="TD-Learning,-Richard-Sutton_2">TD Learning, <em>Richard Sutton</em><a class="anchor-link" href="#TD-Learning,-Richard-Sutton">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137922/deeplearning2017_sutton_td_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_sutton_td_learning/">Video</a></em></p>
 <p>This is not only a lecture on temporal-difference (TD) methods but a commencement speech for those who are entering the field.
@@ -1503,8 +1673,7 @@ $S_0, A_0, R_1, S_1$ are the state, action and reward respectively. $R_1$ means 
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Deep-Reinforcement-Learning,-Hado-van-Hasselt">Deep Reinforcement Learning, <em>Hado van Hasselt</em><a class="anchor-link" href="#Deep-Reinforcement-Learning,-Hado-van-Hasselt">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137918/deeplearning2017_van_hasselt_deep_reinforcement_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_van_hasselt_deep_reinforcement/">Video</a></em></p>
 <p>Hado starts from the big picture.
@@ -1546,8 +1715,7 @@ The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Deep-Control,-Nando-de-Freitas">Deep Control, <em>Nando de Freitas</em><a class="anchor-link" href="#Deep-Control,-Nando-de-Freitas">&para;</a></h2><p><em>No slides</em> |<em><a href="http://videolectures.net/deeplearning2017_de_freitas_deep_control/">Video</a></em></p>
 <p>This lecture has no slide deck provided, so, there will be no formulas and mostly a general description of what's going on.</p>
@@ -1600,8 +1768,7 @@ The authors look at the problem of imitating from different perspective (differe
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Theory-of-RL,-Csaba-Szepesv&aacute;ri">Theory of RL, <em>Csaba Szepesv&aacute;ri</em><a class="anchor-link" href="#Theory-of-RL,-Csaba-Szepesv&aacute;ri">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137923/deeplearning2017_szepesvari_theory_of_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_szepesvari_theory_of_rl/">Video</a></em></p>
 <h3 id="Why-and-what">Why and what<a class="anchor-link" href="#Why-and-what">&para;</a></h3><p>Why should we care about theory?
@@ -1682,8 +1849,7 @@ Highly recommended.</p>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Reinforcement-Learning,-Satinder-Singh_1">Reinforcement Learning, <em>Satinder Singh</em><a class="anchor-link" href="#Reinforcement-Learning,-Satinder-Singh">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1129741/deeplearning2017_singh_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_singh_reinforcement_learning/">Video</a></em></p>
 <p>This is a talk on continual learning, which implies:</p>
@@ -1757,8 +1923,7 @@ Still, it's a good talk and it's especially interesting to watch after Nando's l
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Safe-RL,--Philip-Thomas">Safe RL, <em> Philip Thomas</em><a class="anchor-link" href="#Safe-RL,--Philip-Thomas">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137917/deeplearning2017_thomas_safe_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_thomas_safe_rl/">Video</a></em></p>
 <p><strong>Disclaimer</strong>: we will not be talking about John Connor saving the world from terminators. 
@@ -1820,7 +1985,7 @@ The less data we have, the closer we are to Monte Carlo.</p>
 <p>Unfortunately, Hoeffding's inequality gives us a very bad lower bound.
 The coefficient $b$ is the reason for that.
 What should we do?
-Use other concentration inequalities, such as Anderson&amp;Massart; or CUT (unfortunately, no references).</p>
+Use other concentration inequalities, such as Anderson&amp;Massart or CUT (unfortunately, no references).</p>
 <p>We can also use the $t$-test. 
 Yes, it works in the Normal case, but the Central Limit theorem helps us here.
 Moreover, if rewards are non-negative then the $t$-test tends to be conservative.</p>
@@ -1858,8 +2023,7 @@ Apart from a curious perspective on RL safety, the lecture gives the best explan
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">Applications of bandits and recommendation systems, <em> Nicolas Le Roux</em><a class="anchor-link" href="#Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Slides</a></em> | <em><a href="http://videolectures.net/deeplearning2017_le_roux_recommendation_system/">Video</a></em></p>
 <p>In this lecture, Nicolas Le Roux talks about the application of RL less common in the academic community &ndash; online advertising. However, this is more than just that.
@@ -1930,8 +2094,7 @@ This lecture intersects a bit with the previous one on safe RL when we discussed
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">Cooperative Visual Dialogue with Deep RL, <em>Dhruv Batra &amp; Devi Parikh</em><a class="anchor-link" href="#Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">&para;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137915/deeplearning2017_parikh_batra_deep_rl.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_parikh_batra_deep_rl/">Video</a></em></p>
 <p>This lecture is the not as much on RL as on Visual Dialogues. 
@@ -2003,8 +2166,7 @@ Hovewer, it turned out pretty interesting in terms of domain and ability to refr
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Outro">Outro<a class="anchor-link" href="#Outro">&para;</a></h2><p>That's it!
 We've made it till the end!
@@ -2015,16 +2177,14 @@ Have fun and see you soon!</p>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="References">References<a class="anchor-link" href="#References">&para;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>[1] Khan, Arbaaz, Clark Zhang, Nikolay Atanasov, Konstantinos Karydis, Vijay Kumar, and Daniel D. Lee. "Memory Augmented Control Networks." arXiv preprint arXiv:1709.05706 (2017), <a href="https://arxiv.org/abs/1709.05706">link</a>.</p>
 <p>[2] Jiang, Nan, Alex Kulesza, Satinder Singh, and Richard Lewis. "The dependence of effective planning horizon on model accuracy." In Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems, pp. 1181-1189. International Foundation for Autonomous Agents and Multiagent Systems, 2015, <a href="http://www-personal.umich.edu/~rickl/pubs/jiang-et-al-2015-aamas.pdf">link</a>.</p>

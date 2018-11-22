@@ -13,3 +13,4 @@ Title: Paper Notes
 * [Relational inductive biases, deep learning, and graph networks](/files/paper_notes/gn.pdf) ([paper](https://arxiv.org/abs/1806.01261), 2018-06-13)
 * [Self-Imitation Learning](/files/paper_notes/sil.pdf) ([paper](https://arxiv.org/abs/1806.05635), 2018-06-20)
 * [Is Generator Conditioning Causally Related to GAN Performance?](/files/paper_notes/gen_cond.pdf) ([paper](https://arxiv.org/abs/1802.08768), re-added on 2018-08-31)
+* [Relational Forward Models for Multi-Agent Learning](/files/paper_notes/rfm.pdf) ([paper](https://arxiv.org/abs/1809.11044), added on 2018-11-22)
