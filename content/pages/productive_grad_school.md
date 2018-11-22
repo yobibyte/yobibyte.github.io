@@ -28,6 +28,7 @@ Find the page useful? Spread the word =)
 * [P] [Notes on writing by Frédo Durand](http://people.csail.mit.edu/fredo/PUBLI/writing.pdf)
 * [BP] [Ten Tips for Writing CS Papers by Sebastian Nowozin](http://www.nowozin.net/sebastian/blog/ten-tips-for-writing-cs-papers-part-1.html)
 * [BP] [Write in your own voice by Terence Tao](https://terrytao.wordpress.com/advice-on-writing-papers/write-in-your-own-voice/)
+* [P] [Ten simple rules for structuring papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619)
 
 ## Giving a talk
 
@@ -49,3 +50,4 @@ Find the page useful? Spread the word =)
 * [P] [The care and maintenance of your adviser](https://www.nature.com/naturejobs/2011/110127/pdf/nj7331-570a.pdf)
 * [P] [In praise of lectures by T.W.Körner](https://www.dpmms.cam.ac.uk/~twk/Lecture.pdf)
 * [WWW] [Graduate Skills Seminars, 2010-2011, UofT](http://www.dgp.toronto.edu/~hertzman/courses/gradSkills/2010/)
+* [WWW] [Twenty things I wish I’d known when I started my PhD](https://www.nature.com/articles/d41586-018-07332-x)
