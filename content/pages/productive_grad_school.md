@@ -30,6 +30,7 @@ Find the page useful? Spread the word =)
 * [BP] [Write in your own voice by Terence Tao](https://terrytao.wordpress.com/advice-on-writing-papers/write-in-your-own-voice/)
 * [P] [Ten simple rules for structuring papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619)
 * [P] [How to construct a Nature summary paragraph](http://s3-service-broker-live-19ea8b98-4d41-4cb4-be4c-d68f4963b7dd.s3.amazonaws.com/uploads/ckeditor/attachments/7808/2c_Summary_para.pdf)
+* [P] [How to Write a Technical Paper](https://pdfs.semanticscholar.org/441f/ac7c2020e1c8f0d32adffca697bbb8a198a1.pdf)
 
 ## Giving a talk
 
