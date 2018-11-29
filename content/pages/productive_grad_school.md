@@ -29,6 +29,7 @@ Find the page useful? Spread the word =)
 * [BP] [Ten Tips for Writing CS Papers by Sebastian Nowozin](http://www.nowozin.net/sebastian/blog/ten-tips-for-writing-cs-papers-part-1.html)
 * [BP] [Write in your own voice by Terence Tao](https://terrytao.wordpress.com/advice-on-writing-papers/write-in-your-own-voice/)
 * [P] [Ten simple rules for structuring papers](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005619)
+* [P] [How to construct a Nature summary paragraph](http://s3-service-broker-live-19ea8b98-4d41-4cb4-be4c-d68f4963b7dd.s3.amazonaws.com/uploads/ckeditor/attachments/7808/2c_Summary_para.pdf)
 
 ## Giving a talk
 
