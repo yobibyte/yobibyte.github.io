@@ -1270,11 +1270,9 @@ Botting and installing the system is straightforward, I won't say much here. Jus
 You will need it to edit all the configs we will edit in the future:</p>
 <pre><code>sudo apt install vim</code></pre>
 <p>As soon as you do it, uncomment the following lines in <code>/etc/inputrc</code> and refresh your terminal session:</p>
-<pre><code># "\e[5~": history-search-backward
-
-# "\e[6~": history-search-forward
-
-source ~/.bashrc</code></pre>
+<pre><code># "\e[5~": history-search-backward</code></pre>
+<pre><code># "\e[6~": history-search-forward</code></pre>
+<pre><code>source ~/.bashrc</code></pre>
 <p>This will enable you to do history search just using pgUp and pgDown keys.</p>
 <p>I have a system SSD and an HDD{s} with backups and huge data dumps. 
 Usually, I just unplug the HDDs when I reinstall the OS and add them to fstab <a href="https://askubuntu.com/questions/125257/how-do-i-add-an-additional-hard-drive">later</a>.</p>
@@ -1283,9 +1281,8 @@ Usually, I just unplug the HDDs when I reinstall the OS and add them to fstab <a
 Install <em>xclip</em> first to copy stuff to your buffer:</p>
 <pre><code>sudo apt-get install xclip</code></pre>
 <p>Generate a key and copy it to the buffer:</p>
-<pre><code>ssh-keygen -t rsa -b 4096 -C "<your-email-here>"
-
-xclip -sel clip &lt; ~/.ssh/id_rsa.pub</your-email-here></code></pre>
+<pre><code>ssh-keygen -t rsa -b 4096 -C "<your-email-here>"</your-email-here></code></pre>
+<pre><code>xclip -sel clip &lt; ~/.ssh/id_rsa.pub</code></pre>
 <p>Now you can copy this key to the <code>authorized_keys</code> file on your server/github/whatever.</p>
 </div>
 </div>
