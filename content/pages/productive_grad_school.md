@@ -19,6 +19,8 @@ Find the page useful? Spread the word =)
 ## General Tips
 
 * [BP] [The Pragmatic Scientist](https://drive.google.com/file/d/1dFTuTaNZBmEPmjkcpDWEmQ9u1EXT4hGh/view)
+* [BP] [Augmenting Long-term Memory](http://augmentingcognition.com/ltm.html)
+* [BP] [Using spaced repetition systems to see through a piece of mathematics](http://cognitivemedium.com/srs-mathematics)
 
 ## Writing
 
