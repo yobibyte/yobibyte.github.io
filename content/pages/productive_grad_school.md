@@ -19,8 +19,12 @@ Find the page useful? Spread the word =)
 ## General Tips
 
 * [BP] [The Pragmatic Scientist](https://drive.google.com/file/d/1dFTuTaNZBmEPmjkcpDWEmQ9u1EXT4hGh/view)
+
+## Anki
+
 * [BP] [Augmenting Long-term Memory](http://augmentingcognition.com/ltm.html)
 * [BP] [Using spaced repetition systems to see through a piece of mathematics](http://cognitivemedium.com/srs-mathematics)
+* [BP] [Everything I Know: Strategies, Tips, and Tricks for Anki](https://senrigan.io/blog/everything-i-know-strategies-tips-and-tricks-for-spaced-repetition-anki)
 
 ## Writing
 
