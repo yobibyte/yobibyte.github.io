@@ -6,6 +6,9 @@ DPhil (PhD) student at the University of Oxford. [CV](/files/CV.pdf) and [twitte
 
 * **[The Atari Grand Challenge Dataset](https://arxiv.org/abs/1705.10998)**, **Vitaly Kurin**, Sebastian Nowozin, Katja Hofmann, Lucas Beyer, and Bastian Leibe. arXiv preprint arXiv:1705.10998, 2017.
 * **[Towards a Principled Integration of Multi-Camera Re-Identification and Tracking through Optimal Bayes Filters](https://arxiv.org/abs/1705.04608)**, *Lucas Beyer, Stefan Breuers*, **Vitaly Kurin**, *Bastian Leibe*, CVPR 2017 [ReID and MTMCT workshop](http://vision.cs.duke.edu/CVPR-2017-REID-MTMCT/).
+* **[Learning from Demonstration in the Wild](https://arxiv.org/abs/1811.03516)**, Feryal Behbahani, Kyriacos Shiarlis, Xi Chen, **Vitaly Kurin**, Sudhanshu Kasewa, Ciprian Stirbu, JoÃčo Gomes, Supratik Paul, Frans A. Oliehoek, Joao Messias, Shimon Whiteson, ICRA 2019.
+* **[Fast Context Adaptation via Meta-Learning](http://proceedings.mlr.press/v97/zintgraf19a.html)**, Zintgraf, Luisa M., Kyriacos Shiarlis, **Vitaly Kurin**, Katja Hofmann, and Shimon Whiteson, ICML 2019.
+**[Fast Efficient Hyperparameter Tuning for Policy Gradients](https://arxiv.org/abs/1902.06583)**, Supratik Paul, **Vitaly Kurin**, Shimon Whiteson arXiv preprint arXiv:1902.06583, 2019.
 
 ### Experience
 
