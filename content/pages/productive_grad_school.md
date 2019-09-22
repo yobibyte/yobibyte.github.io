@@ -19,6 +19,7 @@ Find the page useful? Spread the word =)
 ## General Tips
 
 * [BP] [The Pragmatic Scientist](https://drive.google.com/file/d/1dFTuTaNZBmEPmjkcpDWEmQ9u1EXT4hGh/view)
+* [BP] [PhD 101](https://www.cs.cmu.edu/~vcirik/blog/2019/phd-101/)
 
 ## Anki
 
