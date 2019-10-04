@@ -1457,7 +1457,7 @@ We can apply exactly the same trick to both reward function and policy.</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="nb">iter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="nb">iter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
     <span class="k">for</span> <span class="n">rollout</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
         <span class="n">sample</span> <span class="n">s0</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="o">...</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">z1</span><span class="o">...</span> <span class="c1"># w_i is dynamics noise, v_i is policy noise, z_i is reward noise</span>
         <span class="n">execute</span> <span class="n">rollout</span>
@@ -1501,7 +1501,7 @@ Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">disr_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">disr_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
 <span class="k">for</span> <span class="nb">iter</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span>
     <span class="n">curr_utility</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">population</span> <span class="n">member</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span>
@@ -1575,7 +1575,7 @@ Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ 
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">Initialize</span> <span class="n">policy</span> <span class="n">parameter</span> <span class="n">theta</span><span class="p">,</span> <span class="n">baseline</span> <span class="n">b</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Initialize</span> <span class="n">policy</span> <span class="n">parameter</span> <span class="n">theta</span><span class="p">,</span> <span class="n">baseline</span> <span class="n">b</span>
 <span class="k">for</span> <span class="n">iteration</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">...</span> <span class="n">do</span>
     <span class="n">Collect</span> <span class="n">a</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">trajectories</span> <span class="n">by</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">current</span> <span class="n">policy</span>
     <span class="n">At</span> <span class="n">each</span> <span class="n">timestep</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">trajectory</span> <span class="n">compute</span>
