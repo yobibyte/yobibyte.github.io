@@ -48,6 +48,7 @@ Find the page useful? Spread the word =)
 ## Peer review
 
 * [S] [Peer Review](http://people.csail.mit.edu/fredo/review.pdf)
+* [WWW] [ICLR2020 reviewing guideline](https://iclr.cc/Conferences/2020/ReviewerGuide)
 
 ## Time management
 
