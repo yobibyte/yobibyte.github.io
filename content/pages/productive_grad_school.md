@@ -20,12 +20,14 @@ Find the page useful? Spread the word =)
 
 * [BP] [The Pragmatic Scientist](https://drive.google.com/file/d/1dFTuTaNZBmEPmjkcpDWEmQ9u1EXT4hGh/view)
 * [BP] [PhD 101](https://www.cs.cmu.edu/~vcirik/blog/2019/phd-101/)
+* [BP] [3 qualities of successful PhD students by Matt Might](http://matt.might.net/articles/successful-phd-students/)
 
 ## Anki
 
 * [BP] [Augmenting Long-term Memory](http://augmentingcognition.com/ltm.html)
 * [BP] [Using spaced repetition systems to see through a piece of mathematics](http://cognitivemedium.com/srs-mathematics)
 * [BP] [Everything I Know: Strategies, Tips, and Tricks for Anki](https://senrigan.io/blog/everything-i-know-strategies-tips-and-tricks-for-spaced-repetition-anki)
+* [BP] [My advice to the 2012 class by Murat Demirbas](http://muratbuffalo.blogspot.com/2012/05/my-advice-to-2012-class.html?m=0) 
 
 ## Writing
 
@@ -65,7 +67,6 @@ Find the page useful? Spread the word =)
 * [P] [How to send and reply to email by Matt Might](http://matt.might.net/articles/how-to-email/)
 * [P] [Reading for Graduate Students by Matt Might](http://matt.might.net/articles/books-papers-materials-for-graduate-students/)
 * [P] [Email writing tips by Philip Guo](http://www.pgbovine.net/email-tips.htm)
-* [P] [My advice to the 2012 class by Murat Demirbas](http://muratbuffalo.blogspot.com/2012/05/my-advice-to-2012-class.html?m=0) 
 * [P] [How I read a research paper by Murat Demirbas](http://muratbuffalo.blogspot.com/2013/07/how-i-read-research-paper.html?m=0) 
 * [P] [My advice to my graduate students by Murat Demirbas](http://muratbuffalo.blogspot.com/2013/04/my-advice-to-my-students.html?m=0)
 * [P] [If you're not writing a program, do not use a programming language by Murat Demirbas](http://muratbuffalo.blogspot.com/2018/07/if-youre-not-writing-program-dont-use.html?m=0)
