@@ -21,6 +21,7 @@ Find the page useful? Spread the word =)
 * [BP] [The Pragmatic Scientist](https://drive.google.com/file/d/1dFTuTaNZBmEPmjkcpDWEmQ9u1EXT4hGh/view)
 * [BP] [PhD 101](https://www.cs.cmu.edu/~vcirik/blog/2019/phd-101/)
 * [BP] [3 qualities of successful PhD students by Matt Might](http://matt.might.net/articles/successful-phd-students/)
+* [P] [How to be a good graduate student by Deirdre N. McCloskey](http://www.deirdremccloskey.com/docs/pdf/Article_315.pdf)
 
 ## Anki
 
