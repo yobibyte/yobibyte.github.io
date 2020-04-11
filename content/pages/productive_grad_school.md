@@ -44,7 +44,7 @@ Find the page useful? Spread the word =)
 * [BP] [How to write a great science paper](https://www.nature.com/articles/d41586-019-02918-5)
 * [P] [Writing a paper](https://intra.ece.ucr.edu/~rlake/Whitesides_writing_res_paper.pdf)
 * [WWW] [Write the paper first](http://www.cs.jhu.edu/~jason/advice/write-the-paper-first.html)
-
+* [WWW] [How to Write Up a Ph.D. Dissertation](http://www.cs.jhu.edu/~jason/advice/how-to-write-a-thesis.html)
 ## Giving a talk
 
 * [V] [How to give a great research talk](https://youtu.be/ot_McoYlwUo)
