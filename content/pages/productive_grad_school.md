@@ -43,6 +43,7 @@ Find the page useful? Spread the word =)
 * [P] [How to Write a Technical Paper](https://pdfs.semanticscholar.org/441f/ac7c2020e1c8f0d32adffca697bbb8a198a1.pdf)
 * [BP] [How to write a great science paper](https://www.nature.com/articles/d41586-019-02918-5)
 * [P] [Writing a paper](https://intra.ece.ucr.edu/~rlake/Whitesides_writing_res_paper.pdf)
+* [WWW] [Write the paper first](http://www.cs.jhu.edu/~jason/advice/write-the-paper-first.html)
 
 ## Giving a talk
 
