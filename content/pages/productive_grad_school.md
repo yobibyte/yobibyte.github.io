@@ -45,6 +45,7 @@ Find the page useful? Spread the word =)
 * [P] [Writing a paper](https://intra.ece.ucr.edu/~rlake/Whitesides_writing_res_paper.pdf)
 * [WWW] [Write the paper first](http://www.cs.jhu.edu/~jason/advice/write-the-paper-first.html)
 * [WWW] [How to Write Up a Ph.D. Dissertation](http://www.cs.jhu.edu/~jason/advice/how-to-write-a-thesis.html)
+
 ## Giving a talk
 
 * [V] [How to give a great research talk](https://youtu.be/ot_McoYlwUo)
@@ -74,3 +75,4 @@ Find the page useful? Spread the word =)
 * [P] [My advice to my graduate students by Murat Demirbas](http://muratbuffalo.blogspot.com/2013/04/my-advice-to-my-students.html?m=0)
 * [P] [If you're not writing a program, do not use a programming language by Murat Demirbas](http://muratbuffalo.blogspot.com/2018/07/if-youre-not-writing-program-dont-use.html?m=0)
 * [P] [How to Succeed in Graduate School: A guide for students and advisors by Marie des Jardins](https://www.csee.umbc.edu/~mariedj/papers/advice.pdf)
+* [WWW] [How to be a LARG student](https://larg.github.io/)
