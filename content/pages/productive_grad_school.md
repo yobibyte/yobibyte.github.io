@@ -22,6 +22,7 @@ Find the page useful? Spread the word =)
 * [BP] [PhD 101](https://www.cs.cmu.edu/~vcirik/blog/2019/phd-101/)
 * [BP] [3 qualities of successful PhD students by Matt Might](http://matt.might.net/articles/successful-phd-students/)
 * [P] [How to be a good graduate student by Deirdre N. McCloskey](http://www.deirdremccloskey.com/docs/pdf/Article_315.pdf)
+* [P] [How to do Research At the MIT AI Lab](https://dspace.mit.edu/handle/1721.1/41487)
 
 ## Anki
 
@@ -55,6 +56,7 @@ Find the page useful? Spread the word =)
 
 * [S] [Peer Review](http://people.csail.mit.edu/fredo/review.pdf)
 * [WWW] [ICLR2020 reviewing guideline](https://iclr.cc/Conferences/2020/ReviewerGuide)
+* [WWW] [Advice on Reviewing for EMNLP](https://2020.emnlp.org/blog/2020-05-17-write-good-reviews)
 
 ## Time management
 
