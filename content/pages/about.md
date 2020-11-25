@@ -39,7 +39,7 @@ amount of bug fixes.
 ### Education and selected courses
 
 * **University of Oxford, DPhil (PhD) in Computer Science, 2018-Present**
-    * Supervisor: Shimon Whiteson
+    * Supervisor: [Shimon Whiteson](https://www.cs.ox.ac.uk/people/shimon.whiteson/)
     * I am working on applications of Graph Neural Networks in Reinforcement Learning.
 
 * **RWTH Aachen University, M.Sc. 2015-2017 (Media Informatics program)**
