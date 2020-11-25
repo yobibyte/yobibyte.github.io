@@ -1,20 +1,21 @@
 Title: about
 
-DPhil (PhD) student at the University of Oxford. [CV](/files/CV.pdf) and [twitter](https://twitter.com/y0b1byte)
+DPhil (PhD) student at the University of Oxford. [CV](/files/CV.pdf), [publications](https://yobibyte.github.io/pages/publicationspreprints.html#publicationspreprints) and [twitter](https://twitter.com/y0b1byte).
 
-### Publications
-
-* **[The Atari Grand Challenge Dataset](https://arxiv.org/abs/1705.10998)**, **Vitaly Kurin**, Sebastian Nowozin, Katja Hofmann, Lucas Beyer, and Bastian Leibe. arXiv preprint arXiv:1705.10998, 2017.
-* **[Towards a Principled Integration of Multi-Camera Re-Identification and Tracking through Optimal Bayes Filters](https://arxiv.org/abs/1705.04608)**, *Lucas Beyer, Stefan Breuers*, **Vitaly Kurin**, *Bastian Leibe*, CVPR 2017 [ReID and MTMCT workshop](http://vision.cs.duke.edu/CVPR-2017-REID-MTMCT/).
-* **[Learning from Demonstration in the Wild](https://arxiv.org/abs/1811.03516)**, Feryal Behbahani, Kyriacos Shiarlis, Xi Chen, **Vitaly Kurin**, Sudhanshu Kasewa, Ciprian Stirbu, JoÃčo Gomes, Supratik Paul, Frans A. Oliehoek, Joao Messias, Shimon Whiteson, ICRA 2019.
-* **[Fast Context Adaptation via Meta-Learning](http://proceedings.mlr.press/v97/zintgraf19a.html)**, Zintgraf, Luisa M., Kyriacos Shiarlis, **Vitaly Kurin**, Katja Hofmann, and Shimon Whiteson, ICML 2019.
-**[Fast Efficient Hyperparameter Tuning for Policy Gradients](https://arxiv.org/abs/1902.06583)**, Supratik Paul, **Vitaly Kurin**, Shimon Whiteson arXiv preprint arXiv:1902.06583, 2019.
 
 ### Experience
 
-* [Morpheus Labs, Oxford, UK](http://morpheuslabs.co.uk/), **Junior Researcher**, *October 2017/present*
+* [Facebook AI Research, London, UK](https://ai.facebook.com/), **Research Intern**, *September 2019/December 2019*.
 
-    Working on Human Behaviour Modelling using Reinforcement Learning and Learning from Demonstration techniques.
+    In progress.
+
+* [NVIDIA, Santa Clara, US](https://www.nvidia.com/en-gb/), **Research Intern**, *June 2019/September 2019* 
+
+    Part of the Applied Deep Learning Research team, working on Reinforcement Learning applications for SAT solvers. Paper got accepted to [NeurIPS 2020](https://papers.nips.cc/paper/2020/hash/6d70cb65d15211726dcce4c0e971e21c-Abstract.html).
+
+* [Latent Logic, Oxford, UK](https://techcrunch.com/2019/12/12/waymo-buys-latent-logic-drives-deeper-into-simulation-and-europe/), **Junior Researcher**, *October 2017/September 2018*
+
+    Working on Human Behaviour Modelling using Reinforcement Learning and Learning from Demonstration techniques. The company is acquired by Waymo.
 
 * [Microsoft Research Cambridge, UK](https://www.microsoft.com/en-us/research/lab/microsoft-research-cambridge/), **visiting student**, *March 2017/May 2017*
 
@@ -36,6 +37,10 @@ DPhil (PhD) student at the University of Oxford. [CV](/files/CV.pdf) and [twitte
 amount of bug fixes.
 
 ### Education and selected courses
+
+* **University of Oxford, DPhil (PhD) in Computer Science, 2018-Present**
+    * Supervisor: Shimon Whiteson
+    * I am working on applications of Graph Neural Networks in Reinforcement Learning.
 
 * **RWTH Aachen University, M.Sc. 2015-2017 (Media Informatics program)**
     * [Game AI](https://sites.google.com/site/bitgameai/)
