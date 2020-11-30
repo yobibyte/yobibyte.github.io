@@ -23,6 +23,7 @@ Find the page useful? Spread the word =)
 * [BP] [3 qualities of successful PhD students by Matt Might](http://matt.might.net/articles/successful-phd-students/)
 * [P] [How to be a good graduate student by Deirdre N. McCloskey](http://www.deirdremccloskey.com/docs/pdf/Article_315.pdf)
 * [P] [How to do Research At the MIT AI Lab](https://dspace.mit.edu/handle/1721.1/41487)
+* [WWW] [Syllabus for Eric's PhD students](https://docs.google.com/document/d/11D3kHElzS2HQxTwPqcaTnU5HCJ8WGE5brTXI4KLf4dM/edit)
 
 ## Anki
 
