@@ -24,6 +24,8 @@ Find the page useful? Spread the word =)
 * [P] [How to be a good graduate student by Deirdre N. McCloskey](http://www.deirdremccloskey.com/docs/pdf/Article_315.pdf)
 * [P] [How to do Research At the MIT AI Lab](https://dspace.mit.edu/handle/1721.1/41487)
 * [WWW] [Syllabus for Eric's PhD students](https://docs.google.com/document/d/11D3kHElzS2HQxTwPqcaTnU5HCJ8WGE5brTXI4KLf4dM/edit)
+* [T] [How to be organised and productive during your PhD by Nicole Peinelt](https://github.com/wuningxi/Talks/blob/main/2020_How_to_be_organised_and_productive_during_your_PhD.pdf)
+* [BP] [What I wish I knew before starting my PhD by Fotis Savva](https://medium.com/@fotissavva/what-i-wish-i-knew-before-starting-my-phd-4a10c40af3d3)
 
 ## Anki
 
