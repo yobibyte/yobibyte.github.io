@@ -1,6 +1,6 @@
 Title: Publications&Preprints
 
-- [*My Body is a Cage: the Role of Morphology in Graph-Based Incompatible Control*](https://arxiv.org/abs/2010.01856), **Vitaly Kurin**, Maximilian Igl, Tim Rocktaeschel, Wendelin Boehmer, Shimon Whiteson, Arxiv preprint.
+- [*My Body is a Cage: the Role of Morphology in Graph-Based Incompatible Control*](https://arxiv.org/abs/2010.01856), **Vitaly Kurin**, Maximilian Igl, Tim Rocktaeschel, Wendelin Boehmer, Shimon Whiteson, ICLR 2021.
 - [*Can Q-Learning with Graph Networks Learn a Generalizable Branching Heuristic for a SAT Solver?*](https://arxiv.org/abs/1909.11830), **Vitaly Kurin**, Saad Godil, Shimon Whiteson, Bryan Catanzaro, NeurIPS 2020.
 - [*Deep Coordination Graphs*](https://arxiv.org/abs/1910.00091), Wendelin Boehmer, **Vitaly Kurin**, Shimon Whiteson, ICML 2020.
 - [*Fast Efficient Hyperparameter Tuning for Policy Gradients*](https://arxiv.org/abs/1902.06583), Supratik Paul, **Vitaly Kurin**, Shimon Whiteson, NeurIPS 2019.
