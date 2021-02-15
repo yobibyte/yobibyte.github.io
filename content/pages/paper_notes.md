@@ -1,5 +1,6 @@
 Title: Paper Notes
 
+* [XLVIN: eXecuted Latent Value Iteration Nets](https://www.notion.so/XLVIN-eXecuted-Latent-Value-Iteration-Nets-8353a56588894f39b373cec8b8efd33b)
 * [Generative Adversarial Imitation Learning, Ho&Ermon, 2016](/files/paper_notes/Generative_Adversarial_Imitation_Learning__Ho_Ermon__2017.pdf) ([paper](https://arxiv.org/abs/1606.03476), 2018-03-22)
 * [Reptile: a Scalable Metalearning Algorithm, Nichol&Schulman, 2018](/files/paper_notes/Reptile___a_Scalable_Metalearning_Algorithm__Alex_Nichol_and_John_Schulman__2018.pdf) ([paper](https://arxiv.org/abs/1803.02999), 2018-03-22)
 * [Generative Multi-Agent Behavioral Cloning](/files/paper_notes/Generative_Multi_Agent_Behavioral_Cloning__Zhan_et_al___2018.pdf) ([paper](https://arxiv.org/abs/1803.07612), 2018-03-23)
