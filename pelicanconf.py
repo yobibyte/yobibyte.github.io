@@ -34,6 +34,10 @@ SOCIAL = (
          )
 
 MAIN_MENU = True
+LINKS = (
+    ("Notes", "https://www.notion.so/Paper-Notes-by-Vitaly-Kurin-97827e14e5cd4183815cfe3a5ecf2f4c"),
+)
+
 DISQUS_SITENAME = 'yobiblog-1'
 
 GOOGLE_ANALYTICS= "UA-108066970-1"
@@ -47,9 +51,6 @@ MARKDOWN = {
     'output_format': 'html5',
 }
 
-LINKS = (
-    ("Notes", "https://www.notion.so/Paper-Notes-by-Vitaly-Kurin-97827e14e5cd4183815cfe3a5ecf2f4c")
-)
 
 #TOC = {
 #    'TOC_HEADERS'       : '^h[1-6]', # What headers should be included in
