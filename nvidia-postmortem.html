@@ -8,12 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="" />
 
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="./theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/solid.css">
 
 
 
@@ -29,15 +35,17 @@
   ga('create', 'UA-108066970-1', 'auto');
   ga('send', 'pageview');
 </script>
-<!-- End Google Analytics -->
+<!-- End Google Analytics -->  
+
 
 <meta name="author" content="yobibyte" />
-<meta name="description" content="Hi!¶That&#39;s my last day as a summer research intern at NVIDIA. This has been a fantastic experience! I learned a lot, had an interesting problem to work on and had computers to do that. I met a bunch of great people as well! Now, I&#39;d love to share what I&#39;ve learned during this summer." />
+<meta name="description" content="" />
 <meta name="keywords" content="">
+
 
 <meta property="og:site_name" content="yobibyte's webpage"/>
 <meta property="og:title" content="NVIDIA Summer 2019 Internship Post Mortem"/>
-<meta property="og:description" content="Hi!¶That&#39;s my last day as a summer research intern at NVIDIA. This has been a fantastic experience! I learned a lot, had an interesting problem to work on and had computers to do that. I met a bunch of great people as well! Now, I&#39;d love to share what I&#39;ve learned during this summer."/>
+<meta property="og:description" content=""/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./nvidia-postmortem.html"/>
 <meta property="og:type" content="article"/>
@@ -50,32 +58,70 @@
   <title>yobibyte's webpage &ndash; NVIDIA Summer 2019 Internship Post Mortem</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
       <a href=".">
         <img src="http://yobibyte.github.io/pics/socrat.png" alt="yobiblog" title="yobiblog">
       </a>
-      <h1><a href=".">yobiblog</a></h1>
+
+      <h1>
+        <a href=".">yobiblog</a>
+      </h1>
 
 <p>Posts on Machine Learning, Reinforcement Learning, Learning from Demonstrations etc.</p>
+
       <nav>
         <ul class="list">
-          <li><a href="./pages/about.html#about">about</a></li>
-          <li><a href="./pages/paper-notes.html#paper-notes">Paper Notes</a></li>
-          <li><a href="./pages/productive-grad-school.html#productive-grad-school">Productive Grad School</a></li>
-          <li><a href="./pages/publicationspreprints.html#publicationspreprints">Publications&Preprints</a></li>
-          <li><a href="./pages/talks.html#talks">Talks</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="./pages/about.html#about">
+                  about
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/paper-notes.html#paper-notes">
+                  Paper Notes
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/productive-grad-school.html#productive-grad-school">
+                  Productive Grad School
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/publicationspreprints.html#publicationspreprints">
+                  Publications&Preprints
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/talks.html#talks">
+                  Talks
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/yobibyte" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/y0b1byte" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/yobibyte" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/y0b1byte" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
@@ -86,16 +132,11 @@
       
     <h1 id="nvidia-postmortem">NVIDIA Summer 2019 Internship Post Mortem</h1>
     <p>
-          Posted on Fri 27 September 2019 in <a href="./category/misc.html">misc</a>
-
+      Posted on Fri 27 September 2019 in <a href="./category/misc.html">misc</a>
 
     </p>
   </header>
 
-
-    <div>
-            <div id="toc"><ul><li><a class="toc-href" href="#" title="NVIDIA Summer 2019 Internship Post Mortem">NVIDIA Summer 2019 Internship Post Mortem</a><ul><li><a class="toc-href" href="#Hi!" title="Hi!&para;">Hi!&para;</a><ul><li><a class="toc-href" href="#Do-not-stress-too-much." title="Do not stress too much.&para;">Do not stress too much.&para;</a></li><li><a class="toc-href" href="#Keep-notes-consistently." title="Keep notes consistently.&para;">Keep notes consistently.&para;</a></li><li><a class="toc-href" href="#Think-about-the-resources." title="Think about the resources.&para;">Think about the resources.&para;</a></li><li><a class="toc-href" href="#Don" into="" noise.¶'="" stare="" t="" t-stare-into-noise.'="" title="Don">Don't stare into noise.&para;</a></li><li><a class="toc-href" href="#Find-the-balance-between-bad-code-and-overengineered-overkill." title="Find the balance between bad code and overengineered overkill.&para;">Find the balance between bad code and overengineered overkill.&para;</a></li><li><a class="toc-href" href="#Produce-less-information,-extract-more-knowledge." title="Produce less information, extract more knowledge.&para;">Produce less information, extract more knowledge.&para;</a></li><li><a class="toc-href" href="#Be-pragmatic." title="Be pragmatic.&para;">Be pragmatic.&para;</a></li><li><a and="" class="toc-href" clearly.¶'="" done.="" href="#Learn-to-explain-what-you" learn="" think="" title="Learn to explain what you" to="" ve="" ve-done.-learn-to-write-and-think-clearly.'="" write="">Learn to explain what you've done. Learn to write and think clearly.&para;</a></li></ul></li></ul></li></ul></div>
-    </div>
 
   <div>
     <style type="text/css">/*!
@@ -1141,135 +1182,101 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #008000 } /* Keyword.Pseudo */
-.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
-.highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
-.highlight .ss { color: #19177C } /* Literal.String.Symbol */
-.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
-.highlight .vc { color: #19177C } /* Name.Variable.Class */
-.highlight .vg { color: #19177C } /* Name.Variable.Global */
-.highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<style type="text/css">
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-</style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<style type="text/css"> .highlight pre  .hll { background-color: #ffffcc }
+ .highlight pre   { background: #f8f8f8; }
+ .highlight pre  .c { color: #408080; font-style: italic } /* Comment */
+ .highlight pre  .err { border: 1px solid #FF0000 } /* Error */
+ .highlight pre  .k { color: #008000; font-weight: bold } /* Keyword */
+ .highlight pre  .o { color: #666666 } /* Operator */
+ .highlight pre  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+ .highlight pre  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+ .highlight pre  .cp { color: #BC7A00 } /* Comment.Preproc */
+ .highlight pre  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+ .highlight pre  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+ .highlight pre  .cs { color: #408080; font-style: italic } /* Comment.Special */
+ .highlight pre  .gd { color: #A00000 } /* Generic.Deleted */
+ .highlight pre  .ge { font-style: italic } /* Generic.Emph */
+ .highlight pre  .gr { color: #FF0000 } /* Generic.Error */
+ .highlight pre  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+ .highlight pre  .gi { color: #00A000 } /* Generic.Inserted */
+ .highlight pre  .go { color: #888888 } /* Generic.Output */
+ .highlight pre  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+ .highlight pre  .gs { font-weight: bold } /* Generic.Strong */
+ .highlight pre  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+ .highlight pre  .gt { color: #0044DD } /* Generic.Traceback */
+ .highlight pre  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+ .highlight pre  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+ .highlight pre  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+ .highlight pre  .kp { color: #008000 } /* Keyword.Pseudo */
+ .highlight pre  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+ .highlight pre  .kt { color: #B00040 } /* Keyword.Type */
+ .highlight pre  .m { color: #666666 } /* Literal.Number */
+ .highlight pre  .s { color: #BA2121 } /* Literal.String */
+ .highlight pre  .na { color: #7D9029 } /* Name.Attribute */
+ .highlight pre  .nb { color: #008000 } /* Name.Builtin */
+ .highlight pre  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+ .highlight pre  .no { color: #880000 } /* Name.Constant */
+ .highlight pre  .nd { color: #AA22FF } /* Name.Decorator */
+ .highlight pre  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+ .highlight pre  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+ .highlight pre  .nf { color: #0000FF } /* Name.Function */
+ .highlight pre  .nl { color: #A0A000 } /* Name.Label */
+ .highlight pre  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+ .highlight pre  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+ .highlight pre  .nv { color: #19177C } /* Name.Variable */
+ .highlight pre  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+ .highlight pre  .w { color: #bbbbbb } /* Text.Whitespace */
+ .highlight pre  .mb { color: #666666 } /* Literal.Number.Bin */
+ .highlight pre  .mf { color: #666666 } /* Literal.Number.Float */
+ .highlight pre  .mh { color: #666666 } /* Literal.Number.Hex */
+ .highlight pre  .mi { color: #666666 } /* Literal.Number.Integer */
+ .highlight pre  .mo { color: #666666 } /* Literal.Number.Oct */
+ .highlight pre  .sa { color: #BA2121 } /* Literal.String.Affix */
+ .highlight pre  .sb { color: #BA2121 } /* Literal.String.Backtick */
+ .highlight pre  .sc { color: #BA2121 } /* Literal.String.Char */
+ .highlight pre  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+ .highlight pre  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+ .highlight pre  .s2 { color: #BA2121 } /* Literal.String.Double */
+ .highlight pre  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+ .highlight pre  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+ .highlight pre  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+ .highlight pre  .sx { color: #008000 } /* Literal.String.Other */
+ .highlight pre  .sr { color: #BB6688 } /* Literal.String.Regex */
+ .highlight pre  .s1 { color: #BA2121 } /* Literal.String.Single */
+ .highlight pre  .ss { color: #19177C } /* Literal.String.Symbol */
+ .highlight pre  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+ .highlight pre  .fm { color: #0000FF } /* Name.Function.Magic */
+ .highlight pre  .vc { color: #19177C } /* Name.Variable.Class */
+ .highlight pre  .vg { color: #19177C } /* Name.Variable.Global */
+ .highlight pre  .vi { color: #19177C } /* Name.Variable.Instance */
+ .highlight pre  .vm { color: #19177C } /* Name.Variable.Magic */
+ .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="pics/nv_badge.jpg"/></p>
-<h1 id="Hi!">Hi!<a class="anchor-link" href="#Hi!">&para;</a></h1><p>That's my last day as a summer research intern at NVIDIA. This has been a fantastic experience! I learned a lot, had an interesting problem to work on and had computers to do that. I met a bunch of great people as well! Now, I'd love to share what I've learned during this summer.</p>
-<h3 id="Do-not-stress-too-much.">Do not stress too much.<a class="anchor-link" href="#Do-not-stress-too-much.">&para;</a></h3><p>Everyone fails. All the brilliant people around you have failed at some point. Probably, that's why they are intelligent! They've learnt from their mistakes. It hurts to fail, however, if you stress too much about it, it's not gonna help. I'm glad I had a lot of stressful experience before so that it did not take me by surprise. Sometimes nothing works, you feel down, but it will change if you persist. Do something else. Running was helpful to me. I had a rule, that no matter what happens, I have to run, even if I do not feel like it. After a couple of minutes, you start feeling better. Try it!</p>
-<h3 id="Keep-notes-consistently.">Keep notes consistently.<a class="anchor-link" href="#Keep-notes-consistently.">&para;</a></h3><p>This is very important. And I fail with this one occasionally. Time is essential, don't waste it. If you do experiments, but don't document them properly, there is no use in these experiments. Moreover, you might mess up the results, and they will not be reliable. You can't afford that! Script everything so that it's automated as much as possible. Otherwise, you'll forget to write it up.</p>
-<h3 id="Think-about-the-resources.">Think about the resources.<a class="anchor-link" href="#Think-about-the-resources.">&para;</a></h3><p>Surprisingly, NVIDIA has a lot of GPUs. Amount of compute you get is insane. However, it's not infinite. And the appetites of the members of your team are much higher than in a university lab. Plan your experiments, try to automate this as well so that your server utilisation does not drop. However, make sure you are not burning your resources for nothing.</p>
-<h3 id="Don't-stare-into-noise.">Don't stare into noise.<a class="anchor-link" href="#Don't-stare-into-noise.">&para;</a></h3><p>Nothing incredibly surprising here, but we are all guilty doing that. It's very tempting to come to a conclusion based on a single experiment. Don't do it. Try running more and average the results.</p>
-<h3 id="Find-the-balance-between-bad-code-and-overengineered-overkill.">Find the balance between bad code and overengineered overkill.<a class="anchor-link" href="#Find-the-balance-between-bad-code-and-overengineered-overkill.">&para;</a></h3><p>It's incredibly tempting at the beginning of the project to plan it years ahead and write an overengineered beast which is too rigid to modify.
+<p><img src="pics/nv_badge.jpg"></p>
+<h1 id="Hi!">Hi!<a class="anchor-link" href="#Hi!">&#182;</a></h1><p>That's my last day as a summer research intern at NVIDIA. This has been a fantastic experience! I learned a lot, had an interesting problem to work on and had computers to do that. I met a bunch of great people as well! Now, I'd love to share what I've learned during this summer.</p>
+<h3 id="Do-not-stress-too-much.">Do not stress too much.<a class="anchor-link" href="#Do-not-stress-too-much.">&#182;</a></h3><p>Everyone fails. All the brilliant people around you have failed at some point. Probably, that's why they are intelligent! They've learnt from their mistakes. It hurts to fail, however, if you stress too much about it, it's not gonna help. I'm glad I had a lot of stressful experience before so that it did not take me by surprise. Sometimes nothing works, you feel down, but it will change if you persist. Do something else. Running was helpful to me. I had a rule, that no matter what happens, I have to run, even if I do not feel like it. After a couple of minutes, you start feeling better. Try it!</p>
+<h3 id="Keep-notes-consistently.">Keep notes consistently.<a class="anchor-link" href="#Keep-notes-consistently.">&#182;</a></h3><p>This is very important. And I fail with this one occasionally. Time is essential, don't waste it. If you do experiments, but don't document them properly, there is no use in these experiments. Moreover, you might mess up the results, and they will not be reliable. You can't afford that! Script everything so that it's automated as much as possible. Otherwise, you'll forget to write it up.</p>
+<h3 id="Think-about-the-resources.">Think about the resources.<a class="anchor-link" href="#Think-about-the-resources.">&#182;</a></h3><p>Surprisingly, NVIDIA has a lot of GPUs. Amount of compute you get is insane. However, it's not infinite. And the appetites of the members of your team are much higher than in a university lab. Plan your experiments, try to automate this as well so that your server utilisation does not drop. However, make sure you are not burning your resources for nothing.</p>
+<h3 id="Don't-stare-into-noise.">Don't stare into noise.<a class="anchor-link" href="#Don't-stare-into-noise.">&#182;</a></h3><p>Nothing incredibly surprising here, but we are all guilty doing that. It's very tempting to come to a conclusion based on a single experiment. Don't do it. Try running more and average the results.</p>
+<h3 id="Find-the-balance-between-bad-code-and-overengineered-overkill.">Find the balance between bad code and overengineered overkill.<a class="anchor-link" href="#Find-the-balance-between-bad-code-and-overengineered-overkill.">&#182;</a></h3><p>It's incredibly tempting at the beginning of the project to plan it years ahead and write an overengineered beast which is too rigid to modify.
 Also, it's tempting to write a couple of lines to run a quick experiment to confirm some hypothesis. And then another one. And another one.
 And then you have a huge blob which also gets hard to modify and track the exact parameters of the experiments.
 I do not have a perfect answer for that. Probably, quick modifications on a separate branch will do the job, and then you can add an argument which adds your change if it's useful. I will be happy to get any advice on that.</p>
-<h3 id="Produce-less-information,-extract-more-knowledge.">Produce less information, extract more knowledge.<a class="anchor-link" href="#Produce-less-information,-extract-more-knowledge.">&para;</a></h3><p>That's an important one when you have a lot of compute. It's tempting to run hundred of jobs a day, but it's not very appealing to document all of them.
+<h3 id="Produce-less-information,-extract-more-knowledge.">Produce less information, extract more knowledge.<a class="anchor-link" href="#Produce-less-information,-extract-more-knowledge.">&#182;</a></h3><p>That's an important one when you have a lot of compute. It's tempting to run hundred of jobs a day, but it's not very appealing to document all of them.
 Personally, I believe it's better to experiment less, but stare at your results, add tons of metrics to analyse them. Experiments are not the final goal, but the conclusions are.</p>
-<h3 id="Be-pragmatic.">Be pragmatic.<a class="anchor-link" href="#Be-pragmatic.">&para;</a></h3><p>This is one of the best skills I learned at NVIDIA. You can discuss as many crazy ideas as you want. It is easy to chat and produce them. However, it's hard to identify which are good and do time estimate. Try to choose those which are more straightforward, easier to implement, but which will have the most significant impact.</p>
-<h3 id="Learn-to-explain-what-you've-done.-Learn-to-write-and-think-clearly.">Learn to explain what you've done. Learn to write and think clearly.<a class="anchor-link" href="#Learn-to-explain-what-you've-done.-Learn-to-write-and-think-clearly.">&para;</a></h3><p>This one is one of my weakest points. Sometimes I write something vague so that when I think about it more, I do not fully understand what I meant by it. Of course, the other person will have even more troubles understanding you. Weekly team meetings and working on the paper helped me a lot in developing the skill.</p>
-<hr/>
+<h3 id="Be-pragmatic.">Be pragmatic.<a class="anchor-link" href="#Be-pragmatic.">&#182;</a></h3><p>This is one of the best skills I learned at NVIDIA. You can discuss as many crazy ideas as you want. It is easy to chat and produce them. However, it's hard to identify which are good and do time estimate. Try to choose those which are more straightforward, easier to implement, but which will have the most significant impact.</p>
+<h3 id="Learn-to-explain-what-you've-done.-Learn-to-write-and-think-clearly.">Learn to explain what you've done. Learn to write and think clearly.<a class="anchor-link" href="#Learn-to-explain-what-you've-done.-Learn-to-write-and-think-clearly.">&#182;</a></h3><p>This one is one of my weakest points. Sometimes I write something vague so that when I think about it more, I do not fully understand what I meant by it. Of course, the other person will have even more troubles understanding you. Weekly team meetings and working on the paper helped me a lot in developing the skill.</p>
+<hr>
 <p>That's it! I'm glad you've read it! If you agree or disagree with something or want to share your experience, <a href="mailto:vitaliykurin@gmail.com">ping me</a>. If you are interested in the work we've done with Bryan, Saad and Shimon, have a look at our <a href="https://arxiv.org/abs/1909.11830">Arxiv</a> submission! The code will follow soon! And by the way, NVIDIA is hiring, <a href="mailto:bcatanzaro@acm.org">contact Bryan</a> if you are interested.</p>
 <p>Also, there is another list of excellent machine learning advice coming from my lab. <a href="https://whirl.cs.ox.ac.uk/blog/short-term-ml-research-advice/">Check it out!</a></p>
+
 </div>
 </div>
 </div>
+ 
+
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1320,15 +1327,15 @@ Personally, I believe it's better to experiment less, but stare at your results,
     })();
 </script>
 <noscript>
-        Please enable JavaScript to view comments.
-
+    Please enable JavaScript to view comments.
 </noscript>
 <!-- End Disqus -->
 </article>
 
     <footer>
 <p>&copy;  </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
@@ -1345,6 +1352,7 @@ Personally, I believe it's better to experiment less, but stare at your results,
   "description": ""
 }
 </script>
+
 
 </body>
 </html>

@@ -8,12 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="" />
 
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="./theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/font-awesome.min.css">
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="./theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/solid.css">
 
 
 
@@ -29,15 +35,17 @@
   ga('create', 'UA-108066970-1', 'auto');
   ga('send', 'pageview');
 </script>
-<!-- End Google Analytics -->
+<!-- End Google Analytics -->  
+
 
 <meta name="author" content="yobibyte" />
-<meta name="description" content="Hi! Currently I&#39;m preparing for High Performance Matrix Computations course exam. As usual, just reading never helps, so, I decided to write some code and sort the things out. This is the post about Cholesky decomposition and how to compute it. The accompanying jupyter notebook can be found here. Let&#39;s start from the definition. According to Wikipedia" />
+<meta name="description" content="" />
 <meta name="keywords" content="">
+
 
 <meta property="og:site_name" content="yobibyte's webpage"/>
 <meta property="og:title" content="Cholesky Decomposition"/>
-<meta property="og:description" content="Hi! Currently I&#39;m preparing for High Performance Matrix Computations course exam. As usual, just reading never helps, so, I decided to write some code and sort the things out. This is the post about Cholesky decomposition and how to compute it. The accompanying jupyter notebook can be found here. Let&#39;s start from the definition. According to Wikipedia"/>
+<meta property="og:description" content=""/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./cholesky.html"/>
 <meta property="og:type" content="article"/>
@@ -50,32 +58,70 @@
   <title>yobibyte's webpage &ndash; Cholesky Decomposition</title>
 
 </head>
-<body>
+<body class="light-theme">
   <aside>
     <div>
       <a href=".">
         <img src="http://yobibyte.github.io/pics/socrat.png" alt="yobiblog" title="yobiblog">
       </a>
-      <h1><a href=".">yobiblog</a></h1>
+
+      <h1>
+        <a href=".">yobiblog</a>
+      </h1>
 
 <p>Posts on Machine Learning, Reinforcement Learning, Learning from Demonstrations etc.</p>
+
       <nav>
         <ul class="list">
-          <li><a href="./pages/about.html#about">about</a></li>
-          <li><a href="./pages/paper-notes.html#paper-notes">Paper Notes</a></li>
-          <li><a href="./pages/productive-grad-school.html#productive-grad-school">Productive Grad School</a></li>
-          <li><a href="./pages/publicationspreprints.html#publicationspreprints">Publications&Preprints</a></li>
-          <li><a href="./pages/talks.html#talks">Talks</a></li>
+
+
+              <li>
+                <a target="_self"
+                   href="./pages/about.html#about">
+                  about
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/paper-notes.html#paper-notes">
+                  Paper Notes
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/productive-grad-school.html#productive-grad-school">
+                  Productive Grad School
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/publicationspreprints.html#publicationspreprints">
+                  Publications&Preprints
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/talks.html#talks">
+                  Talks
+                </a>
+              </li>
 
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-github" href="https://github.com/yobibyte" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-twitter" href="https://twitter.com/y0b1byte" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li>
+            <a  class="sc-github" href="https://github.com/yobibyte" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/y0b1byte" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
       </ul>
     </div>
-
 
   </aside>
   <main>
@@ -86,12 +132,10 @@
       
     <h1 id="cholesky">Cholesky Decomposition</h1>
     <p>
-          Posted on Mon 09 May 2016 in <a href="./category/misc.html">misc</a>
-
+      Posted on Mon 09 May 2016 in <a href="./category/misc.html">misc</a>
 
     </p>
   </header>
-
 
 
   <div>
@@ -1138,113 +1182,75 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
-.highlight .err { border: 1px solid #FF0000 } /* Error */
-.highlight .k { color: #008000; font-weight: bold } /* Keyword */
-.highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
-.highlight .gd { color: #A00000 } /* Generic.Deleted */
-.highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
-.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
-.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
-.highlight .gs { font-weight: bold } /* Generic.Strong */
-.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-.highlight .gt { color: #0044DD } /* Generic.Traceback */
-.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
-.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
-.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
-.highlight .kp { color: #008000 } /* Keyword.Pseudo */
-.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
-.highlight .kt { color: #B00040 } /* Keyword.Type */
-.highlight .m { color: #666666 } /* Literal.Number */
-.highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
-.highlight .nb { color: #008000 } /* Name.Builtin */
-.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
-.highlight .no { color: #880000 } /* Name.Constant */
-.highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
-.highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
-.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
-.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
-.highlight .nv { color: #19177C } /* Name.Variable */
-.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
-.highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
-.highlight .mf { color: #666666 } /* Literal.Number.Float */
-.highlight .mh { color: #666666 } /* Literal.Number.Hex */
-.highlight .mi { color: #666666 } /* Literal.Number.Integer */
-.highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
-.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
-.highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
-.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
-.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
-.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
-.highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
-.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
-.highlight .ss { color: #19177C } /* Literal.String.Symbol */
-.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
-.highlight .vc { color: #19177C } /* Name.Variable.Class */
-.highlight .vg { color: #19177C } /* Name.Variable.Global */
-.highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<style type="text/css">
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-</style>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<style type="text/css"> .highlight pre  .hll { background-color: #ffffcc }
+ .highlight pre   { background: #f8f8f8; }
+ .highlight pre  .c { color: #408080; font-style: italic } /* Comment */
+ .highlight pre  .err { border: 1px solid #FF0000 } /* Error */
+ .highlight pre  .k { color: #008000; font-weight: bold } /* Keyword */
+ .highlight pre  .o { color: #666666 } /* Operator */
+ .highlight pre  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+ .highlight pre  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+ .highlight pre  .cp { color: #BC7A00 } /* Comment.Preproc */
+ .highlight pre  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+ .highlight pre  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+ .highlight pre  .cs { color: #408080; font-style: italic } /* Comment.Special */
+ .highlight pre  .gd { color: #A00000 } /* Generic.Deleted */
+ .highlight pre  .ge { font-style: italic } /* Generic.Emph */
+ .highlight pre  .gr { color: #FF0000 } /* Generic.Error */
+ .highlight pre  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+ .highlight pre  .gi { color: #00A000 } /* Generic.Inserted */
+ .highlight pre  .go { color: #888888 } /* Generic.Output */
+ .highlight pre  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+ .highlight pre  .gs { font-weight: bold } /* Generic.Strong */
+ .highlight pre  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+ .highlight pre  .gt { color: #0044DD } /* Generic.Traceback */
+ .highlight pre  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+ .highlight pre  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+ .highlight pre  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+ .highlight pre  .kp { color: #008000 } /* Keyword.Pseudo */
+ .highlight pre  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+ .highlight pre  .kt { color: #B00040 } /* Keyword.Type */
+ .highlight pre  .m { color: #666666 } /* Literal.Number */
+ .highlight pre  .s { color: #BA2121 } /* Literal.String */
+ .highlight pre  .na { color: #7D9029 } /* Name.Attribute */
+ .highlight pre  .nb { color: #008000 } /* Name.Builtin */
+ .highlight pre  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+ .highlight pre  .no { color: #880000 } /* Name.Constant */
+ .highlight pre  .nd { color: #AA22FF } /* Name.Decorator */
+ .highlight pre  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+ .highlight pre  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+ .highlight pre  .nf { color: #0000FF } /* Name.Function */
+ .highlight pre  .nl { color: #A0A000 } /* Name.Label */
+ .highlight pre  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+ .highlight pre  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+ .highlight pre  .nv { color: #19177C } /* Name.Variable */
+ .highlight pre  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+ .highlight pre  .w { color: #bbbbbb } /* Text.Whitespace */
+ .highlight pre  .mb { color: #666666 } /* Literal.Number.Bin */
+ .highlight pre  .mf { color: #666666 } /* Literal.Number.Float */
+ .highlight pre  .mh { color: #666666 } /* Literal.Number.Hex */
+ .highlight pre  .mi { color: #666666 } /* Literal.Number.Integer */
+ .highlight pre  .mo { color: #666666 } /* Literal.Number.Oct */
+ .highlight pre  .sa { color: #BA2121 } /* Literal.String.Affix */
+ .highlight pre  .sb { color: #BA2121 } /* Literal.String.Backtick */
+ .highlight pre  .sc { color: #BA2121 } /* Literal.String.Char */
+ .highlight pre  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+ .highlight pre  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+ .highlight pre  .s2 { color: #BA2121 } /* Literal.String.Double */
+ .highlight pre  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+ .highlight pre  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+ .highlight pre  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+ .highlight pre  .sx { color: #008000 } /* Literal.String.Other */
+ .highlight pre  .sr { color: #BB6688 } /* Literal.String.Regex */
+ .highlight pre  .s1 { color: #BA2121 } /* Literal.String.Single */
+ .highlight pre  .ss { color: #19177C } /* Literal.String.Symbol */
+ .highlight pre  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+ .highlight pre  .fm { color: #0000FF } /* Name.Function.Magic */
+ .highlight pre  .vc { color: #19177C } /* Name.Variable.Class */
+ .highlight pre  .vg { color: #19177C } /* Name.Variable.Global */
+ .highlight pre  .vi { color: #19177C } /* Name.Variable.Instance */
+ .highlight pre  .vm { color: #19177C } /* Name.Variable.Magic */
+ .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Hi! Currently I'm preparing for <a href="http://hpac.rwth-aachen.de/teaching/hpmc-16/">High Performance Matrix Computations</a> course exam. As usual, just reading never helps, so, I decided to write some code and sort the things out. This is the post about Cholesky decomposition and how to compute it. The accompanying jupyter notebook can be found <a href="https://github.com/yobibyte/rwth-hpmc/blob/master/cholesky.ipynb">here</a>.</p>
@@ -1257,14 +1263,14 @@ h6:hover .anchor-link {
 <li>x is known, we are happy</li>
 </ul>
 <p>But why, you can say, cannot we just compute inverse of <strong>A</strong> and be happy with that? I did <a href="https://en.wikipedia.org/wiki/Invertible_matrix#Analytic_solution">this</a> at school you will say.</p>
-<p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/board.jpg?raw=true"/></p>
-<p>Fist, it will take you for ages, second, it has so many operations that while you compute it, &pi; will turn into 4 (and not only &pi;) because of the round off error. Yeah, application of pure linear algebra in real life has many interesting issues and this is only one of them.</p>
+<p><img class='center' src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/board.jpg?raw=true"/></p>
+<p>Fist, it will take you for ages, second, it has so many operations that while you compute it, π will turn into 4 (and not only π) because of the round off error. Yeah, application of pure linear algebra in real life has many interesting issues and this is only one of them.</p>
 <p>So, we want to find <strong>L</strong> such that <strong>A</strong>=<strong>L</strong> <strong>L</strong>' and <strong>L</strong> is lower triangular. Lets write <strong>A</strong> and <strong>L</strong> as a <a href="https://en.wikipedia.org/wiki/Block_matrix">block matrix</a> (<em>tl</em> is top left, <em>tr</em> is top right, <em>bl</em> is bottom left, <em>br</em> is bottom right.</p>
-<p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/block_matrices.png?raw=true"/></p>
+<p><img class='center' src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/block_matrices.png?raw=true"/></p>
 <p>Using the properties of symmetry, positive-definiteness and triangularity we get the following:</p>
-<p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/cholesky_blocks.png?raw=true"/></p>
+<p><img class='center' src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/cholesky_blocks.png?raw=true"/></p>
 <p>So, the idea of the decomposition goes directly from the picture above:</p>
-<p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/cholesky_alg.png?raw=true"/></p>
+<p><img class='center' src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/cholesky_alg.png?raw=true"/></p>
 <p>Some things here:</p>
 <ul>
 <li>there is recursive call of CHOLESKY here. The base case is matrix of one number, where decomposition is the following [a] = [sqrt(a)][sqrt(a)].</li>
@@ -1272,19 +1278,19 @@ h6:hover .anchor-link {
 </ul>
 <p>"Talk is cheap, show me the code." Let's write a naive algorithm that will do stuff for us. It's naive as we do not care about performance here.</p>
 <p>Generate data for testing the code:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">DIM</span> <span class="o">=</span> <span class="mi">10</span>
 
 <span class="c1"># Cholesky decomposition is unique if the main diagonal is positive</span>
 <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tril</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">DIM</span><span class="p">,</span><span class="n">DIM</span><span class="p">))</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">L</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="c1"># check that LL' is a Cholesky decomposition of A</span>
+<span class="c1"># check that LL&#39; is a Cholesky decomposition of A</span>
 <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_almost_equal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">L</span><span class="p">)</span>
 </pre></div>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cholesky_non_blocked</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="sd">''' Returns L such that A = LL'</span>
-<span class="sd">    '''</span>
+    <span class="sd">&#39;&#39;&#39; Returns L such that A = LL&#39;</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 
@@ -1310,10 +1316,10 @@ h6:hover .anchor-link {
 
 <span class="k">def</span> <span class="nf">cholesky_blocked</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="n">TL_CONSTANT</span><span class="p">):</span>
 
-    <span class="sd">''' Returns L such that A = LL'</span>
+    <span class="sd">&#39;&#39;&#39; Returns L such that A = LL&#39;</span>
 <span class="sd">        for small top right we use unblocked version</span>
 <span class="sd">        then we proceed with blocked algorithm</span>
-<span class="sd">    '''</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 
     <span class="k">if</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">split</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">cholesky_non_blocked</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -1334,14 +1340,18 @@ h6:hover .anchor-link {
     <span class="k">return</span> <span class="n">L</span>
 <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">cholesky_blocked</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">L</span><span class="p">)</span>
 </pre></div>
-<p>As matrix multiplication is of paramount importance in computation, there are very efficient algorithms for that. The <strong>speed of light</strong> algorithm for matrix multiplication is called GEMM ( (General Matrix Matrix product). It does the following <strong>C</strong> &lt;-- &alpha;<strong>A</strong>+&beta;<strong>B</strong>. When you hear that some SKYNET supercomputer has a performance of 42 yobiflops per second, it's 99% sure was tested on GEMM. GEMM is also a part of <a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS</a> specification that has hierarchical design. BLAS have 3 levels and when we program stuff, the higher level the better it is for us (as memory is slow, we want to utilise it as much as we can: e.g. instead of loading matrix element by element, load the whole matrix and do operations on it).</p>
+<p>As matrix multiplication is of paramount importance in computation, there are very efficient algorithms for that. The <strong>speed of light</strong> algorithm for matrix multiplication is called GEMM ( (General Matrix Matrix product). It does the following <strong>C</strong> &lt;-- α<strong>A</strong>+β<strong>B</strong>. When you hear that some SKYNET supercomputer has a performance of 42 yobiflops per second, it's 99% sure was tested on GEMM. GEMM is also a part of <a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms">BLAS</a> specification that has hierarchical design. BLAS have 3 levels and when we program stuff, the higher level the better it is for us (as memory is slow, we want to utilise it as much as we can: e.g. instead of loading matrix element by element, load the whole matrix and do operations on it).</p>
 <p>As we can see from our pictures with Cholesky decomposition algorithm, we have one system of linear equations to solve (BLAS routine for that is called TRSM) and one SYRK routine: <strong>A</strong>_br - <strong>L</strong>_bl * <strong>L</strong>_bl'. So, we need to use it and solve them efficiently. To get profit from 3rd level of BLAS we want to do operation with matrices, not on scalars or vectors. The general idea of the block algorithm is to find the decomposition for small <strong>A</strong>_tl in a naive way as I shown before and then utilise power of BLAS-3 level with SYRK and TRSM. So, as it can be seen on the picture below, each iteration we update the column of width k in a final decomposition, where k is the one dimension of <strong>A</strong>_bl.</p>
-<p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/cholesky_schema.png?raw=true"/></p>
+<p><img class='center' src="https://github.com/yobibyte/yobiblog/blob/master/pics/cholesky/cholesky_schema.png?raw=true"/></p>
 <p>If you think, that the performance optimisation is solved so far, you are wrong. There is also a problem of paralellizing the code, for instance, and it's not easy at all. And we have not also discussed how large k should be. But that's all for this post. If you are still sceptical and say: 'Pffff, that's only for symmetric positive semi-definite matrices. My matrices are usually trickier!'. There are other <a href="https://en.wikipedia.org/wiki/Matrix_decomposition">decompositions</a> for you. For further information read an amazing <a href="https://www.amazon.com/Computations-Hopkins-Studies-Mathematical-Sciences/dp/B00BD2DVIC/">book</a> by Golub and Van Loan).</p>
 <p>P.S. If you see a mistake or just want to say something, please send me a mail to <a href="mailto:vitaliykurin@gmail.com">vitaliykurin@gmail.com</a>.</p>
+
 </div>
 </div>
 </div>
+ 
+
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -1392,15 +1402,15 @@ h6:hover .anchor-link {
     })();
 </script>
 <noscript>
-        Please enable JavaScript to view comments.
-
+    Please enable JavaScript to view comments.
 </noscript>
 <!-- End Disqus -->
 </article>
 
     <footer>
 <p>&copy;  </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
 </p>    </footer>
   </main>
 
@@ -1417,6 +1427,7 @@ h6:hover .anchor-link {
   "description": ""
 }
 </script>
+
 
 </body>
 </html>
