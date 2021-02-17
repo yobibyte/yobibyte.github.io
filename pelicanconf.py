@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+from pelican_jupyter import markup as nb_markup
 
 AUTHOR = 'yobibyte'
 SITENAME = "yobibyte's webpage"
@@ -23,8 +24,7 @@ RELATIVE_URLS = True
 THEME = "../Flex"
 MARKUP = ('md', 'ipynb')
 PLUGIN_PATHS = ['./plugins']
-PLUGINS = ['ipynb.markup']
-#PLUGINS = ['ipynb.markup', 'pelican-toc']
+PLUGINS = [nb_markup]
 IGNORE_FILES = ['.ipynb_checkpoints']
 SITELOGO = SITEURL + '/pics/socrat.png'
 
