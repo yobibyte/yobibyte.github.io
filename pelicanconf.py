@@ -33,7 +33,7 @@ SOCIAL = (
           ('twitter', 'https://twitter.com/y0b1byte'),
          )
 
-MAIN_MENU = False
+MAIN_MENU = True
 DISQUS_SITENAME = 'yobiblog-1'
 
 GOOGLE_ANALYTICS= "UA-108066970-1"
