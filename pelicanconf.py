@@ -35,7 +35,8 @@ SOCIAL = (
 
 MAIN_MENU = True
 LINKS = (
-    ("Paper Notes", "https://www.notion.so/Paper-Notes-by-Vitaly-Kurin-97827e14e5cd4183815cfe3a5ecf2f4c"),
+    ("talks", "https://www.notion.so/talks-d996faf8121241cebc89ea0c782c6322"),
+    ("paper notes", "https://www.notion.so/Paper-Notes-by-Vitaly-Kurin-97827e14e5cd4183815cfe3a5ecf2f4c"),
 )
 
 DISQUS_SITENAME = 'yobiblog-1'
