@@ -23,7 +23,8 @@ RELATIVE_URLS = True
 THEME = "./Flex"
 MARKUP = ('md', 'ipynb')
 PLUGIN_PATHS = ['./plugins']
-PLUGINS = ['ipynb.markup', 'pelican-toc']
+PLUGINS = ['ipynb.markup']
+#PLUGINS = ['ipynb.markup', 'pelican-toc']
 IGNORE_FILES = ['.ipynb_checkpoints']
 SITELOGO = SITEURL + '/pics/socrat.png'
 
