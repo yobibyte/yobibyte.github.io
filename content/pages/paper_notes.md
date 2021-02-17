@@ -1,5 +1,7 @@
 Title: Paper Notes
 
+* [Learning Graph Structure With A Finite-State Automaton Layer](https://www.notion.so/Learning-Graph-Structure-with-a-Finite-State-Automaton-Layer-ac27e067df09416ea40eeb17caab7018)
+* [Continuous Latent Search for Combinatorial Optimization](https://www.notion.so/Continuous-Latent-Search-for-Combinatorial-Optimisation-511c2006d4244886a2a4b4283aa9523f)
 * [XLVIN: eXecuted Latent Value Iteration Nets](https://www.notion.so/XLVIN-eXecuted-Latent-Value-Iteration-Nets-8353a56588894f39b373cec8b8efd33b)
 * [Generative Adversarial Imitation Learning, Ho&Ermon, 2016](/files/paper_notes/Generative_Adversarial_Imitation_Learning__Ho_Ermon__2017.pdf) ([paper](https://arxiv.org/abs/1606.03476), 2018-03-22)
 * [Reptile: a Scalable Metalearning Algorithm, Nichol&Schulman, 2018](/files/paper_notes/Reptile___a_Scalable_Metalearning_Algorithm__Alex_Nichol_and_John_Schulman__2018.pdf) ([paper](https://arxiv.org/abs/1803.02999), 2018-03-22)
