@@ -35,6 +35,7 @@ SOCIAL = (
 
 MAIN_MENU = True
 LINKS = (
+    ("about", "https://www.notion.so/whoami-495d6335cf994da5b6293fd1990132fd"),
     ("talks", "https://www.notion.so/talks-d996faf8121241cebc89ea0c782c6322"),
     ("paper notes", "https://www.notion.so/Paper-Notes-by-Vitaly-Kurin-97827e14e5cd4183815cfe3a5ecf2f4c"),
 )
