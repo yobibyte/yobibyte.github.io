@@ -23,6 +23,10 @@ def generate_html_report(df: pd.DataFrame, header: str, fname: str, full_text_su
 
 if __name__ == '__main__':
     db = PaperDB('../../compressor/papers.parquet')
+    #crawler.crawl_arxiv(db)
+    #c = ArxivCompressor(OrcaModel(), db)
+    #c.compress()
+
     arxiv_df = db.get_papers_for_source("arxiv")
     latest_date = max(arxiv_df.date_published.values)
     arxiv_df = arxiv_df.loc[arxiv_df.date_published == latest_date]
