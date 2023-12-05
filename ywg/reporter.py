@@ -32,8 +32,8 @@ if __name__ == '__main__':
     latest_date = max(arxiv_df.date_published.values)
     arxiv_df = arxiv_df.loc[arxiv_df.date_published == latest_date]
     print(f"Summarising for date: {latest_date}")
-    fname =f"../arxiv_compressed/{latest_date}.html"
     today = datetime.now().strftime("%Y-%m-%d")
+    fname =f"../arxiv_compressed/{today}.html"
     header = f"""
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="stylesheet" href="../style.css"/>
