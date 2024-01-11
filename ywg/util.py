@@ -1,5 +1,7 @@
-from datetime import datetime
+import email.utils
 
-timestamp = datetime.now().strftime("%a, %d %b %Y %H:%M:%S %z")
-print(timestamp)
+def get_pubdate():
+    return email.utils.formatdate()
 
+if __name__ == '__main__':
+    print(get_pubdate())
