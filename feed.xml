@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <atom:link href="https://yobibyte.github.io/feed.xml" rel="self" type="application/rss+xml" />
+        <title>Yobihome</title>
+	<link>https://yobibyte.github.io/</link>
+        <description>Make old internet great again.</description>
+        <language>en-us</language>
+
+        <item>
+            <title>Home</title>
+            <pubDate>Thu, 11 Jan 2024 19:15:28</pubDate>
+            <link>https://yobibyte.github.io/</link>
+            <guid>https://yobibyte.github.io/</guid>
+            <description>I added RSS to my website.</description>
+        </item>
+    </channel>
+</rss
