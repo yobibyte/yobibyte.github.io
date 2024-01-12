@@ -1,0 +1,13 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css"/>
+<title>Welcome to yobihome</title>
+
+<a href="https://yobibyte.github.io/"><img src="./pics/socrat.png" class="center"></a>
+
+<h1>Newsboat hack</h1>
+
+<p>I found a nice hack in <a href="https://newsboat.org/">Newsboat</a> that allows me to send articles to my Todoist inbox instead of opening in the browser.</p>
+
+<p>For that, you need to have a <a href="https://github.com/sachaos/todoist">todoist-cli</a> installed, and add the following to your newsboat config: <tt>macro y set browser "todoist-cli q %u &" ; open-in-browser; set browser "firefox '%u'"</tt>.</p>
+
+This temporarily replaces Newsboat's browser with a command that sends the URL to the Todoist inbox, and I don't have to open it in the browser, and click "Add as a website" later (I use todoist to keep track of everything I want read, listen or watch).
