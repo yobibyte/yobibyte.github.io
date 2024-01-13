@@ -2,6 +2,8 @@ from compressor.data import PaperDB
 from pandas.core.dtypes.dtypes import datetime
 from tqdm import tqdm
 import pandas as pd
+import sys
+from util import get_pubdate
 
 
 def generate_html_report(df: pd.DataFrame, header: str, fname: str, full_text_summary: bool = False):
@@ -22,7 +24,7 @@ def generate_html_report(df: pd.DataFrame, header: str, fname: str, full_text_su
             f.write(f"<p><b>Compressor summary</b>: {summary}</p>")
 
 
-if __name__ == '__main__':
+def arxiv_daily():
     db = PaperDB('../../compressor/papers.parquet')
     #crawler.crawl_arxiv(db)
     #c = ArxivCompressor(OrcaModel(), db)
@@ -50,3 +52,32 @@ if __name__ == '__main__':
     lines.insert(ul_idx+1, newline)
     with open('../arxiv_compressed.html', 'w') as f:
         f.writelines(lines)
+
+def get_feed_item(page_name, title, desc):
+    return """
+        <item>
+            <title>title_placeholder</title>
+            <pubDate>date_placeholder</pubDate>
+            <link>https://yobibyte.github.io/link_placeholder.html</link>
+            <guid>https://yobibyte.github.io/guid_placeholder.html</guid>
+            <description>description_placeholder</description>
+        </item>
+    """.replace("title_placeholder", title).replace("date_placeholder", get_pubdate()).replace("link_placeholder", page_name).replace("guid_placeholder", page_name).replace("description_placeholder", desc)
+
+def add_page():
+    page_name = input("Enter page filename... ")
+    page_title = input("Enter page title... ")
+    page_desc = input("Enter page description... ")
+
+    # make a feed entry first
+    print(get_feed_item(page_name, page_title, page_desc))
+
+
+if __name__ == '__main__':
+    args = sys.argv
+    if args[1] == 'ad':
+        print("Generating arxiv daily report.")
+        arxiv_daily()
+    elif args[1] == 'p':
+        print("Adding a new html page...")
+        add_page()
