@@ -4,6 +4,8 @@ from tqdm import tqdm
 import pandas as pd
 import sys
 from util import get_pubdate
+import shutil
+import xml.etree.ElementTree as ET
 
 
 def generate_html_report(df: pd.DataFrame, header: str, fname: str, full_text_summary: bool = False):
@@ -70,8 +72,16 @@ def add_page():
     page_desc = input("Enter page description... ")
 
     # make a feed entry first
-    print(get_feed_item(page_name, page_title, page_desc))
+    new_item = get_feed_item(page_name, page_title, page_desc)
 
+    feed_xml = ET.parse('../feed.xml')
+    root = feed_xml.getroot()
+    root.find('.//channel').append(ET.fromstring(new_item))
+    feed_xml.write('../feed.xml')
+
+    shutil.copyfile("../template.html", f"../{page_name}.html")
+
+    
 
 if __name__ == '__main__':
     args = sys.argv

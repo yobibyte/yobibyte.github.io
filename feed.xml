@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss xmlns:ns0="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <atom:link href="https://yobibyte.github.io/feed.xml" rel="self" type="application/rss+xml" />
+        <ns0:link href="https://yobibyte.github.io/feed.xml" rel="self" type="application/rss+xml" />
         <title>Yobihome</title>
 	<link>https://yobibyte.github.io/</link>
         <description>Make old internet great again.</description>
@@ -21,5 +20,11 @@
             <guid>https://yobibyte.github.io/</guid>
             <description>I added RSS to my website.</description>
         </item>
-    </channel>
+    <item>
+            <title>John Blow on how to Cope with Mental Issues</title>
+            <pubDate>Mon, 15 Jan 2024 22:20:10 -0000</pubDate>
+            <link>https://yobibyte.github.io/john_blow_advice.html</link>
+            <guid>https://yobibyte.github.io/john_blow_advice.html</guid>
+            <description>John Blows gives excellent advice on how to cope with mental issues. I wish I watched this video during my PhD studies.</description>
+        </item></channel>
 </rss>
