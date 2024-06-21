@@ -58,8 +58,9 @@ def openreview_compressed():
     db = PaperDB('../../compressor/papers.parquet')
 
     venue = "ICLR.cc/2024/Conference"
+    venue = "ICML.cc/2024/Conference"
     venue_df = db.get_papers_for_source(venue)
-    fname ="../iclr2024_compressed.html"
+    fname ="../icml2024_compressed.html"
     header = f"""
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="stylesheet" href="../style.css"/>
