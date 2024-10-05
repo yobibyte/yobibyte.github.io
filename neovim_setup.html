@@ -1,0 +1,59 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css"/>
+<title>Welcome to yobihome</title>
+
+<a href="https://yobibyte.github.io/"><img src="./pics/socrat.png" class="center"></a>
+
+I switched to Neovim reasonably recently, and absolutely love it.
+I have always had problems with the vim plugins setup, but with with Neovime and Lazy, I have never had any issues.
+It is extremely easy to use, and easy to get started with.
+
+Initially, I started with <a href="https://github.com/nvim-lua/kickstart.nvim">kickstart.nvim</a>, and started trimming it down to reduce the number of dependencies and keep only the necessary stuff.
+In this page, I am listing my plugins, briefly describing why I need each of them.
+If you want to see my <tt>init.lua</tt>, you can find it <a href="https://github.com/yobibyte/yobitools/blob/main/dotfiles/init.lua">here</a>.
+
+
+<h2><a href="https://github.com/tpope/vim-fugitive">vim-fugitive</a></h2>
+Dealing with git.
+I usually do everything in command line, apart from staging hunks.
+I really like pressing :G and being able to unfold/fold each of the files, interactively stage hunks, and commit only what I need.
+
+<h2><a href="https://github.com/tpope/vim-sleuth">vim-sleuth</a></h2>
+Another great plugin from the same guy (tpope).
+This one automatically adjusts shiftwidth/expandtab based on the file/directory content.
+
+<h2><a href="https://github.com/mbbill/undotree">undootree</a></h2>
+This plugin saves your edit history in a tree-like way.
+You will never lose any changes by doing undo/redo, and can visually see your the diffs.
+
+
+<h2><a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig</a></h2>
+Configurations for all supported LSP servers.
+<h2><a href="https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a></h2>
+Completion engine that becomes really powerful when used together with LSP.
+<h2><a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns</a></h2>
+Show git markers on the sign column, e.g. if the line was added.
+<h2><a href="https://github.com/EdenEast/nightfox.nvim">nigthfox</a></h2>
+High-quality and beautiful theme. I'm using <tt>nordfox</tt> colorscheme.
+<h2><a href="https://github.com/numToStr/Comment.nvim">comment</a></h2>
+Always struggled with multiline comments in vim?
+This plugin is for you.
+<tt>gcc</tt> comments a line you are on.
+<tt>gcj</tt> comments a line you are on and the one below.
+<tt>gc2j</tt> comments a line you are on and the two below.
+...
+
+
+<h2><a href="https://github.com/nvim-telescope/telescope.nvim">telescope</a></h2>
+Great fuzzy finder interface for neovim.
+I use it for everything: quickly navigating in the codebase, look for references, look for file/class structure, search over code warnings.
+This is one of my favourite plugins.
+<h2><a href="https://github.com/nvim-telescope/telescope-fzf-native.nvim">telescope-fzf-native</a></h2>
+Native fzf implementation to improve the performance of telescope.
+<h2><a href="https://github.com/stevearc/aerial.nvim">aerial</a></h2>
+This enables looking at the file/class structure in a telescope window.
+<h2><a href="https://github.com/nvim-treesitter/nvim-treesitter">treesitter</a></h2>
+Syntax highlighting and quick code selection (e.g. quickly select a whole function).
+<h2><a href="https://github.com/danymat/neogen">neogen</a></h2>
+I use this one to generate a template for docstrings with a press of a shortcut.
+<hr>

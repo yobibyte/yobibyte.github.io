@@ -38,5 +38,11 @@
             <link>https://yobibyte.github.io/notebooks.html.html</link>
             <guid>https://yobibyte.github.io/notebooks.html.html</guid>
             <description>This post describes why I don't like python notebooks, and tries to make a point for others to drop them as well.</description>
+        </item><item>
+            <title>My Neovim Setup</title>
+            <pubDate>Sat, 05 Oct 2024 06:18:17 -0000</pubDate>
+            <link>https://yobibyte.github.io/neovim_setup.html</link>
+            <guid>https://yobibyte.github.io/neovim_setup.html</guid>
+            <description>My Neovim Setup</description>
         </item></channel>
 </rss>
