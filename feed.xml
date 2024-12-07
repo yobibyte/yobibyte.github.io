@@ -38,11 +38,35 @@
             <link>https://yobibyte.github.io/notebooks.html.html</link>
             <guid>https://yobibyte.github.io/notebooks.html.html</guid>
             <description>This post describes why I don't like python notebooks, and tries to make a point for others to drop them as well.</description>
-        </item><item>
+            </item>
+        <item>
             <title>My Neovim Setup</title>
             <pubDate>Sat, 05 Oct 2024 06:18:17 -0000</pubDate>
             <link>https://yobibyte.github.io/neovim_setup.html</link>
             <guid>https://yobibyte.github.io/neovim_setup.html</guid>
             <description>My Neovim Setup</description>
-        </item></channel>
+        </item>
+        <item>
+            <title>Framework, Arch and Kernel Updat</title>
+            <pubDate>Sat, 07 Dec 2024 06:18:17 -0000</pubDate>
+            <link>https://yobibyte.github.io/kernel_update.html</link>
+            <guid>https://yobibyte.github.io/kernel_update.html</guid>
+            <description>
+                I bought a Framework laptop a couple of months back, and installed Arch Linux on it, btw.
+                For some reason, kernel update made the whole system crash, and I had to rollback.
+                I thought it was some driver issues, but turned out it was not!
+                Everything is so much easier than I thought.
+
+                I am using LUKS to encrypt my drive.
+                In this setup /boot is a part of the /root partition that is encrypted.
+                A separate EFI partition and /boot/loader content is not mounted when I am logged in the system.
+                When I updated the system with <tt>pacman -Syu</tt>, the /boot/loader was not there, and bootctl did not update the kernel.
+                I found this today because <tt>uname -r</tt> returned an old kernel version.
+                This made the whole thing go to hell.
+
+                The solution is obvious now, I just had to mount this part of the /boot by <tt>sudo mount /dev/nvme0n1p1 /boot</tt> and run the pacman update after that.
+            </description>
+        </item>
+    </channel>
+
 </rss>

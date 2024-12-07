@@ -1,0 +1,27 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css"/>
+<title>Framework, Arch and Kernel Update</title>
+
+<a href="https://yobibyte.github.io/"><img src="./pics/socrat.png" class="center"></a>
+
+<h1>Framework, Arch and Kernel Update</h1>
+<p>
+I bought a Framework laptop a couple of months back, and installed Arch Linux on it, btw.
+For some reason, kernel update made the whole system crash, and I had to rollback.
+I thought it was some driver issues, but turned out it was not!
+Everything is so much easier than I thought.
+</p>
+
+<p>
+I am using LUKS to encrypt my drive.
+In this setup <tt>/boot</tt> is a part of the <tt>/root</tt> partition that is encrypted.
+A separate EFI partition and /boot/loader content is not mounted when I am logged in the system.
+When I updated the system with <tt>pacman -Syu</tt>, the /boot/loader was not there, and bootctl did not update the kernel.
+I found this today because <tt>uname -r</tt> returned an old kernel version.
+This made the whole thing go to hell.
+</p>
+
+<p>
+The solution is obvious now, I just had to mount this part of the <tt>/boot</tt> by <tt>sudo mount /dev/nvme0n1p1 /boot</tt> and run <tt>pacman -Syu</tt> after that.
+</p>
+<hr>
