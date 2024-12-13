@@ -35,3 +35,18 @@
   width: 50%;
   }
 
+/* Code block styling */
+pre {
+  background-color: #004080; /* Darker shade of blue */
+  color: #FFFFFF;            /* White text */
+  border: 1px solid #002B55; /* Subtle border */
+  padding: 1em;
+  margin: 1em 0;
+  overflow-x: auto;          /* Horizontal scroll if needed */
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95rem;
+  color: inherit; /* ensures text remains white */
+}
