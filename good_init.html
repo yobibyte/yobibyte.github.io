@@ -1,0 +1,167 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css"/>
+<title>All You Need is a Good Init</title>
+
+<a href="https://yobibyte.github.io/"><img src="./pics/socrat.png" class="center"></a>
+
+<h1>All You Need is a Good Init</h1>
+<p><i>Originally published in 2016</i></p>
+  
+<p><a href="http://www.iclr.cc/doku.php?id=iclr2016:main#accepted_papers_conference_track">ICLR 2016</a> has a really interesting <a href="http://arxiv.org/abs/1511.06422">paper</a> "All You Need is a Good Init". In this post I will try to repeat the results of the authors and will do that in Torch.</p>
+<h2 id="General-idea">General idea<a class="anchor-link" href="#General-idea">&#182;</a></h2><p>So, what is the motivation? <a href="http://arxiv.org/abs/1502.03167">Batch Normalization</a> helps, but it slows down the training process (the authors claim it's 30%). Can we do better without additional overhead?</p>
+<p>Yes, we can spend more time for smart weights initialization (not much more), but get benefits in training speed, ability to use bigger learning rates and better results.</p>
+
+<pre><code>pseudo
+Pre-initialize network with orthonormal matrices as in Saxe et al.(2014)
+for each layer L do
+    while |Var(B_L) - 1.0| &gt;= Tol_var and (T_i) &lt; T_max) do
+        do Forward pass with a mini-batch
+        calculate Var(B_L)
+        W_L = W_L /sqrt(Var(B_L))
+    end while
+end for</code></pre>
+<p>What I found important for the implementation here:</p>
+<ul>
+<li>L is a Convolutional or Fully Connected layer</li>
+<li>For each layer we use a new minibatch.</li>
+<li>We compute variance for the whole data in minibatch: Var(B_L)! (at first I thought that we compute variance feature-wise)
+## Torch implementation</li>
+</ul>
+<div class="highlight"><pre>
+require nn
+
+nn.Sequential.lsuvInit = function (self, get_batch, tol_var, t_max)
+   local tol_var = tol_var or 0.1
+   local t_max   = t_max or 10
+
+   for _,m in ipairs(self:listModules()) do
+      if m.weight ~= nil then
+         local t_i = 1
+         while true do
+            local input = get_batch()
+            self:forward(input)
+            local var = torch.var(m.output)
+            if torch.abs(var - 1.0) < tol_var or t_i > t_max then
+               break
+            end
+            m.weight:div(math.sqrt(var))
+            t_i = t_i + 1
+         end
+      end
+   end
+end
+</pre></div>
+<p>Usage (from MNIST example):</p>
+<div class="highlight"><pre>
+require 'nn'
+-- add nninit.orthogonal to all convolutional and fully connected layers
+model:add(nn.SpatialConvolutionMM(1, 32, 5, 5):init('weight', nninit.orthogonal, {gain = 'relu'}))
+model:add(nn.ReLU())
+...
+model:add(nn.Linear(200, #classes):init('weight', nninit.orthogonal, {gain = 'relu'}))
+
+--do LSUV after orthogonal init above
+if opt.lsuv then
+  model:lsuvInit(get_batch)
+end
+
+</pre></div>
+<h2 id="MNIST-example">MNIST example<a class="anchor-link" href="#MNIST-example">&#182;</a></h2><p>I used the following bash command to run the experiment (-f for full mnist dataset: 60 000 for training and 10 000 for testing):</p>
+<div class="highlight"><pre><span></span>th mnist-example.lua --lsuv -r lr
+</pre></div>
+<table>
+<thead><tr>
+<th>epoch</th>
+<th>with lsuv (lr=0.1)</th>
+<th>with lsuv (lr=0.05)</th>
+<th>without lsuv (lr=0.001)</th>
+<th>with lsuv (lr=0.001)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>97.77%</td>
+<td>96.69%</td>
+<td>83.39%</td>
+<td>78.28%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>98.45%</td>
+<td>97.94%</td>
+<td>89.25%</td>
+<td>87.75%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>98.63%</td>
+<td>98.37%</td>
+<td>91.23%</td>
+<td>91.19%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>98.74%</td>
+<td>98.57</td>
+<td>92.46%</td>
+<td>92.82%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>98.88%</td>
+<td>98.72%</td>
+<td>93.23%</td>
+<td>93.81%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>98.97%</td>
+<td>98.75%</td>
+<td>93.88%</td>
+<td>94.53%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>99.03%</td>
+<td>98.86%</td>
+<td>94.44%</td>
+<td>95.06%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>99.01%</td>
+<td>98.86%</td>
+<td>94.81%</td>
+<td>95.4%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>99.01%</td>
+<td>98.9%</td>
+<td>95.03%</td>
+<td>95.87%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>98.96%</td>
+<td>98.91</td>
+<td>95.29%</td>
+<td>96.15%</td>
+</tr>
+</tbody>
+</table>
+<p>I did not wait for 100 epochs as the authors of the original paper did. At first, I thought that we can use bigger learning rates when we use LSUV, but then I realised that MNIST nolsuv case does not use BN, so, this is not true. And MNIST results just show us that training works and the accuracy rates are pretty comparable. Let's have a look at CIFAR-10 experiment.</p>
+<h2 id="CIFAR-example">CIFAR example<a class="anchor-link" href="#CIFAR-example">&#182;</a></h2><p>I did not check the limit of the accuracy we can achieve, but just checked if the training is comparable in general. And it is. Test dataset accuracy is on the pic.</p>
+<p><img class="center" src="https://github.com/yobibyte/yobiblog/blob/master/pics/cifar_test_cost.png?raw=true" width="700"></p>
+<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ul>
+<li>"All You Need is a Good Init" <a href="http://arxiv.org/abs/1511.06422">paper</a>.</li>
+<li><a href="https://github.com/ducha-aiki/LSUVinit">Original implementation</a> in Caffe.</li>
+<li><a href="http://arxiv.org/abs/1312.6120">Orthogonal init</a> also used in paper</li>
+<li>Super convenient torch <a href="https://github.com/Kaixhin/nninit">module</a> for initialization</li>
+</ul>
+<p>Thanks for the debugging and help to <a href="https://github.com/ikostrikov">@ikostrikov</a></p>
+<p>If you want to ask me a question, you can find me <a href="https://github.com/yobibyte/yobiblog/blob/master/pages/about.md">here</a></p>
+
+
+<hr>
