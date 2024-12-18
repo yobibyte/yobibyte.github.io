@@ -1,0 +1,2346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="./theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="./theme/font-awesome/css/solid.css">
+
+
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-108066970-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->  
+
+
+<meta name="author" content="yobibyte" />
+<meta name="description" content="" />
+<meta name="keywords" content="">
+
+
+<meta property="og:site_name" content="yobibyte's webpage"/>
+<meta property="og:title" content="Reinforcement Learning Summer School (RLSS 2017)"/>
+<meta property="og:description" content=""/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="./rlss17.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-10-13 00:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="./author/yobibyte.html">
+<meta property="article:section" content="misc"/>
+<meta property="og:image" content="http://yobibyte.github.io/pics/socrat.png">
+
+  <title>yobibyte's webpage &ndash; Reinforcement Learning Summer School (RLSS 2017)</title>
+
+</head>
+<body class="light-theme">
+  <aside>
+    <div>
+      <a href=".">
+        <img src="http://yobibyte.github.io/pics/socrat.png" alt="yobiblog" title="yobiblog">
+      </a>
+
+      <h1>
+        <a href=".">yobiblog</a>
+      </h1>
+
+<p>Posts on Machine Learning, Reinforcement Learning, Learning from Demonstrations etc.</p>
+
+      <nav>
+        <ul class="list">
+
+
+              <li>
+                <a target="_self"
+                   href="./pages/productive-grad-school.html#productive-grad-school">
+                  Productive Grad School
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="./pages/publicationspreprints.html#publicationspreprints">
+                  Publications&Preprints
+                </a>
+              </li>
+
+            <li>
+              <a target="_self" href="https://www.notion.so/whoami-495d6335cf994da5b6293fd1990132fd" >about</a>
+            </li>
+            <li>
+              <a target="_self" href="https://www.notion.so/talks-d996faf8121241cebc89ea0c782c6322" >talks</a>
+            </li>
+            <li>
+              <a target="_self" href="https://www.notion.so/Paper-Notes-by-Vitaly-Kurin-97827e14e5cd4183815cfe3a5ecf2f4c" >paper notes</a>
+            </li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-github" href="https://github.com/yobibyte" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-twitter" href="https://twitter.com/y0b1byte" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href=".">Home</a>
+
+
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="rlss17">Reinforcement Learning Summer School (RLSS 2017)</h1>
+    <p>
+      Posted on Fri 13 October 2017 in <a href="./category/misc.html">misc</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css"> .highlight pre  .hll { background-color: #ffffcc }
+ .highlight pre   { background: #f8f8f8; }
+ .highlight pre  .c { color: #408080; font-style: italic } /* Comment */
+ .highlight pre  .err { border: 1px solid #FF0000 } /* Error */
+ .highlight pre  .k { color: #008000; font-weight: bold } /* Keyword */
+ .highlight pre  .o { color: #666666 } /* Operator */
+ .highlight pre  .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+ .highlight pre  .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+ .highlight pre  .cp { color: #BC7A00 } /* Comment.Preproc */
+ .highlight pre  .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+ .highlight pre  .c1 { color: #408080; font-style: italic } /* Comment.Single */
+ .highlight pre  .cs { color: #408080; font-style: italic } /* Comment.Special */
+ .highlight pre  .gd { color: #A00000 } /* Generic.Deleted */
+ .highlight pre  .ge { font-style: italic } /* Generic.Emph */
+ .highlight pre  .gr { color: #FF0000 } /* Generic.Error */
+ .highlight pre  .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+ .highlight pre  .gi { color: #00A000 } /* Generic.Inserted */
+ .highlight pre  .go { color: #888888 } /* Generic.Output */
+ .highlight pre  .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+ .highlight pre  .gs { font-weight: bold } /* Generic.Strong */
+ .highlight pre  .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+ .highlight pre  .gt { color: #0044DD } /* Generic.Traceback */
+ .highlight pre  .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+ .highlight pre  .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+ .highlight pre  .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+ .highlight pre  .kp { color: #008000 } /* Keyword.Pseudo */
+ .highlight pre  .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+ .highlight pre  .kt { color: #B00040 } /* Keyword.Type */
+ .highlight pre  .m { color: #666666 } /* Literal.Number */
+ .highlight pre  .s { color: #BA2121 } /* Literal.String */
+ .highlight pre  .na { color: #7D9029 } /* Name.Attribute */
+ .highlight pre  .nb { color: #008000 } /* Name.Builtin */
+ .highlight pre  .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+ .highlight pre  .no { color: #880000 } /* Name.Constant */
+ .highlight pre  .nd { color: #AA22FF } /* Name.Decorator */
+ .highlight pre  .ni { color: #999999; font-weight: bold } /* Name.Entity */
+ .highlight pre  .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+ .highlight pre  .nf { color: #0000FF } /* Name.Function */
+ .highlight pre  .nl { color: #A0A000 } /* Name.Label */
+ .highlight pre  .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+ .highlight pre  .nt { color: #008000; font-weight: bold } /* Name.Tag */
+ .highlight pre  .nv { color: #19177C } /* Name.Variable */
+ .highlight pre  .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+ .highlight pre  .w { color: #bbbbbb } /* Text.Whitespace */
+ .highlight pre  .mb { color: #666666 } /* Literal.Number.Bin */
+ .highlight pre  .mf { color: #666666 } /* Literal.Number.Float */
+ .highlight pre  .mh { color: #666666 } /* Literal.Number.Hex */
+ .highlight pre  .mi { color: #666666 } /* Literal.Number.Integer */
+ .highlight pre  .mo { color: #666666 } /* Literal.Number.Oct */
+ .highlight pre  .sa { color: #BA2121 } /* Literal.String.Affix */
+ .highlight pre  .sb { color: #BA2121 } /* Literal.String.Backtick */
+ .highlight pre  .sc { color: #BA2121 } /* Literal.String.Char */
+ .highlight pre  .dl { color: #BA2121 } /* Literal.String.Delimiter */
+ .highlight pre  .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+ .highlight pre  .s2 { color: #BA2121 } /* Literal.String.Double */
+ .highlight pre  .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+ .highlight pre  .sh { color: #BA2121 } /* Literal.String.Heredoc */
+ .highlight pre  .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+ .highlight pre  .sx { color: #008000 } /* Literal.String.Other */
+ .highlight pre  .sr { color: #BB6688 } /* Literal.String.Regex */
+ .highlight pre  .s1 { color: #BA2121 } /* Literal.String.Single */
+ .highlight pre  .ss { color: #19177C } /* Literal.String.Symbol */
+ .highlight pre  .bp { color: #008000 } /* Name.Builtin.Pseudo */
+ .highlight pre  .fm { color: #0000FF } /* Name.Function.Magic */
+ .highlight pre  .vc { color: #19177C } /* Name.Variable.Class */
+ .highlight pre  .vg { color: #19177C } /* Name.Variable.Global */
+ .highlight pre  .vi { color: #19177C } /* Name.Variable.Instance */
+ .highlight pre  .vm { color: #19177C } /* Name.Variable.Magic */
+ .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Hi!</strong></p>
+<p><img src="pics/rlss/cake.jpg"></p>
+<p>I was rejected from <a href="https://mila.quebec/en/cours/deep-learning-summer-school-2017/">DLSS/RLSS</a> this year, but I decided not to be stressed about it, watch all the lectures and make the summary of them. I understand, that a summer school is not only about the lectures, but I don't have more. Going through the lectures and writing up will still be useful for me. It might also be useful for some of you. Let's start!</p>
+<p>Sometimes, I tried to write my impression about the lectures or the related thoughts. Sometimes, the notes are the copypaste from the slides since I find this useful and it is nice to have all the stuff in one place.</p>
+<p>The sections go in their natural order as in the schedule. You can find the slides <a href="https://mila.umontreal.ca/en/cours/deep-learning-summer-school-2017/slides/">here</a> and the videos <a href="http://videolectures.net/deeplearning2017_montreal/">here</a>.</p>
+<p>If you see anything wrong or misunderstood, please, email <a href="vitaliykurin@gmail.com">me</a> or find me on <a href="@y0b1byte">twitter</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">Reinforcement Learning: basic concepts, <em>Joelle Pineau</em><a class="anchor-link" href="#Reinforcement-Learning:-basic-concepts,-Joelle-Pineau">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137927/deeplearning2017_pineau_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_pineau_reinforcement_learning/">Video</a></em></p>
+<p>The best introduction to RL I have seen so far. Heavily recommended. Even if you already know some stuff, it will be useful for you to have a more or less whole picture of the basics.</p>
+<p>In a short introduction, Joelle Pineau mentions the recent applications of RL found in <a href="http://rldm.org/rldm2017/">RLDM 2017</a> submissions:</p>
+<ul>
+<li>robotics</li>
+<li>video games</li>
+<li>conversational systems</li>
+<li>medical intervention (x_X)</li>
+<li>algorithm improvement</li>
+<li>improvisational theater</li>
+<li>autonomous driving</li>
+<li>prosthetic arm control</li>
+<li>financial trading</li>
+<li>query completion</li>
+</ul>
+<p>As you can see, the list is really large. And this is only after looking through half of the accepted papers.</p>
+<p>The lecture proceeds with the question "When should I apply RL to my problem".
+The answer is the combination of the following prerequisites:</p>
+<ul>
+<li>your data comes in the form of trajectories (forget about the i.i.d. assumption);</li>
+<li>your system needs some kind of intervention;</li>
+<li>you need feedback in order to understand if you are doing well or not</li>
+<li>your problem is the one requiring both learning and planning</li>
+</ul>
+<p>The lecturer mentions, that RL is somehow similar to Supervised Learning, but not completely.
+There are some challenges, both practical and technical:</p>
+<ul>
+<li>need some environment to operate in (one of the reasons for slow progress of RL in the past)</li>
+<li>you need to learn and plan at the same time using correlated samples</li>
+<li>your data distribution changes along with your learning procedure (the actions you take bring an agent to different states, and it makes the learning harder)</li>
+</ul>
+<p>Then, Joelle gives the formal representation of an RL problem as a Markov Decision Process (MDP), defined as a tuple $\langle S,A,T(s,a,s'), R(s,a), \mu(s) \rangle$, where $S$ is the set of states, $A$ is the set of actions, $T(s,a,s')$ is the transition function returning the distribution over the next states $s'$ given the current state $s$ and the action taken $a$.</p>
+<p>M in MDP stands for 'Markov', i.e. the process holds the Markov assumption: the future is independent of the past given the future. What does it mean? Our next state depends only on the current one, we do not need to know the whole history of states in order to predict the future.
+And the definition of the <em>state</em> according to Joelle is the following. A <em>state</em> is a sufficient amount of information about the world in order to predict the future.
+Sometimes in the real life, the assumption does not hold, that's true. But RL still uses it in order to reduce the complexity.</p>
+<p>What is the goal of RL? We want to maximize the reward we get for our interaction with the environment.
+We can have two options here, either the task at hand is episodic (e.g. a game episode ends when you win or lose) or continuous (e.g. balancing).</p>
+<p>Usually, the future reward flow is discounted by the coefficient $\gamma \in [0,1)$ (usually close to 1.
+$\gamma$ helps to trade off the balance between preferences in the immediate reward and the future reward.
+It is often said, that we discount the reward flow due to psychological reasons: humans prefer the immediate reward to the future reward.
+But, as Joelle mentions, it is much more mathematically convenient to use the discounting.</p>
+<p>We now go to one of the most important definitions in RL -- policy function. 
+Policy $\pi$ is a function, that returns an action given the state: $\pi(s,a) = p(a_t = a | s_t = s)$.
+And to solve an RL problem is to find a policy which maximizes the expected future reward flow: $argmax_{\pi} E_{\pi} [r_0 + r_1 + ... + r_T | s_0]$.</p>
+<p>The value function of a state is an expected return of a policy starting from this particular state: $V_{\pi}(s) = E_{\pi} [r_t + r_{t+1} + ... + r_T | s_t = s]$.
+I don't get why, but all the definitions are given without the discounting. 
+Maybe it does not matter here since when we take expectations later, we will be able to keep the gammas outside of the expectations, but I'm not sure. At Sutton &amp; Barto's book, all the definitions and derivations are given for the discounted return.</p>
+<p>In order not to mess all the terms and definitions, the lecturer gives the following slide:</p>
+<ul>
+<li>Reward is a one-step numerical feedback</li>
+<li>Return is the sum of rewards of the agent's trajectory</li>
+<li>Value is the expected sum of rewards over the agent's trajectory</li>
+<li>Utility is the numerical function representing preferences (in RL <em>return</em> $\equiv$ <em>utility</em>)</li>
+</ul>
+<p>Ok, let's go to the policy evaluation. What is the value of a policy? It is just the expected immediate reward plus the expected future reward: 
+$V_{\pi}(s) = E_{\pi}[r_t + r_{t+1} + ... + r_T | s_t = s] = E_{\pi}[r_t] + E_{\pi}[r_{t+1} + ... + r_{T} | s_t = s]$.</p>
+<p>Let's rewrite the expectations now:</p>
+<p>$V_{\pi}(s) = \sum_{a \in A}\pi(s,a)R(s,a) + E_{\pi}[r_{t+1} + ... + r_T | s_t = s]$</p>
+<p>$V_{\pi}(s) = \sum_{a \in A}\pi(s,a)R(s,a) + \sum_{a \in A}\pi(s,a)\sum_{s' \in S}T(s,a,s')E_{\pi}[r_{t+1} + ... + r_T | s_{t+1} = s']$</p>
+<p>And, looking at the definition of value function, we can see, that the the last expecation on the right hand side is just the value function of the state $s'$:</p>
+<p>$V_{\pi}(s) = \sum_{a \in A}\pi(s,a)R(s,a) + \sum_{a \in A}\pi(s,a)\sum_{s' \in S}T(s,a,s')V_{\pi}(s')$</p>
+<p>From here we can see, that this is a dynamic programming algorithm.</p>
+<p>The lecturer uses the formulas with discounting now:</p>
+<p>$V_{\pi}(s) = \sum_{a \in A}\pi(s,a)[R(s,a) + \gamma \sum_{s' \in S}T(s,a,s')V_{\pi}(s')]$</p>
+<p>We also have to write the equation for the state-action value function $Q$ -- the function, returning the value of a state given that we take the particular action first and then follow the policy $\pi$:</p>
+<p>$Q_{\pi}(s,a) = R(s,a) + \gamma \sum_{s' \in S}\big[T(s,a,s')\sum_{a' \in A}[\pi(s',a')Q_{\pi}(s',a')]\big]$</p>
+<p>The last two formulas are the two forms of Bellman's equation.</p>
+<p>We can rewrite the first one in the matrix form $V_{\pi} = R_{\pi} + \gamma T_{\pi}V_{\pi}$.
+It has the unique solution $V_{\pi} = (I - \gamma T_{\pi})^{-1}R_{\pi}$.</p>
+<p>Let's now assume, that we have the fixed policy, how can we evaluate it? 
+Let's somehow initialize the value function $V_{\pi}$ (with zeroes, for instance). 
+On each iteration, we update the value function for each state:</p>
+<p>$V_{k+1}(s) \leftarrow (R(s,\pi(s)) + \gamma \sum_{s' \in S}T(s,\pi(s), s')V_k(s')$, where $k$ is the index of the iteration.</p>
+<p>We repeat it until the value function does not update anymore or the number of updates is no more than some threshold. 
+There is the derivation of convergence in the slides (slide #31), but I will not write it here. I will just say, that it uses the fact, that $\gamma &lt; 0$ to show, that
+the norm between the current approximation and the true value function contracts to zero.</p>
+<p>We move from the fixed policy to finding the best (optimal) policy.
+The optimal value function is the highers return we can get from the state: $V^{*}(s) = max_{\pi}V_{\pi}(s)$. 
+A policy, that achieves $V^{*}$ is called an <em>optimal policy</em> $\pi^*$.
+For each MDP there is a unique optimal value function. <strong>BUT</strong> the optimal policy is not necessarily unique.</p>
+<p>Having a solution to an MDP means having either the optimal value function $V^*$ or an optimal policy $\pi^*$.
+We are saying that since if we have one of them, we can derive the other.</p>
+<p>We have already looked at the policy evaluation algorithm for a fixed policy. But how to find the best policy? There are two related algorithms: policy iteration and value iteration.</p>
+<p>Policy iteration goes as follows:</p>
+<ul>
+<li>initialize a policy somehow, random is also possible</li>
+<li><p>Repeat</p>
+<ul>
+<li>Compute $V_{\pi}$ using Policy Evaluation algorithm</li>
+<li>Compute $\pi'$ that is greedy with respect to $V_{\pi}$</li>
+</ul>
+</li>
+<li><p>terminate when $\pi = \pi'$</p>
+</li>
+</ul>
+<p>A the value iteration:</p>
+<ul>
+<li>initialize the value function $V_0(s)$</li>
+<li>each iteration do the update $V_{k+1}(s) = max_{a \in A}(R(s,a) + \gamma \sum_{s' \in S}T(s,a,s')V_k(s'))$</li>
+<li>stop when the value function changes for a step is below some threshold</li>
+</ul>
+<p>The complexities of the algorithms are the following ($S$ is the state space size, $A$ is the action space size):</p>
+<ul>
+<li>policy evaluation: $O(s)^3$</li>
+<li>policy iteration: $O(S^3 + S^2A)$ per iteration</li>
+<li>value iteration: $O(S^2A)$ per iteration</li>
+</ul>
+<p>There is an example in the slides, but I will not put it here, but it's important to go through it if you think, you're confused about all the said above.</p>
+<p>We can see from the complexities, that the algorithms get less and less feasible as our state-action space scales, however, we can try not to update all the states in value iteration, but only the important ones. 
+Moreover, we can do the asynchronous updates, generating trajectories through the MDP and update the states only when they appear on a trajectory. In policy iteration, we are not forced to do one policy update after each policy evaluation. We can combine the updates and evaluations in any combination we find appropriate.</p>
+<p>For those, who do not want to read the slides and watch the lectures anymore, but want to do the hardcore research, Joelle has the 'challenges' slide. I will also put them in a list:</p>
+<ul>
+<li>Designing the problem domain<ul>
+<li>state representation</li>
+<li>action choice</li>
+<li>cost/reward signal</li>
+</ul>
+</li>
+<li>acquiring data for training<ul>
+<li>exploration/exploitation</li>
+<li>high cost actions</li>
+<li>time-delayed cost/reward signal</li>
+</ul>
+</li>
+<li>function approximation</li>
+<li>validation/confidence measures</li>
+</ul>
+<p>The lecture proceeds with describing on-line learning, which can be of two types, according to the lecturer:</p>
+<ul>
+<li>Monte-Carlo estimate, when we use the empirical return $U(s_t)$ as a target estimate for the actual value function: $V(s_t) = V(s_t) + \alpha(U(s_t) - V(s_t)$</li>
+<li>Temporal-Difference (TD) learning: $V(s_t) = V(s_t) + \alpha [r_{t+1} + \gamma V(s_{t+1} - V(s_t)] \forall t = 0,1,2,...$</li>
+</ul>
+<p>As Joelle mentions, online learning is highly unstable, and a lot of recent RL research focused on improving the stability of the online learning algorithms.</p>
+<p>Up to now, the lecture assumed, we are in a tabular setup when the value function and the policy can be represented as a large table. But in the real world, this approach will never work since the problems are much harder. 
+We need to use the function approximations.
+Linear functions have been used for a long time. 
+Recently, using neural nets as function approximators has become very popular, and we can use all the Deep Learning progress within RL, e.g. memory augmented models [1].</p>
+<p>The lecture continues with describing the on-policy/off-policy dichotomy in RL. 
+As we mentioned earlier, each policy change leads to data distribution change, so, when we evaluate several policies within the same batch, we need a large batch of data and a policy which adequately covers all (s,a) combinations. 
+One of the solutions to the problem is to use importance sampling attaching different weights do data collected from different policies.</p>
+<p>Exploration/exploitation dilemma goes next.
+You've definitely heard about it. 
+When you have some policy, you might follow it and get your deserved return or you can try something new to achieve, possibly, more. 
+Though researchers have been trying to solve the problem for a long time, it is still far from being solved.</p>
+<p>In the end, Joelle mentions the two approaches to RL: model-based and model-free. The first tries to learn the model of the environment first and do the planning later. The second, that is more successful recently, is trying to learn a policy directly using the data from the environment. As for me, I find model-based approach very cool, but it is harder to learn. It has not been so hot recently, but the research is going on and, I hope, we will see great results in the near future.</p>
+<p>There was also an interesting question from the audience about choosing the discounting coefficient $\gamma$. 
+Joelle says that before she thought, that choosing the gamma is the problem of one who chooses the domain and creates the environment.
+But the community moves further and further to the fact, that $\gamma$ is a hyperparameter and, maybe, we should be more aggressive at the beginning of the training when our estimations are too noisy. 
+There were no literature pointers in the lecture, but I wrote an email, and Joelle sent me the link [2].</p>
+<p>The lecture is over, if you want to know more, either continue to read or find more awesome resources <a href="https://github.com/aikorea/awesome-rl">here</a>.
+As for me, I want to add, that the lecture is great not only because of summarizing the basics of RL, but also giving some intuitions which help to understand the concepts better.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Policy-Search-for-RL,-Pieter-Abbeel">Policy Search for RL, <em>Pieter Abbeel</em><a class="anchor-link" href="#Policy-Search-for-RL,-Pieter-Abbeel">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137919/deeplearning2017_abbeel_policy_search_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_abbeel_policy_search/">Video</a></em></p>
+<p>Okay, let's move to Policy Gradient methods with Peter Abbeel.</p>
+<p>Policy $\pi$ is mapping from states to actions: $\pi(\cdot;\theta): \mathbb{S} \rightarrow \mathbb{A}$, where $\theta$ parametrises the policy.
+And RL problem is to find a policy which maximises the total expected return $\max_{\theta}\mathbb{E}\sum_{t=0}^{H}{R(s_t)|\pi_{\theta}}$
+$\pi$ is often stochastic.
+Reward might be sparce in time, hence, the problem is not that easy.</p>
+<p>Policy search methods are the one which optimise the policy directly.
+Why policy optimisation then?</p>
+<ul>
+<li>sometimes policy is easier to represent than, let's say, $Q$ function</li>
+<li>Value function does not directly tell us what to do (<em>not nesessarily true if we have a greedy policy with respect to $V$</em>)</li>
+<li>learning $Q$ is hard for continuous/high-dimensional action spaces (how solve $argmax_u{Q_{\theta}(s,u)}$</li>
+</ul>
+<p>Below you can see a classiication of these methods.</p>
+<p><img src='pics/rlss/rlss_abbeel_classification.png'></p>
+<h3 id="Model-based-approach">Model based approach<a class="anchor-link" href="#Model-based-approach">&#182;</a></h3><p>We start from the model-based approach. The MDP for the setting is on the picture.</p>
+<p><img src='pics/rlss/rlss_abbeel_graph.png'></p>
+<p>Okay, what is the setting here? $r_t = R(s_t), u_t = \pi_{\theta}(s_t), s_{t+1}=f(s_t, u_t)$, where $u_t$ is named after 'upravlenie', the word for 'control' in Russian. And the assumptions is that the transition function $f$ is know, deterministic and differentiable, reward $r$ is know, deterministic and differentiable, policy $\pi$ is (<em>known???</em>), deterministic and differentiable.</p>
+<p>The goal, again, is to maximise the total utility (don't like abusing the notation by taking capital $U$ for utility and $u_t$ for policy, but I live it as it is in the lecture):</p>
+<p>$\max_{\theta}{U(\theta)} = \max_{\theta}\mathbb{E}[\sum_{t=0}^{H}{r_t}|\pi_0]$</p>
+<p>Let's think about the MDP above as a computational graph, let's just back propagate gradients through this (BPTT).</p>
+<p>$\frac{\partial U}{\partial \theta_i} = \sum_{t=0}^{H}\frac{\partial R}{\partial s}(s_t)\frac{\partial s_t}{\partial \theta_i}$</p>
+<p>$\frac{\partial s_t}{\partial \theta_i} = \frac{\partial f}{\partial s}(s_{t-1}, u_{t-1})\frac{\partial u_{t-1}}{\partial \theta_i}+\frac{\partial f}{\partial u}(s_{t-1}, u_{t-1})\frac{\partial u_{t-1}}{\partial \theta_i}$</p>
+<p>$\frac{\partial u_t}{\partial \theta_i} = \frac{\partial \pi_{\theta}}{\partial \theta_i}(s_t, \theta) + \frac{\partial \pi_{\theta}}{\partial s}(s_t, \theta)\frac{\partial s_t}{\partial \theta_i}$</p>
+<p>Feed this to your favourite automatic differentiation package, and you are set. AGI!</p>
+<p>What happens if the environment is stochastic, i.e. $s_{t+1} = f(s_{t+1}, u_t) + \omega_t$? Not much, just consider noise constant for the rollout in question. 
+That's true, that we need to sample more rollouts to reduce the variance, but nothing changes apart from that.</p>
+<p>More generally, we apply reparametrisation trick to the dynamics of an MDP, i.e. going from $s_{t+1} = f(s_{t+1}, u_t) + \omega_t$ to $s_{t+1} = f(s_{t+1}, u_t, w_t)$, where the latter function is not stochastic anymore.
+Computational graph will just have additional inputs $\omega_0, \omega_1, ..., \omega_k$
+We can apply exactly the same trick to both reward function and policy.</p>
+<p>The whole idea in pseudocode looks like this:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="nb">iter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
+    <span class="k">for</span> <span class="n">rollout</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mf">2.</span><span class="o">..</span>
+        <span class="n">sample</span> <span class="n">s0</span><span class="p">,</span> <span class="n">w0</span><span class="p">,</span> <span class="n">w1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="o">...</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">z1</span><span class="o">...</span> <span class="c1"># w_i is dynamics noise, v_i is policy noise, z_i is reward noise</span>
+        <span class="n">execute</span> <span class="n">rollout</span>
+        <span class="n">compute</span> <span class="n">gradients</span> <span class="n">via</span> <span class="n">BPTT</span>
+    <span class="n">average</span> <span class="n">gradients</span>
+    <span class="n">take</span> <span class="n">gradient</span> <span class="n">step</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In real world, we do not have access to noise, but we can learn it from rollouts (model-based RL).</p>
+<p>It's very hard to make all of these work, as Peter says.
+Stochastic Value Gradients (SVG) [3] of different flavours (SVG($\infty$), SVG(1), SVG(0)-&gt;(D)DPG [4,5])  is one of the success stories.
+DDPG uses DQN features as replay memory and using target net to improve stability:
+$\hat{Q}_t = r_t + \gamma Q_{\phi'}(s_{t+1}, \pi_{\theta'}(s_{t+1}))$, where $Q_{\phi'}$ is the Polyak-averaged target function (averaged weights along several weight updates).</p>
+<h3 id="Model-free-approach">Model free approach<a class="anchor-link" href="#Model-free-approach">&#182;</a></h3><p>What are the assumptions here?
+It turns out that there is less assumptions in comparison to the previous section. 
+There are no assumptions for the transition function as well as for the reward.
+Policy $\pi$ is (<em>known???</em> and)stochastic.</p>
+<h4 id="Finite-Difference-method">Finite Difference method<a class="anchor-link" href="#Finite-Difference-method">&#182;</a></h4><p>$\frac{\partial U}{\partial \theta_i} = \frac{U(\theta+\epsilon_je_j) + U(\theta-\epsilon_je_j)}{2\epsilon}$, where $e_j$ is the one hot encoding of the parameter vector index $\begin{align}
+    e_j &amp;= \begin{bmatrix}
+           0 \\
+           0 \\
+           1 \\
+           \vdots \\
+           0
+         \end{bmatrix}
+  \end{align}$, where (1 is for $j$-th entry)</p>
+<p>Estimate the gradient via <a href="https://en.wikipedia.org/wiki/Finite_difference_method">finite differences</a>. Be careful! The noise for positive and negative perturbations should be the same!</p>
+<h4 id="Cross-Entropy-Method">Cross-Entropy Method<a class="anchor-link" href="#Cross-Entropy-Method">&#182;</a></h4><p>Optimise the same objective (expected sum of rewards along the rollout), but consider $U$ to be a black box and ignore all the other information other than U collected during an episode.</p>
+<p>This is an evolutionary algorithm which works as follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">disr_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
+<span class="k">for</span> <span class="nb">iter</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span>
+    <span class="n">curr_utility</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">population_size</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">population</span> <span class="n">member</span> <span class="n">e</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">...</span>
+        <span class="n">sample</span> <span class="n">parameters</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">distribution</span> <span class="n">over</span> <span class="n">params</span>
+        <span class="n">execute</span> <span class="n">rollouts</span> <span class="n">under</span> <span class="n">current</span> <span class="n">policy</span>
+        <span class="n">distr_params</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">sampled_params</span>
+        <span class="n">curr_utility</span><span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">curr_rollout_return</span>
+    <span class="c1"># update the mean of the distribution over parameters</span>
+    <span class="c1"># where the sum is taken for top p% of the population</span>
+    <span class="c1"># logprob is for the distribution wi</span>
+    <span class="n">new_mean</span> <span class="o">=</span> <span class="n">argmax</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">logprob</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="n">e</span><span class="p">])))</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It's interesting, that given how simple the method is, it works embarassingly (according to Peter) well. Unfortunately, sample efficiency is not that great and the method struggles when problem dimensionality is too high.</p>
+<p>You can find a list of related approaches with references below:</p>
+<ul>
+<li>Reward Weighted Regression (RWR) [6]</li>
+<li>Policy Improvement with Path Integrals ($PI^2$) [7]</li>
+<li>Covariance Matrix Adaptation Evolutionary Strategy (CMA-ES) [8]</li>
+<li>PoWER [9]</li>
+</ul>
+<p>If you have a lot of compute and do not care about sample efficiency (e.g. in cheap simulation), the methods are great.
+It turns out, that since we can easy to parallelise them, they will be the fastest in terms of the wall time Salimans, Ho, Sutskever, 2017 <REFERENCE>.</p>
+<h4 id="Likelihood-Ratio-Policy-Gradients">Likelihood Ratio Policy Gradients<a class="anchor-link" href="#Likelihood-Ratio-Policy-Gradients">&#182;</a></h4><p>Usually, when somebody is talking about PG, they are talking about Likelihood Ratio PG. 
+We modify the notation a bit to reduce clutter.
+$\tau$ is the trajectory which includes all the state/actions for one particular rollout: $s_0, u_0, ..., s_h, u_h$.
+$R(\tau) = \sum_{t=0}^{H}R(s_t, u_t)$.
+The goal again is to maximise the objective $U(\theta) = \mathbb{E}[\sum_{t=0}^{H}R(s_t, u_t); \pi_{\theta}] = \sum_{\tau}P(\tau;\theta)R(\tau)$ with respect to $\theta$.</p>
+<p>Let's derive the gradient of the objective using the famous log trick.
+$\nabla_{\theta}U(\theta) = \nabla_{\theta}\sum_{\tau}P(\tau; \theta)R(\tau) = \sum_{\tau}\nabla_{\theta}P(\tau; \theta)R(\tau) = \sum_{\tau}\frac{P(\tau;\theta)}{P(\tau;\theta)}\nabla_{\theta}P(\tau; \theta)R(\tau) = \sum_{\tau}{P(\tau;\theta)}\frac{\nabla_{\theta}P(\tau;\theta)}{P(\tau; \theta)}R(\tau) \sum_{\tau}{P(\tau;\theta)}\nabla_{\theta}\log{P(\tau;\theta)}R(\tau)$.
+So, from one expectation, we got to another expectation of the log: $\nabla_{\theta}U(\theta) = \nabla_{\theta}\mathbb{E}_{\tau}[R(\tau)] = \mathbb{E}_{\tau}[\nabla_{\theta}\log{P(\tau; \theta)}R(\tau)]$.
+Gradient of the expectation equals to the expectation of the gradient of the log.
+Why is it useful? 
+It's useful because we can empirically evaluate our expectation by just taking average of the executed rollouts:
+$\nabla_{\theta}(U(\theta)) \approx \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)},\theta)R(\tau^{(i)})}$.</p>
+<p>There is another way of obtaining the same result via importance sampling. 
+We sample from $\theta_{old}$ and reweight the samples using the ratio of the new and the old policies:</p>
+<p>$U(\theta) \mathbb{E}_{\tau \sim \theta_{old}}[\frac{P(\tau|\theta)}{P(\tau|\theta_{old})}R(\tau)]$</p>
+<p>$\nabla_{\theta} U(\theta) |_{\theta = \theta_{old}} = \mathbb{E}_{\tau \sim \theta_{old}}[\frac{\nabla_{\theta} P(\tau|\theta) |_{\theta_{old}}}{P(\tau|\theta_{old})}R(\tau)] = \mathbb{E}_{\tau \sim \theta_{old}}[\nabla_{\theta} \log{P(\tau|\theta)}|_{\theta_{old}}R(\tau)]$</p>
+<p>Another great thing is that all of these works even when our reward function $R$ is discontinuous and/or unknown.</p>
+<p>The intuition behind LRPG methods is that they try to increase the probability of paths with positive $R$, and decrease the probability of paths with negative $R$.
+They do not try to change the paths, this is important (in contrast to path derivatives, which try to perturb the trajectories rather than shifting probability mass).</p>
+<p>The derivations seems too magical to be true =), but this is not the only magic. Let's get rid of the dynamics in our gradient computation:</p>
+<p>$\nabla_{\theta}\log{P(\tau^{(i)}; \theta)} = \nabla_{\theta}\log{[\prod_{t=0}^H{P(s_{t+1}^{(i)}| s_t^{(i)},u_t^{(i)})\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}]} = \nabla_{\theta}\sum_{t=0}^{H}{\log{P(s_{t+1}^{(i)}, u_t^{(i)})}} + \sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \nabla_{\theta}\sum_{t=0}^{H}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})} = \sum_{t=0}^{H}\nabla_{\theta}\log{\pi_{\theta}(u_t^{(i)}|s_t^{(i)})}$</p>
+<p>Magic again! No transition model required!!!</p>
+<p>As a result of all above, $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)R(\tau^{(i)})$ is an unbiase estimate of the true gradient, i.e. $\mathbb{E}[\hat{g}] = \nabla_{\theta}U(\theta)$.</p>
+<p>A caveat here is that when $R &gt; 0$, our method will try to increase the probabilities of all paths. 
+But we want to increase the probabilities only the best ones.<br>
+Let's introduce the baseline, which, intuitively, will try to tell us whether we're doing better than average or not.</p>
+<p>Baseline is something we deduce from our trajectory return when estimating the gradient: $\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\nabla_{\theta}\log{P(\tau^{(i)}}; \theta)(R(\tau^{(i)}) - b))$.
+One can show, that introducing a (<em>some particular</em>) baselines does not bias our gradient estimate.
+When we're doing better than average, PG increase probability of these trajectories, and vice versa.
+One of the most obvious choices for a baseline is $b = \mathbb{E}[R(\tau)] \approx \frac{1}{m}\sum_{i=1}^{m}R(\tau^{(i)})$.</p>
+<p>Another important moment about vanilla PG is that every action influence all the reward, though it should not.
+Let's make an action influence only future rewards by changing the summation indices:</p>
+<p>$\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\sum_{t=0}^{H-1}\nabla_{\theta}\log{\pi_{\theta}}(u_t^{(i)}|s_t^{(i)})(\sum_{k=t}^{H-1}{R(s_k^{(i)}, u_k^{(i)}) - b(s_k^{(i)})})$</p>
+<p>What's a good choice for $b$ in this setting?
+Expected return from this time step $\mathbb{E}[r_t + r_{t+1} + ... + r_{H-1}]$ looks like a good option.</p>
+<p>You can find the whole 'vanilla' PG pseudocode below</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Initialize</span> <span class="n">policy</span> <span class="n">parameter</span> <span class="n">theta</span><span class="p">,</span> <span class="n">baseline</span> <span class="n">b</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">...</span> <span class="n">do</span>
+    <span class="n">Collect</span> <span class="n">a</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">trajectories</span> <span class="n">by</span> <span class="n">executing</span> <span class="n">the</span> <span class="n">current</span> <span class="n">policy</span>
+    <span class="n">At</span> <span class="n">each</span> <span class="n">timestep</span> <span class="ow">in</span> <span class="n">each</span> <span class="n">trajectory</span> <span class="n">compute</span>
+        <span class="k">return</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">discount</span><span class="p">(</span><span class="n">rewards</span><span class="p">))</span>
+        <span class="n">advantage</span> <span class="o">=</span> <span class="k">return</span> <span class="o">-</span> <span class="n">b</span><span class="p">(</span><span class="n">s_t</span><span class="p">)</span>
+    <span class="n">Re</span><span class="o">-</span><span class="n">fit</span> <span class="n">the</span> <span class="n">baseline</span><span class="p">,</span> <span class="n">by</span> <span class="n">minimising</span> <span class="n">square</span> <span class="n">norm</span> <span class="n">of</span> <span class="n">b</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">R_t</span> <span class="n">summed</span> <span class="n">over</span> <span class="nb">all</span> <span class="n">trajs</span> <span class="ow">and</span> <span class="n">time</span> <span class="n">steps</span>
+    <span class="n">Update</span> <span class="n">the</span> <span class="n">policy</span><span class="p">,</span> <span class="n">using</span> <span class="n">a</span> <span class="n">policy</span> <span class="n">gradient</span> <span class="n">estimate</span> <span class="n">g_hat</span> <span class="n">which</span> <span class="ow">is</span> <span class="n">the</span> <span class="nb">sum</span> <span class="n">of</span> <span class="n">grad</span><span class="p">(</span><span class="n">logprob</span><span class="p">(</span><span class="n">a_t</span><span class="o">|</span><span class="n">s_t</span><span class="p">)</span><span class="o">*</span><span class="n">advantage</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are some important things which can make PG work better. 
+One of these things is a step size.
+Step size is important in supervised learning, but it's even more important in RL since policy generate data we will train on the next iteration.
+And if the data is somehow wrong, we will never recover out of this unlucky situation.</p>
+<p>We can just do a simple line search $-$ trying different step sizes in the direction of the gradient and taking the best one.
+True, that we use only first order approximation here.
+Can we do better?
+Let's use a trust region idea $-$ a region, where we trust that our first order approximation.
+After that, we have to find the best point within the trust region:</p>
+<p>$\max_{\delta\theta}\hat{g}^T\delta\theta, s.t. KL(P(\tau; \theta)||P(\tau; \theta+\delta\theta)) &lt; \epsilon$</p>
+<p>Again, if we evaluate the KL, the environment dynamics magically cancels out again and $KL(P(\tau; \theta)||P(\tau; \theta+\delta\theta)) \approx \frac{1}{M}\sum_{s \text{ in rollouts under } \theta}{KL(\pi_{\theta}(u|s)||\pi_{\theta + \delta\theta}(u|s))}$</p>
+<p>We can look at the second-order approximation of to KL and get $KL(\pi_{\theta}(u|s)||\pi_{\theta + \delta\theta}(u|s)) = \delta\theta^T F_{\theta}\delta\theta, $ where $F_{\theta}$ is <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher Information Matrix</a>.</p>
+<p>If $\theta$ is high dimensional, it's super hard to build/invert the Fisher matrix, TRPO PAPER provides ous with machinery to compute second-order approximation more efficiently.</p>
+<p>We can improve even better when bringing value function into play.</p>
+<p>$\hat{g} = \frac{1}{m}\sum_{i=1}^{m}\sum_{t=0}^{H-1}\nabla_{\theta}\log{\pi_{\theta}}(u_t^{(i)}|s_t^{(i)})(\sum_{k=t}^{H-1}{R(s_k^{(i)}, u_k^{(i)}) - V^{\pi}(s_k^{(i)})})$</p>
+<p>We need to learn $V^{\pi}$ somehow, but RL has tools to do that.
+Moreover $R(s_k^{(i)}, u_k^{(i)})$ looks suspiciously similar to estimate of $Q^{\pi}(s,u) = \mathbb{E}[r_0 + r_1 + ... | s_0 = s, a_0 = a]$</p>
+<p>The variance here can be reduced by discounting and function approximation (e.g. using different TD(k)).
+A3C paper and GAE are two great examples of the approach described above.</p>
+<p>When I finished watching the lecture for the first time, I didn't really like it. 
+It looked pretty cluttered to me, and it was hard to tell the things apart.
+But when I finished watching it for the 3rd time I find it quite logical, very broad and deep (not because of DL) at the same time (apart from the fact, that I did not get the slide about stochastic computational graphs at all).</p>
+<p>I also like the 'Current Frontiers' slide, where Peter Abbeel puts the latest research on the subject. I won't copypaste it here, but if you want, you can find it on slides 134-135 in the presentation.</p>
+<p>In addition, Peter provides links to RL courses as well:</p>
+<ul>
+<li><a href="http://rll.berkeley.edu/deeprlcourse/">CS294-112 Deep Reinforcement Learning (UC Berkeley)</a> by Sergey Levine, John Schulman, Chelsea Finn</li>
+<li><a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html">COMPM050/COMPGI13 Reinforcement Learning (UCL)</a> by David Silver</li>
+<li><a href="https://sites.google.com/view/deep-rl-bootcamp/lectures">Deep RL Bootcamp, Berkeley, CA (August 26-27)</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="TD-Learning,-Richard-Sutton">TD Learning, <em>Richard Sutton</em><a class="anchor-link" href="#TD-Learning,-Richard-Sutton">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137922/deeplearning2017_sutton_td_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_sutton_td_learning/">Video</a></em></p>
+<p>This is not only a lecture on temporal-difference (TD) methods but a commencement speech for those who are entering the field.
+In the beginning, Rich is pondering about what's the ultimate solution to AI.
+He says that the method should scale as the amount of compute grows.
+And <em>prediction learning</em> is something that does scale.
+What is prediction learning?
+It's unsupervised supervised learning: we can get a target (e.g. just by waiting) however we do not need a human label.</p>
+<p>Let's get back to TD learning, learning a prediction from another, later, learned prediction.
+TD is the difference between two predictions.
+Otherwise, TD learning is just supervised learning.</p>
+<p>Why do you need TD learning? When your problem is a multi-step prediction problem $\rightarrow$ something which supervised learning is not really great in, e.g. stock price prediction.</p>
+<p>Why not treat the problem above as step-by-step prediction? Rich says it's a trap and mentions POMDPs, Bayesians, control theory and compression enthusiasts x_X. Long-term predictions are hard and small errors are amplified.
+Computational costs are growing exponentially and it makes no sense the further it goes. We can't wait until the end when the target is known. Moreover, sometimes we don't even know the target.</p>
+<p>I put 'new RL notation' below. If you've already seen the second edition of the RL textbook, it's not new for you. 
+Capital letters are random variables; lowercase letters are instances of these variables:
+$S_0, A_0, R_1, S_1$ are the state, action and reward respectively. $R_1$ means the reward for the transition from state $S_0$ to state $S_1$.</p>
+<p>$G_t$ is the discounted return $G_t := R_{t+1} + \gamma R_{t+2} + ... = R_{t+1} + G_{t+1}$.</p>
+<p>$v_{\pi}$ is the state-value function $v_{\pi}(s) := \mathbb{E}_{\pi}[G_t | S_t=s] = \mathbb{E}_{\pi}[R_{t+1} + \gamma v_{\pi}(S_{t+1}) | S_t=s]$. Note, that this is not just the value, but the value of some policy $\pi$.</p>
+<p>Finally, TD error is the difference $R_{t+1} + \gamma V(S_{t+1}) - V(S_{t})$</p>
+<p>Okay, next Rich goes to the explanation of Monte Carlo (Supervised learning as he puts it):</p>
+<p>$V(S_t) \leftarrow V(S_t + \alpha[G_t - V(S_t)])$</p>
+<p>Opposed to MC, the siplest TD variant takes only the first reward and uses the state-value estimation for the update:</p>
+<p>$V(S_t) \leftarrow V(S_t + \alpha[R_{t+1} + \gamma V(S_{t+1}) - V(S_t)])$</p>
+<p>Dynamic Programming takes the expectation here:</p>
+<p>$V(S_{t}) \leftarrow \mathbb{E}_{\pi}[R_{t+1} + \gamma V(S_{t+1})]$</p>
+<p>TD is cool because it bootstraps and samples. Computationally, TD is also cool since it can be fully incremental and allows you to learn as you go without waiting for the final outcome.</p>
+<p>Then goes the random walk example and another didactic example when MC fails (minimising the mean-square error) and TD wins (doing certainty-equivalence estimate): MC methods are better on the history, but have a higher error on future data.</p>
+<p>The relationship between all the methods can be seen at the "Unified View" picture:</p>
+<p><img src="pics/rlss/unified.png"></p>
+<p>All right, we go from the state-value function $V(S)$ to the action-value function $Q(S_t,A_t)$.</p>
+<ul>
+<li>For SARSA it's $Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1}, A_{t+1}) - Q(S_t, A_t)]$.</li>
+<li>For Q-learning it's $Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \max_a Q(S_{t+1}, a) - Q(S_t, A_t)]$.</li>
+<li>And, finally, for the expected SARSA: $Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \mathbb{E} Q(S_{t+1}, A_{t+1} | S_{t+1}) - Q(S_t, A_t)]$.</li>
+</ul>
+<p>At the end of the lecture, prof. Sutton highlights the topics that might be of researchers interest:</p>
+<ul>
+<li>off-policy prediction</li>
+<li>non-linear function approximation</li>
+<li>convergence theory for TD control theory</li>
+<li>TD + DL?</li>
+<li>Predicting something other than reward, e.g. Horde, Unreal, options</li>
+</ul>
+<p>This is the most unusual lecture on RL I've seen so far. Prof. Sutton looks so excited about the stuff he's doing so that I envy him sometimes =) There is a lot of personal opinion going on, but in general it's a great and interesting lecture.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Deep-Reinforcement-Learning,-Hado-van-Hasselt">Deep Reinforcement Learning, <em>Hado van Hasselt</em><a class="anchor-link" href="#Deep-Reinforcement-Learning,-Hado-van-Hasselt">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137918/deeplearning2017_van_hasselt_deep_reinforcement_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_van_hasselt_deep_reinforcement/">Video</a></em></p>
+<p>Hado starts from the big picture.
+AI revolution is coming: you do not need to come up with the solution to the problem. 
+Let AI discover it for you.
+Reinforcement Learning is here to save us.</p>
+<p>RL deals with problems that involve making decisions and/or making predictions about the future.
+    Hado splits approaches to an RL problem into three types: learning a policy $\pi(s) = a$, learning a value, e.g. $Q(s,a) = \mathbb{E}[R_1 + ... | S_t = s, A_t = a]$ and, finally, learning a model $m(s,a) = \mathbb{E}[S_{t+1}| S_t = s, A_t = a]$.
+No matter what approach you choose, you need to represent and learn these functions.
+Deep learning to the rescue!</p>
+<p>The lecture proceeds with the explanation of Q-learning, an off-policy algorithm.</p>
+<p>The Belman optimality equation for the action value function looks like that:
+$Q^*(s,a) = \mathbb{E}[R_{t+1} + \gamma \max_b Q^*(s_{t+1}, b) | S_t = s, A_t = a]$</p>
+<p>As a TD, we can put it as $Q_{t+1}(S_t, A_t) = Q_t(S_t, A_t) + \alpha (R_{t+1} + \gamma \max_a Q_t(S_{t+1}, a) - Q(S_t, A_t))$
+The optimal policy in Q-learning is the policy greedy with respect to Q: $\pi^*(s) = \mathop{argmax}_a Q(s, a)$</p>
+<p>DQN paper [21], combines Neural Networks, Q-learning [19], memory replay [20], adds an additional target network and gets amazing results on the Atari 2600 benchmark.</p>
+<p>A DQN weight update is not that different from the previous formulas:</p>
+<p>$\Delta w = \alpha [R_{t+1} + \gamma \max_a Q(S_{t+1}, a; w^{-}) - Q(S_t, A_t; w)] \nabla_w Q(S_t, A_t; w)$</p>
+<p>The target network stabilises training since changing the value of one action influences the values for other actions and similar states as well.</p>
+<p>There is a whole ton of work building on top of DQN:</p>
+<ul>
+<li>Double DQN [12] ($\Delta w = \alpha [R_{t+1} + \gamma Q(S_{t+1}, \mathop{argmax}_a Q(S_{t+1}, a; w); w^{-}) - Q(S_t, A_t; w)] \nabla_w Q(S_t, A_t; w)$ helps to fight overestimation via decorrelating selection and evaluation)</li>
+<li>Prioritised replay [13] (sample the transitions based on the absolute Bellman error $|r+\gamma \max_{a'}Q(s', a', w^{-} - Q(s, a; \theta))|$)</li>
+<li>Dueling Networks [14] $Q(s,a) = V(s) + A(s,a) - \frac{1}{\mathcal{A}}\sum_{a=1}^{\mathcal{A}}{A(s,a)}$</li>
+<li>Asynchronous updates [10]</li>
+<li>Adaptive normalisation of values [15]</li>
+<li>Better exploration [16,17,18]</li>
+<li>...</li>
+</ul>
+<p>One guy asked about error bars in RL papers. Hado answered, that's it's too much compute to do x_X. Later the guy asks whether they take the best seed or not. My hero.</p>
+<p>Hado gives quite good practical advice that might sound simple, but that's still very powerful:</p>
+<ul>
+<li>Be aware of the properties of your learning algorithms</li>
+<li>Track and analyse statistics</li>
+<li>If you understand what the problem is, a solution is sometimes very simple</li>
+</ul>
+<p>The lecture is great for lots of DQN insights. Must watch if you want to build upon. The slide deck has also information on policy gradient methods and a bit on AlphaGo, but due to the lack of time, it was not covered in the lecture with an exception of a short slide on the A3C paper.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Deep-Control,-Nando-de-Freitas">Deep Control, <em>Nando de Freitas</em><a class="anchor-link" href="#Deep-Control,-Nando-de-Freitas">&#182;</a></h2><p><em>No slides</em> |<em><a href="http://videolectures.net/deeplearning2017_de_freitas_deep_control/">Video</a></em></p>
+<p>This lecture has no slide deck provided, so, there will be no formulas and mostly a general description of what's going on.</p>
+<p>Let's say you have all these fancy algorithms introduced in the previous talks. 
+What can you do with them in real life?
+Nando de Freitas tries to answer these questions.</p>
+<p>His first postulate is the following.
+If you want to successfully operate in the environment around you, you need to understand how it works.
+You need to know the physics of the environment.
+That's true, it is hard to learn physics. 
+A good physics simulator is extremely hard to build.
+However, physics allows to transfer.
+Physics is something that works anywhere in the same manner.</p>
+<p>When people learn, they continuously experience the flow of rewards of all kind.
+Rewards are everywhere.
+How can you come up with all the rewards for our agents?
+One possible way to convey the reward in an implicit manner is to imitate a demonstrator.</p>
+<p>Nando will give some pointers later on, but he decides to go with the second option first: using the language (by language here he means a formal language).
+The language should be grounded, i.e. an agent should understand what words mean with respect to the real world events.
+An additional perk of having a language in the model lies in the interpretability.
+We can look into the network's internals as Nando claims and understand how the agent perceives the scene.</p>
+<p>Programmable Agents [23] is an example of the approach discussed above.
+The authors build an RL agent capable of executing declarative programs specified in a formal language.
+<em>OR(HAND, AND(RED, CUBE))</em> is an example of such a program.
+One of the coolest points about the paper is that it learns disentangled representations of the object properties in the world. 
+Right now if we take an RL agent trained in one environment and change the background colour, this is more likely to screw everything.</p>
+<p>Although it's still the beginning, this paper tries to tackle this flaw and succeeds up to some point.
+Programmable agents are okay with interpolating between known properties, but if you add a completely new property, they struggle to generalise.
+If an agent saw red sphere and blue cube, it will be okay with blue sphere even if it hasn't seen it.
+But if the agent hasn't seen a property before, he will be in trouble.</p>
+<p>The next interesting moment: the more a human learns, the faster it develops.
+Maybe we should look at transfer/solving multiple problems more?
+[27] is one of the papers in this approach combining it with hierarchies.
+Nando gives an example of quite an unusual approach to learning multiple things at a time [22]: learn more when solving your problem, don't ignore additional (maybe artificial) reward information when you learn. 
+An UNREAL agent takes an additional effort to learn how to maximise the pixel change in the input, predict the reward etc:</p>
+<p><img src="pics/rlss/unreal.png"></p>
+<p>Imitation is the final topic Nando de Freitas reviews.
+Why do we want to imitate?
+It allows us to do exploration in a smart way.
+Behaviour cloning is good unless you shift from the data distribution which ends up with disastrous consequences.
+Papers like [25, 26] are aimed to mitigate these consequences.
+[28] combines imitation with multitask learning idea Nando mentioned earlier: "the more you try to learn, the better you are".</p>
+<p>Third Person Imitation Learning [24] is the final paper Nando mentions. 
+The main idea is that in the real world you always imitate someone you cannot get access to. 
+You look at your teacher, but when you perform the task, you do not control the teacher, you control the body. 
+And your experience is slightly different.
+The authors look at the problem of imitating from different perspective (different observation angle).</p>
+<p>For some reason, for me, the talk was extremely hard to follow. I don't get the general message apart from Nando de Freitas bringing our attention to learning physics, using language in RL, imitation learning and transfer. Maybe that was the idea: to have a look at the most interesting topics which are under heavy research right now. For those who got interested, the talk has a lot of references as well. Jump on the bandwagon!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Theory-of-RL,-Csaba-Szepesv&#225;ri">Theory of RL, <em>Csaba Szepesv&#225;ri</em><a class="anchor-link" href="#Theory-of-RL,-Csaba-Szepesv&#225;ri">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137923/deeplearning2017_szepesvari_theory_of_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_szepesvari_theory_of_rl/">Video</a></em></p>
+<h3 id="Why-and-what">Why and what<a class="anchor-link" href="#Why-and-what">&#182;</a></h3><p>Why should we care about theory?
+Here, by theory, we mean models + predictions (i.e. convergence properties).
+Theory helps us to design algorithms, understand their behaviour, quantify knowledge/uncertainty, and identify new/refine old challenges.
+Theory also might help you to explain why something doesn't work for you.</p>
+<p>Next Csaba introduces the learning theory framework with all the notation needed.
+Actually, it's not that heavily used throughout the lecture, but it's interesting to put it anyway so that we are aware of the setting we are in.</p>
+<p>We are in the realm of binary classification.
+$X \in \mathcal{R}^d$ is the input space, $Y \in {0,1}$ is the output space.
+We have distributions $\mathcal{P} \subseteq \mathcal{M}(X \times Y)$, where $\mathcal{M}(S)$ means all the distributions over the set $S$.
+We generate iid samples $(X_1, Y_1) ... (X_n, Y_n)$, where $(X_i, Y_i) \sim P \in \mathcal{P}$.</p>
+<p>The next ingredient in learning theory are predictors (hypotheses) $h: X \rightarrow Y$ for the data we haven't seen.
+We also need to define a loss $l: \mathcal{H} \times (X \times Y) \rightarrow [0, \infty]$
+Finally, a learning algorithm maps samples to hypotheses $(X \times Y)^n \rightarrow \mathcal{H}$.</p>
+<p>Risk of the predictor $R(h)$ shows how bad our predictor is: $R(h, P) = p(h(X) \neq Y), where (X,Y) \sim P$.</p>
+<p>We can split the questions learning theory deals with into two main groups: a priori ("how well our algorithm performs on new data?") and a posteriori ("how well is the algorithm doing on some data").</p>
+<p>The fundamental theorem of statistical learning theory (SLT) says the following: in binary classification, to match the loss of best hypothesis in class $\mathcal{H}$ up to accuracy $\epsilon$, one needs $\widetilde{\theta}(\mathop{VC}(\mathcal{H})/\epsilon^2)$ observations.
+VC dimension is not defined here.
+Personally, I like how it's explained in <a href="https://www.work.caltech.edu/telecourse.html">Learning from Data</a> course from Caltech.</p>
+<p>The computational complexity of learning linear classifiers is the next important result of SLT presented in the talk:
+<em>Unless $\mathop{NP}={RP}$, linear classifiers (hyperplanes!) cannot be learned in polynomial-time.</em>
+$\mathop{RP}$ is randomised-time polynomial.</p>
+<h3 id="Batch-learning">Batch learning<a class="anchor-link" href="#Batch-learning">&#182;</a></h3><p>We are in the MDP framework.
+Somebody is collecting the data for us (to make it closer to the supervised learning scenario): $(X_t, A_t, Y_t, R_t), t \in [1, N]$, the samples are iid.
+We need to find an $\epsilon$-optimal policy in $\Pi$.
+If horizon $H=0$, we just want to maximise the immediate reward.
+Batch RL is at least as hard as cost-sensitive classification (CSS).</p>
+<p>Let's have a look at one particular instance of an RL problem.
+The horizon $H=2$.
+The state space $S = \{0,1\}$.
+The policy $\pi$ is a function of a threshold $\theta$: $\pi(x, \theta) = \mathop{sgn}(x-\theta), \theta \in [0,1]$.
+The MDP is the following:</p>
+<ul>
+<li>if you start at 0, your state is 0</li>
+<li>if you start at 1, your state is 1</li>
+<li>if you start at anywhere but at 0,1 or 0.5, you transition to 0.5</li>
+<li>if you at 0.5 and you take 1, you end up at 1, if you take 0, you end at 0</li>
+<li>the initial states are generated from the uniform distribution</li>
+</ul>
+<p>There might be two MDPs with different rewards:</p>
+<ul>
+<li>0 state is a good state (+1) and 1 is a bad state(-1)</li>
+<li>another way round</li>
+</ul>
+<p>The catch is that 0.5 is of utmost importance for the solution, but we don't encounter 0.5 in the $s \rightarrow s'$ transitions where s=0.5 (horizon is 2). Hence, the sample complexity of batch RL is infinite!</p>
+<h3 id="When-you-have-a-simulator">When you have a simulator<a class="anchor-link" href="#When-you-have-a-simulator">&#182;</a></h3><p>When you have a simulator, things are much easier.
+Or are they?</p>
+<p>Transitions and reward might be either deterministic or stochastic.</p>
+<p>Given a (huge) MDP we either need to compute a good policy from $\Pi$ or a good action at a given state of a good policy from $\Pi$. 
+It's not that easy to answer which one is easier, but ... spoilers ... the second one is.</p>
+<p>Csaba introduces Fitted Value Iteration next, where for each training epoch we try to solve a regression problem to approximate the value function. 
+The target variables are fixed for an epoch.
+Now we have another problem: instability [29]: sometimes it work, sometimes it doesn't. 
+The point of the theory is to find out <em>why</em> it doesn't work sometimes and what is important to make it work?</p>
+<p>Why the hell DQN worked?</p>
+<ul>
+<li>The initial distribution of states is not fixed, but slowly changes (experience replay).</li>
+<li>'right' bias using CNNs</li>
+<li>better fit of data and better bias both explained by theory (???)</li>
+</ul>
+<h3 id="No-simulator,-'learning'-in-the-real-world-(have-a-reward-signal)">No simulator, 'learning' in the real world (have a reward signal)<a class="anchor-link" href="#No-simulator,-'learning'-in-the-real-world-(have-a-reward-signal)">&#182;</a></h3><p>Why do we care about online RL?
+An alternative is to build a model of the environment, but that's pretty hard and poor models might lead to poor policy learning.</p>
+<p>Exploration is a hard and important problem in RL. 
+Csaba gives an example when random exploration is horrible: you can either do nothing (you will move backwards in this case), or take an action which will either move you forward with the probability of 0.5 or will put you in the same place.
+The reward is in the leftmost position.</p>
+<p>Bandits are an RL problem with a single state.
+Exploration is studied often in the bandit setting.
+To know more about bandits and exploration (UCB is the best), go to <a href="http://banditalgs.com">http://banditalgs.com</a>.</p>
+<p>For MDPs, $R_T = \Omega(\sqrt{DSAT})$, where $R_T$ is the total regret and $D$ is the diameter: maximum of best travel times between pairs of states.
+Why do we, again, care?
+All this stuff that shows up in the complexity might affect your performance.
+You need to start making assumptions to make it work.</p>
+<p>I expected this to be a horrifying lecture full of derivations and notation.
+But it turned out to be a really fun and interesting high-level talk with motivations for using theory in research.
+Highly recommended.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reinforcement-Learning,-Satinder-Singh">Reinforcement Learning, <em>Satinder Singh</em><a class="anchor-link" href="#Reinforcement-Learning,-Satinder-Singh">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1129741/deeplearning2017_singh_reinforcement_learning_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_singh_reinforcement_learning/">Video</a></em></p>
+<p>This is a talk on continual learning, which implies:</p>
+<ul>
+<li>learning new skills (options)</li>
+<li>learning new knowledge (option-conditional) prediction</li>
+<li>reusing what you've learnt and combining the skills to learn more complicated stuff</li>
+<li>being motivated to explore even without an explicit task</li>
+<li>becoming more and more competent along the agent existence</li>
+</ul>
+<p>With other words, we want our agent to behave like a child exploring the world [31].</p>
+<p>Intrinsic reward is the reward we get for a surprise, an error in prediction of a salient event according to the option model.
+Any time you encounter a salient event, you create an option for it (a behaviour model and a prediction model) which you update during agent life.
+An agent learns new skills using a model-based approach (e.g. DYNA).</p>
+<p>Fine, but where do rewards come from?
+Usually, in RL, we get the reward (also a problem if you apply RL in the real life though). 
+In the continual learning, the question is even harder.
+Let's assume that there is an agent designer who has preferences, his implicit reward function.
+An agent also has a reward function hardcoded by the designer.
+In RL these both rewards are confounded.
+How can we design a reward so that when agent maximises its own reward, the designer's reward is maximised as well? We call this problem the 'optimal reward problem':
+$\mathop{argmax}_{R_i}\mathbb{E}_{env}[\mathbb{E}_{h}[U_o(h)]]$, where $h$ is the trajectory, $R_i$ is the agent's internal reward, $U_o$ is the designer utility of the trajectory (sum of the designer rewards $R_o$).
+The lecturer gives [32] and [33] as an example of approaching the problem.</p>
+<p>As Nando de Freitas already mentioned in his lecture, Inverse RL is a smart way of getting the reward: infer the reward given the demonstrations.
+IRL tries to solve an ill-posed problem, since many reward functions might lead to the same optimal behaviour we have as demonstrations.
+At the same time, even if the reward is not identified, we can still mimic a good policy.</p>
+<p>Can we infer the real reward function still in the lifelong learning scenario?
+A human has a very complicated implicit reward function $\theta_*$ such as not breaking the law, social norms etc.
+We can assume, that an agent has a reward $R_t$ for each of the task he has to execute.
+$&lt;S,A, P_t, R_t + \theta_*, \gamma &gt;$.
+The agent knows everything but $\theta_*$.
+Can we learn it from demonstrations?</p>
+<p>There are two types of unidentifiabilities in IRL: representational (should be ignored) and experimental (can be dealt with).
+The former relates to behavioural equivalence when we might have completely different rewards which lead to exactly the same behaviour for all the environments/tasks.</p>
+<p>The experimenter chooses an environment $E_t$ and a reward $R_t$.
+A human reveals $\pi_t^*$ optimal for $R_t + \theta_*$ in $E_t$.
+There is a theorem saying that if any task can be chosen, there is an algorithm that outputs $\theta$, such that $||\theta - \theta_*||_\infty \leq \epsilon$ after $O(\log{(1/\epsilon))}$ tasks.</p>
+<p>Zero-shot task generalization by learning to compose subtasks [35] is the next work the author reviews. 
+The main motivation for the approach is in combinatorial complexity of composite policies which require us to do several subtasks. 
+It is much easier to learn subtasks that all combinations of them (like in disentangled representation motivation).
+Let's assume we're in a grid world and can give our agent instruction using natural language.
+Some instructions require repetition of the subtask.
+The problem is quite hard due to:</p>
+<ul>
+<li>generalisation to new subtasks </li>
+<li>deciding when to move on to the next instruction</li>
+<li>dealing with long-term instructions and random events.</li>
+<li>dealing with any number of subtasks</li>
+<li>delayed reward</li>
+</ul>
+<p>The way [35] approaches the problem is the following.
+<em>Multitask controller</em> is responsible for executing a subtask given a subgoal and deciding whether the current subtask goal is achieved or not.
+<em>Meta controller</em> is responsible for defining a subgoal given the instructions:</p>
+<p><img src="pics/rlss/zero.png"></p>
+<p>Analogy-making objective makes an agent learned disentangled representations of tasks.
+<em>Don't quite get it, but it looks like they compare the embedding of the subtasks given the properties and try to make similar subtasks embedding closer in the embedding space and vice versa.</em>
+Each subtask requires a separate policy, and it is used as a teacher for the final policy to provide the action labels in the supervised learning setup.
+The authors combine an RL objective, analogy-making objective and a binary termination loss for training.
+Interestingly, the meta controller is updated only when it's time to change a sub-goal. 
+There is no need to do it at any step.</p>
+<p>Value Prediction Network [36], built on top of Predictron [37] is the last paper the lecturer covers in this talk.
+How does it relate to the continual learning problem?
+It's very hard to build a model with high dimensional observation space.
+How can we plan without predicting observations?
+We can predict an internal state of the model and use it for planning and value prediction:</p>
+<p><img src="pics/rlss/vpn.png"></p>
+<p>This was a very interesting lecture, though a bit confusing one, mostly because of the notation. 
+The notation used doesn't go in line with what I'm accustomed to, e.g. using $h$ instead of $\tau$ for trajectories or using Exp instead $\mathbb{E}$ for expectation. 
+Still, it's a good talk and it's especially interesting to watch after Nando's lecture since they intersect at some points.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Safe-RL,--Philip-Thomas">Safe RL, <em> Philip Thomas</em><a class="anchor-link" href="#Safe-RL,--Philip-Thomas">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137917/deeplearning2017_thomas_safe_rl_01.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_thomas_safe_rl/">Video</a></em></p>
+<p><strong>Disclaimer</strong>: we will not be talking about John Connor saving the world from terminators. 
+We are in the same world of MDPs (this particular lecture focuses on episodic MDPs, i.e. ones when the episode ends).</p>
+<p>What does Philip Thomas mean by safe RL here?
+We should be robust to partial observability.
+If we're not robust, we might lose customers, money, affect people in a bad way (e.g. suggest something that makes them sad in the case of the recommender system) etc.
+The things get worse if our models are in control of human limbs or take decisions regarding their health (controlling blood sugar level).
+So, we don't want our models to exhibit unexpected in the real-life situations.</p>
+<p>An RL algorithm does not usually work right after you implement it.
+You need to tweak it, you need to find better input representations, you need to try <em>a lot</em> and spend a lot of compute unless you find something satisfactory.</p>
+<p>An algorithm should guarantee that it will work on the first try with some degree of confidence (there is still a chance $\delta$, that it will be worse than the current policy).
+And this guarantee should not be contingent on tuning hyperparameters.
+It should also tell us if the task is impossible to solve with given guarantee and historical data $\mathcal{D}$.</p>
+<p>There are some additional assumptions in this lecture, namely, we have access to the current policy (the one which we want to replace with an RL algorithm), the policy is often known and stochastic.
+Finally, we are in the batched setting.</p>
+<p>There are others definitions of safety, e.g. [38].
+Risk sensitivity is an important notion in the light of safety. 
+What's our risk when we lose in a casino?
+What about taking decisions as a doctor?
+We might want to penalise variance, maximise value at risk (VaR) or conditional value at risk (CVaR).
+We might be interested in how our algorithm handle arbitrary off-polyciness [39] or avoids some dangerous states [40].</p>
+<p>Three steps towards a safe algorithm:</p>
+<ul>
+<li>off-policy policy evaluation (we can't operate in an environment since we want an algorithm work from the beginning, we want to get an estimate of the objective on the historical data).</li>
+<li>high confidence off-policy policy evaluation (estimate the policy performance with guarantee probability $1-\delta$.</li>
+<li>safe policy improvement (take only data $\mathcal{D}$, probability $1-\delta$ and output the policy of 'No solution found'.</li>
+</ul>
+<p>Importance Sampling (IS) comes to the scene.</p>
+<p>History: $H = (S_1, A_1, R_1, ..., S_L, A_L, R_L)$.</p>
+<p>Objective $J(\pi_e) = \mathop{E}[\sum_{t=1}^{L}{\gamma^tR_t|\pi_e]}]$</p>
+<p>Importance-weighted return:
+$\hat{J}(\pi_e) = \frac{1}{n}\sum_{i=1}^n w_i \sum_{t=1}^L{\gamma^tR_t^i}$</p>
+<p>We need to evaluate policy $\pi_e$.
+The data comes from another policy $\pi_b$. 
+So, IS weights here are to reduce the probability of the events which happens often under $\pi_b$, but not on $\pi_e$ and vice versa.
+How do we compute these weights?</p>
+<ul>
+<li>$X$ is a random variable (r.v.) with PMF $p$. This is our data generated by $\pi_e$.</li>
+<li>$Y$ is an r.v. with PMF $q$ and the same range as $X$. This is our data generated by $\pi_e$.</li>
+<li>$f(X)$ is the return of X.</li>
+<li>We need to estimate $\mathop{E}[f(x)]$ given samples from $Y$.</li>
+<li>$P, Q,$ and $F$ are supports of $p, q, $ and $f$ respectively.</li>
+</ul>
+<p>The importance sampling estimate of $\mathop{E_p}[f(x)]$ is $IS(Y) = \frac{p(Y)}{q(Y)}f(Y), $ where $Y$ is one sample. So, if something is more likely under our new policy, the weight is bigger than one and vice versa.
+$IS$ gives us an unbiased estimator of the return (given some assumptions).</p>
+<p>The cool thing with using IS is that when we want to compute the weights $\frac{p(H|\pi_e)}{p(H|\pi_b)}$, the transition probabilities which come up cancel because they do not depend on the policy and are the same for both.
+We can weigh whole trajectories as well as each time step decisions.</p>
+<p>The problem with IS is that the variance is unbounded.
+Can we sacrifice a bit of our unbiasedness to reduce the variance?
+It turns out we can.
+We can normalise our IS weights by a total sum of these weights.
+The more data we have, the closer we get to IS. 
+The less data we have, the closer we are to Monte Carlo.</p>
+<p>How do we do high confidence off-policy evaluation (HCOPE), when apart from the data and the policy we also get the confidence lower bound on the objective. Hoeffding's inequality to the rescue!</p>
+<p>If $X_1, ..., X_n$ are i.i.d. and $X_i \in [0,b]$, then with probability less than 1-$\delta$: $\mathop{E}[X_i] \geq \frac{1}{n}\sum_{i=1}^n X_i - b \sqrt{\frac{ln(1/\delta)}{2n}}$</p>
+<p>Let's plug our IS estimator in:</p>
+<p>$\mathop{E}[X_i] \geq \frac{1}{n}\sum_{i=1}^n [w_i \sum_{t=1}^{L}{\gamma^t R_t^i}] - b \sqrt{\frac{ln(1/\delta)}{2n}}$</p>
+<p>Unfortunately, Hoeffding's inequality gives us a very bad lower bound.
+The coefficient $b$ is the reason for that.
+What should we do?
+Use other concentration inequalities, such as Anderson&amp;Massart or CUT (unfortunately, no references).</p>
+<p>We can also use the $t$-test. 
+Yes, it works in the Normal case, but the Central Limit theorem helps us here.
+Moreover, if rewards are non-negative then the $t$-test tends to be conservative.</p>
+<p>Finally, let's talk about safe policy improvement (SPI).
+We just split the data into train/test dataset.
+Then, we use a batch RL algorithm on the training data to get the policy.
+Evaluate policy with HCOPE and if the lower bound is higher than the policy return, return our policy.
+Otherwise, we haven't found a solution.</p>
+<p>This is the end of the lecture.
+As a conclusion, we have a couple of future research directions:</p>
+<ul>
+<li>make safe RL more computationally feasible;</li>
+<li>OPE<ul>
+<li>Can we handle long horizon problems;</li>
+<li>Can we handle non-episodic problems;</li>
+<li>What if the behaviour policy is not known;</li>
+<li>What if the environment is non-stationary;</li>
+<li>How best to leverage prior knowledge like an estimate of the transition function;</li>
+</ul>
+</li>
+<li>HCOPE<ul>
+<li>Better concentration inequalitites;</li>
+</ul>
+</li>
+<li>Safe Policy Improvement<ul>
+<li>Better techniques for selecting the candidate policy;</li>
+<li>What's the best split between train/test data;</li>
+</ul>
+</li>
+</ul>
+<p>I really liked the lecture. 
+It shows, that RL safety is not only about talking about terminators and red buttons designed to shut them down, as a lot of people might think.
+Apart from a curious perspective on RL safety, the lecture gives the best explanation of Importance Sampling I've ever encountered. Must see for those who always wanted to get the right intuition.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">Applications of bandits and recommendation systems, <em> Nicolas Le Roux</em><a class="anchor-link" href="#Applications-of-bandits-and-recommendation-systems,--Nicolas-Le-Roux">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137926/deeplearning2017_le_roux_recommendation_system_01.pdf">Slides</a></em> | <em><a href="http://videolectures.net/deeplearning2017_le_roux_recommendation_system/">Video</a></em></p>
+<p>In this lecture, Nicolas Le Roux talks about the application of RL less common in the academic community – online advertising. However, this is more than just that.
+You can consider the lecture to be an RL practitioner's guide in industry.</p>
+<p>What is the mechanism which decides which ad to show when you visit your favourite website? 
+Retargeting does the job. 
+The website contacts an ad-exchange which, in turn, contacts the retargeter. 
+Each competitor tells how much it bids and the highest bidder wins the right to display the ad.
+Everything is happening in real time. 
+The winner is paying the second highest bid.
+The optimal strategy is to bid the expected gain: $\mathop{\mathbb{E}}[gain] = \text{price per click} * p(\text{click})$ The click probability is called CTR.</p>
+<p>When we think about RL we think of multi-step episodes, in this talk, all the episodes have length one.
+The state is everything you know about the user, the amount we are willing to pay is the action.</p>
+<p>How can we estimate the probability of a click? 
+We have access to labelled data, where the information about the user is the input and click/no click is the label.
+The first thing that comes to mind, is to build a classifier.
+However, we can be smarter and use RL for that!</p>
+<p>Why should we do that?
+Implicitly we assume that our loss function is a good proxy for the revenue and that the input distribution is the same for training and testing data. 
+These assumptions are tricky and not always hold in the real world.</p>
+<p>Consider the A/B testing: a two-arm bandit system.
+Split the population for some period of time and choose the system with the best average reward.
+It turns out, that RMSE is not that correlated with the return we can get and the lecturer shows that.
+People usually care about the optimum of the loss function. 
+But it is often not the case. 
+For instance, in this auction scenario, the competitors matter.
+Apart from the loss, we should ask ourselves: "How much we are gonna pay if we take the wrong decision?"</p>
+<p>It is not that rosy regarding the input distribution as well.
+Our bidding policy influences the data we collect (<em>smells like RL here =)</em>). 
+Moreover, we have the data only for the auctions we won, we don't know the CTR for all the others.</p>
+<p>The lecturer points out that it's very easy to draw wrong conclusions from the data.
+He shows an example of the <a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox">Simpson's paradox</a> next.
+Let's say, we need to understand where we want to show a banner: on top or on the side?
+We split the data into high-value and low-value users. 
+Surprisingly, the conclusions for the overall dataset and for the two groups separately are entirely the opposite.</p>
+<p>What can we do to deal with confounding variables and not to face the issue above:</p>
+<ul>
+<li>add as many variables in the model (complicated)</li>
+<li>run online a/b tests (what if you're a small company?)</li>
+<li>exploration (model misspecification screws the things up and the authors has a demo for that)</li>
+<li>perform counterfactual analyses ("What would have happened if we had done something else?" Would it have been better or worse?")</li>
+</ul>
+<p>Importance sampling allows us to evaluate Q:</p>
+<p>$G(q) = \int_s \int_a p(s) q(a|s) r(a,s)da\,ds = \int_s \int_a p(s) \frac{q(a|s)}{p(a|s)} p(a|s) r(a,s)da\,ds \approx \frac{1}{N}\sum_i{\frac{q(a|s)}{p(a|s)}r_i}$</p>
+<p>We may now optimise over Q.
+However, we get additional constraints with this, i.e. rolling out a new policy is expensive and we need to optimise with as fewer updates as possible?</p>
+<p>What are the benefits of policy evaluation in comparison to the supervised learning approach?
+The former turns out to be a better predictor working with tangible quantities. 
+Constraint optimisation becomes meaningful here.</p>
+<p>In industry, it is very important to iterate and check your hypotheses fast and hassle-free (<a href="https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/">Can you make a build in one step?</a>). 
+Policy optimisation is not that different: optimisations are performed regularly and must be trouble-free and robust. 
+Stochastic methods are rarely trouble-free (e.g. hyperparameter optimisation is tricky).</p>
+<p>At the end of the lecture, Nicolas mentions some of the questions important for real-life applications, namely, how to reduce the inference time and how to combine the rewards of multiple forms (clicks, sales etc.)</p>
+<p>To sum up:</p>
+<ul>
+<li>robustness and efficiency are critical</li>
+<li>pipeline efficiency included there</li>
+<li>improving the model is useless without a good reward (<em>evaluation, I would say</em>)</li>
+<li>RL deals with tangible quantities (e.g. dollars instead of log-loss)</li>
+</ul>
+<p>Quite an interesting lecture, especially if you never had industry experience. 
+Apart from that, it's also curious to observe a use-case when RL is applied in practice, which is still rare. 
+Surprisingly for me, Nicolas says that evaluation is underrated in industry.
+That's especially curious in the light of the latest evaluation work in RL.
+That means, that there is huge room and need for improvement here.
+This lecture intersects a bit with the previous one on safe RL when we discussed off-policy evaluation.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">Cooperative Visual Dialogue with Deep RL, <em>Dhruv Batra &amp; Devi Parikh</em><a class="anchor-link" href="#Cooperative-Visual-Dialogue-with-Deep-RL,-Dhruv-Batra-&amp;-Devi-Parikh">&#182;</a></h2><p><em><a href="http://videolectures.net/site/normal_dl/tag=1137915/deeplearning2017_parikh_batra_deep_rl.pdf">Slides</a></em> |<em><a href="http://videolectures.net/deeplearning2017_parikh_batra_deep_rl/">Video</a></em></p>
+<p>This lecture is the not as much on RL as on Visual Dialogues. 
+However it is quite interesting in terms of reframing a problem so that it begin to look like an RL problem.
+In the first part Devi Parikh introduces us to the domain.
+In the second part Dhruv Batra shows how we can use RL knowledge to advance in the Visual Dialogue problem.</p>
+<p>It all starts as captioning. 
+A model tries to describe the content of a picture.
+Next, a human asks question, and this is Visual Question Answering (VQA).
+The power mode is when we want to have a dialog – a sequence of VQAs.</p>
+<p>Why do we need to describe images with words?</p>
+<p>Lot's of applications:</p>
+<ul>
+<li>assistance for visually-impaired users</li>
+<li>helping visually-impaired analysis (e.g. going through surveillance videos)</li>
+<li>natural language instructions for robots</li>
+</ul>
+<p>VQA is hard since it requires a lot of things from you:</p>
+<ul>
+<li>recognising even small objects in the scene</li>
+<li>count them</li>
+<li>have some background knowledge (e.g. meat is not a vegetarian meal)</li>
+<li>reason out of context (moustache of banana)</li>
+</ul>
+<p>Language priors are extremely strong.
+Often model success is not AGI, but a coincidence because of an imbalanced dataset.
+For instance, a giraffe is often standing next to trees. And a model just needs to recognise a giraffe and complete the second part automatically ('standing next to a tree')
+'Do you see...' or 'Is there...' questions are also prone to error in the evaluation protocol because of the same error.</p>
+<p>As an illustration of this fact, balancing the VQA dataset [41] leads to 7-8% performance drop for VQA models. 
+However, after retraining on the balanced one, the models regain 1-2% in accuracy.</p>
+<p>In order to go deeper, to the Visual Dialog, we need a dataset. 
+We have one [42], collected via Amazon Turk.</p>
+<p>The Visual Dialog evaluation protocol is the following:</p>
+<ul>
+<li>an image $I$</li>
+<li>history $(Q_1,A_1),...(Q_{t-1},A_{t-1})$</li>
+<li>follow up question $Q_t$</li>
+<li>100 answer options (50 answers from NN questions, 30 popular, 20 random)</li>
+<li>Rank the list of 100 options</li>
+<li>Accuracy/Error mean-rank-of-GT, mean reciprocal rank</li>
+</ul>
+<p>Open directions:
+• Improve dialog agents via self-talk (smells like RL already);
+• Domain adaptation via self-talk (smells like RL already);
+• Dialog rollouts, future prediction, theory of mind;</p>
+<p>The first part ends here, and we are slowly approaching the RL part.</p>
+<p>What are existing problems in Visual Dialogue:</p>
+<ul>
+<li>conversation has no goal</li>
+<li>agent not in control of the dialogue (e.g. doesn’t get to see its errors during training)</li>
+<li>Learning equivalent utterances (there are many equivalent questions/answers, but we do not learn them)</li>
+</ul>
+<p>Let's play a game.
+There are two bots: Q-bot and A-bot. 
+The former asks question about some picture, the latter answers them.
+They have to cooperate (the reward is shared), so that after 10 rounds of conversations Q-bot guesses what picture it is.
+They models have no shared parameters so that there is no leakage (Q-bot must not see the pic!)</p>
+<p>The actions for Q-bot is $q_t$ (a question) and image regression $\hat{y} \in \mathbb{R}^{4096}$.
+A-bot's actions are just answers $a_t$.</p>
+<p>Q-bot's state $s_t^Q$ is $[c, q1, a1, ... q_{t-1}, a_{t-1}]$.
+A-bot's state $s_t^A$ is $[I, c, q1, a1, ....q_{t-1}, a_{t-1}, q_t]$, $c$ are the captions, as far as I get. The captions are generated by A-bot.</p>
+<p>The reward is design to answer the question "Did Q-bot's question helped or not?": $r_t(s_t^Q, (q_t, a_t, y_t)) = l(\hat{y}_{t-1}, y^{gt}) - l(\hat{y}_{t}, y^{gt})$, where $l$ is the distance between image embeddings.</p>
+<p>Vanilla REINFORCE does the trick and gets quite a jump in performance in comparison to just supervised learning.
+Voilà.</p>
+<p>At the end of the talk, the lecturer quickly covers some of the going on research and provides a list of relevant papers [43, 44, 45, 46, 47].</p>
+<p>I first thought that the lecture was not from RLSS but DLSS since there is very little on RL here.
+Hovewer, it turned out pretty interesting in terms of domain and ability to reframe a problem so that you can apply a new approach to an old challenge.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Outro">Outro<a class="anchor-link" href="#Outro">&#182;</a></h2><p>That's it!
+We've made it till the end!
+I've learnt a lot when writing this post. 
+I hope it was useful for you too. 
+Have fun and see you soon!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>[1] Khan, Arbaaz, Clark Zhang, Nikolay Atanasov, Konstantinos Karydis, Vijay Kumar, and Daniel D. Lee. "Memory Augmented Control Networks." arXiv preprint arXiv:1709.05706 (2017), <a href="https://arxiv.org/abs/1709.05706">link</a>.</p>
+<p>[2] Jiang, Nan, Alex Kulesza, Satinder Singh, and Richard Lewis. "The dependence of effective planning horizon on model accuracy." In Proceedings of the 2015 International Conference on Autonomous Agents and Multiagent Systems, pp. 1181-1189. International Foundation for Autonomous Agents and Multiagent Systems, 2015, <a href="http://www-personal.umich.edu/~rickl/pubs/jiang-et-al-2015-aamas.pdf">link</a>.</p>
+<p>[3] Heess, Nicolas, Gregory Wayne, David Silver, Tim Lillicrap, Tom Erez, and Yuval Tassa. "Learning continuous control policies by stochastic value gradients." In Advances in Neural Information Processing Systems, pp. 2944-2952. 2015, <a href="http://papers.nips.cc/paper/5796-learning-continuous-control-policies-by-stochastic-value-gradients">link</a>.</p>
+<p>[4] Silver, David, Guy Lever, Nicolas Heess, Thomas Degris, Daan Wierstra, and Martin Riedmiller. "Deterministic policy gradient algorithms." In ICML. 2014, <a href="https://hal.inria.fr/hal-00938992/">link</a>.</p>
+<p>[5] Lillicrap, Timothy P., Jonathan J. Hunt, Alexander Pritzel, Nicolas Heess, Tom Erez, Yuval Tassa, David Silver, and Daan Wierstra. "Continuous control with deep reinforcement learning." arXiv preprint arXiv:1509.02971 (2015)., <a href="https://arxiv.org/abs/1509.02971">link</a></p>
+<p>[6] Hachiya, Hirotaka, Jan Peters, and Masashi Sugiyama. "Reward-weighted regression with sample reuse for direct policy search in reinforcement learning." Neural Computation 23, no. 11 (2011): 2798-2832, <a href="https://www.researchgate.net/profile/Jan_Peters4/publication/51580421_Reward-Weighted_Regression_with_Sample_Reuse_for_Direct_Policy_Search_in_Reinforcement_Learning/links/09e4150d71d59dbc1a000000/Reward-Weighted-Regression-with-Sample-Reuse-for-Direct-Policy-Search-in-Reinforcement-Learning.pdf">link</a>.</p>
+<p>[7] Theodorou, Evangelos, Jonas Buchli, and Stefan Schaal. "A generalized path integral control approach to reinforcement learning." Journal of Machine Learning Research 11, no. Nov (2010): 3137-3181, <a href="http://www.jmlr.org/papers/v11/theodorou10a.html">link</a>.</p>
+<p>[8] Hansen, Nikolaus, Sibylle D. Müller, and Petros Koumoutsakos. "Reducing the time complexity of the derandomized evolution strategy with covariance matrix adaptation (CMA-ES)." Evolutionary computation 11, no. 1 (2003): 1-18, <a href="https://www.mitpressjournals.org/doi/abs/10.1162/106365603321828970">link</a>.</p>
+<p>[9] Kober, Jens, and Jan R. Peters. "Policy search for motor primitives in robotics." In Advances in neural information processing systems, pp. 849-856. 2009, <a href="http://papers.nips.cc/paper/3545-policy-search-for-motor-primitives-in-robotics">link</a>.</p>
+<p>[10] Mnih, Volodymyr, Adria Puigdomenech Badia, Mehdi Mirza, Alex Graves, Timothy Lillicrap, Tim Harley, David Silver, and Koray Kavukcuoglu. "Asynchronous methods for deep reinforcement learning." In International Conference on Machine Learning, pp. 1928-1937. 2016, <a href="http://proceedings.mlr.press/v48/mniha16.pdf">link</a>.</p>
+<p>[11] Schulman, John, Philipp Moritz, Sergey Levine, Michael Jordan, and Pieter Abbeel. "High-dimensional continuous control using generalized advantage estimation." arXiv preprint arXiv:1506.02438 (2015), <a href="https://arxiv.org/abs/1506.02438">link</a>.</p>
+<p>[12] Van Hasselt, Hado, Arthur Guez, and David Silver. "Deep Reinforcement Learning with Double Q-Learning." In AAAI, vol. 16, pp. 2094-2100. 2016, <a href="https://arxiv.org/abs/1509.06461">link</a>.</p>
+<p>[13] Schaul, Tom, John Quan, Ioannis Antonoglou, and David Silver. "Prioritized experience replay." arXiv preprint arXiv:1511.05952 (2015), <a href="https://arxiv.org/abs/1511.05952">link</a>.</p>
+<p>[14] Wang, Ziyu, Tom Schaul, Matteo Hessel, Hado Van Hasselt, Marc Lanctot, and Nando De Freitas. "Dueling network architectures for deep reinforcement learning." arXiv preprint arXiv:1511.06581 (2015), <a href="https://arxiv.org/abs/1511.06581">link</a>.</p>
+<p>[15] van Hasselt, Hado P., Arthur Guez, Matteo Hessel, Volodymyr Mnih, and David Silver. "Learning values across many orders of magnitude." In Advances in Neural Information Processing Systems, pp. 4287-4295. 2016, <a href="https://arxiv.org/abs/1602.07714">link</a>.</p>
+<p>[16] Ostrovski, Georg, Marc G. Bellemare, Aaron van den Oord, and Rémi Munos. "Count-based exploration with neural density models." arXiv preprint arXiv:1703.01310 (2017), <a href="https://arxiv.org/abs/1703.01310">link</a>.</p>
+<p>[17] Fortunato, Meire, Mohammad Gheshlaghi Azar, Bilal Piot, Jacob Menick, Ian Osband, Alex Graves, Vlad Mnih et al. "Noisy networks for exploration." arXiv preprint arXiv:1706.10295 (2017), <a href="https://arxiv.org/abs/1706.10295">link</a>.</p>
+<p>[18] Bellemare, Marc, Sriram Srinivasan, Georg Ostrovski, Tom Schaul, David Saxton, and Remi Munos. "Unifying count-based exploration and intrinsic motivation." In Advances in Neural Information Processing Systems, pp. 1471-1479. 2016, <a href="https://arxiv.org/abs/1606.01868">link</a>.</p>
+<p>[19] Watkins, Christopher JCH, and Peter Dayan. "Q-learning." Machine learning 8, no. 3-4 (1992): 279-292, <a href="https://link.springer.com/content/pdf/10.1007/BF00992698.pdf">link</a>.</p>
+<p>[20] Lin, Long-Ji. "Self-improving reactive agents based on reinforcement learning, planning and teaching." Machine learning 8, no. 3-4 (1992): 293-321, <a href="https://link.springer.com/content/pdf/10.1007%2FBF00992699.pdf">link</a>.</p>
+<p>[21] Mnih, Volodymyr, Koray Kavukcuoglu, David Silver, Andrei A. Rusu, Joel Veness, Marc G. Bellemare, Alex Graves et al. "Human-level control through deep reinforcement learning." Nature 518, no. 7540 (2015): 529, <a href="https://www.nature.com/articles/nature14236">link</a>.</p>
+<p>[22] Jaderberg, Max, Volodymyr Mnih, Wojciech Marian Czarnecki, Tom Schaul, Joel Z. Leibo, David Silver, and Koray Kavukcuoglu. "Reinforcement learning with unsupervised auxiliary tasks." arXiv preprint arXiv:1611.05397 (2016), <a href="https://arxiv.org/abs/1611.05397">link</a>.</p>
+<p>[23] Denil, Misha, Sergio Gómez Colmenarejo, Serkan Cabi, David Saxton, and Nando de Freitas. "Programmable agents." arXiv preprint arXiv:1706.06383 (2017), <a href="https://arxiv.org/abs/1706.06383">link</a>.</p>
+<p>[24] Stadie, Bradly C., Pieter Abbeel, and Ilya Sutskever. "Third-person imitation learning." arXiv preprint arXiv:1703.01703 (2017), <a href="https://arxiv.org/abs/1703.01703">link</a>.</p>
+<p>[25] Ho, Jonathan, and Stefano Ermon. "Generative adversarial imitation learning." In Advances in Neural Information Processing Systems, pp. 4565-4573. 2016., <a href="http://papers.nips.cc/paper/6391-generative-adversarial-imitation-learning">link</a></p>
+<p>[26] Wang, Ziyu, Josh S. Merel, Scott E. Reed, Nando de Freitas, Gregory Wayne, and Nicolas Heess. "Robust imitation of diverse behaviors." In Advances in Neural Information Processing Systems, pp. 5326-5335. 2017, <a href="https://arxiv.org/abs/1707.02747">link</a>.</p>
+<p>[27] Andreas, Jacob, Dan Klein, and Sergey Levine. "Modular multitask reinforcement learning with policy sketches." arXiv preprint arXiv:1611.01796 (2016), <a href="https://arxiv.org/abs/1611.01796">link</a>.</p>
+<p>[28] Duan, Yan, Marcin Andrychowicz, Bradly Stadie, OpenAI Jonathan Ho, Jonas Schneider, Ilya Sutskever, Pieter Abbeel, and Wojciech Zaremba. "One-shot imitation learning." In Advances in neural information processing systems, pp. 1087-1098. 2017, <a href="https://arxiv.org/abs/1703.07326">link</a>.</p>
+<p>[29] Boyan, Justin A., and Andrew W. Moore. "Generalization in reinforcement learning: Safely approximating the value function." In Advances in neural information processing systems, pp. 369-376. 1995, <a href="https://www.ri.cmu.edu/pub_files/pub1/boyan_justin_1995_1/boyan_justin_1995_1.pdf">link</a>.</p>
+<p>[30] Jaksch, Thomas, Ronald Ortner, and Peter Auer. "Near-optimal regret bounds for reinforcement learning." Journal of Machine Learning Research 11, no. Apr (2010): 1563-1600, <a href="http://www.jmlr.org/papers/v11/jaksch10a.html">link</a>.</p>
+<p>[31] Chentanez, Nuttapong, Andrew G. Barto, and Satinder P. Singh. "Intrinsically motivated reinforcement learning." In Advances in neural information processing systems, pp. 1281-1288. 2005, <a href="https://papers.nips.cc/paper/2552-intrinsically-motivated-reinforcement-learning.pdf">link</a>.</p>
+<p>[32] Sorg, Jonathan, Richard L. Lewis, and Satinder P. Singh. "Reward design via online gradient ascent." In Advances in Neural Information Processing Systems, pp. 2190-2198. 2010, <a href="https://papers.nips.cc/paper/4146-reward-design-via-online-gradient-ascent.pdf">link</a>.</p>
+<p>[33] Guo, Xiaoxiao, Satinder Singh, Richard Lewis, and Honglak Lee. "Deep learning for reward design to improve monte carlo tree search in atari games." arXiv preprint arXiv:1604.07095 (2016), <a href="https://arxiv.org/abs/1604.07095">link</a>.</p>
+<p>[34] Amin, Kareem, Nan Jiang, and Satinder Singh. "Repeated Inverse Reinforcement Learning." In Advances in Neural Information Processing Systems, pp. 1813-1822. 2017, <a href="https://arxiv.org/abs/1705.05427">link</a>.</p>
+<p>[35] Oh, Junhyuk, Satinder Singh, Honglak Lee, and Pushmeet Kohli. "Zero-shot task generalization with multi-task deep reinforcement learning." arXiv preprint arXiv:1706.05064 (2017), <a href="https://arxiv.org/abs/1706.05064">link</a>.</p>
+<p>[36] Oh, Junhyuk, Satinder Singh, and Honglak Lee. "Value prediction network." In Advances in Neural Information Processing Systems, pp. 6120-6130. 2017, <a href="https://arxiv.org/abs/1707.03497">link</a>.</p>
+<p>[37] Silver, David, Hado van Hasselt, Matteo Hessel, Tom Schaul, Arthur Guez, Tim Harley, Gabriel Dulac-Arnold et al. "The predictron: End-to-end learning and planning." arXiv preprint arXiv:1612.08810 (2016), <a href="https://arxiv.org/abs/1612.08810">link</a>.</p>
+<p>[38] Garcıa, Javier, and Fernando Fernández. "A comprehensive survey on safe reinforcement learning." Journal of Machine Learning Research 16, no. 1 (2015): 1437-1480, <a href="http://www.jmlr.org/papers/volume16/garcia15a/garcia15a.pdf">link</a>.</p>
+<p>[39] Munos, Rémi, Tom Stepleton, Anna Harutyunyan, and Marc Bellemare. "Safe and efficient off-policy reinforcement learning." In Advances in Neural Information Processing Systems, pp. 1054-1062. 2016, <a href="http://papers.nips.cc/paper/6538-safe-and-efficient-off-policy-reinf">link</a>.</p>
+<p>[40] Akametalu, Anayo K., Jaime F. Fisac, Jeremy H. Gillula, Shahab Kaynama, Melanie N. Zeilinger, and Claire J. Tomlin. "Reachability-based safe learning with Gaussian processes." In Decision and Control (CDC), 2014 IEEE 53rd Annual Conference on, pp. 1424-1431. IEEE, 2014, <a href="https://ieeexplore.ieee.org/abstract/document/7039601/">link</a>.</p>
+<p>[41] Antol, Stanislaw, Aishwarya Agrawal, Jiasen Lu, Margaret Mitchell, Dhruv Batra, C. Lawrence Zitnick, and Devi Parikh. "Vqa: Visual question answering." In Proceedings of the IEEE international conference on computer vision, pp. 2425-2433. 2015, <a href="https://www.cv-foundation.org/openaccess/content_iccv_2015/html/Antol_VQA_Visual_Question_ICCV_2015_paper.html">link</a>.</p>
+<p>[42] Das, Abhishek, Satwik Kottur, Khushi Gupta, Avi Singh, Deshraj Yadav, José MF Moura, Devi Parikh, and Dhruv Batra. "Visual dialog." In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, vol. 2. 2017, <a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Das_Visual_Dialog_CVPR_2017_paper.pdf">link</a>.</p>
+<p>[43] Foerster, Jakob, Ioannis Alexandros Assael, Nando de Freitas, and Shimon Whiteson. "Learning to communicate with deep multi-agent reinforcement learning." In Advances in Neural Information Processing Systems, pp. 2137-2145. 2016, <a href="http://papers.nips.cc/paper/6042-learning-to-communicate-with-deep-multi-agent-reinforcement-learning">link</a>.</p>
+<p>[44] Sukhbaatar, Sainbayar, and Rob Fergus. "Learning multiagent communication with backpropagation." In Advances in Neural Information Processing Systems, pp. 2244-2252. 2016, <a href="http://papers.nips.cc/paper/6397-learning-multiagent-communication-with-backpropagation">link</a>.</p>
+<p>[45] Mordatch, Igor, and Pieter Abbeel. "Emergence of grounded compositional language in multi-agent populations." arXiv preprint arXiv:1703.04908 (2017), <a href="https://arxiv.org/abs/1703.04908">link</a>.</p>
+<p>[46] Lazaridou, Angeliki, Alexander Peysakhovich, and Marco Baroni. "Multi-agent cooperation and the emergence of (natural) language." arXiv preprint arXiv:1612.07182 (2016), <a href="https://arxiv.org/abs/1612.07182">link</a>.</p>
+<p>[47] Jorge, Emilio, Mikael Kågebäck, Fredrik D. Johansson, and Emil Gustavsson. "Learning to play guess who? and inventing a grounded language as a consequence." arXiv preprint arXiv:1611.03218 (2016), <a href="https://arxiv.org/abs/1611.03218">link</a>.</p>
+<p>[48] Havrylov, Serhii, and Ivan Titov. "Emergence of language with multi-agent games: learning to communicate with sequences of symbols." In Advances in Neural Information Processing Systems, pp. 2149-2159. 2017, <a href="http://papers.nips.cc/paper/6810-emergence-of-language-with-multi-agent-games-learning-to-communicate-with-sequences-of-symbols">link</a>.</p>
+<p>[49] Andreas, Jacob, Anca Dragan, and Dan Klein. "Translating neuralese." arXiv preprint arXiv:1704.06960 (2017), <a href="https://arxiv.org/abs/1704.06960">link</a>.</p>
+
+</div>
+</div>
+</div>
+ 
+
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'yobiblog-1';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " yobibyte's webpage ",
+  "url" : ".",
+  "image": "http://yobibyte.github.io/pics/socrat.png",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>
