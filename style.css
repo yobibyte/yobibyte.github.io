@@ -1,6 +1,8 @@
   body {
-    color: white;
-    background-color: rgb(31, 39, 54);
+    /* color: white; */
+    /* background-color: rgb(31, 39, 54); */
+    color: #ebdbb2;
+    background-color: #282828;
     font-family: Arial;
     max-width: 750px;
     margin: 0 auto;
@@ -9,7 +11,8 @@
   }
 
   a {
-    color: #46ff80;
+    /* color: #46ff80; */
+    color: #fabd2f;
   }
 
   a:hover {
