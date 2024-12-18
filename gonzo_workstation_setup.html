@@ -1,0 +1,95 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css"/>
+<title>gonzo workstation setup</title>
+
+<a href="https://yobibyte.github.io/"><img src="./pics/socrat.png" class="center" width=50%></a>
+<p><i>Originally published in 2018</i></p>
+
+<h1>gonzo workstation setup</h1>
+
+<p>Finally, I got fed up with fixing my OS and decided to reinstall it from scratch right before my PhD starts (yeah, this's been a while since I started this post). 
+For the sake of simplicity and being able to reproduce the steps quickly everywhere, I decided to stop using Arch and went with Ubuntu.</p>
+<p>This piece of gonzo journalism is to list all the stuff I might find important when setting up a convenient environment to work. 
+This post is mostly for me and my needs. 
+No responsibilities here!</p>
+<p>However, you might find it (or some parts) useful since I will try to explain why I do this or that step or install this or that software.
+Or you probably haven't heard of some util I mention here.
+I hope it helps.
+Let's go!</p>
+
+<h3 id="Initial-System-Setup">Initial System Setup<a class="anchor-link" href="#Initial-System-Setup">&#182;</a></h3><p>First, you should get the distro from <a href="https://www.ubuntu.com/download/desktop">here</a> and make a bootable flash drive. I recommend using <a href="https://unetbootin.github.io/"><em>unetbootin</em></a>.
+Botting and installing the system is straightforward, I won't say much here. Just tick the LVM option when installing since it'll make your life much easier when you decide to make a backup (not making backups yet? then try to remove all your files and check how it feels).</p>
+<p>The first thing you need after your system is installed is <del>a</del> the <a href="https://www.vim.org/docs.php">good text editor</a>. 
+You will need it to edit all the configs we will edit in the future:</p>
+
+<pre><code>sudo apt install vim</code></pre>
+<p>As soon as you do it, uncomment the following lines in <code>/etc/inputrc</code> and refresh your terminal session:</p>
+
+<pre><code># "\e[5~": history-search-backward</code></pre>
+
+<pre><code># "\e[6~": history-search-forward</code></pre>
+
+<pre><code>source ~/.bashrc</code></pre>
+<p>This will enable you to do history search just using pgUp and pgDown keys.</p>
+<p>I have a system SSD and an HDD{s} with backups and huge data dumps. 
+Usually, I just unplug the HDDs when I reinstall the OS and add them to fstab <a href="https://askubuntu.com/questions/125257/how-do-i-add-an-additional-hard-drive">later</a>.</p>
+<p>I store most of my files in Dropbox, let's <a href="https://www.dropbox.com/en_GB/install-linux">install</a> it and run the sync. And do not forget to add it to the list of startup programs.</p>
+<p>You probably want to use github or any remote servers and log in using ssh, let's generate the key.
+Install <em>xclip</em> first to copy stuff to your buffer:</p>
+
+<pre><code>sudo apt-get install xclip</code></pre>
+<p>Generate a key and copy it to the buffer:</p>
+
+<pre><code>ssh-keygen -t rsa -b 4096 -C "&lt;your-email-here&gt;"</code></pre>
+
+<pre><code>xclip -sel clip &lt; ~/.ssh/id_rsa.pub</code></pre>
+<p>Now you can copy this key to the <code>authorized_keys</code> file on your server/github/whatever.</p>
+
+<h3 id="Useful-packages">Useful packages<a class="anchor-link" href="#Useful-packages">&#182;</a></h3><h4 id="mc">mc<a class="anchor-link" href="#mc">&#182;</a></h4><p>You do not want to spend all your time on mouse clicking and drag/drop stuff. At the same time, you probably do not remember all your filesystem structure by hart. <em>mc</em> is a very handy two-pane file manager:</p>
+
+<pre><code>sudo apt install mc</code></pre>
+<h4 id="git">git<a class="anchor-link" href="#git">&#182;</a></h4><p>Self-explanatory:</p>
+
+<pre><code>sudo apt install git</code></pre>
+<h4 id="latex">latex<a class="anchor-link" href="#latex">&#182;</a></h4><p>Same here. How can you submit your future test-of-time award to ICML or SIGBOVIK without this perfect piece of software?</p>
+
+<pre><code>sudo apt-get install texlive-full</code></pre>
+<h4 id="silversearcher-ag">silversearcher-ag<a class="anchor-link" href="#silversearcher-ag">&#182;</a></h4><p>Sometimes you need to find something in your code and you might use <em>grep</em> or <em>ack</em>. However, this one is really good.</p>
+
+<pre><code>sudo apt install silversearcher-ag</code></pre>
+<h4 id="htop">htop<a class="anchor-link" href="#htop">&#182;</a></h4><p>You really want to look at these fancy bars showing how many processorts you have, don't you?</p>
+
+<pre><code>sudo apt install htop</code></pre>
+<h4 id="tmux">tmux<a class="anchor-link" href="#tmux">&#182;</a></h4>
+<pre><code>sudo apt install tmux</code></pre>
+<h4 id="chromium-browser">chromium-browser<a class="anchor-link" href="#chromium-browser">&#182;</a></h4><p>You definitely need this. Otherwise, how can you eyeball your tensorboard? <del>Or how can you watch this latest Deep Learning course on Udemy?</del></p>
+
+<pre><code>sudo apt install chromium-browser</code></pre>
+<h4 id="Solaar">Solaar<a class="anchor-link" href="#Solaar">&#182;</a></h4><p>I have a Logitech MX Anywhere mouse. <em>Solaar</em> makes it easy to connect.</p>
+
+<pre><code>sudo apt install solaar</code></pre>
+
+<h3 id="ML-related">ML related<a class="anchor-link" href="#ML-related">&#182;</a></h3><p>I've always used venvs/system+pip install before.
+However, I've heard a lot of good things about anaconda and decided to give it a go.
+I still use system packages/pip for non-research related stuff though.</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart">Here</a> is how you install Anaconda in Ubuntu 18.04.</p>
+<p>Now, you need CUDA.
+You can find the instructions <a href="https://askubuntu.com/questions/1028830/how-do-i-install-cuda-on-ubuntu-18-04">here</a>.</p>
+<p>Finally, if you are into Docker, have a look at the official <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04">guide</a>.</p>
+
+<h3 id="Blog">Blog<a class="anchor-link" href="#Blog">&#182;</a></h3><p>This blog is powered by Pelican, that's how you install it:</p>
+
+<pre><code>pip install pelican</code></pre>
+
+<pre><code>pip install Markdown</code></pre>
+
+<pre><code>pip install ghp_import</code></pre>
+
+<h3 id="FAQ">FAQ<a class="anchor-link" href="#FAQ">&#182;</a></h3><h4 id="WAT?-Do-I-need-to-use-all-this-console-stuff-my-grandmother-used-in-school?">WAT? Do I need to use all this console stuff my grandmother used in school?<a class="anchor-link" href="#WAT?-Do-I-need-to-use-all-this-console-stuff-my-grandmother-used-in-school?">&#182;</a></h4><p>Most of the time you do not need to. However, it's nice to have the same interface when you log in to a remote machine or use your fancy macbook 12 while drinking mojito on the beach.</p>
+<h4 id="Wait,-how-can-you-leave-without-XYZ?">Wait, how can you leave without XYZ?<a class="anchor-link" href="#Wait,-how-can-you-leave-without-XYZ?">&#182;</a></h4><p>Probably I just forgot to add it to the blog post. Or I really have never heard of this util. It would be great if you <a href="vitaliykurin@gmail.com">email me</a> and I'll add it here.</p>
+
+<h3 id="Credits">Credits<a class="anchor-link" href="#Credits">&#182;</a></h3><ul>
+<li>Kudos to <a href="https://twitter.com/giffmana">Lucas Beyer</a> for pgUp/pgDown history search trick</li>
+
+
+<hr>
