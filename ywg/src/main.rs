@@ -1,24 +1,54 @@
 use chrono::Utc;
+use rss::Guid;
 use rss::{Channel, ItemBuilder};
-use rss::{ChannelBuilder, Guid};
 use std::env;
 use std::fs::File;
-use std::io::BufReader;
+use std::io::{self, BufRead, BufReader};
 
 fn main() {
     let feed_path = "../feed.xml";
     let file = File::open(feed_path).unwrap();
     let mut channel = Channel::read_from(BufReader::new(file)).unwrap();
-    // println!("{}", channel);
 
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
         println!("Provide path to the html page as an argument!");
     }
+    let html_content_fpath = args[1].clone();
+    // TODO check that the file exists
+
+    let html_content_file = File::open(&html_content_fpath).unwrap();
+    let reader = BufReader::new(html_content_file);
+    // let mut lines: Vec<String> = reader.lines().collect::<Result<Vec<_>, io::Error>>().unwrap();
+    let lines: Vec<String> = reader
+        .lines()
+        .filter_map(
+            //TODO replace with regex.
+            |line_result| match line_result {
+                Ok(line)
+                    if !line.contains("<img")
+                        && !line.contains("<meta")
+                        && !line.contains("<link")
+                        && !line.contains("<title>") =>
+                {
+                    Some(line)
+                }
+                _ => None,
+            },
+        )
+        .collect();
+    // TODO: it will probably be easier if we use w3m to dump text instead of going via raw html
+    // and figuring out the tags.
+
+    let html_content = lines.join("\n");
+    // let html_content = fs::read_to_string(&html_content_fpath).unwrap();
+    println!(
+        "<content:encoded><![CDATA[\n{}\n]]></content:encoded>",
+        html_content
+    );
 
     let website_url = "https://yobibyte.github.io";
-    let page_full_url = format!("{website_url}/{}", args[1]);
-    println!("{}", page_full_url);
+    let page_full_url = format!("{website_url}/{}", html_content_fpath);
 
     let title = "title".to_string();
     let guid = Guid {
@@ -26,10 +56,12 @@ fn main() {
         permalink: true,
     };
     let new_item = ItemBuilder::default()
-        .title(title)
+        .title(title.clone())
         .guid(guid)
         .link(page_full_url)
         .pub_date(Utc::now().to_rfc2822())
+        .description(title)
+        .content(html_content)
         .build();
 
     let mut items = channel.items_mut().to_vec();
@@ -38,29 +70,4 @@ fn main() {
 
     let file = File::create(feed_path).expect("Cannot create file");
     channel.write_to(file).unwrap(); // write to the channel to a writer
-
-    // get html content
-    // embed html into xml items
-    /* <content:encoded><![CDATA[
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8"/>
-          <title>Your HTML Page</title>
-          <style>
-            /* Optional inline CSS */
-          </style>
-        </head>
-        <body>
-          <h1>Hello from Your HTML Page</h1>
-          <p>This is the full content of your page, including any images, styles, etc.</p>
-          <!-- Make sure all links, images, etc. are absolute URLs if you need them to load properly in RSS readers -->
-        </body>
-        </html>
-      ]]></content:encoded>
-    */
 }
-
-//TODO: automate html -> feed.xml entry.
-//Start with just adding without checking if there is an entry with a similar page already.
-//Do the check after.
