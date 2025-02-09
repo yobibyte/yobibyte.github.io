@@ -1,0 +1,245 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css"/>
+<title>reading safetensors in zig</title>
+
+<a href="index.html"><img src="./pics/socrat.png" class="center" width=50%></a>
+
+
+<h1>reading safetensors in zig</h1>
+
+<p>
+I got curious about Zig recently and decided to learn it.
+After finishing <a href="https://codeberg.org/ziglings/exercises/">ziglings</a> (that are great, btw!), I wanted to do a small, self-contained project.
+I decided that reading safetensors would be a nice idea I can code in a day or so.
+Why safetensors? 
+Because we can!
+</p>
+
+<p>
+What are safetensors?
+It is a binary format to store neural network weights.
+They are pretty straightforward. 
+Here is my amazing ASCII art on them.
+<pre>
+HEADER SIZE (N)   | HEADER JSON | NUMBERS
+^^^ 8 bytes (u64)      N bytes  ^
+                                |
+                                  ____ Offset 0 is here.
+</pre>
+</p>
+
+<p>
+Sounds easy enough!
+Let's get started!
+I assume you alreadey have a Zig project set up, and can build and run it.
+If you don't, check out the <tt>zig init</tt> command.
+I won't be using any external dependencies (at the time I didn't even know how to add one), and I will be writing all my code in <tt>main.zig</tt> file.
+YOLO!
+</p>
+
+<p>
+Here is the plan.
+We'll first read the header size, to determine how many bytes to read to get the header JSON.
+Then we'll convert the binary into JSON, parse the metadata and get the info on how where to find the weights themselves.
+We will also need to think about format, for example, if the weights are in bf16, we'll convert those in f32.
+</p>
+
+
+<p>
+First, let's grab a model!
+I picked <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-0.5B-Instruct/tree/main">Qwen2.5-coder-0.5B-Instruct</a>.
+It has only one safetensors file and is small enough to speed up the development.
+</p>
+
+<p>
+The high-level code is pretty simple and follows our plan above.
+<pre>
+var layers_info = std.ArrayList(*LayerMetadata()).init(allocator);
+defer {
+  for (layers_info.items) |*item| {
+      item.*.deinit();
+  }
+  layers_info.deinit();
+}
+
+// At this point, we will know all the layers names, their types, shapes, and offsets.
+const header_size = try get_safetensors_content(safetensors_path, allocator, &layers_info);
+
+var layer_metadata: *LayerMetadata() = undefined;
+for (layers_info.items) |layer_spec| {
+  layer_spec.print();
+  if (std.mem.eql(u8, layer_spec.name, layer_name)) {
+      layer_metadata = layer_spec;
+  }
+}
+layer_metadata.print();
+
+// We can extract the weights now.
+var weights = load_weights(header_size, layer_metadata, safetensors_path, allocator);
+</pre>
+We will store all the metadata in the ArrayList as we do not know the size in advance.
+I will not put all the code for the metadata structs, but here are the fields:
+
+<pre>
+pub fn LayerMetadata() type {
+    return struct {
+        allocator: std.mem.Allocator,
+        name: []u8,
+        shape: []u64,
+        dtype: []u8,
+        offset_start: u64,
+        offset_end: u64,
+</pre>
+Sending allocators around is very common in Zig.
+We include an allocator in our structs to allocate the memory during construction, and free it after the struct is no longer needed.
+I am using <tt>GeneralPurposeAllocator</tt> that helps detect memory leaks and use-after-free errors.
+This is very nice, and I literally found <a href=https://github.com/yobibyte/ziggy-safetensors/commit/305272bfe3f683e1b1ccdff9f9477ec00e587474>a bug</a> with it right before I started writing this post.
+</p>
+
+<tt>get_safetensors_content</tt> is the main parsing bit and was the hardest to write/debug:
+
+Opening the file is the easiest part xD, the main bit is not to forget to close it after, let's put a <tt>defer</tt>.
+<pre>
+    var file = try std.fs.openFileAbsolute(fpath, .{});
+    defer file.close();
+</pre>
+
+To parse the whole thing, we need the header json, to know how much bytes to read to get the header, we need to read the first 8 bytes to get the header size (see my ASCII art above).
+Let's get the header size then:
+
+<pre>
+var header_size_buf: [HEADER_SIZE_BUFF_SIZE]u8 = undefined;
+_ = try file.read(header_size_buf[0..]);
+// Another thing to mind is whether to interpret this as a litle/big endian.
+// I could not quickly find what it was, and just tried both.
+// The big endian did not make any sense to me, and I later check the parity with Python anyways.
+const header_size = std.mem.readInt(u64, &header_size_buf, std.builtin.Endian.little);
+</pre>
+
+Now, we can read the header!
+<pre>
+// This is where knowing the header size comes in handy.
+const header_buf = try allocator.alloc(u8, header_size);
+defer allocator.free(header_buf);
+_ = try file.read(header_buf[0..]);
+</pre>
+
+
+Parsing the header was the hardest part, or, let's say, iterating over it, and putting the correct data to our structs.
+My solution is a bit hacky and might break with new data types, but it was good enough for a working prototype.
+
+<pre>
+const parsed = try std.json.parseFromSlice(std.json.Value, allocator, header_buf, .{});
+defer parsed.deinit();
+var iter = parsed.value.object.iterator();
+while (iter.next()) |entry| {
+    const key = entry.key_ptr;
+    // The JSON has some other stuff in it.
+    // Skip metadata, we need only layers.
+    if (std.mem.eql(u8, key.*, "__metadata__")) {
+        continue;
+    }
+
+    const val = entry.value_ptr;
+    // grab info about the weights dtype
+    const dtype = val.object.get("dtype").?.string;
+
+    const unk_shape = val.object.get("shape").?.array;
+    const shape = try allocator.alloc(u64, unk_shape.items.len);
+    // I forgot to add the next line in the first version of this code, and GeneralPurposeAllocator
+    // helped me to find it.
+    defer allocator.free(shape);
+    // Shape is an array of integers, as we do not know the amount of items,
+    // we need to allocate it explicitly on the heap.
+    // We can probably have a max number and store the shape dims as well, but I took this path.
+    for (unk_shape.items, 0..) |el, idx| {
+        switch (el) {
+            .integer => |num| {
+                const signless: u64 = @as(u64, @intCast(num));
+                shape[idx] = @intCast(signless);
+            },
+            else => {},
+        }
+    }
+
+    // With offsets, we actually know that there is only start and end.
+    // Let's exploit this and store those as separate fields in the struct.
+    // const offset_start: u64 = -1;
+    // const offset_end: u64 = -1;
+    const unk_offsets = val.object.get("data_offsets").?.array;
+    const offset_start: u64 = @as(u64, @intCast(unk_offsets.items[0].integer));
+    const offset_end: u64 = @as(u64, @intCast(unk_offsets.items[1].integer));
+    const cur_layer = try LayerMetadata().init(
+        allocator,
+        key.*[0..key.*.len],
+        shape,
+        dtype,
+        offset_start,
+        offset_end,
+    );
+    try layers_info.append(cur_layer);
+}
+</pre>
+
+That's pretty much it, we have everything to load the weights themselves.
+
+<pre>
+const metadata_bytesize = HEADER_SIZE_BUFF_SIZE + header_size;
+const read_len = layer_metadata.offset_end - layer_metadata.offset_start;
+
+// Weight offsets are starting with 0 meaning the first byte *after* the header.
+try file.seekTo(layer_metadata.offset_start + metadata_bytesize);
+const wbuf = try allocator.alloc(u8, read_len);
+const bytes_read = try file.read(wbuf);
+if (bytes_read != read_len) {
+    std.debug.print("Something is wrong! Expected bytes to read: {}. Actual bytes read:{}.]\n", .{ read_len, bytes_read });
+    std.process.exit(1);
+}
+defer allocator.free(wbuf);
+
+// Here I hardcode that we are in bf16. 
+// This is not true for all, and has to be generalised.
+const bf16_count: usize = read_len / 2;
+
+const rows = layer_metadata.shape[0];
+const cols = layer_metadata.shape[1];
+// Again, here we assume that we have a two dimensional array.
+// Check that the shape corresponds to amount of bytes we read.
+std.debug.assert(rows * cols == bf16_count);
+
+// Original weights are in bf16, let's get fp32 from those.
+var f32_values = try allocator.alloc(f32, bf16_count);
+defer allocator.free(f32_values);
+batch_bf16bytes_to_fp32(wbuf, bf16_count, f32_values);
+
+// Let's get the 2D array printed to compare to what we see in Python (run test.py to compare).
+var weights = try NDArray(f32).init(allocator, rows, cols);
+weights.copy_from(&f32_values);
+</pre>
+
+The only missing bit here, before we wrap up is how we convert bf16 to fp32.
+We are actually pretty lucky here!
+Both have the same sign bit and the exponent length!
+We can just pad the missing half with zeros from the right:
+
+<pre>
+pub fn batch_bf16bytes_to_fp32(bf16_buf: []u8, bf16_count: usize, fp32_buf: []f32) void {
+    const bf16_ptr = @as([*]u16, @ptrCast(@alignCast(bf16_buf.ptr)));
+    const bf16_slice = bf16_ptr[0..bf16_count];
+    const shift_width: u32 = 16;
+    for (bf16_slice, 0..) |bf, i| {
+        // Showing my incredible bit arithmetics skills here.
+        const bits: u32 = @as(u32, bf) << shift_width;
+        fp32_buf[i] = @bitCast(bits);
+    }
+}
+</pre>
+
+<p>
+And that's it! A self-contained Zig program to parse safetensors. 
+There's definitely room for improvement, but it works! 
+I'll probably make it a bit more general in the future, or you can send me a PR!
+You can find the code <a href=https://github.com/yobibyte/ziggy-safetensors>here</a>.
+</p>
+
+<hr>
