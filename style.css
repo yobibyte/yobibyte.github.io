@@ -39,12 +39,13 @@
 
 /* Code block styling */
 pre {
-  background-color: #004080; /* Darker shade of blue */
-  color: #FFFFFF;            /* White text */
-  border: 1px solid #002B55; /* Subtle border */
+  background-color: #282828; /* Darker shade of blue */
+  color: #fabd2f;
+  border: 1px solid #fabd2f; /* Subtle border */
   padding: 1em;
   margin: 1em 0;
   overflow-x: auto;          /* Horizontal scroll if needed */
+  white-space: pre-wrap; /* wrapping */
 }
 
 code {
