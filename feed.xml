@@ -247,10 +247,7 @@ I'll probably make it a bit more general in the future, or you can send me a PR!
 You can find the code <a href=https://github.com/yobibyte/ziggy-safetensors>here</a>.
 </p>
 
-<hr>]]></content:encoded></item><item><title>reading safetensors in zig</title><link>https://yobibyte.github.io/safetensors.html</link><description><![CDATA[reading safetensors in zig]]></description><guid>https://yobibyte.github.io/safetensors.html</guid><pubDate>Sun, 9 Feb 2025 22:55:02 +0000</pubDate><content:encoded><![CDATA[
-
-
-<h1>reading safetensors in zig</h1>
+<hr>]]></content:encoded></item><item><title>reading safetensors in zig</title><link>https://yobibyte.github.io/safetensors.html</link><description><![CDATA[reading safetensors in zig]]></description><guid>https://yobibyte.github.io/safetensors.html</guid><pubDate>Sun, 9 Feb 2025 22:55:02 +0000</pubDate><content:encoded><![CDATA[<h1>reading safetensors in zig</h1>
 
 <p>
 I got curious about Zig recently and decided to learn it.
@@ -485,6 +482,67 @@ And that's it! A self-contained Zig program to parse safetensors.
 There's definitely room for improvement, but it works! 
 I'll probably make it a bit more general in the future, or you can send me a PR!
 You can find the code <a href=https://github.com/yobibyte/ziggy-safetensors>here</a>.
+</p>
+
+<hr>]]></content:encoded></item><item><title>Welcome to yobihome</title><link>https://yobibyte.github.io/vibecoding.html</link><description><![CDATA[Welcome to yobihome]]></description><guid>https://yobibyte.github.io/vibecoding.html</guid><pubDate>Fri, 25 Apr 2025 09:34:47 +0000</pubDate><content:encoded><![CDATA[
+
+<h1>thoughts on vibe coding</h1>
+
+<p>
+Vibe coding took our industry by storm.
+Some people I know and respect went completely nuts about it and switched from designing software by the means of reasoning to begging their computer to do what they want. 
+Some of them still check what LLMs outputs, but others just blindly accept the code, and only skim through it when it does not run or outputs completely wrong results.
+For me, this sounds exactly like the Tesla autopilot: you are expected to keep your hands on the wheel and pay attention, but you have few incentives to do that, and many people just do not and stare into their phones.
+</p>
+
+<p>
+Most of the people who preach vibe coding think that the sole output of programming is the running code.
+That is a big mistake.
+When you program in the usual, non-perverse, way you learn a lot.
+Occasionally, you jump to the libraries' source code, you read documentation, you lurk on forums and encounter insightful responses, you learn a lot!
+You also hit you head against the wall multiple times, and you come out stronger from it, you learn to persevere and have to build a mental model of the reality to solve a complex problem.
+Vibe coding is like cheating on an exam. 
+You solved the problem, but you have not learnt a thing.
+</p>
+
+<p>
+Normal-way programming is sometimes similar to solving puzzles: you collect evidence, you have your suspects, and you design experiments to confirm your hypotheses.
+You feel great when you finally solve your mystery, you have achieved something.
+With vibe coding, I do not have this feeling, you just open the 'Answers' section of the book (which is full of typos).
+</p>
+
+<p>
+With vibe coding, you also bang your head against the wall trying to convince an LLM to fix your bug, but in the end, you come out of this without learning much, you have some cargo-cult thoughts about better prompting, but they are a sandcastle.
+Instead of learning new things, you start forgetting old things: language syntax.
+Without knowing syntax, your flow is constantly interrupted as you need to google more, or you are even more dependent on your LLM.
+Try coding on a plane without the Internet now, I am pretty sure you will suffer a lot.
+</p>
+
+<p>
+The models will definitely improve, but right now I do not think that the models are good enough to solve the problems I care about. 
+I tried to vibe code some proc macros in Rust, and it was terrible. 
+I tried do some basic operations with Polars in Rust, and it was incredibly dumb, less than useless.
+Even in-context learning which is considered the modern-day ML miracle did not work that well for me.
+I was trying to give the model the library API changes and it could not get it. 
+It kept spitting out the old library version's code without paying any attention (pun intented) on what I was telling it.
+</p>
+
+<p>
+I enjoy writing code, I enjoy building something that I understand and that is of high quality.
+With vibe coding, part of the activity I enjoy goes away.
+You end up doing two things: convincing a machine to do what you want in natural language, and then cleaning up after it. 
+You turn into an unlucky manager who gives tasks to a junior developer, and then cleans up the mess he gets. 
+Your technical skills deteriorate, you depend more and more on the machine, you start hating yourself.
+</p>
+
+<p>
+Hey, aren't you a luddite, you might ask? Yeah, I kinda am: I don't use jupyter notebooks, I am horrified by the quality of the modern software,  and generally think that our field has gone the wrong way at some point. I even stopped using a smartphone a couple of months ago. But I don't think I am completely off my onion. I want to preserve my intellectual capabilites and use computers to help me create stuff by empowering me rather than turning me into a clip buffer between my browser and the rest of my computer.
+</p>
+
+<p>
+I train LLMs and use them daily, but mostly for explaining stuff I do not understand. I do not know Rust that well and often I ask LLMs what a couple of lines actually mean or what the syntax for a particular idiomatic expression is.
+I often copypaste scientific papers' content to ChatGPT and go over the derivation I do not get. 
+With this approach, LLMs empower me, they do not make me dumber.
 </p>
 
 <hr>]]></content:encoded></item></channel></rss>
