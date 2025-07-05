@@ -484,9 +484,7 @@ I'll probably make it a bit more general in the future, or you can send me a PR!
 You can find the code <a href=https://github.com/yobibyte/ziggy-safetensors>here</a>.
 </p>
 
-<hr>]]></content:encoded></item><item><title>Welcome to yobihome</title><link>https://yobibyte.github.io/vibecoding.html</link><description><![CDATA[Welcome to yobihome]]></description><guid>https://yobibyte.github.io/vibecoding.html</guid><pubDate>Fri, 25 Apr 2025 09:34:47 +0000</pubDate><content:encoded><![CDATA[
-
-<h1>thoughts on vibe coding</h1>
+<hr>]]></content:encoded></item><item><title>Welcome to yobihome</title><link>https://yobibyte.github.io/vibecoding.html</link><description><![CDATA[Welcome to yobihome]]></description><guid>https://yobibyte.github.io/vibecoding.html</guid><pubDate>Fri, 25 Apr 2025 09:34:47 +0000</pubDate><content:encoded><![CDATA[<h1>thoughts on vibe coding</h1>
 
 <p>
 Vibe coding took our industry by storm.
@@ -543,6 +541,194 @@ Hey, aren't you a luddite, you might ask? Yeah, I kinda am: I don't use jupyter 
 I train LLMs and use them daily, but mostly for explaining stuff I do not understand. I do not know Rust that well and often I ask LLMs what a couple of lines actually mean or what the syntax for a particular idiomatic expression is.
 I often copypaste scientific papers' content to ChatGPT and go over the derivation I do not get. 
 With this approach, LLMs empower me, they do not make me dumber.
+</p>
+
+<hr>]]></content:encoded></item><item><title>Vim Setup</title><link>https://yobibyte.github.io/vim.html</link><description><![CDATA[Vim Setup]]></description><guid>https://yobibyte.github.io/vim.html</guid><pubDate>Sat, 5 Jul 2025 10:30:43 +0000</pubDate><content:encoded><![CDATA[
+
+<h2>why I got rid of all my neovim plugins</h2>
+
+<p>
+Let's jump straight into it.
+This is the neovim config I write all my code with.
+It is just eleven lines, two key bindings, and it does not use any plugins.
+In this post, I will shortly describe my vim journey, and explain why I ended up with this config.
+</p>
+
+<pre><code>
+vim.o.undofile      = true
+vim.o.clipboard     = "unnamedplus"
+vim.o.laststatus    = 0
+vim.opt.expandtab   = true
+vim.opt.shiftwidth  = 4
+vim.opt.softtabstop = -1
+vim.cmd("syntax off | colorscheme retrobox | highlight Normal guifg=#ffaf00 guibg=#282828")
+vim.keymap.set('n', '&lt;space&gt;y', function() vim.fn.setreg('+', vim.fn.expand('%:p')) end)
+vim.keymap.set("n", "&lt;space&gt;c", function() vim.ui.input({}, function(c) if c and c~="" then 
+  vim.cmd("noswapfile vnew") vim.bo.buftype = "nofile" vim.bo.bufhidden = "wipe"
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.fn.systemlist(c)) end end) end)
+</code></pre>
+
+<h3>Me and vim</h3>
+<p>
+I first started using vim in high school because I could not quit it.
+It might have even been vi, and I opened it by accident.
+I started using it to edit my configuration files or write simple python scripts.
+For everything else I used Eclipse, and, then, JetBrains IDEs.
+</p>
+
+<p>
+A couple of years ago I learnt about neovim and kickstart.nvim, and was amazed by what you can turn vim into.
+I loved kickstart because it gave you a fully working config that you could poke into, study, and learn more.
+I loved that everything was in a single file, and it was simple.
+I did learn a lot, and I also found out that there is stuff in there I do not need.
+A thousand lines of configuration was too much, even though most of the lines were comments.
+I started removing comments to trim the config down, I started removing plugins I did not use.
+</p>
+
+<p>
+A couple of months ago, I watched Prime's interview with Ginger Bill who said he does not use LSPs,
+and this helps him build a better mental model of the code he works with.
+This idea resonated with me, and I decided to give it ago.
+Moreover, LSPs were the most brittle part of my neovim setup, they often crashed, and I get angry when the software I use does not work.
+I want to trust my software.
+</p>
+
+<p>
+Getting rid of LSPs significantly simplified my config.
+I started replacing the plugins I used with self-written custom functions, e.g. using grep/find to replace telescope,
+going over the first 100 lines to figure out the shiftwidth etc.
+Eventually, I was left only with a couple of plugins, and, I thought that I do not need the plugin manager now, I can just check out the repos myself from init.lua.
+And then I realised that neovim had commenting out of the box, and I need neither Comment.nvim nor my own custom function to comment out stuff.
+That was it, I got rid of all my plugins, and I got about 200 lines of custom functions that made my life easier.
+</p>
+
+<p>
+Slowly, I started realising, that I can live without much of the functionality of my init.lua. Moreover, similarly to LSPs, that functionality made me less efficient.
+It prevented me from getting better.
+And this is how I ended up with 11 lines of configuration which I can even retype if I ever need to work on a machine with vim but without access to the Internet.
+In hindsight, I found the three ideas that brought me to these 11 lines, and I will elaborate on those below.
+</p>
+
+<h3>Simplicity</h3>
+<p>
+I love simplicity.
+I have a fucking <a href="https://ora.ox.ac.uk/objects/uuid:291e12e6-6cb0-4244-8a6f-d350cef9b20f">PhD thesis</a> in simplicity.
+The fewer lines of config you have, the less you should worry about.
+The simpler your config is, the less it will break, and, usually, the faster it will be.
+The more plugins you use, the more lines of code you download from the Internet, and every line of code in a random plugin can fuck your computer up.
+The simpler your system is, the bigger part of it you understand.
+The simpler your setup is, the easier it is for you to work with the stock tools.
+</p>
+
+<p>
+I do not think there is much more to it.
+</p>
+
+<h3>Magic</h3>
+
+<p>
+A lot of people are trying to turn vim into an IDE.
+I do the opposite.
+I think, text editor should help you edit text, it should not replace your terminal, web browser, and a gaming console, sorry Emacs users.
+What I think a good editor should do is to provide a seamless integration with the terminal so that you could grep/find/build your project and direct the output to your editor without any hassle.
+</p>
+
+<p>
+I have this seamless integration by having a simple custom binding that creates a scratch buffer, runs a command, and sends the output to that scratch buffer:
+<pre><code>
+vim.keymap.set("n", "&lt;space&gt;c", function()
+  vim.ui.input({}, function(c) 
+      if c and c~="" then 
+        vim.cmd("noswapfile vnew") 
+        vim.bo.buftype = "nofile"
+        vim.bo.bufhidden = "wipe"
+        vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.fn.systemlist(c))
+      end 
+  end) 
+end)
+</code></pre>
+I can even get rid of this binding and just use ":vnew | read !cmd", but I do not want to manually close that buffer.
+</p>
+
+<p>
+Why do I not want my editor to be an IDE?
+Relying on magic makes me a worse programmer, it makes me lazy and forgetful.
+It makes me less resilient and increases my dependencies on others.
+I will give a couple examples.
+</p>
+
+<p>
+I was a happy user of the fugitive plugin.
+It makes it so easy to stage/reset chunks you want, you can see all the changes easily, and you can do walk over commits, see the history, check the blame without any problems.
+However, you have no idea how it works.
+I use git cli interface now, and I have learnt so many new commands recently!
+I know a command to track the evolution of a single line in the repo: <code>git log -L 42,42:file.rs</code>.
+If I get a merge conflict, I load all the conflicting files into a buffer by <code>git diff --name-only --diff-filter=U</code>.
+I could use a binding for that, but I want to memorize the flags.
+Does this make me a bit slower?
+I think so.
+But it also makes me learn more when I work, and producing more lines of code is not my goal when programming.
+</p>
+
+<p>
+But, Vitaly, you might say, how the fuck do you navigate around the codebase, how do you search, how do you live without Harpoon???
+Simple, I replaced Telescope with just grepping stuff, or ripgrepping, if a system I work in has ripgrep.
+I run <code>&lt;space&gt;c</code>, and I type <code>rg --vimgrep TODO</code> to get a buffer filled in by the todos.
+I can type <code>:cbufer</code> to convert this to a quickfix list for easier navigation with <code>:cn</code> and <code>:cp</code>.
+I open my files by typing <code>:e <path></code> for the files I edit often.
+This makes me more aware of the project structure.
+If I want to search for a file, I just run <code>rg --files | rg filename</code> to get it to the buffer.
+Then it is a one-line yank and <code>:e PASTE</code>.
+I use bookmarks instead of Harpoon, or I type <code>:b file</code> to move.
+If the buffer list is not polluted <code>:b file</code> (you do not have to type the full path or full name), this can be extremely efficient.
+</p>
+
+<p>
+Going to definition of external dependencies was the hardest to figure out.
+I ended up having a binding that gives me a filepath where python or rust keep the dependencies and grepping there.
+Now I remember the paths (or the way python/cargo make this path), and just cd there, fire vim or just grep directly in the terminal.
+This is definitely slower than going to definition with one key bind, but this makes me aware of the structure of external dependencies,
+every time I grep, I see the context around, I can read a couple of lines up or down, I might run <code>tree</code> inside.
+Again, not magically teleporting to the place I need, makes me learn more.
+I trade immediate efficiency for learning more in the long-term.
+I am an anti-vibe coder.
+</p>
+
+<h3>Distractions</h3>
+
+<p>
+The last thing I love my setup for is lack of distrations.
+When I see people coding in IDE, I feel like staring through a gunhole into their code.
+They buy the latest macbook pro with 24k resolution to see 3 lines and 5 columns of code surrounded by hundreds of buttons,
+25 error messages, and popups with the latest update on the weather around them.
+I personally cannot deal with it, I get overwhelmed and angry by all these distractions.
+I want a clean canvas as static as possible, I want it to calm me down, not shout in my face.
+</p>
+
+<p>
+This was the first thing I loved about not having LSPs: no autocomplete popups,
+no diagnostic messages saying the variable is not defined (of course is not, I haven't finished typing the name yet),
+no messages about rust analyzer crashing. 
+This felt like a sea breeze and waves crashing onto the rocks you are standing on.
+This was freedom.
+And this was coherent with the rest of my setup: i3 with zero animations, no window bars, maximum vertical space, and zero notifications.
+</p>
+
+<p>
+I do not have line numbers on, I do not need to see them to go on a line that compiler tells me about.
+I do not have a statusline on, I can press <code>Ctrl-g</code> to get the filename.
+I do not have the syntax highlighting, this goes to the same bucket.
+Not doing fuzzy find with Telescope frees me from seeing hundreds of lines changing while I still type.
+I can finish typing the command and get a static list of results aftewards.
+</p>
+
+<hr>
+
+<p>
+I understand, that my setup is not for everyone.
+I am not trying to convince anyone that my setup is better.
+I just want to demonstrate how powerful tools can make your setup work for you, and
+encourage you question things that are considered to be ultimate truth in the community.
 </p>
 
 <hr>]]></content:encoded></item></channel></rss>
