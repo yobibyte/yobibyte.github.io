@@ -51,5 +51,5 @@ pre {
 code {
   font-family: Consolas, "Courier New", monospace;
   font-size: 0.95rem;
-  color: inherit; /* ensures text remains white */
+  color: #fabd2f;
 }
