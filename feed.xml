@@ -543,9 +543,7 @@ I often copypaste scientific papers' content to ChatGPT and go over the derivati
 With this approach, LLMs empower me, they do not make me dumber.
 </p>
 
-<hr>]]></content:encoded></item><item><title>Vim Setup</title><link>https://yobibyte.github.io/vim.html</link><description><![CDATA[Vim Setup]]></description><guid>https://yobibyte.github.io/vim.html</guid><pubDate>Sat, 5 Jul 2025 10:30:43 +0000</pubDate><content:encoded><![CDATA[
-
-<h2>why I got rid of all my neovim plugins</h2>
+<hr>]]></content:encoded></item><item><title>Vim Setup</title><link>https://yobibyte.github.io/vim.html</link><description><![CDATA[Vim Setup]]></description><guid>https://yobibyte.github.io/vim.html</guid><pubDate>Sat, 5 Jul 2025 10:30:43 +0000</pubDate><content:encoded><![CDATA[<h2>why I got rid of all my neovim plugins</h2>
 
 <p>
 Let's jump straight into it.
@@ -731,4 +729,37 @@ I just want to demonstrate how powerful tools can make your setup work for you, 
 encourage you question things that are considered to be ultimate truth in the community.
 </p>
 
+<hr>]]></content:encoded></item><item><title>Welcome to yobihome</title><link>https://yobibyte.github.io/kitty.html</link><description><![CDATA[Welcome to yobihome]]></description><guid>https://yobibyte.github.io/kitty.html</guid><pubDate>Sun, 24 Aug 2025 09:40:10 +0000</pubDate><content:encoded><![CDATA[
+
+<h2>kitty productivity setup</h2>
+
+<p>
+I have used tmux for ages.
+Even though I am using i3, I still use tmux locally, because I want to copy text from my terminal without using my mouse.
+</p>
+
+<p>
+How do you copy text in tmux?
+You first go to the select mode with <code>ctrl+B,[</code>, press space to start selection and select with vim motions (if you have the vi bindings on).
+It improves my life, but it has always felt very clunky and slow to me.
+But now I found a better option!
+</p>
+
+<p>
+<a href="https://sw.kovidgoyal.net/kitty/">Kitty terminal emulator</a> has a <code>ctrl+shift+g</code> shortcut to show the output of the last command.
+By default, it uses <code>less</code> to show it, but you can override the pager!
+I am overriding mine to open a neovim window with it, btw.
+I also added another shortcut for <code>ctrl+shift+s</code> to copy the output of the last command to my clipboard.
+This is useful when I want to get a full path of some dataset, and add it to a script or invoke another command with it.
+<p>
+
+<p>
+If you want the niceties I have just decsribed, just add these two lines to your <code>~/.config/kitty/kitty.conf</code>
+</p>
+<pre><code>
+map ctrl+shift+g launch --stdin-source=@last_cmd_output --type=overlay nvim
+map ctrl+shift+s launch --stdin-source=@last_cmd_output --type=clipboard
+</code></pre>
+
+You are welcome!
 <hr>]]></content:encoded></item></channel></rss>
