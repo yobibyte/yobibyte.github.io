@@ -729,9 +729,7 @@ I just want to demonstrate how powerful tools can make your setup work for you, 
 encourage you question things that are considered to be ultimate truth in the community.
 </p>
 
-<hr>]]></content:encoded></item><item><title>Welcome to yobihome</title><link>https://yobibyte.github.io/kitty.html</link><description><![CDATA[Welcome to yobihome]]></description><guid>https://yobibyte.github.io/kitty.html</guid><pubDate>Sun, 24 Aug 2025 09:40:10 +0000</pubDate><content:encoded><![CDATA[
-
-<h2>kitty productivity setup</h2>
+<hr>]]></content:encoded></item><item><title>Welcome to yobihome</title><link>https://yobibyte.github.io/kitty.html</link><description><![CDATA[Welcome to yobihome]]></description><guid>https://yobibyte.github.io/kitty.html</guid><pubDate>Sun, 24 Aug 2025 09:40:10 +0000</pubDate><content:encoded><![CDATA[<h2>kitty productivity setup</h2>
 
 <p>
 I have used tmux for ages.
@@ -762,4 +760,62 @@ map ctrl+shift+s launch --stdin-source=@last_cmd_output --type=clipboard
 </code></pre>
 
 You are welcome!
+<hr>]]></content:encoded></item><item><title>self-reliant programmer manifesto</title><link>https://yobibyte.github.io/self_reliant_programmer.html</link><description><![CDATA[self-reliant programmer manifesto]]></description><guid>https://yobibyte.github.io/self_reliant_programmer.html</guid><pubDate>Sat, 20 Sep 2025 19:30:58 +0000</pubDate><content:encoded><![CDATA[
+
+<h1>self-reliant programmer manifesto</h1>
+
+<p>
+Most of the modern software is a disgrace to its users.
+Most of the modern software is getting worse every day.
+Relying on this software is like relying on a cheeto to keep your house safe from burglars instead of using a proper lock.
+Fuck this. 
+Enough!
+It is time to become more self-reliant.
+A self-reliant programmer beleives that simple is good, minimises their dependencies, and writes their own tools.
+</p>
+
+<p>
+Most of the modern software has more features than anybody uses, you only need a subset of those.
+You can often implement a subset of features for a program you need.
+You do not need fourty-two layers of abstractions to implement something simple.
+You can just implement it.
+</p>
+
+<p>
+Everything complex is a sum of simple stuff.
+You just need to get started.
+Curl started as 300 lines of C.
+Reimplementing just the part you need, without catering to others, makes it simple and possible to implement yourself.
+You can be a lot more self-reliant.
+</p>
+
+<p>
+A simpler program has fewer dependencies, less code, fewer bugs and smaller attack surface.
+Fewer dependencies means being less vulnerable to supply-chain attack on package managers.
+Simpler code means better understanding what you actually use, and how it works.
+Implementing something yourself makes you understand it even better.
+Understanding how stuff works helps you build better mental models of the reality and you become more capable.
+Being more capable means being more self-reliant, and being more free.
+</p>
+
+<p>
+Simpler tools mean that you can work alone, making your software even simpler.
+You do not depend on bloated CI, Docker, Kubernetes, a countless web-based tools that break half of the time.
+You can focus on programming and solving your actual problems.
+You do not need to argue with others about decisions and use the workflows you do not like.
+You just sit down and solve your problem.
+You become even more self-reliant.
+</p>
+
+<p>
+Being self-reliant makes you more responsible for your own destiny, you do not wait for others to magically do things for you, you have to do this yourself.
+There is no backup plan, you have to become better or use shitty software.
+But you won't be able to blame anyone, you are to blame in this case.
+Being capable and self-reliant and using simpler tools means you do not need anyone's blessing to do whaterver you need.
+You can just sit down and code stuff without asking ChatGPT to do this for you or fix something when it does not work.
+You do not need the Internet to remind you how to make a for loop in your favourite language or to download a hundred dependencies for your project.
+You have more agency to change environment around you.
+You can just do stuff.
+</p>
+
 <hr>]]></content:encoded></item></channel></rss>
