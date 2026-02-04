@@ -42,7 +42,7 @@ Let's see what do I do with each of the feeds now!
 
 <pre><code>
 url="$1"
-mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="</(item|entry)>"; ORS=""} NR>0 {
+mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="&lt(item|entry)&gt"; ORS=""} NR>0 {
     gsub(/\n/," ");       # replace newlines with spaces
     gsub(/[[:space:]]+/," "); # collapse multiple spaces
     print $0 RS "\n"
@@ -200,7 +200,7 @@ match_against_filters() {
 }
 
 url="$1"
-mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="</(item|entry)>"; ORS=""} NR>0 {
+mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="&lt/(item|entry)&gt"; ORS=""} NR>0 {
     gsub(/\n/," ");       # replace newlines with spaces
     gsub(/[[:space:]]+/," "); # collapse multiple spaces
     print $0 RS "\n"
