@@ -31,7 +31,7 @@ Later, I will run this script with <tt>xargs</tt> in parallel to quickly get all
 <p>
 This is, basically, how it works:
 <pre><code>
-cat $HOME/notes/urls.txt | xargs --verbose -P $THREADS -I {} bash -c '~/dev/yr/yr_feed "{}" | flock -x $HOME/dev/yr/new.txt -c "cat >> $HOME/dev/yr/new.txt"'
+cat $HOME/notes/urls.txt | xargs --verbose -P $THREADS -I {} bash -c '~/dev/yr/yr_feed "{}" | flock -x $HOME/dev/yr/new.txt -c "cat &gt;&gt; $HOME/dev/yr/new.txt"'
 </code></pre>
 
 I added <tt>flock</tt> on the file append at the end to make sure that the writes from multiple threads do not get interleaved.
@@ -42,7 +42,7 @@ Let's see what do I do with each of the feeds now!
 
 <pre><code>
 url="$1"
-mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="&lt;(item|entry)&gt;"; ORS=""} NR>0 {
+mapfile -t items &lt; &lt;(curl -s "$url" | awk 'BEGIN{RS="&lt;(item|entry)&gt;"; ORS=""} NR&gt;0 {
     gsub(/\n/," ");       # replace newlines with spaces
     gsub(/[[:space:]]+/," "); # collapse multiple spaces
     print $0 RS "\n"
@@ -58,13 +58,13 @@ We also remove newline symbols within each item as I will use <tt>grep</tt> to p
 We are now ready for a for loop over the items array, where we parse the content and decide whether to append it to our reading list.
 
 <pre><code>
-link1=$(echo "$item" | grep -oP '<link\b[^>]*>\K.*?(?=</link>)')
-link2=$(echo "$item" | grep -oP '<link\b[^>]*\bhref="\K[^"]+')
-title=$(echo "$item" | grep -oP '<title[^>]*>\K.*?(?=</title>)')
+link1=$(echo "$item" | grep -oP '&lt;link\b[^&gt;]*&gt;\K.*?(?=&lt;/link&gt;)')
+link2=$(echo "$item" | grep -oP '&lt;link\b[^&gt;]*\bhref="\K[^"]+')
+title=$(echo "$item" | grep -oP '&lt;title[^&gt;]*&gt;\K.*?(?=&lt;/title&gt;)')
 hash=$(echo -n "${link1}${link2}${title}" | md5sum | awk '{print $1}')
 </code></pre>
 We first find the two main elements of the feed item: its title and its url.
-I get <tt>link1</tt> and <tt>link2</tt> because some of the feeds have their urls using a <link></link> style, potentially with some attributes inside. 
+I get <tt>link1</tt> and <tt>link2</tt> because some of the feeds have their urls using a &lt;link&gt;&lt;/link&gt; style, potentially with some attributes inside. 
 Others use <tt>&lt;link href=""&gt;</tt> style, also potentially with attributes.
 Title is more or less standard.
 I will probably benefit from reading the RSS format specs, but I did not yet have time to look those up.
@@ -84,8 +84,8 @@ I will need to deal with this somehow in the future iteration of the script.
 <p>
 <pre><code>
 if ! grep -Fxq "$hash" "$DOWNLOADED_PATH"; then
-    content1=$(echo "$item" | grep -oP '<description[^>]*>\K.*?(?=</description>)' | cut -c1-$MAX_CHARS | w3m -T text/html -dump)
-    content2=$(echo "$item" | grep -oP '<summary[^>]*>\K.*?(?=</summary>)' | cut -c1-$MAX_CHARS | w3m -T text/html -dump)
+    content1=$(echo "$item" | grep -oP '&lt;description[^&gt;]*&gt;\K.*?(?=&lt;/description&gt;)' | cut -c1-$MAX_CHARS | w3m -T text/html -dump)
+    content2=$(echo "$item" | grep -oP '&lt;summary[^&gt;]*&gt;\K.*?(?=&lt;/summary&gt;)' | cut -c1-$MAX_CHARS | w3m -T text/html -dump)
     [[ -n $link1 ]] && [[ $(match_against_filters "$link1" "url") -eq 1 ]] && continue
     [[ -n $link2 ]] && [[ $(match_against_filters "$link2" "url") -eq 1 ]] && continue
     [[ -n $title ]] && [[ $(match_against_filters "$title" "title") -eq 1 ]] && continue
@@ -121,13 +121,13 @@ match_against_filters() {
     if ! echo "$link" | grep -Eq "$regex"; then
         return 1
     fi
-    done < <(grep "^\*,${type}" "$FILTERS_PATH")
+    done &lt; &lt;(grep "^\*,${type}" "$FILTERS_PATH")
 
     while IFS=',' read -r feed type regex; do
     if ! echo "$link" | grep -Eq "$regex"; then
         return 1
     fi
-    done < <(grep "${url},${type}" "$FILTERS_PATH")
+    done &lt; &lt;(grep "${url},${type}" "$FILTERS_PATH")
 
     return 0 
 }
@@ -152,8 +152,8 @@ Again, there is a file lock on the append operation as this script will be used 
 <pre><code>
 {
   flock 9
-  printf "%s" "$new_hashes" >&9
-} 9>>"$DOWNLOADED_PATH"
+  printf "%s" "$new_hashes" &gt;&9
+} 9&gt;&gt;"$DOWNLOADED_PATH"
 </code></pre>
 </p>
 
@@ -188,34 +188,34 @@ match_against_filters() {
     if ! echo "$link" | grep -Eq "$regex"; then
         return 1
     fi
-    done < <(grep "^\*,${type}" "$FILTERS_PATH")
+    done &lt; &lt;(grep "^\*,${type}" "$FILTERS_PATH")
 
     while IFS=',' read -r feed type regex; do
     if ! echo "$link" | grep -Eq "$regex"; then
         return 1
     fi
-    done < <(grep "${url},${type}" "$FILTERS_PATH")
+    done &lt; &lt;(grep "${url},${type}" "$FILTERS_PATH")
 
     return 0 
 }
 
 url="$1"
-mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="&lt;/(item|entry)&gt;"; ORS=""} NR>0 {
+mapfile -t items &lt; &lt;(curl -s "$url" | awk 'BEGIN{RS="&lt;/(item|entry)&gt;"; ORS=""} NR&gt;0 {
     gsub(/\n/," ");       # replace newlines with spaces
     gsub(/[[:space:]]+/," "); # collapse multiple spaces
     print $0 RS "\n"
 }' | head -n $MAX_ITEMS)
 
 for item in "${items[@]}"; do
-    link1=$(echo "$item" | grep -oP '<link\b[^>]*>\K.*?(?=</link>)')
-    link2=$(echo "$item" | grep -oP '<link\b[^>]*\bhref="\K[^"]+')
-    title=$(echo "$item" | grep -oP '<title[^>]*>\K.*?(?=</title>)')
+    link1=$(echo "$item" | grep -oP '&lt;link\b[^&gt;]*&gt;\K.*?(?=&lt;/link&gt;)')
+    link2=$(echo "$item" | grep -oP '&lt;link\b[^&gt;]*\bhref="\K[^"]+')
+    title=$(echo "$item" | grep -oP '&lt;title[^&gt;]*&gt;\K.*?(?=&lt;/title&gt;)')
 
     hash=$(echo -n "${link1}${link2}${title}" | md5sum | awk '{print $1}')
     if ! grep -Fxq "$hash" "$DOWNLOADED_PATH"; then
 
-        content1=$(echo "$item" | grep -oP '<description[^>]*>\K.*?(?=</description>)' | cut -c1-$MAX_CHARS | w3m -T text/html -dump)
-        content2=$(echo "$item" | grep -oP '<summary[^>]*>\K.*?(?=</summary>)' | cut -c1-$MAX_CHARS | w3m -T text/html -dump)
+        content1=$(echo "$item" | grep -oP '&lt;description[^&gt;]*&gt;\K.*?(?=&lt;/description&gt;)' | cut -c1-$MAX_CHARS | w3m -T text/html -dump)
+        content2=$(echo "$item" | grep -oP '&lt;summary[^&gt;]*&gt;\K.*?(?=&lt;/summary&gt;)' | cut -c1-$MAX_CHARS | w3m -T text/html -dump)
         [[ -n $link1 ]] && [[ $(match_against_filters "$link1" "url") -eq 1 ]] && continue
         [[ -n $link2 ]] && [[ $(match_against_filters "$link2" "url") -eq 1 ]] && continue
         [[ -n $title ]] && [[ $(match_against_filters "$title" "title") -eq 1 ]] && continue
@@ -238,8 +238,8 @@ done
 # TODO think on how to clean that file later
 {
   flock 9
-  printf "%s" "$new_hashes" >&9
-} 9>>"$DOWNLOADED_PATH"
+  printf "%s" "$new_hashes" &gt;&9
+} 9&gt;&gt;"$DOWNLOADED_PATH"
 </code></pre>
 </p>
 
