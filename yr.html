@@ -42,7 +42,7 @@ Let's see what do I do with each of the feeds now!
 
 <pre><code>
 url="$1"
-mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="&lt(item|entry)&gt"; ORS=""} NR>0 {
+mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="&lt;(item|entry)&gt;"; ORS=""} NR>0 {
     gsub(/\n/," ");       # replace newlines with spaces
     gsub(/[[:space:]]+/," "); # collapse multiple spaces
     print $0 RS "\n"
@@ -65,7 +65,7 @@ hash=$(echo -n "${link1}${link2}${title}" | md5sum | awk '{print $1}')
 </code></pre>
 We first find the two main elements of the feed item: its title and its url.
 I get <tt>link1</tt> and <tt>link2</tt> because some of the feeds have their urls using a <link></link> style, potentially with some attributes inside. 
-Others use <tt>&ltlink href=""&gt</tt> style, also potentially with attributes.
+Others use <tt>&lt;link href=""&gt;</tt> style, also potentially with attributes.
 Title is more or less standard.
 I will probably benefit from reading the RSS format specs, but I did not yet have time to look those up.
 </p>
@@ -200,7 +200,7 @@ match_against_filters() {
 }
 
 url="$1"
-mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="&lt/(item|entry)&gt"; ORS=""} NR>0 {
+mapfile -t items < <(curl -s "$url" | awk 'BEGIN{RS="&lt;/(item|entry)&gt;"; ORS=""} NR>0 {
     gsub(/\n/," ");       # replace newlines with spaces
     gsub(/[[:space:]]+/," "); # collapse multiple spaces
     print $0 RS "\n"
