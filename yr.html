@@ -30,15 +30,18 @@ Later, I will run this script with <tt>xargs</tt> in parallel to quickly get all
 
 <p>
 This is, basically, how it works:
+</p>
 <pre><code>
 cat $HOME/notes/urls.txt | xargs --verbose -P $THREADS -I {} bash -c '~/dev/yr/yr_feed "{}" | flock -x $HOME/dev/yr/new.txt -c "cat &gt;&gt; $HOME/dev/yr/new.txt"'
 </code></pre>
 
+<p>
 I added <tt>flock</tt> on the file append at the end to make sure that the writes from multiple threads do not get interleaved.
 </p>
 
 <p>
 Let's see what do I do with each of the feeds now!
+</p>
 
 <pre><code>
 url="$1"
@@ -49,6 +52,7 @@ mapfile -t items &lt; &lt;(curl -s "$url" | awk 'BEGIN{RS="&lt;(item|entry)&gt;"
 }' | head -n $MAX_ITEMS)
 </code></pre>
 
+<p>
 Here, we download the feed, and split the received xml by item/entry tags using <tt>awk</tt>.
 We limit the number of items to process (often the feed items are just appended to the file, and we do not want to go over a 1000-item list every time).
 We also remove newline symbols within each item as I will use <tt>grep</tt> to parse elements of items later.
@@ -56,13 +60,14 @@ We also remove newline symbols within each item as I will use <tt>grep</tt> to p
 
 <p>
 We are now ready for a for loop over the items array, where we parse the content and decide whether to append it to our reading list.
-
+</p>
 <pre><code>
 link1=$(echo "$item" | grep -oP '&lt;link\b[^&gt;]*&gt;\K.*?(?=&lt;/link&gt;)')
 link2=$(echo "$item" | grep -oP '&lt;link\b[^&gt;]*\bhref="\K[^"]+')
 title=$(echo "$item" | grep -oP '&lt;title[^&gt;]*&gt;\K.*?(?=&lt;/title&gt;)')
 hash=$(echo -n "${link1}${link2}${title}" | md5sum | awk '{print $1}')
 </code></pre>
+<p>
 We first find the two main elements of the feed item: its title and its url.
 I get <tt>link1</tt> and <tt>link2</tt> because some of the feeds have their urls using a &lt;link&gt;&lt;/link&gt; style, potentially with some attributes inside. 
 Others use <tt>&lt;link href=""&gt;</tt> style, also potentially with attributes.
@@ -80,8 +85,6 @@ This potentially misses updates for pages that add content gradually.
 I will need to deal with this somehow in the future iteration of the script.
 </p>
 
-
-<p>
 <pre><code>
 if ! grep -Fxq "$hash" "$DOWNLOADED_PATH"; then
     content1=$(echo "$item" | grep -oP '&lt;description[^&gt;]*&gt;\K.*?(?=&lt;/description&gt;)' | cut -c1-$MAX_CHARS | w3m -T text/html -dump)
@@ -241,6 +244,5 @@ done
   printf "%s" "$new_hashes" &gt;&9
 } 9&gt;&gt;"$DOWNLOADED_PATH"
 </code></pre>
-</p>
 
 <hr>
