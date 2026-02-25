@@ -1099,4 +1099,13 @@ Amazingly written!
 <a href="https://fireborn.mataroa.blog/blog/the-slow-death-of-the-power-user/">Slow death of the power user.</a>
 </p>
 ]]></content:encoded></item>
+<item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>
+Wed, 25 Feb 2026 21:24:57 +0000
+</pubDate><content:encoded><![CDATA[
+<h1>What's up?</h1>
+<h3>Wed Feb 25 21:24:57 GMT 2026</h3>
+<p>
+This webpage is powered with a single bash script that takes the text from a tweet.txt file, and updates html/feed.xml files with its content/timestamp.
+</p>
+]]></content:encoded></item>
 </channel></rss>
