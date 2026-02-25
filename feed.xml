@@ -816,9 +816,7 @@ You have more agency to change environment around you.
 You can just do stuff.
 </p>
 
-<hr>]]></content:encoded></item><item><title>Writing RSS reader in 80 lines of bash</title><link>https://yobibyte.github.io/yr.html</link><description><![CDATA[Writing RSS reader in 80 lines of bash]]></description><guid>https://yobibyte.github.io/yr.html</guid><pubDate>Wed, 4 Feb 2026 09:44:56 +0000</pubDate><content:encoded><![CDATA[
-
-<h1>Writing an RSS reader in 80 lines of bash</h1>
+<hr>]]></content:encoded></item><item><title>Writing RSS reader in 80 lines of bash</title><link>https://yobibyte.github.io/yr.html</link><description><![CDATA[Writing RSS reader in 80 lines of bash]]></description><guid>https://yobibyte.github.io/yr.html</guid><pubDate>Wed, 4 Feb 2026 09:44:56 +0000</pubDate><content:encoded><![CDATA[<h1>Writing an RSS reader in 80 lines of bash</h1>
 
 <p>
 I consume most of my information through RSS.
@@ -1050,6 +1048,18 @@ done
   printf "%s" "$new_hashes" >&9
 } 9>>"$DOWNLOADED_PATH"
 </code></pre>
+</p>
+
+<hr>]]></content:encoded></item><item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>Wed, 25 Feb 2026 16:19:12 +0000</pubDate><content:encoded><![CDATA[
+
+<h1>What's up?</h1>
+
+<h3>
+Wed Feb 25 16:15:22 GMT 2026
+</h3>
+<p>
+Started a new workflow experiment. By default, I work for TTY without X11.
+If I need a browser or pdf reader, I press ctrl+shift+2 to get X11 and switch back after I'm done.
 </p>
 
 <hr>]]></content:encoded></item></channel></rss>
