@@ -1050,9 +1050,7 @@ done
 </code></pre>
 </p>
 
-<hr>]]></content:encoded></item><item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>Wed, 25 Feb 2026 16:19:12 +0000</pubDate><content:encoded><![CDATA[
-
-<h1>What's up?</h1>
+<hr>]]></content:encoded></item><item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>Wed, 25 Feb 2026 16:19:12 +0000</pubDate><content:encoded><![CDATA[<h1>What's up?</h1>
 
 <h3>
 Wed Feb 25 16:15:22 GMT 2026
@@ -1062,4 +1060,23 @@ Started a new workflow experiment. By default, I work for TTY without X11.
 If I need a browser or pdf reader, I press ctrl+shift+2 to get X11 and switch back after I'm done.
 </p>
 
-<hr>]]></content:encoded></item></channel></rss>
+<hr>]]></content:encoded></item>
+<item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>Wed, 25 Feb 2026 18:31:47 +0000</pubDate><content:encoded><![CDATA[
+
+<h1>What's up?</h1>
+
+
+<h3>Wed Feb 25 18:30:40 GMT 2026</h3>
+<p>
+I managed to make fbpdf work from a TTY.
+No need in X to read pdfs anymore.
+</p>
+
+<h3>Wed Feb 25 16:15:22 GMT 2026</h3>
+<p>
+Started a new workflow experiment. By default, I work for TTY without X11.
+If I need a browser or pdf reader, I press ctrl+shift+2 to get X11 and switch back after I'm done.
+</p>
+
+<hr>]]></content:encoded></item>
+</channel></rss>
