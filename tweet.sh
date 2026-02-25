@@ -9,3 +9,12 @@ cat tweet.txt >> feed.xml
 echo "</p>" >> feed.xml
 echo "]]></content:encoded></item>" >> feed.xml
 echo "</channel></rss>" >> feed.xml
+
+echo > .tmp
+echo "<h3>$(date)</h3>" >> .tmp
+echo "<p>" >> .tmp
+cat tweet.txt >> .tmp
+echo "</p>" >> .tmp
+echo >> .tmp
+sed -i '5r .tmp' whatsup.html
+rm .tmp
