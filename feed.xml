@@ -1108,4 +1108,14 @@ Wed, 25 Feb 2026 21:24:57 +0000
 This webpage is powered with a single bash script that takes the text from a tweet.txt file, and updates html/feed.xml files with its content/timestamp.
 </p>
 ]]></content:encoded></item>
+<item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>
+Thu, 26 Feb 2026 09:41:54 +0000
+</pubDate><content:encoded><![CDATA[
+<h1>What's up?</h1>
+<h3>Thu Feb 26 09:41:54 GMT 2026</h3>
+<p>
+With high DPI screens, TTY fontsize is usually tiny.
+A simple way to increase your fontsize is to use -d flag with <tt>setfont</tt>.
+</p>
+]]></content:encoded></item>
 </channel></rss>
