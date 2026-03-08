@@ -1155,4 +1155,13 @@ Sun, 08 Mar 2026 12:34:02 +0000
 This post is done from OpenBSD. Hello world.
 </p>
 ]]></content:encoded></item>
+<item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>
+Sun, 08 Mar 2026 17:54:19 +0000
+</pubDate><content:encoded><![CDATA[
+<h1>What's up?</h1>
+<h3>Sun Mar  8 17:54:19 GMT 2026</h3>
+<p>
+Added a page describing setting up OpenBSD: <a href="https://yobibyte.github.io/openbsd">link</a>.
+</p>
+]]></content:encoded></item>
 </channel></rss>
