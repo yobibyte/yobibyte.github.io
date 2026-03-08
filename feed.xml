@@ -1136,4 +1136,14 @@ Tue, 03 Mar 2026 19:59:38 +0000
 Github is down so often, it's prob more stable to self-host a git server now.
 </p>
 ]]></content:encoded></item>
+<item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>
+Sun, 08 Mar 2026 10:37:55 +0000
+</pubDate><content:encoded><![CDATA[
+<h1>What's up?</h1>
+<h3>Sun Mar  8 10:37:55 GMT 2026</h3>
+<p>
+I installed OpenBSD on my old laptop to use it is a dev machine that does not have a display server, and is not connected to the internet.
+You do all the development in a no-distraction environment as if you are on a flight, and at the end of the day, you connect to the internet, upload the code to a git server and you are done for the day.
+</p>
+]]></content:encoded></item>
 </channel></rss>
