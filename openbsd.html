@@ -1,0 +1,79 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="style.css"/>
+<title>OpenBSD</title>
+
+<a href="index.html"><img src="./pics/socrat.png" class="center" width=50%></a>
+
+<h1>OpenBSD</h1>
+
+<p>
+I installed OpenBSD on my old Dell XPS 9380 and trying out a new setup.
+I am using it without constant internet connection, and without a display manager.
+This is an ultimate distraction free environment, as if you are on a flight.
+</p>
+
+<p>
+This is a living document with some useful info on how I set up OpenBSD and what worked, what didn't.
+</p>
+
+<p>
+Installation itself was trivial.
+I used a wired connection when installing and doing post-install setup.
+My laptop has an Atheros card which is not supported, and I'm using a TP-Link dongle (TL-WN722N) to connect to wifi networks.
+</p>
+
+<p>
+Let's first setup up some packages:
+</p>
+<pre><code>
+doas pkg_add git w3m bash python neomutt go
+</code></pre>
+
+<p>
+I use bash, let's switch from korn shell to bash.
+</p>
+<pre><code>
+chsh -s /usr/local/bin/bash
+</code></pre>
+
+<p>
+Generate key for github to get the dotfiles and other repos.
+</p>
+<pre><code>
+ssh-keygen -t ed25519 -C "y0b1byte@proton.me"
+</code></pre>
+
+<p>
+Setting up wifi was a bit more involved, but quite trivial.
+For some reason, running <tt>fw_update</tt> did not download the firmware, but <tt>fw_update -a</tt> did.
+After that, I added the following to my <tt>/etc/hostname.athn0</tt>:
+</p>
+<pre><code>
+join "Network Name" wpakey "password"
+inet autoconf
+</code></pre>
+<p>
+Now, when I plug in the dongle, I have to run <tt>doas /etc/netstart athn0</tt>
+</p>
+
+<p>
+AFAIK, protonmail bridge is not supported in OpenBSD, but there is an open source version of it called hydroxide.
+This is the reason we had to install <tt>go</tt> above.
+Setup is mostly trivial.
+
+<pre><code>
+git clone https://github.com/emersion/hydroxide.git
+cd hydroxide
+go build ./cmd/hydroxide
+
+# I have the repo in $HOME/dev/hydroxide.
+$HOME/dev/hydroxide/hydroxide auth
+
+# This spits out a token, save/encrypt it to use for imap_pass and smtp_smtp pass in your muttrc.
+# I am not sure what is the safest way of storing it there, so, you will have to figure it out.
+
+$HOME/dev/hydroxide/hydroxide imap&
+$HOME/dev/hydroxide/hydroxide smtp&
+</code></pre>
+
+<hr>
