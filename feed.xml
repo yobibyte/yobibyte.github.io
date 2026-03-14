@@ -1183,4 +1183,29 @@ I'm amazed by how great and fast sourcehut's interface is.
 And it is surprisingly usable via w3m too!
 </p>
 ]]></content:encoded></item>
+<item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>
+Sat, 14 Mar 2026 11:43:08 +0000
+</pubDate><content:encoded><![CDATA[
+<h1>What's up?</h1>
+<h3>Sat Mar 14 11:43:08 GMT 2026</h3>
+<p>
+Fun fact: <a href="https://lists.busybox.net/pipermail/busybox/2010-December/074114.html">
+
+
+<pre>
+You know how Ken Thompson and Dennis Ritchie created Unix on a PDP-7 in 1969?
+Well around 1971 they upgraded to a PDP-11 with a pair of RK05 disk packs (1.5
+megabytes each) for storage.
+
+When the operating system grew too big to fit on the first RK05 disk pack (their
+root filesystem) they let it leak into the second one, which is where all the
+user home directories lived (which is why the mount was called /usr).  They
+replicated all the OS directories under there (/bin, /sbin, /lib, /tmp...) and
+wrote files to those new directories because their original disk was out of
+space.  When they got a third disk, they mounted it on /home and relocated all
+the user directories to there so the OS could consume all the space on both
+disks and grow to THREE WHOLE MEGABYTES (ooooh!).
+</pre>
+</p>
+]]></content:encoded></item>
 </channel></rss>
