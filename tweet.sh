@@ -18,5 +18,3 @@ echo "</p>" >> .tmp
 echo >> .tmp
 sed -i '5r .tmp' whatsup.html
 rm .tmp
-
-./t.sh
