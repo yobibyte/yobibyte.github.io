@@ -1229,4 +1229,15 @@ It takes minutes to get the Archive dir to sync.
 If I could make this work, I can daily-drive OpenBSD.
 </p>
 ]]></content:encoded></item>
+<item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>
+Wed, 18 Mar 2026 23:00:55 +0000
+</pubDate><content:encoded><![CDATA[
+<h1>What's up?</h1>
+<h3>Wed Mar 18 23:00:55 GMT 2026</h3>
+<p>
+Implemented a simple clone of <tt>tree</tt> just for fun.
+96 lines of C, with 0 dependencies.
+That was quite rewarding.
+</p>
+]]></content:encoded></item>
 </channel></rss>
