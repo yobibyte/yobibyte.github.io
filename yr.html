@@ -7,6 +7,39 @@
 <h1>writing an RSS reader in 80 lines of bash</h1>
 
 <p>
+<b>UPD!</b> Since I wrote this, I have fixed some bugs and got rid of file locks everywhere.
+One important change: I just write to different tmp files now and merge them all into one at the end:
+</p>
+ 
+<pre><code>
+cat $YR_PATH/urls.txt | xargs -P $THREADS -I {} bash -c 'timeout 40 ~/dev/yobitools/yr/yr_feed "{}" &gt; $HOME/.feeds/$(tr -dc "a-zA-Z0-9" &lt; /dev/urandom | dd bs=16 count=1 2&gt;/dev/null)'
+cat ~/.feeds/* &gt;&gt; $LINKSFILE && rm ~/.feeds/*
+</code></pre>
+
+<p>
+I also fixed the filtering logic that was full of bugs.
+You might find this function useful:
+</p>
+<pre><code>
+match_against_filters() {
+    local link="$1"
+    local type="$2"
+    
+    while IFS=',' read -r feed type regex; do
+        grep -Eq "$regex" &lt;&lt;&lt;"$link" && return 1
+    done &lt; &lt;(grep "^\*,${type}" "$FILTERS_PATH")
+
+    while IFS=',' read -r feed type regex; do
+        grep -Eq "$regex" &lt;&lt;&lt;"$link" && return 1
+    done &lt; &lt;(grep "${url},${type}" "$FILTERS_PATH")
+
+    return 0 
+}
+</code></pre>
+
+<hr>
+
+<p>
 I consume most of my information through RSS.
 RSS is amazing.
 Up until yesterday, I used <a href="https://newsboat.org/">Newsboat</a> to go through my feed, and had a <tt>,a</tt> macro that appended a link from the item to a text file with links.
