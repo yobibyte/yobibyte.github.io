@@ -1240,4 +1240,15 @@ Implemented a simple clone of <tt>tree</tt> just for fun.
 That was quite rewarding.
 </p>
 ]]></content:encoded></item>
+<item><title>What&apos;s up?</title><link>https://yobibyte.github.io/whatsup.html</link><description><![CDATA[What's up?]]></description><guid>https://yobibyte.github.io/whatsup.html</guid><pubDate>
+Mon, 15 Jun 2026 09:51:09 +0100
+</pubDate><content:encoded><![CDATA[
+<h1>What's up?</h1>
+<h3>Mon Jun 15 09:51:09 BST 2026</h3>
+<p>
+<a href="https://www.phoronix.com/news/Arch-Linux-AUR-More-Malware">https://www.phoronix.com/news/Arch-Linux-AUR-More-Malware</a>
+
+Looks like my move to OpenBSD and generally reducing my code dependences has been perfectly timed.
+</p>
+]]></content:encoded></item>
 </channel></rss>
