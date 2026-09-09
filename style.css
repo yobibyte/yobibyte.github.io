@@ -47,6 +47,17 @@ pre {
   overflow-x: auto;          /* Horizontal scroll if needed */
   white-space: pre-wrap; /* wrapping */
 }
+pre.pgp {
+  all: unset;
+  display: block;
+  white-space: pre-wrap;
+  padding: 1em;
+  margin: 1em auto;
+  width: fit-content;
+  max-width: 100%;
+  font-family: monospace;
+}
+
 
 code {
   font-family: Consolas, "Courier New", monospace;
